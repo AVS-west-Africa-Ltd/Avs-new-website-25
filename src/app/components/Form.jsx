@@ -32,73 +32,95 @@ const Form = () => {
       }));
     }
   };
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(JSON.stringify(formData), "the form data");
+    formData.append("access_key", "6d7af40f-6f66-480a-8932-64d13d82dd35");
 
-    // if(formData.Attachments != null) {
-    //   const uploadFile = useFileUpload();
-    // const handleFileSelect = async (file) => {
-    //   const uploadOk = await uploadFile(formData.Attachments.file.name, formData.Attachments.file)
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-    //   if (uploadOk) {
-    //     /// should return the file url, file name and file size
-    //   } else {
-    //     // show error
-    //   }
-    //   }
-    // }
-    try {
-      // Check if there is an attachment
-      // if (formData.Attachments) {
-      //   // Upload the file to Google Cloud Storage
-      //   const { fileName, fileSize, fileUrl } = await uploadFile(formData.Attachments);
-
-      //   // Update the form data with the Google Cloud Storage URL
-      //   setFormData((prevData) => ({
-      //     ...prevData,
-      //     Attachments: {
-      //       fileName,
-      //       fileSize,
-      //       url: fileUrl,
-      //     },
-      //   }));
-      // }
-
-      // Convert the form data to JSON
-      const jsonData = JSON.stringify(formData);
-
-      // Make the API request to create a record
-      const response = await fetch("/api/airtable", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: jsonData,
-      });
-
-      // Log the raw response
-      console.log("Raw Response:", await response.text());
-
-      if (response.ok) {
-        console.log("Record created successfully!");
-        setFormData({
-          Name: "",
-          LastName: "",
-          Email: "",
-          Phone: "",
-          LookingFor: "",
-          Comments: "",
-          Attachments: null,
-        });
-      } else {
-        console.error("Failed to create record!!!");
-      }
-    } catch (error) {
-      console.error("Error:", error);
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
+    const result = await response.json();
+    if (result.success) {
+      console.log(result);
     }
-  };
+  }
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(JSON.stringify(formData), "the form data");
+
+  //   // if(formData.Attachments != null) {
+  //   //   const uploadFile = useFileUpload();
+  //   // const handleFileSelect = async (file) => {
+  //   //   const uploadOk = await uploadFile(formData.Attachments.file.name, formData.Attachments.file)
+
+  //   //   if (uploadOk) {
+  //   //     /// should return the file url, file name and file size
+  //   //   } else {
+  //   //     // show error
+  //   //   }
+  //   //   }
+  //   // }
+  //   try {
+  //     // Check if there is an attachment
+  //     // if (formData.Attachments) {
+  //     //   // Upload the file to Google Cloud Storage
+  //     //   const { fileName, fileSize, fileUrl } = await uploadFile(formData.Attachments);
+
+  //     //   // Update the form data with the Google Cloud Storage URL
+  //     //   setFormData((prevData) => ({
+  //     //     ...prevData,
+  //     //     Attachments: {
+  //     //       fileName,
+  //     //       fileSize,
+  //     //       url: fileUrl,
+  //     //     },
+  //     //   }));
+  //     // }
+
+  //     // Convert the form data to JSON
+  //     const jsonData = JSON.stringify(formData);
+
+  //     // Make the API request to create a record
+  //     const response = await fetch("/api/airtable", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: jsonData,
+  //     });
+
+  //     // Log the raw response
+  //     console.log("Raw Response:", await response.text());
+
+  //     if (response.ok) {
+  //       console.log("Record created successfully!");
+  //       setFormData({
+  //         Name: "",
+  //         LastName: "",
+  //         Email: "",
+  //         Phone: "",
+  //         LookingFor: "",
+  //         Comments: "",
+  //         Attachments: null,
+  //       });
+  //     } else {
+  //       console.error("Failed to create record!!!");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
 
   return (
     <div className="min-h-screen flex items-center  text-white">
@@ -171,7 +193,7 @@ const Form = () => {
             Looking For:
             <div className="relative">
               <select
-                className="appearance-none border-b-[1px] border-white bg-transparent w-full py-2 px-3 pr-8 leading-tight focus:outline-none focus:shadow-outline"
+                className=" border-b-[1px]  bg-gray-500 w-full py-2 px-3 pr-8 leading-tight focus:outline-none focus:shadow-outline"
                 name="LookingFor"
                 value={formData.LookingFor}
                 onChange={handleChange}
@@ -203,8 +225,8 @@ const Form = () => {
             />
           </label>
         </div>
-        {/* 
-        <div className="mb-4 col-span-2 row-start-5">
+
+        {/* <div className="mb-4 col-span-2 row-start-5">
           <label className="text-sm  mb-2">
             Attach Your Brief
             <input
@@ -212,7 +234,7 @@ const Form = () => {
               type="file"
               name="Attachments"
               accept=".pdf"
-              placeholder='attachment'
+              placeholder="attachment"
               onChange={handleChange}
             />
           </label>
@@ -220,8 +242,13 @@ const Form = () => {
 
         <div className=" justify-between col-span-2 row-start-6">
           <p className="text-xs py-4">
+            <input
+              type="checkbox"
+              required
+              style={{ marginRight: "5px", color: "red" }}
+            />
             By clicking the submit button you agree to our Terms of Use and
-            Privacy Policy.
+            Privacy Policy ok.
           </p>
           <button
             className="bg-white text-black hover:bg-black hover:text-white transition duration-300  py-2 px-4 focus:outline-none focus:shadow-outline"

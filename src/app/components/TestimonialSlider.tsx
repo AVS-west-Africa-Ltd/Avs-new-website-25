@@ -69,7 +69,7 @@ import ArrowButton from "./ArrowButton";
 const testimonials = [
   {
     testimonial:
-      "  Joseph Tanner since we first met a couple of years ago as strangers on lunchclub where we had a totally honest chat about the ebb of the journey I was engulfed in... even until yesterday when you were helping streamline our current flow and upwards trajectory with strategic advice and powerful introductions, I can't thank you enough.",
+      "  Joseph Tanner since we first met a couple of years ago as strangers on lunchclub where we had a totally honest chat about the ebb of the journey I was engulfed in..., I can't thank you enough.",
     name: "Will",
     role: "Director of Thisisuntapped",
   },
