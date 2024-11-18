@@ -1,6 +1,10 @@
 "use client";
 import { useState } from "react";
 import { useFileUpload } from "../libs/useFileUpload/useFileUpload";
+import toast from "react-hot-toast";
+import ToastNotification from "./Toast";
+import Loader from "./Loader";
+
 const Form = () => {
   const [formData, setFormData] = useState({
     Name: "",
@@ -11,6 +15,8 @@ const Form = () => {
     Comments: "",
     Attachments: null,
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,8 +38,15 @@ const Form = () => {
       }));
     }
   };
+
+  const showToast = (message) => {
+    toast.success(message);
+  };
+
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsSubmitting(true);
+
     const formData = new FormData(event.target);
 
     formData.append("access_key", "6d7af40f-6f66-480a-8932-64d13d82dd35");
@@ -51,7 +64,19 @@ const Form = () => {
     });
     const result = await response.json();
     if (result.success) {
-      console.log(result);
+      showToast(result.message);
+      setFormData({
+        Name: "",
+        LastName: "",
+        Email: "",
+        Phone: "",
+        LookingFor: "",
+        Comments: "",
+        Attachments: null,
+      });
+      setIsSubmitting(false);
+    } else {
+      showToast("Submission failed");
     }
   }
 
@@ -250,14 +275,21 @@ const Form = () => {
             By clicking the submit button you agree to our Terms of Use and
             Privacy Policy ok.
           </p>
-          <button
-            className="bg-white text-black hover:bg-black hover:text-white transition duration-300  py-2 px-4 focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Submit Form
-          </button>
+          {!isSubmitting ? (
+            <button
+              className="bg-white text-black hover:bg-black hover:text-white transition duration-300  py-2 px-4 focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Submit Form
+            </button>
+          ) : (
+            <div className="bg-white text-black hover:bg-black hover:text-white transition duration-300 flex w-max items-center gap-2  py-2 px-4 focus:outline-none focus:shadow-outline">
+              <span>Submitting...</span> <Loader width="w-5" height="h-5" />
+            </div>
+          )}
         </div>
       </form>
+      <ToastNotification />
     </div>
   );
 };
