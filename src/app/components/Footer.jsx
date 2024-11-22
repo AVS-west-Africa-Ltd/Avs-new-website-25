@@ -80,7 +80,7 @@ export default function Footer({ pageLink }) {
               href="mailto:jt@aventurestud.io"
               className="text-center mx-auto hover:underline"
             >
-              dm@aventurestud.io
+              hello@aventurestud.io
             </a>
           </p>
         </div>

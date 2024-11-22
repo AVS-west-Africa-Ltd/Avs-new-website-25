@@ -76,9 +76,9 @@ const DesktopView = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="md:col-span-3 md:row-span-3 row-span-4 xl:text-5xl lg:text-4xl md:text-4xl text-3xl md:w-3/4 m-auto font-semibold text-white space-y-2 max-md:px-6 max-md:py-4"
+          className="md:col-span-3 md:row-span-3 row-span-4 xl:text-5xl lg:text-4xl md:text-4xl text-3xl md:w-[80%] m-auto font-semibold text-white space-y-2 max-md:px-6 max-md:py-4"
         >
-          <h1 className="my-5">Ready to start</h1>
+          <h1 className="my-4">Ready to start</h1>
           <h1 className=""> your Adventure?</h1>
           {/* <h1>One Adventure at a Time</h1> */}
 
