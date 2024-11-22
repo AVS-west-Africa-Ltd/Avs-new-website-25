@@ -20,7 +20,7 @@ export default function Partnership() {
       <Promote
         backgroundImage="/partnership/promote.png"
         slogan={
-          "Through Technology, Digital activation and product Conceptulisation,"
+          "Through Technology, Digital activation and product Conceptulisation!"
         }
         paragraph={
           "Our diverse set of partners and advisors provide a wide range of industry expertise and thought leadership to help you thrive in the fast paced world of innovation and entrepreneurship."

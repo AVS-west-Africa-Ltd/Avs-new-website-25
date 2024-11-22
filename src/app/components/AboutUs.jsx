@@ -11,10 +11,10 @@ export default function AboutUs({ content }) {
         <h3 className=" text-4xl md:text-7xl text-stone-500 font-semibold">
           {content.slogan}
         </h3>
-        <div className="flex max-md:flex-col max-md:space-y-6 md:space-x-10 text-neutral-800">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 md:space-y-0 space-y-5 text-neutral-800">
           {content.paragraphs.map((paragraph, index) => (
             <p
-              className="md:min-w-1/3 md:max-w-1/2"
+              className="md:min-w-1/3 md:max-w-1/3 lg:max-w-1/4 lg:min-w-1/4"
               key={`who_we_are_0_${index}`}
             >
               {paragraph}

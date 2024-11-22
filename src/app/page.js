@@ -18,7 +18,7 @@ const MobileView = () => {
         {/* main content  */}
         <div className="text-white">
           <div className="text-5xl font-semibold px-4 pb-4">
-            <h1 className="">Discovering New Ventures ,</h1>
+            <h1 className="">Discovering New Ventures,</h1>
             <h1>One Adventure at a Time</h1>
           </div>
           <p className="px-4 pb-12">
@@ -65,7 +65,7 @@ const DesktopView = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className="w-screen md:h-screen bg-gradient-to-b from-[#67594F] via-[#243129] to-[#121212]"
+      className="w-screen overflow-hidden md:h-screen bg-gradient-to-b from-[#67594F] via-[#243129] to-[#121212]"
     >
       <div className=" md:absolute top-0 h-20 p-4 pl-6 md:pl-20 w-40 md:w-60">
         <Logo />
@@ -91,7 +91,6 @@ const DesktopView = () => {
             your business.
           </p>
         </motion.div>
-
         <div className="md:col-span-3 md:col-start-1 md:row-start-4 row-span-3 row-start-5 text-white md:px-16  md:py-8 md:border-[0.5px] border-line max-md:px-6">
           <p className="lg:text-md md:text-sm max-md:pb-10">
             At our core, we specialise in tailored support for strategic
@@ -116,10 +115,10 @@ const DesktopView = () => {
           className="md:col-span-3 md:row-span-3 md:col-start-4 row-start-1 md:border-[0.5px] border-line max-md:absolute max-md:top-0 max-md:w-full max-md:h-full max-md:opacity-40"
           style={{ backgroundImage: `url(${"/sea.png"})` }}
         >
-          <TestimonialSlider />
+          {/* <TestimonialSlider /> */}
         </motion.div>
 
-        <div className="md:col-start-4 row-start-8 md:pb-56 pt-6 md:row-start-4 max-md:border-y-[0.5px] md:border-[0.5px] border-line md:h-full md:flex hover:bg-gradient-to-t from-green transition-all duration-300">
+        <div className="md:col-start-4 row-start-8 md:pb-56 pt-6 md:row-start-4 md:h-full md:flex hover:bg-gradient-to-t from-green transition-all duration-300 max-md:border-y-[0.5px] md:border-[0.5px] border-line">
           <div className="w-full h-full flex">
             <Link href="/partnership" className="flex w-full">
               <div className=" md:max-w-[170px] md:m-auto md:pb-2 max-md:p-2">
@@ -132,8 +131,8 @@ const DesktopView = () => {
             </Link>
           </div>
         </div>
-
-        <div className="md:col-start-5 row-start-9 md:row-start-4 md:pb-56 pt-6 max-md:border-y-[0.5px] md:border-[0.5px] border-line md:h-full md:flex hover:bg-gradient-to-t from-green transition duration-300">
+        {/* max-md:border-y-[0.5px] md:border-[0.5px] border-line */}
+        <div className="md:col-start-5 row-start-9 md:row-start-4 md:pb-56 pt-6 md:h-full md:flex hover:bg-gradient-to-t from-green transition duration-300 max-md:border-y-[0.5px] md:border-[0.5px] border-line">
           <div className="w-full h-full flex">
             <Link href="/digital" className="flex w-full">
               <div className=" md:max-w-[170px] md:m-auto md:pb-6 max-md:p-6">
@@ -146,8 +145,7 @@ const DesktopView = () => {
             </Link>
           </div>
         </div>
-
-        <div className="md:col-start-6 row-start-10 md:pb-56 pt-6 md:row-start-4 max-md:border-y-[0.5px] md:border-[0.5px] border-line md:h-full md:flex hover:bg-gradient-to-t from-green transition duration-300">
+        <div className="md:col-start-6 row-start-10 md:pb-56 pt-6 md:row-start-4 md:h-full md:flex hover:bg-gradient-to-t from-green transition duration-300 max-md:border-y-[0.5px] md:border-[0.5px] border-line">
           <div className="w-full h-full flex">
             <Link href="/technical" className="flex w-full z-2">
               <div className=" md:max-w-[170px] md:m-auto md:pb-6 max-md:p-6">

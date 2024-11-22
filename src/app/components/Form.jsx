@@ -214,7 +214,10 @@ const Form = () => {
         </div>
 
         <div className="mb-4 col-span-2 relative">
-          <label className={`text-sm mb-2 ${formData.lookingFor && "active"}`}>
+          <label
+            for="LookingFor"
+            className={`text-sm mb-2 ${formData.lookingFor && "active"}`}
+          >
             Looking For:
             <div className="relative">
               <select
