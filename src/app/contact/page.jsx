@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 export default function Contact() {
   return (
-    <div className="bg-black flex flex-col w-screen h-full">
+    <div className="bg-black flex flex-col w-full h-full">
       <div className=" md:absolute top-0 h-20 p-4 pl-6 md:pl-20 w-40 md:w-60">
         <Logo />
       </div>
