@@ -4,6 +4,7 @@ import { useFileUpload } from "../libs/useFileUpload/useFileUpload";
 import toast from "react-hot-toast";
 import ToastNotification from "./Toast";
 import Loader from "./Loader";
+import { redirect } from "next/navigation";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ const Form = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("bad");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,43 +45,65 @@ const Form = () => {
     toast.success(message);
   };
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    setIsSubmitting(true);
+  // async function handleSubmitWeb3Forms(event) {
+  //   event.preventDefault();
+  //   setIsSubmitting(true);
 
-    const formData = new FormData(event.target);
+  //   try {
+  //     const formData = new FormData(event.target);
 
-    formData.append("access_key", "6d7af40f-6f66-480a-8932-64d13d82dd35");
+  //     // Add the access key6d7af40f-6f66-480a-8932-64d13d82dd35
+  //     formData.append("access_key", "854d1de7-5bee-49fe-a3c8-0874c4c2d7af"); //6d7af40f-6f66-480a-8932-64d13d82dd35"); //"854d1de7-5bee-49fe-a3c8-0874c4c2d7af");
 
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+  //     // Convert FormData to a plain object and then to JSON
+  //     const object = Object.fromEntries(formData);
+  //     const json = JSON.stringify(object);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: json,
-    });
-    const result = await response.json();
-    if (result.success) {
-      showToast(result.message);
-      setFormData({
-        Name: "",
-        LastName: "",
-        Email: "",
-        Phone: "",
-        LookingFor: "",
-        Comments: "",
-        Attachments: null,
-      });
-      setIsSubmitting(false);
-    } else {
-      showToast("Submission failed");
-    }
-  }
+  //     // Make the POST request
+  //     const response = await fetch("https://api.web3forms.com/submit", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json",
+  //       },
+  //       body: json,
+  //     });
 
+  //     if (!response.ok) {
+  //       throw new Error(`Server error: ${response.status}`);
+  //     }
+
+  //     const result = await response.json();
+
+  //     if (result.success) {
+  //       showToast(result.message + "Thank You We will Contact You Soon");
+  //       redirect("/");
+
+  //       // Display success message
+
+  //       // Reset the form data
+  //       setFormData({
+  //         Name: "",
+  //         LastName: "",
+  //         Email: "",
+  //         Phone: "",
+  //         LookingFor: "",
+  //         Comments: "",
+  //         Attachments: null,
+  //       });
+  //     } else {
+  //       showToast("Submission failed. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     // Handle errors
+  //     console.error("Form submission error:", error);
+  //     showToast("An error occurred. Please try again.");
+  //   } finally {
+  //     // Ensure this runs regardless of success or failure
+  //     setIsSubmitting(false);
+  //   }
+  // }
+  // old code here
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   console.log(JSON.stringify(formData), "the form data");
@@ -146,6 +170,45 @@ const Form = () => {
   //     console.error("Error:", error);
   //   }
   // };
+  // nodemailer send mail
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("../api/sendMail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData), // Send form data as JSON
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        showToast(result.message);
+        setMessage(result.message);
+        alert(result.message);
+        setFormData({
+          Name: "",
+          LastName: "",
+          Email: "",
+          Phone: "",
+          LookingFor: "",
+          Comments: "",
+        });
+      } else {
+        showToast("Failed to submit the form. Please try again.");
+        setMessage("Failed to submit the form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      showToast("An error occurred. Please try again.");
+      setMessage("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <div className="min-h-screen flex items-center  text-white">
@@ -243,7 +306,7 @@ const Form = () => {
         </div>
 
         <div className="mb-4 col-span-2 row-start-4">
-          <label className={`text-sm  mb-2 ${formData.Comments && "active"}`}>
+          <label className={`text-sm  mb- ${formData.Comments && "active"}`}>
             Comment:
             <textarea
               className=" resize-none  appearance-none border-b-[1px] border-white bg-transparent  w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -269,7 +332,7 @@ const Form = () => {
         </div> */}
 
         <div className=" justify-between col-span-2 row-start-6">
-          <p className="text-xs py-4">
+          <p className="text-xs py-5">
             <input
               type="checkbox"
               required
@@ -278,6 +341,7 @@ const Form = () => {
             By clicking the submit button you agree to our Terms of Use and
             Privacy Policy ok.
           </p>
+
           {!isSubmitting ? (
             <button
               className="bg-white text-black hover:bg-black hover:text-white transition duration-300  py-2 px-4 focus:outline-none focus:shadow-outline"
