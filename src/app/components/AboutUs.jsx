@@ -1,5 +1,5 @@
 import Link from "next/link";
-export default function AboutUs({ content }) {
+export default function AboutUs({ content, title }) {
   return (
     <div className="bg-stone-300 w-full h-full flex flex-col">
       <div className=" px-6 md:px-20 py-6 md:py-6 border-b-[0.5px] border-stone-500">
@@ -9,17 +9,21 @@ export default function AboutUs({ content }) {
       </div>
       <div className="max-md:px-6 max-md:py-20 md:p-20 xl:w-[1220px] my-auto space-y-8 md:space-y-20">
         <h3 className=" text-4xl md:text-7xl text-stone-500 font-semibold">
-          {content.slogan}
+          {title}
         </h3>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 md:space-y-0 space-y-5 text-neutral-800">
-          {content.paragraphs.map((paragraph, index) => (
-            <p
-              className="md:min-w-1/3 md:max-w-1/3 lg:max-w-1/4 lg:min-w-1/4"
-              key={`who_we_are_0_${index}`}
-            >
-              {paragraph}
-            </p>
-          ))}
+          {typeof content !== "string" ? (
+            content?.map((paragraph, index) => (
+              <p
+                className="md:min-w-1/3 md:max-w-1/3 lg:max-w-1/4 lg:min-w-1/4"
+                key={`who_we_are_0_${index}`}
+              >
+                {paragraph}
+              </p>
+            ))
+          ) : (
+            <div></div>
+          )}
         </div>
         <br />
         <Link

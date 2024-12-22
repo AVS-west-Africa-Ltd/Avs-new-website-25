@@ -1,3 +1,5 @@
+'use client';
+
 import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import Promote from "../components/Promote";
@@ -5,35 +7,102 @@ import { whoWeAre } from "../data/whoWeAreData";
 import Steps from "../components/Steps";
 import Partners from "../components/Partners";
 import Footer from "../components/Footer";
+import { IData } from "../utils/data";
+import { useEffect, useState } from "react";
+
 export default function Digital() {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const info = await fetch("https://avswebapi.onthegoafrica.com/api/v1/landing");
+      if (!info.ok) {
+        setIsLoading(false);
+        throw new Error(`Error: ${info.status}`);
+      }
+
+      const jsonData = await info.json();
+      console.log(
+        "Fetched data:",
+        jsonData.data[0].services?.filter((service) =>
+          service?.link?.toLowerCase().includes("digital")
+        )
+      );
+
+      const digitalServices =
+        jsonData.data[0].services?.filter((service) =>
+          service?.link?.toLowerCase().includes("digital")
+        ) || [];
+
+      console.log("digital Services:", digitalServices[0]);
+
+      setData(digitalServices[0]);
+    } catch (error) {
+      setIsLoading(false);
+      const response = IData;
+ 
+      setData(response[0]);
+      const digitalServices =
+        response[0]?.services?.filter((service) =>
+          service?.link?.toLowerCase().includes("digital")
+        ) || [];
+
+      console.log("digital Services:", digitalServices[0]);
+
+      setData(digitalServices[0]);
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false); // Ensure loading is stopped in both success and error cases
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="w-screen h-screen bg-gradient-to-b from-[#67594F] via-[#243129] to-[#121212] flex flex-col items-center justify-center">
+        <h1 className="text-white text-3xl">Please wait...</h1>
+      </div>
+    );
+  }
+
+
+  
   return (
     <div className="w-full h-full">
       <Hero
-        backgroundImage={"/digital/hero.webp"}
+        backgroundImage={data?.bgImage}
         header={"Brand & Digital Activation"}
         subHeader={
-          "Your Brand, It’s Exposure; Reaching the Right Audience With the Best Message."
+          data?.subTitle
         }
         description={
-          "Our network will ensure you increase MRR through exposure on the best digital means, putting your brand in front of eyeballs and that increases the value of your business, with purchase habits, analytics and tangible ROI insights."
+          data?.subDescription ||
+          ""
         }
-        description_2={"The right people at the right time."}
+        description_2={data?.subHeroTitle || ""}
+        btnTxt={data?.subHeroButtonText || "Let’s Connect Now!"}
       />
-      <AboutUs content={whoWeAre[2]} />
+      <AboutUs content={data?.whoDescription || []} title={data?.whoTitle} />
       <Promote
-        backgroundImage="/digital/promote.png"
+        backgroundImage={data?.promoteImage}
         slogan={
-          "Your product's success hinges on effective branding and activation strategies. Invest your budget wisely."
+          data?.promoteTitle
         }
         paragraph={
-          "With our tailored expertise, we ensure every penny spent drives impactful brand activation, propelling your product towards success in today's competitive market.  Utilise the platforms that will work best for your business and maximise your brand's reach."
+          data?.promoteDescription
         }
       />
       <Steps
         slogan={
-          "Never miss an opportunity to breathe fresh life into your business."
+          data?.stepHeroTitle
         }
-        callToAction={`Connect with us now to gain exclusive access to the wealth of knowledge within our expert network.`}
+        callToAction={data?.stepHeroDescription}
+        steps={data?.steps}
       />
       <Partners />
       <Footer pageLink={"/digital"} />

@@ -1,7 +1,7 @@
 
 import Link from "next/link"
-import { steps } from "../data/stepsData"
-export default function Steps({slogan, callToAction}) {
+// import { steps } from "../data/stepsData"
+export default function Steps({slogan, callToAction, steps}) {
   return (
     <div className="bg-black">
         <div className="text-white max-md:pt-2 max-md:pb-40 max-md:px-6 md:p-20 lg:p-40 text-white text-center space-y-10">
@@ -10,7 +10,7 @@ export default function Steps({slogan, callToAction}) {
         </div>
         <div className="w-full h-full">
             <div className="md:flex px-6 py-20">
-                {steps.map((step, index) => (
+                {steps?.map((step, index) => (
                     <div className="group max-sm:w-[300px] max-md:w-[420px] max-md:mx-auto md:w-1/4 h-80 max-md:border-t-[0.5px] md:border-l-[0.5px] border-stone-300 relative " key={`steps_${index}`}>
                         <div className="absolute top-0 h-full w-full transtion-opacity duration-700 opacity-0 group-hover:opacity-100 bg-gradient-to-l from-stone-500 to-[#64826F]"></div>
                             <div className="z-10 absolute top-0  h-full w-full flex">
@@ -21,7 +21,7 @@ export default function Steps({slogan, callToAction}) {
                                         <p className="font-medium text-sm">{step.description}</p>
                                     </div>
                                     <div>
-                                        <Link href='/contact' className="text-black group-hover:bg-white text-lg font-semibold px-4 py-2 transition duration-1000">{step.buttonText}</Link>
+                                        <Link href={step.link} className="text-black group-hover:bg-white text-lg font-semibold px-4 py-2 transition duration-1000">{step.btnText}</Link>
                                     </div>
                                 
                                 </div>

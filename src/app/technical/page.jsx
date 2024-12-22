@@ -7,8 +7,71 @@ import { whoWeAre } from "../data/whoWeAreData";
 import Partners from "../components/Partners";
 import Steps from "../components/Steps";
 import Footer from "../components/Footer";
+import { IData } from "../utils/data";
+import { useEffect, useState } from "react";
+
 
 export default function Technical() {
+
+  const [data, setData] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+  
+    useEffect(() => {
+      fetchData();
+    }, []);
+  
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const info = await fetch("https://avswebapi.onthegoafrica.com/api/v1/landing");
+        if (!info.ok) {
+          setIsLoading(false);
+          throw new Error(`Error: ${info.status}`);
+        }
+  
+        const jsonData = await info.json();
+        console.log(
+          "Fetched data:",
+          jsonData.data[0].services?.filter((service) =>
+            service?.link?.toLowerCase().includes("technical")
+          )
+        );
+  
+        const technicalServices =
+          jsonData.data[0].services?.filter((service) =>
+            service?.link?.toLowerCase().includes("technical")
+          ) || [];
+  
+        console.log("technical Services:", technicalServices[0]);
+  
+        setData(technicalServices[0]);
+      } catch (error) {
+        setIsLoading(false);
+        const response = IData;
+   
+        setData(response[0]);
+        const technicalServices =
+          response[0]?.services?.filter((service) =>
+            service?.link?.toLowerCase().includes("technical")
+          ) || [];
+  
+        console.log("technical Services:", technicalServices[0]);
+  
+        setData(technicalServices[0]);
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false); // Ensure loading is stopped in both success and error cases
+      }
+    };
+  
+    if (isLoading) {
+      return (
+        <div className="w-screen h-screen bg-gradient-to-b from-[#67594F] via-[#243129] to-[#121212] flex flex-col items-center justify-center">
+          <h1 className="text-white text-3xl">Please wait...</h1>
+        </div>
+      );
+    }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,31 +80,33 @@ export default function Technical() {
       className="w-full h-full bg-black"
     >
       <Hero
-        backgroundImage={"/technical/hero.webp"}
+        backgroundImage={data?.bgImage}
         header={"Technical Activation"}
         subHeader={
-          "Put your technology dependencies behind you and utilise the power of our studio expertise."
+          data?.subTitle
         }
         description={
-          "Embrace a new approach by shifting focus from technology dependencies, and instead, leverage the expertise of our studio to drive innovative solutions and user-centred enhancements. By tapping into our studio's wealth of knowledge and creative talent, you can unlock limitless possibilities for elevating your products and services in today's dynamic technology landscape.  "
+          data?.subDescription
         }
-        description_2={"The right people at the right time."}
+        description_2={data?.subHeroTitle || ""}
+        btnTxt={data?.subHeroButtonText || "Let’s Connect Now!"}
       />
-      <AboutUs content={whoWeAre[1]} />
+      <AboutUs  content={data?.whoDescription || []} title={data?.whoTitle} />
       <Promote
-        backgroundImage="/technical/promote.png"
+        backgroundImage={data?.promoteImage}
         slogan={
-          "Empowering Your Vision: Where Expertise Meets Innovation in Technical Activation"
+          data?.promoteTitle
         }
         paragraph={
-          "Discover the difference with A Venture Studio's Technical Activation team, where expert knowledge and innovative thinking converge to transform your technological ambitions into reality. We're not just your service providers; we're your partners in driving success and innovation."
+          data?.promoteDescription
         }
       />
       <Steps
         slogan={
-          "Never miss an opportunity to breathe fresh life into your business."
+          data?.stepHeroTitle
         }
-        callToAction={`Connect with us now to gain exclusive access to the wealth of knowledge within our expert network.`}
+        callToAction={data?.stepHeroDescription}
+        steps={data?.steps}
       />
       <Partners />
       <Footer pageLink={"/technical"} />

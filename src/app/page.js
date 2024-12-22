@@ -4,7 +4,28 @@ import Logo from "./components/Logo";
 import { useState, useEffect, useClient } from "react"; // Import useClient
 import { motion } from "framer-motion";
 import TestimonialSlider from "./components/TestimonialSlider";
+import { IData, fetchLandingPages } from "./utils/data";
+// import fetchLandingPages from './api/api';
+
 const MobileView = () => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      // const info = await fetchLandingPages();
+      // console.log("New info ",info);
+      const response = IData;
+      console.log(response[0]);
+      setData(response);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <div className="w-full h-screen bg-gradient-to-b from-[#67594F] via-[#243129] to-[#121212]">
       <div
@@ -60,6 +81,42 @@ const MobileView = () => {
 };
 
 const DesktopView = () => {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("https://avswebapi.onthegoafrica.com/api/v1/landing");
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+  
+      const jsonData = await response.json();
+      console.log("Fetched data:", jsonData);
+  
+      setData(jsonData.data[0]); // Update the state with fetched data
+    } catch (err) {
+      console.error("Error fetching data:", err);
+      setData(IData[0]); // Set fallback data in case of an error
+    } finally {
+      setLoading(false); // Ensure loading is stopped in both success and error cases
+    }
+  };
+  
+
+  if(loading){
+    return (
+      <div className="w-screen h-screen bg-gradient-to-b from-[#67594F] via-[#243129] to-[#121212] flex flex-col items-center justify-center">
+        <h1 className="text-white text-3xl">Please wait...</h1>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -78,34 +135,20 @@ const DesktopView = () => {
           transition={{ delay: 0.5 }}
           className="md:col-span-3 md:row-span-3 row-span-4 xl:text-5xl lg:text-4xl md:text-4xl text-3xl md:w-[80%] m-auto font-semibold text-white space-y-2 max-md:px-6 max-md:py-4"
         >
-          <h1 className="my-4">Ready to start</h1>
-          <h1 className=""> your Adventure?</h1>
+          <h1 className="my-4">{data?.title}</h1>
+          {/* <h1 className=""> your Adventure?</h1> */}
           {/* <h1>One Adventure at a Time</h1> */}
 
           <br />
           <p className="lg:text-md  md:text-sm max-md:pb-10 font-normal">
-            Welcome to A Venture Studio — your bridge to expertise for turning
-            ideas into thriving businesses. We don't just understand your
-            vision; we champion it. With a deep commitment to your success, we
-            provide strategic guidance and empowerment to fuel the growth of
-            your business.
+            {data?.description}
           </p>
         </motion.div>
         <div className="md:col-span-3 md:col-start-1 md:row-start-4 row-span-3 row-start-5 text-white md:px-16  md:py-8 md:border-[0.5px] border-line max-md:px-6">
-          <p className="lg:text-md md:text-sm max-md:pb-10">
-            At our core, we specialise in tailored support for strategic
-            planning, investment, and advisory services. What sets us apart is
-            our curated network of technical and digital implementation
-            partners, sourced organically to ensure your projects are in the
-            hands of the most capable professionals.
-          </p>
+          <p className="lg:text-md md:text-sm max-md:pb-10">{data?.about}</p>
 
           <p className="lg:text-md md:text-sm mt-9 max-md:py-10">
-            We're not just a studio; we're your ally, passionately invested in
-            the realisation of your projects, the success of your business, and
-            the achievement of your goals. Let's embark on this journey
-            together, where expertise meets empathy, and innovation meets
-            unwavering support.
+            {data?.about2}
           </p>
         </div>
         <motion.div
@@ -118,50 +161,37 @@ const DesktopView = () => {
           {/* <TestimonialSlider /> */}
         </motion.div>
 
-        <div className="md:col-start-4 row-start-8 md:pb-56 pt-6 md:row-start-4 md:h-full md:flex hover:bg-gradient-to-t from-green transition-all duration-300 max-md:border-y-[0.5px] md:border-[0.5px] border-line">
-          <div className="w-full h-full flex">
-            <Link href="/partnership" className="flex w-full">
-              <div className=" md:max-w-[170px] md:m-auto md:pb-2 max-md:p-2">
-                <span className="font-khand text-grey">Looking for</span>
-                <p className="text-white italic lg:text-lg w-1/2">
-                  Strategy, Partnerships & Advisory
-                </p>
-                <span className="text-white">&rarr;</span>
-              </div>
-            </Link>
+        {data?.services?.map((service, index) => (
+          <div
+            key={index}
+            className={`
+      md:col-start-${4 + index} 
+      md:row-start-4 
+      row-start-${8 + index} 
+      md:pb-56 pt-6 md:h-full md:flex 
+      hover:bg-gradient-to-t from-green transition-all duration-300 
+      max-md:border-y-[0.5px] md:border-[0.5px] border-line
+    `}
+          >
+            <div className="w-full h-full flex">
+              <Link href={service.link || "#"} className="flex w-full">
+                <div className="md:max-w-[170px] md:m-auto md:pb-6 max-md:p-6">
+                  <span className="font-khand text-grey">Looking for</span>
+                  <p className="text-white italic lg:text-lg w-1/2">
+                    {service.title || "Default Title"}
+                  </p>
+                  <span className="text-white">&rarr;</span>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* max-md:border-y-[0.5px] md:border-[0.5px] border-line */}
-        <div className="md:col-start-5 row-start-9 md:row-start-4 md:pb-56 pt-6 md:h-full md:flex hover:bg-gradient-to-t from-green transition duration-300 max-md:border-y-[0.5px] md:border-[0.5px] border-line">
-          <div className="w-full h-full flex">
-            <Link href="/digital" className="flex w-full">
-              <div className=" md:max-w-[170px] md:m-auto md:pb-6 max-md:p-6">
-                <span className="font-khand text-grey">Looking for</span>
-                <p className="text-white italic text-lg w-1/2">
-                  Brand & Digital Activation
-                </p>
-                <span className="text-white">&rarr;</span>
-              </div>
-            </Link>
-          </div>
-        </div>
-        <div className="md:col-start-6 row-start-10 md:pb-56 pt-6 md:row-start-4 md:h-full md:flex hover:bg-gradient-to-t from-green transition duration-300 max-md:border-y-[0.5px] md:border-[0.5px] border-line">
-          <div className="w-full h-full flex">
-            <Link href="/technical" className="flex w-full z-2">
-              <div className=" md:max-w-[170px] md:m-auto md:pb-6 max-md:p-6">
-                <span className="font-khand text-grey">Looking for</span>
-                <p className="text-white italic text-lg w-1/2">
-                  Technical Activation
-                </p>
-                <span className="text-white">&rarr;</span>
-              </div>
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </motion.div>
   );
 };
+
+
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 

@@ -4,7 +4,7 @@ import Header from './Header';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export default function Hero({ header, subHeader, description, description_2, backgroundImage }) {
+export default function Hero({ header, subHeader, description, description_2, backgroundImage, btnTxt }) {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -59,7 +59,7 @@ export default function Hero({ header, subHeader, description, description_2, ba
           <p className='font-semibold text-2xl md:text-4xl'>{description_2}</p>
           <div>
             <Link href='/contact' className='bg-white text-black text-sm md:text-2xl p-2 md:p-5 hover:bg-black hover:text-white transition duration-1000 hover:border-[0.5px]'>
-              Let's Connect Now!
+              {btnTxt}
             </Link>
           </div>
         </div>
