@@ -23,7 +23,7 @@ export default function Technical() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const info = await fetch("https://avswebapi.onthegoafrica.com/api/v1/landing");
+        const info = await fetch("http://avswebapi.onthegoafrica.com/api/v1/landing");
         if (!info.ok) {
           setIsLoading(false);
           throw new Error(`Error: ${info.status}`);

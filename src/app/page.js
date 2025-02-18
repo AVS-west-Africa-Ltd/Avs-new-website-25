@@ -5,6 +5,7 @@ import { useState, useEffect, useClient } from "react"; // Import useClient
 import { motion } from "framer-motion";
 import TestimonialSlider from "./components/TestimonialSlider";
 import { IData, fetchLandingPages } from "./utils/data";
+import Maintenance from "./components/Maintenance";
 // import fetchLandingPages from './api/api';
 
 const MobileView = () => {
@@ -91,7 +92,7 @@ const DesktopView = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await fetch("https://avswebapi.onthegoafrica.com/api/v1/landing");
+      const response = await fetch("http://avswebapi.onthegoafrica.com/api/v1/landing");
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
@@ -194,6 +195,8 @@ const DesktopView = () => {
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isMaintenance, setIsMaintenance] = useState(true);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -205,6 +208,18 @@ export default function Home() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // useEffect(() => {
+    
+  //   fetch("/api/maintenance-status") 
+  //     .then((res) => res.json())
+  //     .then((data) => setIsMaintenance(data.maintenance))
+  //     .catch(() => setIsMaintenance(false));
+  // }, []);
+
+  if (isMaintenance) {
+    return <Maintenance />;
+  }
 
   return <>{isMobile ? <MobileView /> : <DesktopView />}</>;
 }
