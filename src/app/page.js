@@ -195,7 +195,7 @@ const DesktopView = () => {
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
-  const [isMaintenance, setIsMaintenance] = useState(true);
+  const [isMaintenance, setIsMaintenance] = useState(false);
 
 
   useEffect(() => {
