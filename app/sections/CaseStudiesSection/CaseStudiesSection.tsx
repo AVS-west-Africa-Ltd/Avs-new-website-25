@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { ArrowRightIcon } from "lucide-react";
 import React from "react";
 

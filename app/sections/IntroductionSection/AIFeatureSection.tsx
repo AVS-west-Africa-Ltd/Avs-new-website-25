@@ -1,12 +1,10 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 
 export const AIFeatureSection = () => {
   return (
     <>
       <div
-        className="overflow-hidden px-4 md:pl-16 rounded-3xl py-14"
+        className="overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12"
         style={{
           backgroundImage: `url(/assets/bg-s.svg)`,
           backgroundSize: "cover",
