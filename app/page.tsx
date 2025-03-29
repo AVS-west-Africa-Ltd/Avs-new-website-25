@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { MainContentSection } from "./sections/MainContentSection/MainContentSection";
 import { CaseStudiesSection } from "./sections/CaseStudiesSection";
 import { HeroSection } from "./sections/HeroSection/HeroSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection/TestimonialsSection";
@@ -18,12 +17,12 @@ export default function Home() {
         <CaseStudiesSection />
         <HeroSection />
         {/* <TestimonialsSection /> */}
-        <IntroductionSection />
-        <VisionSection />
-        <PartnershipSection />
-        <FooterSection />
-        <FeaturesSection />
-        <CallToActionSection />
+        {/* <IntroductionSection /> */}
+        {/* <VisionSection /> */}
+        {/* <PartnershipSection /> */}
+        {/* <FooterSection /> */}
+        {/* <FeaturesSection /> */}
+        {/* <CallToActionSection /> */}
       </div>
     </div>
   );
