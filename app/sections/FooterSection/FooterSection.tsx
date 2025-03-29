@@ -33,7 +33,7 @@ export const FooterSection = () => {
   const services = [
     {
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/ac422dbf74768f2404379a63b6efefa6550051b2",
+        "/assets/img1.svg",
       altText: "Mobile and website design",
       title: "Intuitive Mobile and website designs",
       description:
@@ -41,7 +41,7 @@ export const FooterSection = () => {
     },
     {
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/36c284694a5b8949d70493e5a2ab4e703ba21924",
+      "/assets/img2.svg",
       altText: "Funding",
       title: "Funding Your Vision",
       description:
@@ -49,7 +49,7 @@ export const FooterSection = () => {
     },
     {
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/e4675af08ba04ce0752159b8bddabea66269a653",
+      "/assets/img3.svg",
       altText: "Brand strategy",
       title: "Building a strong brand strategy",
       description:
@@ -57,7 +57,7 @@ export const FooterSection = () => {
     },
     {
       image:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/20719b0ef19008644f273a1de6ef047edee496e3",
+      "/assets/img4.svg",
       altText: "Product development",
       title: "Product Development & Innovation",
       description:
@@ -67,60 +67,6 @@ export const FooterSection = () => {
 
   return (
     <section className="w-full py-10">
-      {/* <div className="container">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="font-['Raleway',Helvetica] font-semibold text-[32px] text-[#0f0f0f]">
-            Everything you need, all in one place...
-          </h2>
-
-          <Button
-            variant="outline"
-            className="rounded-[100px] h-10 px-4 border-[#d8d8d8] font-['Raleway',Helvetica] font-normal text-[15px] text-[#0f0f0f] tracking-[-0.30px]"
-          >
-            <span>See all our services</span>
-            <ChevronRightIcon className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
-
-        <ScrollArea className="w-full">
-          <div className="flex space-x-5 pb-4">
-            {serviceCards.map((card) => (
-              <Card
-                key={card.id}
-                className="flex-none w-[335px] rounded-[18px] border-none shadow-none"
-              >
-                <div className="relative">
-                  <div
-                    className="rounded-[18px] overflow-hidden"
-                    style={{ height: card.height }}
-                  >
-                    <div
-                      className="h-full w-full bg-cover bg-center rounded-[18px]"
-                      style={{ backgroundImage: `url(${card.image})` }}
-                    />
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="absolute top-[15px] right-[15px] w-10 h-10 rounded-full bg-[#ffffff1a] backdrop-blur-[2.5px] border-white"
-                  >
-                    <img className="w-5 h-5" alt="Svg" src="/svg.svg" />
-                  </Button>
-                </div>
-                <CardContent className="pt-4 px-0">
-                  <h3 className="font-['Raleway',Helvetica] font-medium text-lg text-[#0f0f0f] tracking-[-0.36px] leading-[21.6px] mb-[26px]">
-                    {card.title}
-                  </h3>
-                  <p className="font-['Raleway',Helvetica] font-normal text-[13px] text-[#0f0f0fa6] tracking-[-0.26px] leading-[16.9px]">
-                    {card.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-      </div> */}
       <section className="px-5 mx-auto">
         <link
           href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
