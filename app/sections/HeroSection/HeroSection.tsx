@@ -61,7 +61,7 @@ export const HeroSection = () => {
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-w-[80%] max-h-[80px] object-contain" // Reduced size and centered
+                    className="max-w-[80%] max-h-[100px] object-contain" // Reduced size and centered
                   />
                 </div>
               </SwiperSlide>
