@@ -30,7 +30,7 @@ export const HeaderSection = () => {
   const navItems = [
     { label: "Home", href: "/", active: true },
     { label: "About", href: "/about", active: false },
-    { label: "Our Process", href: "/process", active: false },
+    { label: "Our Process", href: "/our-process", active: false },
     { label: "Services", href: "/services", active: false },
     { label: "Our Work", href: "/work", active: false },
     { label: "Build with AI", href: "/ai", active: false },
@@ -42,8 +42,8 @@ export const HeaderSection = () => {
 
   return (
     <header
-      className={`fixed top-2 left-2 right-2 z-50 transition-all duration-300 ${
-        scrolled ? "py-0 top-1 shadow-md" : ""
+      className={`fixed top-0 left-2 right-2 z-50 transition-all duration-300 ${
+        scrolled ? "py-0 top-0" : ""
       }`}
     >
       <div
@@ -91,7 +91,7 @@ export const HeaderSection = () => {
           {/* Right side section with button and menu toggle */}
           <div className="flex items-center gap-4">
             {/* Action Button - Hidden on mobile */}
-            <Button className="hidden md:block h-10 rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors">
+            <Button className="hidden md:block h-10 !rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors">
               Get in touch
             </Button>
             
