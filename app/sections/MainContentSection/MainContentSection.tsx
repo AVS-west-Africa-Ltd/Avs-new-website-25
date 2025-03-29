@@ -43,7 +43,7 @@ export const HeaderSection = () => {
   return (
     <header
       className={`fixed top-2 left-2 right-2 z-50 transition-all duration-300 ${
-        scrolled ? "py-0 top-1 shadow-md" : ""
+        scrolled ? "py-0 top-1 shadow-m" : ""
       }`}
     >
       <div
