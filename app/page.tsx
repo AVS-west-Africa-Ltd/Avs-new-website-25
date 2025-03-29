@@ -22,7 +22,6 @@ export default function Home() {
         <PartnershipSection />
         <FooterSection />
         <FeaturesSection />
-        <CallToActionSection />
       </div>
     </div>
   );
