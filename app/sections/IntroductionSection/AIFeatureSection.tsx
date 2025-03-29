@@ -4,23 +4,38 @@ import React from "react";
 
 export const AIFeatureSection = () => {
   return (
-    <section className="relative w-full h-[590px] flex justify-center">
-      <Card className="relative w-[1385px] h-[456px] mt-[67px] mx-7 rounded-[28px] overflow-hidden [background:linear-gradient(212deg,rgba(252,1,1,1)_0%,rgba(3,43,15,1)_100%),linear-gradient(212deg,rgba(252,194,1,1)_0%,rgba(2,146,203,1)_100%),linear-gradient(0deg,rgba(2,24,18,1)_0%,rgba(2,24,18,1)_100%)] border-none">
-        <CardContent className="p-0">
-          <div className="absolute w-[439px] h-[78px] top-[319px] left-[72px] [font-family:'Raleway',Helvetica] font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px]">
-            Unlock the power of artificial intelligence to transform your
-            products. From automation to intelligent insights, we&apos;re
-            crafting next-gen AI solutions to drive your success. Stay
-            tuned—exciting advancements are on the horizon!
+    <>
+      <div
+        className="overflow-hidden px-4 md:pl-16 rounded-3xl py-14"
+        style={{
+          backgroundImage: `url(/assets/bg-s.svg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex flex-col md:flex-row gap-5">
+          <div className="w-full lg:w-[40%]">
+            <section className="flex flex-col items-start self-stretch my-auto w-full font-semibold text-white py-8 md:py-0">
+              <div className="rounded-[47px] border border-white bg-[rgba(255,255,255,0.30)] backdrop-blur-[35.5px] py-2.5 px-3.5">
+                Coming soon on A Venture Studio
+              </div>
+              <h1 className="mt-4 text-3xl md:text-4xl lg:text-6xl">
+                <span style={{ fontWeight: 500 }}>
+                  Build Smarter, Innovate Faster with
+                </span>{" "}
+                <span style={{ color: "rgba(255,255,255,1)" }}>AI</span>
+              </h1>
+              <p className="self-stretch mt-4 md:mt-7 text-sm md:text-base tracking-tight leading-5 md:leading-6">
+                Unlock the power of artificial intelligence to transform your
+                products. From automation to intelligent insights, we're
+                crafting next-gen AI solutions to drive your success. Stay
+                tuned—exciting advancements are on the horizon!
+              </p>
+            </section>
           </div>
-
-          <Badge className="absolute top-[37px] left-[72px] bg-[#ffffff4c] text-white rounded-[47px] border border-solid border-white backdrop-blur-[35.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(35.5px)_brightness(100%)] px-5 py-2.5">
-            <span className="[font-family:'Raleway',Helvetica] font-semibold text-xl tracking-[0] leading-[normal] whitespace-nowrap">
-              Coming soon on A Venture Studio
-            </span>
-          </Badge>
-        </CardContent>
-      </Card>
-    </section>
+        </div>
+      </div>
+    </>
   );
 };

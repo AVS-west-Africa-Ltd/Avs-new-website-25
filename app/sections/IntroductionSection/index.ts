@@ -1,1 +1,1 @@
-export { IntroductionSection } from "./AIFeatureSection";
+export { AIFeatureSection } from "./AIFeatureSection";

@@ -18,7 +18,7 @@ export default function Home() {
         <HeroSection />
         <CaseStudiesShowcase />
         <AIFeatureSection />
-        {/* <VisionSection /> */}
+        <VisionSection />
         {/* <PartnershipSection /> */}
         {/* <FooterSection /> */}
         {/* <FeaturesSection /> */}
