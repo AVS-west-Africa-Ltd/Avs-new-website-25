@@ -14,10 +14,10 @@ export default function Home() {
   return (
     <div className="bg-white w-full">
       <div className="bg-white w-full mx-auto">
-        <MainContentSection />
+       
         <CaseStudiesSection />
         <HeroSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <IntroductionSection />
         <VisionSection />
         <PartnershipSection />
