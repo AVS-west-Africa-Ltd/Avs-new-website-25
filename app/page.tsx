@@ -21,8 +21,8 @@ export default function Home() {
         <VisionSection />
         <PartnershipSection />
         <FooterSection />
-        {/* <FeaturesSection /> */}
-        {/* <CallToActionSection /> */}
+        <FeaturesSection />
+        <CallToActionSection />
       </div>
     </div>
   );

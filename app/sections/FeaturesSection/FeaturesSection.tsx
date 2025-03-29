@@ -6,9 +6,9 @@ import React from "react";
 export const FeaturesSection = () => {
   return (
     <section className="w-full bg-white py-16">
-      <div className="container mx-auto flex flex-col md:flex-row items-center">
+      <div className="container mx-auto flex flex-col md:flex-row items-center gap-3 px-4">
         {/* Left content column */}
-        <div className="w-full md:w-1/2 pr-0 md:pr-8">
+        <div className="w-full md:w-1/2">
           <div className="flex flex-col gap-8 max-w-[593px]">
             <h2 className="font-['Raleway',Helvetica] font-semibold text-[#1d1d1d] text-4xl md:text-5xl lg:text-[64px] leading-tight">
               Fuel Your Vision with Flexible Funding Options!
@@ -41,9 +41,9 @@ export const FeaturesSection = () => {
         <div className="w-full md:w-1/2 mt-8 md:mt-0">
           <Card className="w-full h-auto bg-[#f0f0f0] rounded-[26px] p-4 overflow-hidden">
             <img
-              className="w-full h-auto object-cover"
+              className="w-full h-[100%] object-cover"
               alt="Funding options illustration"
-              src="/rectangle-4224.png"
+              src="/assets/link2.svg"
             />
           </Card>
         </div>
