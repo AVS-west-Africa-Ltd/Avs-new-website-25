@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import { HeaderSection } from "./sections/MainContentSection/MainContentSection";
+import { CallToActionSection } from "./sections/CallToActionSection";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -23,8 +24,9 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} antialiased`}
       >
-         <HeaderSection />
+        <HeaderSection />
         {children}
+        <CallToActionSection />
       </body>
     </html>
   );
