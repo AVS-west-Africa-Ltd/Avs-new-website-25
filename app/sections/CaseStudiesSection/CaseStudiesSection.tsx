@@ -5,7 +5,7 @@ import React from "react";
 
 export const CaseStudiesSection = () => {
   return (
-    <section className="w-full py-20">
+    <section className="w-full py-20 mt-[100px]">
       <div className="container mx-auto flex flex-col items-center gap-[72px]">
         {/* Heading and CTA Section */}
         <div className="flex flex-col items-center gap-6 max-w-[1040px] text-center">
@@ -36,21 +36,26 @@ export const CaseStudiesSection = () => {
           </div>
         </div>
 
-        {/* Case Studies Images */}
-        <div className="flex w-full justify-between gap-4">
-          <Card className="w-[928px] h-[545px] rounded-[32px] overflow-hidden border-none">
+        <div className="w-full flex flex-col md:flex-row justify-between gap-4">
+          {/* Main Case Study */}
+          <div className="w-full md:w-[calc(66%-8px)] aspect-[928/545] rounded-3xl md:rounded-[32px] overflow-hidden">
             <div
               className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: "url(..//frame-1430101754.png)" }}
+              style={{
+                backgroundImage: `url(/assets/one.svg)`,
+              }}
             />
-          </Card>
+          </div>
 
-          <Card className="w-[456px] h-[545px] rounded-[32px] overflow-hidden border-none">
+          {/* Secondary Case Study */}
+          <div className="w-full md:w-[calc(34%-8px)] aspect-[456/545] rounded-3xl md:rounded-[32px] overflow-hidden">
             <div
               className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: "url(..//frame-1430101755.png)" }}
+              style={{
+                backgroundImage: `url(/assets/two.svg)`,
+              }}
             />
-          </Card>
+          </div>
         </div>
       </div>
     </section>
