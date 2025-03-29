@@ -18,7 +18,7 @@ export const PartnershipSection = () => {
 
   return (
     <section className="w-full py-16">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 md:px-0">
         <div className="flex flex-col md:flex-row gap-4 md:gap-[18px]">
           {/* Left column with heading and button */}
           <div className="flex flex-col w-full md:w-[478px] gap-6">
@@ -30,7 +30,6 @@ export const PartnershipSection = () => {
               <span className="font-['Raleway',Helvetica] font-normal text-white text-[15px] tracking-[-0.30px]">
                 More about us
               </span>
-              <div className="w-[148px] bg-[#9a9897] absolute h-px top-10 -left-0.5 rounded-[100px]" />
             </Button>
           </div>
 
@@ -38,7 +37,7 @@ export const PartnershipSection = () => {
           {textColumns.map((column) => (
             <div
               key={column.id}
-              className="w-full md:w-[430px] font-['Raleway',Helvetica] font-normal text-medium text-[15px] tracking-[-0.30px] leading-[19.5px]"
+              className="w-full md:w-[430px] font-['Raleway',Helvetica] font-normal text-medium text-[15px] tracking-[-0.30px] leading-[19.5px] text-[#636363]"
             >
               {column.content}
             </div>
@@ -46,12 +45,12 @@ export const PartnershipSection = () => {
         </div>
 
         {/* Bottom text */}
-        <div className="mt-8 md:mt-[117px] md:ml-[495px] max-w-[444px] font-['Raleway',Helvetica] font-normal text-medium text-[15px] tracking-[-0.30px] leading-[19.5px]">
+        {/* <div className="mt-8 md:mt-[117px] md:ml-[495px] max-w-[444px] font-['Raleway',Helvetica] font-normal text-medium text-[15px] tracking-[-0.30px] leading-[19.5px]">
           We bring expertise, ambition, and a touch of creative rebellion to
           everything we do. If you&apos;re looking for a partner who thinks
           beyond the obvious and challenges the status quo, let&apos;s make
           something extraordinary together.
-        </div>
+        </div> */}
       </div>
     </section>
   );

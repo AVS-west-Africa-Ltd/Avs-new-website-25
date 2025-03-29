@@ -19,8 +19,8 @@ export default function Home() {
         <CaseStudiesShowcase />
         <AIFeatureSection />
         <VisionSection />
-        {/* <PartnershipSection /> */}
-        {/* <FooterSection /> */}
+        <PartnershipSection />
+        <FooterSection />
         {/* <FeaturesSection /> */}
         {/* <CallToActionSection /> */}
       </div>
