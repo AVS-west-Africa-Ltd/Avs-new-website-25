@@ -23,7 +23,7 @@ export default function CaseStudiesShowcase() {
               <ActionCard
                 variant="light"
                 imageSrc="/assets/b1.svg"
-                 backgroundImage="/assets/b1.svg"
+                backgroundImage="/assets/b1.svg"
                 text="View all case studies"
               />
               <ActionCard
@@ -38,19 +38,19 @@ export default function CaseStudiesShowcase() {
         </div>
 
         {/* Right Column - Case Studies */}
-        <div className="lg:w-2/3 w-full lg:pl-5 md:w-full">
+        <div className="lg:w-2/3 lg:pl-5 md:w-full w-full flex items-end">
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch">
             <CaseStudyCard
               imageSrc="/assets/case1.svg"
               title="Rateo"
               subtitle="Redefining Workplace"
-              className="md:relative md:top-8 lg:top-12 xl:top-8"
+              className="bottom-3"
             />
             <CaseStudyCard
               imageSrc="/assets/case2.svg"
               title="One Touch Football"
               subtitle="Digital home for grassroots football"
-              className="md:relative md:top-0"
+              className="bottom-3"
             />
           </div>
         </div>

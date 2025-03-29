@@ -14,24 +14,28 @@ export function CaseStudyCard({
   className,
 }: CaseStudyCardProps) {
   return (
-    <article className="relative">
+    <div className="relative">
       <img
         src={imageSrc}
         alt={title}
-        className="object-contain z-0 my-auto rounded-3xl aspect-[0.8] min-w-60 w-full max-md:max-w-full"
+        className="object-contain z-0 rounded-3xl aspect-[0.8] w-full max-md:max-w-full"
       />
-      {/* <div
-        className={`flex absolute z-0 gap-10 items-center self-start min-w-60 ${className}`}
+      <div
+        className={`flex absolute z-0 justify-between items-center self-start w-full ${className}`}
       >
         <div className="self-stretch my-auto">
-          <h3 className="text-2xl font-semibold tracking-tight leading-none text-white">
+          <h3 
+          // className="text-[15px] tracking-tight leading-none text-white"
+          className="text-[rgba(255,255,255,0.80)] font-raleway text-[20px] font-normal leading-[19.5px] tracking-[-0.3px]"
+
+          >
             {title}
           </h3>
-          <p className="mt-1 text-base tracking-tight leading-tight text-white">
+          <p className="mt-1 text-[rgba(255,255,255,0.80)] font-raleway text-[15px] font-normal leading-[14.5px] tracking-[-0.3px]">
             {subtitle}
           </p>
         </div>
-        <button className="flex overflow-hidden gap-3 self-stretch px-5 py-3 my-auto text-base tracking-tight leading-tight bg-white rounded-[100px] text-zinc-800 w-[138px]">
+        <button className="flex overflow-hidden gap-3 self-stretch px-1 py-1 my-auto text-base tracking-tight leading-tight bg-white rounded-[100px] text-zinc-800">
           <span className="my-auto">View more</span>
           <img
             src={
@@ -43,7 +47,7 @@ export function CaseStudyCard({
             className="object-contain shrink-0 aspect-square w-[15px]"
           />
         </button>
-      </div> */}
-    </article>
+      </div>
+    </div>
   );
 }
