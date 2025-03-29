@@ -1,13 +1,21 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import React from "react";
+import { motion } from "framer-motion";
 
 export const CaseStudiesSection = () => {
   return (
     <section className="w-full py-20 mt-[100px]">
       <div className="container mx-auto flex flex-col items-center gap-[72px]">
         {/* Heading and CTA Section */}
-        <div className="flex flex-col items-center gap-6 max-w-[1040px] text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-center gap-6 max-w-[1040px] text-center"
+        >
           <h2 className="font-raleway text-[56px] leading-tight text-[#0f0f0f]">
             <span className="font-semibold">Take charge of</span>
             <span className="font-bold"> </span>
@@ -33,28 +41,38 @@ export const CaseStudiesSection = () => {
               <ArrowRightIcon className="ml-2 h-[15px] w-[15px]" />
             </Button>
           </div>
-        </div>
+        </motion.div>
 
         <div className="w-full flex flex-col md:flex-row justify-between gap-4">
           {/* Main Case Study */}
-          <div className="w-full md:w-[calc(66%-8px)] aspect-[928/545] rounded-3xl md:rounded-[32px] overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+            className="w-full md:w-[calc(66%-8px)] aspect-[928/545] rounded-3xl md:rounded-[32px] overflow-hidden"
+          >
             <div
               className="w-full h-full bg-cover bg-center"
               style={{
                 backgroundImage: `url(/assets/one.svg)`,
               }}
             />
-          </div>
+          </motion.div>
 
           {/* Secondary Case Study */}
-          <div className="w-full md:w-[calc(34%-8px)] aspect-[456/545] rounded-3xl md:rounded-[32px] overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.9 }}
+            className="w-full md:w-[calc(34%-8px)] aspect-[456/545] rounded-3xl md:rounded-[32px] overflow-hidden"
+          >
             <div
               className="w-full h-full bg-cover bg-center"
               style={{
                 backgroundImage: `url(/assets/two.svg)`,
               }}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-"use client"; // Ensure component runs in client-side rendering
+"use client";
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,8 +6,12 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export const HeroSection = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
   const partnerLogos = [
     { id: 1, src: "/assets/p1.svg", alt: "Union" },
     { id: 2, src: "/assets/p2.svg", alt: "My Dex" },
@@ -26,47 +30,51 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="w-full h-auto bg-[#021913] py-12">
-      <h2 className="mt-10 text-xl text-[#dee0e4] text-center font-['Raleway',Helvetica] font-normal tracking-[-0.30px] leading-[19.5px] mb-6">
+    <section ref={ref} className="w-full h-auto bg-[#021913] py-12">
+      <motion.h2
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="mt-10 text-xl text-[#dee0e4] text-center font-['Raleway',Helvetica] font-normal tracking-[-0.30px] leading-[19.5px] mb-6"
+      >
         Our Partners
-      </h2>
+      </motion.h2>
 
       <Card className="w-full border-none rounded-none bg-transparent mt-12">
         <CardContent className="p-0 relative">
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            spaceBetween={10}
-            slidesPerView={1} // Default for mobile
-            loop={true}
-            autoplay={{ delay: 1000, disableOnInteraction: false }}
-            // navigation
-            className="w-full"
-            breakpoints={{
-              480: {
-                slidesPerView: 3, // 3 slides on tablets
-                spaceBetween: 15,
-              },
-              1024: {
-                slidesPerView: 5, // 5 slides on large screens
-                spaceBetween: 30,
-              },
-            }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {partnerLogos.map((logo) => (
-              <SwiperSlide
-                key={logo.id}
-                className="flex items-center justify-center"
-              >
-                <div className="flex items-center justify-center h-full w-full p-4">
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="max-w-[80%] max-h-[100px] object-contain" // Reduced size and centered
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={10}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{ delay: 1000, disableOnInteraction: false }}
+              className="w-full"
+              breakpoints={{
+                480: { slidesPerView: 3, spaceBetween: 15 },
+                1024: { slidesPerView: 5, spaceBetween: 30 },
+              }}
+            >
+              {partnerLogos.map((logo) => (
+                <SwiperSlide
+                  key={logo.id}
+                  className="flex items-center justify-center"
+                >
+                  <div className="flex items-center justify-center h-full w-full p-4">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-w-[80%] max-h-[100px] object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </motion.div>
         </CardContent>
       </Card>
     </section>

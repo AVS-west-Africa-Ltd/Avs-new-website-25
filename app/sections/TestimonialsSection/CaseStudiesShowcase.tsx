@@ -2,13 +2,22 @@
 import * as React from "react";
 import { CaseStudyCard } from "./CaseStudyCard";
 import { ActionCard } from "./ActionCard";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function CaseStudiesShowcase() {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <section className="container overflow-hidden px-4 sm:px-6 lg:px-8 py-12 mx-auto">
+    <section ref={ref} className="container overflow-hidden px-4 sm:px-6 lg:px-8 py-12 mx-auto">
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left Column - Content */}
-        <div className="lg:w-1/3 w-full flex items-end md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="lg:w-1/3 w-full flex items-end md:w-1/2"
+        >
           <div className="lg:mt-12 w-full">
             <div className="max-w-full">
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tighter text-stone-950">
@@ -35,10 +44,15 @@ export default function CaseStudiesShowcase() {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column - Case Studies */}
-        <div className="lg:w-2/3 lg:pl-5 md:w-full w-full flex items-end">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+          className="lg:w-2/3 lg:pl-5 md:w-full w-full flex items-end"
+        >
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch">
             <CaseStudyCard
               imageSrc="/assets/case1.svg"
@@ -53,7 +67,7 @@ export default function CaseStudiesShowcase() {
               className="bottom-3"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
