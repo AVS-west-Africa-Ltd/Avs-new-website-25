@@ -4,7 +4,7 @@ import ContactForm from './partials/ContactForm';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col py-24">
+    <div className="min-h-scree flex flex-col py-18">
       <ContactHeader />
       <ContactForm />
     </div>
