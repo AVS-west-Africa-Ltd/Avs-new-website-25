@@ -3,6 +3,8 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import { HeaderSection } from "./sections/MainContentSection/MainContentSection";
 import { CallToActionSection } from "./sections/CallToActionSection";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const raleway = Raleway({
   subsets: ["latin"],
