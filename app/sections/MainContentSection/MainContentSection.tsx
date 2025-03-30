@@ -29,11 +29,11 @@ export const HeaderSection = () => {
   // Navigation menu items data with added links
   const navItems = [
     { label: "Home", href: "/", active: true },
-    { label: "About", href: "/about", active: false },
+    // { label: "About", href: "/about", active: false },
     { label: "Our Process", href: "/our-process", active: false },
-    { label: "Services", href: "/services", active: false },
-    { label: "Our Work", href: "/work", active: false },
-    { label: "Build with AI", href: "/ai", active: false },
+    // { label: "Services", href: "/services", active: false },
+    { label: "Case Studies", href: "/case-studies", active: false },
+    // { label: "Build with AI", href: "/ai", active: false },
   ];
 
   const toggleMobileMenu = () => {
