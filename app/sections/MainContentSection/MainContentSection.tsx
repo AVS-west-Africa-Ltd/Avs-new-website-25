@@ -12,8 +12,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const HeaderSection = () => {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -52,8 +54,6 @@ export const HeaderSection = () => {
         }`}
       >
         <div className="flex items-center justify-between h-full px-5">
-          
-
           {/* Desktop Navigation Menu - Hidden on mobile/tablet */}
           <div className="hidden lg:block">
             <NavigationMenu>
@@ -91,12 +91,15 @@ export const HeaderSection = () => {
           {/* Right side section with button and menu toggle */}
           <div className="flex items-center gap-4">
             {/* Action Button - Hidden on mobile */}
-            <Button className="hidden md:block h-10 !rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors">
+            <Button
+              onClick={() => router.push("/contact-us")}
+              className="hidden md:block h-10 !rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors"
+            >
               Get in touch
             </Button>
-            
+
             {/* Mobile Menu Toggle - Visible only on tablet and mobile */}
-            <button 
+            <button
               onClick={toggleMobileMenu}
               className="lg:hidden flex items-center justify-center"
               aria-label="Toggle menu"
@@ -121,7 +124,7 @@ export const HeaderSection = () => {
             transition={{ duration: 0.3 }}
             className="lg:hidden fixed top-20 left-2 right-2 bg-[#f0f0f0] rounded-b-3xl shadow-lg overflow-hidden z-40"
           >
-            <motion.nav 
+            <motion.nav
               className="flex flex-col p-6"
               initial={{ height: 0 }}
               animate={{ height: "auto" }}
@@ -136,10 +139,12 @@ export const HeaderSection = () => {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <Link 
-                    href={item.href} 
+                  <Link
+                    href={item.href}
                     className={`block py-3 px-4 text-lg ${
-                      item.active ? "text-[#0f0f0f] font-medium" : "text-[#0f0f0fa6]"
+                      item.active
+                        ? "text-[#0f0f0f] font-medium"
+                        : "text-[#0f0f0fa6]"
                     } hover:bg-gray-200 rounded-lg transition-colors`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -147,7 +152,7 @@ export const HeaderSection = () => {
                   </Link>
                 </motion.div>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -155,7 +160,10 @@ export const HeaderSection = () => {
                 transition={{ delay: navItems.length * 0.05 }}
                 className="mt-6"
               >
-                <Button className="w-full h-12 rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors">
+                <Button
+                  onClick={() => router.push("/contact-us")}
+                  className="w-full h-12 rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors"
+                >
                   Get in touch
                 </Button>
               </motion.div>

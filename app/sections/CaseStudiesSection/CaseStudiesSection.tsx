@@ -1,18 +1,21 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export const CaseStudiesSection = () => {
+  const router = useRouter();
+
   return (
     <section className="w-full py-20 mt-[100px]">
       <div className="container mx-auto flex flex-col items-center gap-[72px]">
         {/* Heading and CTA Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }} 
-          animate={{ opacity: 1, y: 0 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col items-center gap-6 max-w-[1040px] text-center"
         >
@@ -34,6 +37,7 @@ export const CaseStudiesSection = () => {
             </Button>
 
             <Button
+              onClick={() => router.push("/contact-us")}
               variant="outline"
               className="h-10 w-[147px] rounded-[100px] bg-white text-[#0f0f0f] font-raleway font-normal text-[15px] tracking-[-0.30px] border-[#d8d8d8]"
             >
@@ -45,9 +49,9 @@ export const CaseStudiesSection = () => {
 
         <div className="w-full flex flex-col md:flex-row justify-between gap-4">
           {/* Main Case Study */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
             className="w-full md:w-[calc(66%-8px)] aspect-[928/545] rounded-3xl md:rounded-[32px] overflow-hidden"
           >
@@ -60,9 +64,9 @@ export const CaseStudiesSection = () => {
           </motion.div>
 
           {/* Secondary Case Study */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.9 }}
             className="w-full md:w-[calc(34%-8px)] aspect-[456/545] rounded-3xl md:rounded-[32px] overflow-hidden"
           >

@@ -18,6 +18,7 @@ import "swiper/css/pagination";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useRouter } from "next/navigation";
 
 function CurvedCarousel() {
   const settings = {
@@ -81,7 +82,6 @@ function CurvedCarousel() {
       {/* Add curved effect with a wrapper div */}
       <div className="curved-carousel-wrapper">
         <Slider {...settings}>
-
           <div className="">
             <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
@@ -93,17 +93,17 @@ function CurvedCarousel() {
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 2"
-               className="w-full h-full object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 3"
@@ -113,7 +113,7 @@ function CurvedCarousel() {
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 4"
@@ -123,7 +123,7 @@ function CurvedCarousel() {
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 5"
@@ -325,6 +325,8 @@ const CoverflowCarousel = () => {
 };
 
 function OurProcess() {
+  const router = useRouter();
+
   const [activeTab, setActiveTab] = useState("build");
 
   return (
@@ -376,7 +378,10 @@ function OurProcess() {
           <CurvedCarousel />
 
           {/* Contact button */}
-          <Button className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6">
+          <Button
+            onClick={() => router.push("/contact-us")}
+            className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6"
+          >
             Get in touch <Mail className="ml-2 h-4 w-4" />
           </Button>
         </div>

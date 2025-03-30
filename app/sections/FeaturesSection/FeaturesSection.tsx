@@ -5,8 +5,11 @@ import { Card } from "@/components/ui/card";
 import { ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export const FeaturesSection = () => {
+    const router = useRouter();
+  
   return (
     <section className="w-full bg-white py-16">
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-6 px-4">
@@ -35,6 +38,8 @@ export const FeaturesSection = () => {
               </Button>
 
               <Button
+                          onClick={() => router.push("/contact-us")}
+
                 variant="outline"
                 className="h-[40px] rounded-full bg-white text-[#0f0f0f] border border-gray-300 text-[15px] tracking-[-0.30px] flex items-center transition-all hover:bg-gray-100"
               >
