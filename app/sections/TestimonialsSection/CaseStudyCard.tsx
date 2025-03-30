@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import * as React from "react";
 
 interface CaseStudyCardProps {
@@ -5,6 +6,7 @@ interface CaseStudyCardProps {
   title: string;
   subtitle: string;
   className?: string;
+  url?: string
 }
 
 export function CaseStudyCard({
@@ -12,7 +14,9 @@ export function CaseStudyCard({
   title,
   subtitle,
   className,
+  url
 }: CaseStudyCardProps) {
+  const router = useRouter();
   return (
     <div className="relative">
       <img
@@ -35,7 +39,9 @@ export function CaseStudyCard({
             {subtitle}
           </p>
         </div>
-        <button className="flex overflow-hidden gap-3 self-stretch px-1 py-1 my-auto text-base tracking-tight leading-tight bg-white rounded-[100px] text-zinc-800">
+        <button
+        onClick={() => router.push(`/${url}`)}
+         className="flex overflow-hidden gap-3 self-stretch px-1 py-1 my-auto text-base tracking-tight leading-tight bg-white rounded-[100px] text-zinc-800">
           <span className="my-auto text-[11px]">View more</span>
           <img
             src={

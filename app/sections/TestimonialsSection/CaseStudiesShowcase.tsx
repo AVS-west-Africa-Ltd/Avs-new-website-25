@@ -34,12 +34,14 @@ export default function CaseStudiesShowcase() {
                 imageSrc="/assets/b1.svg"
                 backgroundImage="/assets/b1.svg"
                 text="View all case studies"
+                url="case-studies"
               />
               <ActionCard
                 variant="dark"
                 imageSrc="/assets/b2.svg"
                 backgroundImage="/assets/b2.svg"
                 text="Get in touch with us"
+                url="contact-us"
                 multiline
               />
             </div>
@@ -59,12 +61,14 @@ export default function CaseStudiesShowcase() {
               title="Rateo"
               subtitle="Redefining Workplace"
               className="bottom-3"
+              url={`case-studies/rateo`}
             />
             <CaseStudyCard
               imageSrc="/assets/case2.svg"
               title="One Touch Football"
               subtitle="Digital home for grassroots football"
               className="bottom-3"
+              url={`case-studies/onetouchfootball`}
             />
           </div>
         </motion.div>

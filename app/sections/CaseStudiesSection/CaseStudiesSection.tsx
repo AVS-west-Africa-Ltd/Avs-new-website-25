@@ -32,7 +32,10 @@ export const CaseStudiesSection = () => {
           </p>
 
           <div className="flex items-center gap-2.5">
-            <Button className="h-10 w-[184px] rounded-[100px] bg-[#0f0f0f] text-white font-raleway font-normal text-[15px] tracking-[-0.30px]">
+            <Button
+              onClick={() => router.push("/case-studies")}
+              className="h-10 w-[184px] rounded-[100px] bg-[#0f0f0f] text-white font-raleway font-normal text-[15px] tracking-[-0.30px]"
+            >
               View our case studies
             </Button>
 

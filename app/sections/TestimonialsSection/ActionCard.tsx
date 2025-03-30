@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as React from "react";
 
 interface ActionCardProps {
@@ -6,6 +7,7 @@ interface ActionCardProps {
   text: string;
   backgroundImage?: string;
   multiline?: boolean;
+  url: string;
 }
 
 export function ActionCard({
@@ -14,6 +16,7 @@ export function ActionCard({
   text,
   backgroundImage,
   multiline,
+  url,
 }: ActionCardProps) {
   const baseStyles =
     "flex overflow-hidden flex-col self-stretch my-auto rounded-2xl md:w-[218px] w-full";
@@ -108,16 +111,18 @@ export function ActionCard({
             )}
           </div>
 
-          <p className="absolute bottom-1">
-            {multiline
-              ? text.split(" ").map((word, i) => (
-                  <React.Fragment key={i}>
-                    {word}
-                    {i === 2 ? <br /> : " "}
-                  </React.Fragment>
-                ))
-              : text}
-          </p>
+          <Link href={`/${url}`}>
+            <p className="absolute bottom-1">
+              {multiline
+                ? text.split(" ").map((word, i) => (
+                    <React.Fragment key={i}>
+                      {word}
+                      {i === 2 ? <br /> : " "}
+                    </React.Fragment>
+                  ))
+                : text}
+            </p>
+          </Link>
         </div>
       )}
     </article>
