@@ -10,9 +10,9 @@ import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { CaseStudyCard } from "../sections/TestimonialsSection/CaseStudyCard";
-import { ActionCard } from "../sections/TestimonialsSection/ActionCard";
 import { useInView } from "react-intersection-observer";
+import { ActionCard } from "@/app/sections/TestimonialsSection/ActionCard";
+import { CaseStudyCard } from "@/app/sections/TestimonialsSection/CaseStudyCard";
 
 function CaseId() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });

@@ -8,6 +8,7 @@ interface ProjectCardProps {
   altText: string;
   title: string;
   description: string;
+  id: number;
 }
 
 export function ArrowIcon() {
@@ -33,6 +34,7 @@ export function ProjectCard({
   altText,
   title,
   description,
+  id,
 }: ProjectCardProps) {
   return (
     <motion.article
@@ -42,10 +44,7 @@ export function ProjectCard({
       whileHover={{ scale: 1.02 }}
       className="flex flex-col gap-5 items-start mb-3"
     >
-      <Link
-        href="/projects/[id]"
-        as={`/projects/${title.toLowerCase().replace(/\s+/g, "-")}`}
-      >
+      <Link href={`/case-studies/${id}`}>
         <img
           src={image}
           alt={altText}
@@ -75,36 +74,42 @@ export function ProjectCard({
 export default function ProjectShowcase() {
   const projects = [
     {
+      id: 1,
       image: "/assets/rateo.svg",
       altText: "Rateo workplace platform",
       title: "Rateo",
       description: "Redefining Workplace",
     },
     {
+      id: 2,
       image: "/assets/onetouch.svg",
       altText: "One Touch Football platform",
       title: "One Touch Football",
       description: "Digital home for grassroots football",
     },
     {
+      id: 3,
       image: "/assets/onthego.svg",
       altText: "On The Go platform",
       title: "On The Go",
       description: "Get free wifi, On the Go!",
     },
     {
+      id: 4,
       image: "/assets/onetouch.svg",
       altText: "Gemstone platform",
       title: "Gemstone",
       description: "Redefining Workplace",
     },
     {
+      id: 5,
       image: "/assets/onthego.svg",
       altText: "Kijiji platform",
       title: "Kijiji",
       description: "Redefining Workplace",
     },
     {
+      id: 6,
       image: "/assets/onetouch.svg",
       altText: "Plantec platform",
       title: "Plantec",
