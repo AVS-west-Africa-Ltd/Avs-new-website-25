@@ -270,12 +270,12 @@ export const designSteps = [
 export  const userFlows = [
   {
     title: "Onboarding flow for Individuals",
-    imageSrc: "assets/image 459.svg",
+    imageSrc: "/assets/image 459.svg",
     imageAlt: "Onboarding flow diagram for individuals",
   },
   {
     title: "Onboarding flow for Companies",
-    imageSrc: "assets/image 460.svg",
+    imageSrc: "/assets/image 460.svg",
     imageAlt: "Onboarding flow diagram for companies",
   },
 ];

@@ -513,6 +513,7 @@ function CaseId() {
                                     imageSrc="/assets/b1.svg"
                                     backgroundImage="/assets/b1.svg"
                                     text="View all case studies"
+                                    url='case-studies'
                                 />
                                 <ActionCard
                                     variant="dark"
@@ -520,6 +521,7 @@ function CaseId() {
                                     backgroundImage="/assets/b2.svg"
                                     text="Get in touch with us"
                                     multiline
+                                    url='contact-us'
                                 />
                             </div>
                         </div>
