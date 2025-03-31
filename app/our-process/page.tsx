@@ -375,8 +375,8 @@ function OurProcess() {
               : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."}
           </p>
 
-          <CurvedCarousel />
-
+          {/* <CurvedCarousel /> */}
+                <ImageSlider />
           {/* Contact button */}
           <Button
             onClick={() => router.push("/contact-us")}
@@ -419,3 +419,44 @@ function OurProcess() {
 }
 
 export default OurProcess;
+
+
+function ImageSlider() {
+  return (
+    <div className="image-grid-wrapper">
+        <div className="image-grid">
+            <div>
+                <img src="/assets/rectangle-4224.png" alt="Image 1" />
+            </div>
+            <div>
+                <img src="/assets/build2.png" alt="Image 1" />
+            </div>
+            <div>
+                <img src="/assets/rectangle-4224-2.png" alt="Image 1" />
+            </div>
+            <div>
+                <img src="/assets/rectangle-4224-3.png" alt="Image 1" />
+            </div>
+            <div>
+                <img src="/assets/rectangle-4224-4.png" alt="Image 1" />
+            </div>
+            {/* <div>
+                <img src="/assets/rectangle-4224-5.png" alt="Image 1" />
+            </div> */}
+
+            {/* <div>
+                <img src="/assets/rectangle-4224-6.png" alt="Image 1" />
+            </div>
+            <div>
+                <img src="/assets/rectangle-4224-7.png" alt="Image 1" />
+            </div>
+            <div>
+                <img src="/assets/rectangle-4224-8.png" alt="Image 1" />
+            </div>
+            <div>
+                <img src="/assets/rectangle-4224-9.png" alt="Image 1" />
+            </div> */}
+        </div>
+    </div>
+  )
+}
