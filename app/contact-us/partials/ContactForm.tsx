@@ -14,6 +14,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Eye, Upload } from "lucide-react";
+// Replace react-phone-number-input with react-phone-input-2
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<{
@@ -109,19 +112,36 @@ const ContactForm = () => {
             <Label className="font-bold" htmlFor="phone">
               Phone
             </Label>
-            <div className="flex">
-              <div className="w-14 flex items-center justify-center bg-gray-100 border border-gray-300 rounded-l-md">
-                <span className="text-sm">+1</span>
-              </div>
-              <Input
-                id="phone"
-                name="phone"
-                placeholder="(555) 555-1234"
-                value={formData.phone}
-                onChange={handleChange}
-                className="rounded-l-none"
-              />
-            </div>
+            {/* Replace the previous phone input with react-phone-input-2 */}
+            <PhoneInput
+              country={'gb'}
+              value={formData.phone}
+              onChange={(phone) => setFormData((prev) => ({ ...prev, phone: phone || "" }))}
+              inputProps={{
+                name: 'phone',
+                id: 'phone',
+                required: true,
+              }}
+              containerClass="phone-input-container"
+              inputClass="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              buttonClass="border border-gray-300 bg-gray-100 rounded-l-md"
+              placeholder="+44 (555) 555-1234"
+            />
+            {/* Add custom styles for the phone input */}
+            <style jsx global>{`
+              .phone-input-container {
+                display: flex;
+                width: 100%;
+              }
+              .phone-input-container .form-control {
+                width: 100%;
+                height: 60px;
+                border-radius: 0 0.375rem 0.375rem 0 !important;
+              }
+              .phone-input-container .flag-dropdown {
+                border-radius: 0.375rem 0 0 0.375rem;
+              }
+            `}</style>
           </div>
 
           <div className="space-y-2">

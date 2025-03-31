@@ -33,7 +33,9 @@ export const FeaturesSection = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <Button className="h-[40px] rounded-full bg-[#0f0f0f] text-white text-[15px] tracking-[-0.30px] transition-all hover:bg-[#333]">
+              <Button
+              onClick={() => router.push("/our-process")}
+               className="h-[40px] rounded-full bg-[#0f0f0f] text-white text-[15px] tracking-[-0.30px] transition-all hover:bg-[#333]">
                 See our process
               </Button>
 
