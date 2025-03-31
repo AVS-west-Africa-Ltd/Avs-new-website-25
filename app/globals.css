@@ -120,3 +120,41 @@
     @apply bg-background text-foreground;
   }
 }
+.image-grid-wrapper::before,
+.image-grid-wrapper::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.image-grid-wrapper::before {
+  inset: var(--y-offset) var(--x-offset) 0;
+}
+
+.image-grid-wrapper::after {
+  inset: 0 var(--x-offset) var(--y-offset);
+  top: unset;
+}
+
+.image-grid-wrapper {
+  position: relative; 
+  overflow: hidden;
+  --x-offset: -50px;
+  --y-offset: -50px;
+}
+
+.image-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+  }
+
+  .image-grid img {
+    flex: 0 0 auto;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
