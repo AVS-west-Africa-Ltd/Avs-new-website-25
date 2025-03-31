@@ -280,12 +280,12 @@ function CaseId() {
             <img
               className="w-full md:w-[984px] h-auto md:h-[621px] object-cover rounded-2xl md:rounded-[45px]"
               alt="Image"
-              src="assets/image-455.png"
+              src="/assets/image-455.png"
             />
             <img
               className="w-full md:w-[686px] h-auto md:h-[433px] md:absolute md:top-[264px] md:left-[539px]"
               alt="Image"
-              src="assets/image-458.png"
+              src="/assets/image-458.png"
             />
           </div>
         </div>
@@ -373,7 +373,7 @@ function CaseId() {
                       <img
                         className="w-full h-auto object-contain p-2 md:p-4"
                         alt={`Wireframe ${index + 1}`}
-                        src={`assets/${img}`}
+                        src={`/assets/${img}`}
                       />
                     </motion.div>
                   )
@@ -438,7 +438,7 @@ function CaseId() {
                       <img
                         className="w-full h-auto object-contain p-2 md:p-4"
                         alt={`Wireframe ${index + 1}`}
-                        src={`assets/${img}`}
+                        src={`/assets/${img}`}
                       />
                     </motion.div>
                   )
@@ -501,7 +501,7 @@ function CaseId() {
                     <img
                       className="w-full h-full object-cover  p-2 md:p-4"
                       alt={`Design ${index + 1}`}
-                      src={`assets/${img}`}
+                      src={`/assets/${img}`}
                     />
                   </motion.div>
                 ))}
