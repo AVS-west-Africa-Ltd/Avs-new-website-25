@@ -45,10 +45,11 @@ interface IUserFlow {
 interface IWireframe {
   title: string;
   description: string;
+  bgColor?: string;
   imageUrls: string[];
 }
 
-interface CaseDetails {
+export interface CaseDetails {
   id?: any;
   appName?: string;
   shortDescription?: string;
@@ -64,11 +65,11 @@ interface CaseDetails {
   webDesigns?: IWireframe | null;
 }
 
-const OurProjects: CaseDetails[] = [
+export const OurProjects: CaseDetails[] = [
   {
     id: 1,
     appName: "Rateo",
-    shortDescription: "Rateo workplace platform",
+    shortDescription: "Redefining Workplace",
     projectDetails: [
       {
         title: "Client",
@@ -179,6 +180,7 @@ const OurProjects: CaseDetails[] = [
     },
     webDesigns: {
       title: "Website Design",
+      bgColor: "#205352",
       description:
         "Using insights from research, we developed structured website that gives users insight into what Rateo offers.",
       imageUrls: ["wd.svg", "wd1.svg"],
@@ -368,8 +370,14 @@ const OurProjects: CaseDetails[] = [
       title: "High Fidelity Designs",
       description:
         "Building on the wireframes, we developed high-fidelity designs with a modern, clean interface. The final design focused on accessibility, seamless navigation, and an engaging user experience tailored to One Touch Football’s mission.",
-      imageUrls: ["otg-splash.svg", "otg-onboarding.svg", "otg-selection.svg", "otg-feed.svg"],
+      imageUrls: ["otf-splash.svg", "otf-player-of-the-match.svg", "otf-path-selection.svg", "otf-player-profile.svg"],
     },
-    webDesigns: null,
+    webDesigns: {
+        title: "Website Design",
+        bgColor: "#F72585",
+        description:
+          "Using insights from research, we developed structured website that gives users insight into what OTF offers.",
+        imageUrls: ["otf-wd.svg", "otf-wd1.svg"],
+      },
   },
 ];
