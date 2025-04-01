@@ -5,6 +5,7 @@ import { HeaderSection } from "./sections/MainContentSection/MainContentSection"
 import { CallToActionSection } from "./sections/CallToActionSection";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
         <HeaderSection />
         {children}
         <CallToActionSection />
+        <ScrollToTopButton />
       </body>
     </html>
   );
