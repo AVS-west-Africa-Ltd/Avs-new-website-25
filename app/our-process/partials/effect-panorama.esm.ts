@@ -1,6 +1,7 @@
 // components/effect-panorama.esm.ts
 "use client";
 
+// VERSION 1 (TypeScript) - FIXED
 export default function EffectPanorama({ swiper, extendParams, on }: any) {
   extendParams({
     panoramaEffect: {

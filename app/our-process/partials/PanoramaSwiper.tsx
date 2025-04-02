@@ -40,7 +40,7 @@ export default function MySwiper() {
     slideToClickedSlide: true,
     loop: true,
     effect: "panorama",
-    speed: 600,
+    speed: 300,
     pagination: { enabled: false },
     autoplay: true,
     scrollbar: { enabled: false },
@@ -59,7 +59,7 @@ export default function MySwiper() {
       },
       1024: {
         slidesPerView: 4,
-        spaceBetween: 4,
+        spaceBetween: 0,
         pagination: { enabled: false },
         onBeforeInit(swiper: any) {
           swiper.params.panoramaEffect = { depth: 300, rotate: 25 };
@@ -67,10 +67,10 @@ export default function MySwiper() {
       },
       1280: {
         slidesPerView: 4,
-        spaceBetween: 1,
-        pagination: { enabled: true },
+        spaceBetween: 0,
+        pagination: { enabled: false },
         onBeforeInit(swiper: any) {
-          swiper.params.panoramaEffect = { depth: 250, rotate: 25 };
+          swiper.params.panoramaEffect = { depth: 250, rotate: 18 };
         },
       },
     },
@@ -83,13 +83,13 @@ export default function MySwiper() {
     "/assets/rectangle-4224.png",
     "/assets/build2.png",
     "/assets/rectangle-4224-2.png",
-    "/assets/rectangle-4224-2.png",
-    "/assets/rectangle-4224-2.png",
-    "/assets/rectangle-4224-2.png",
-    "/assets/rectangle-4224-2.png",
-    "/assets/rectangle-4224-2.png",
-    "/assets/rectangle-4224-2.png",
-    "/assets/rectangle-4224-2.png",
+    "/assets/rectangle-4224-3.png",
+    "/assets/rectangle-4224-4.png",
+    "/assets/rectangle-4224-5.png",
+    "/assets/rectangle-4224-6.png",
+    "/assets/rectangle-4224-7.png",
+    "/assets/rectangle-4224-8.png",
+    "/assets/rectangle-4224-9.png",
   ];
 
   return (
