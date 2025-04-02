@@ -19,6 +19,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/navigation";
+// import PanoramaSwiper from "./partials/PanoramaSwiper";
 
 function CurvedCarousel() {
   const settings = {
@@ -324,6 +325,14 @@ const CoverflowCarousel = () => {
   );
 };
 
+// File: app/page.js (or pages/index.js depending on your Next.js version)
+import dynamic from 'next/dynamic';
+
+// Use dynamic import with SSR disabled for the Swiper component
+const PanoramaSwiper = dynamic(() => import('./partials/PanoramaSwiper'), { 
+  ssr: false 
+});
+
 function OurProcess() {
   const router = useRouter();
 
@@ -378,6 +387,8 @@ function OurProcess() {
           {/* <CurvedCarousel /> */}
                 <ImageSlider />
           {/* Contact button */}
+
+          <PanoramaSwiper />
           <Button
             onClick={() => router.push("/contact-us")}
             className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6"

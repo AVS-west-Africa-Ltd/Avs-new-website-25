@@ -158,3 +158,85 @@
     object-fit: cover;
     border-radius: 10px;
   }
+
+  .swiper-panorama {
+    overflow: visible;
+  }
+
+  /* components/MySwiper.css */
+.swiper {
+  user-select: none;
+  box-sizing: border-box;
+  overflow: visible;
+  width: 100%;
+  height: 300px;
+  padding: 0px 0px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.swiper-slide-bg-image {
+  position: absolute;
+  left: -10%;
+  top: -10%;
+  width: 120%;
+  height: 120%;
+  z-index: 0;
+}
+
+.swiper-slide-4ffe {
+  background-color: rgba(51, 51, 51, 1);
+}
+.swiper-slide-bg-image-c61b {
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+@media (min-width: 768px) {
+  .swiper {
+    width: 100%;
+    height: 300px;
+    padding: 0px 0px;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .swiper {
+    width: 100%;
+    height: 300px;
+    padding: 0px 0px;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .swiper {
+    width: 100%;
+    height: 300px;
+    padding: 0px 0px;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+  }
+}
+
