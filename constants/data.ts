@@ -377,7 +377,7 @@ export const OurProjects: CaseDetails[] = [
         bgColor: "#F72585",
         description:
           "Using insights from research, we developed structured website that gives users insight into what OTF offers.",
-        imageUrls: ["otf-wd.svg", "otf-wd1.svg"],
+        imageUrls: ["otf-wd1.svg", "otf-wd.svg"],
       },
   },
 ];

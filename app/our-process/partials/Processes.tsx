@@ -16,7 +16,7 @@ interface ProcessProps {
 
 export const Process = ({ processSteps }: ProcessProps) => {
     return (
-        <div className="flex flex-col w-full max-w-[1042px] items-start gap-[120px] mx-auto px-4 sm:px-6 md:px-0 py-32">
+        <div className="flex flex-col w-full max-w-[1042px] items-start gap-[120px] mx-auto px-4 sm:px-6 md:px-0 py-16 md:py-32">
             {processSteps.map((step, index) => (
                 <ProcessCard key={step.number} step={step} isReversed={index % 2 !== 0} />
             ))}

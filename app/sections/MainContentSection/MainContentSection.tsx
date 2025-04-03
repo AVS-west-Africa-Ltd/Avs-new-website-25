@@ -189,10 +189,11 @@ import {
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export const HeaderSection = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -205,14 +206,12 @@ export const HeaderSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Navigation menu items data with added links
   const navItems = [
-    { label: "Home", href: "/", active: true },
-    // { label: "About", href: "/about", active: false },
-    { label: "Our Process", href: "/our-process", active: false },
-    // { label: "Services", href: "/services", active: false },
-    { label: "Case Studies", href: "/case-studies", active: false },
-    // { label: "Build with AI", href: "/ai", active: false },
+    { label: "Home", href: "/" },
+    { label: "Our Process", href: "/our-process" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Services", href: "/services" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const toggleMobileMenu = () => {
@@ -228,14 +227,12 @@ export const HeaderSection = () => {
           {/* Navigation menu - left side for desktop */}
           <div className="hidden lg:flex flex-1">
             <NavigationMenu>
-              <NavigationMenuList className="flex items-center gap-6">
+              <NavigationMenuList className="flex items-center gap-8">
                 {navItems.map((item, index) => (
                   <NavigationMenuItem key={index}>
                     <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
-                        className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
-                          item.active ? "text-[#0f0f0f]" : "text-[#0f0f0fa6]"
-                        }`}
+                        className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item.href ? "text-black font-bold" : "text-[#0f0f0fa6]"}`}
                       >
                         {item.label}
                       </NavigationMenuLink>
@@ -282,63 +279,26 @@ export const HeaderSection = () => {
           </div>
         </div>
 
-      {/* Mobile Navigation Menu Overlay */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden fixed top-20 left-2 right-2 bg-[#f0f0f0] rounded-b-3xl shadow-lg overflow-hidden z-40"
-          >
-            <motion.nav
-              className="flex flex-col p-6"
-              initial={{ height: 0 }}
-              animate={{ height: "auto" }}
-              exit={{ height: 0 }}
-              transition={{ duration: 0.3 }}
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="lg:hidden absolute top-full left-0 w-full bg-[#f0f0f0] shadow-md p-4"
             >
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <Link
-                    href={item.href}
-                    className={`block py-3 px-4 text-lg ${
-                      item.active
-                        ? "text-[#0f0f0f] font-medium"
-                        : "text-[#0f0f0fa6]"
-                    } hover:bg-gray-200 rounded-lg transition-colors`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
+              <nav className="flex flex-col gap-4">
+                {navItems.map((item, index) => (
+                  <Link key={index} href={item.href} className={`text-[15px] font-normal tracking-[-0.30px] leading-[19.5px] cursor-pointer hover:text-black transition-colors ${pathname === item.href ? "text-black font-bold" : "text-[#0f0f0fa6]"}`}>
                     {item.label}
                   </Link>
-                </motion.div>
-              ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ delay: navItems.length * 0.05 }}
-                className="mt-6"
-              >
-                <Button
-                  onClick={() => router.push("/contact-us")}
-                  className="w-full h-12 rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors"
-                >
-                  Get in touch
-                </Button>
-              </motion.div>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                ))}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </header>
   );
 };

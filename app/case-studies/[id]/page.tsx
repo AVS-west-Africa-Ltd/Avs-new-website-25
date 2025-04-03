@@ -24,10 +24,10 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
     const [details, setDetails] = useState<CaseDetails>({})
     const { id } = use(params);
-   
+
     console.log(id)
     useEffect(() => {
-        if(id) {
+        if (id) {
             const rateoProject = OurProjects.find(project => project.id === Number(id)) || {} as CaseDetails;
             console.log("Project", rateoProject);
             setDetails(rateoProject)
@@ -264,7 +264,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                     transition: { duration: 0.4, ease: "easeOut" },
                                 },
                             }}
-                            className={`w-full h-[110px] sm:h-[130px] md:h-[150px] lg:h-[181px] bg-[${details?.ourProcess?.cardBgColor}] rounded-xl md:rounded-[28px] overflow-hidden border-none` }// Adjusted heights
+                            className={`w-full h-[110px] sm:h-[130px] md:h-[150px] lg:h-[181px] bg-[${details?.ourProcess?.cardBgColor}] rounded-xl md:rounded-[28px] overflow-hidden border-none`}// Adjusted heights
                             style={{ backgroundColor: details?.ourProcess?.cardBgColor || '#FFF5E1' }}
                         >
                             <div className="flex items-center justify-center h-full p-3 sm:p-4">
@@ -280,7 +280,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             </motion.section>
 
             {/* Ideation & Workshops */}
-           {details?.workShops && <div className="mt-16 w-full container mx-auto px-4 md:px-0 mb-16">
+            {details?.workShops && <div className="mt-16 w-full container mx-auto px-4 md:px-0 mb-16">
                 <h2 className="font-['Raleway',Helvetica] font-semibold text-[#0f0f0f] text-2xl md:text-3xl mb-6 md:mb-8">
                     {details?.workShops?.title}
                 </h2>
@@ -351,7 +351,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                             {details?.wireframes?.title}
                         </h2>
                         <p className="font-raleway font-normal text-dark text-base sm:text-md max-w-[1052px]">
-                           {details?.wireframes?.description}
+                            {details?.wireframes?.description}
                         </p>
                     </motion.div>
 
@@ -458,7 +458,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             </motion.section>}
 
             {/* Web Design */}
-            {details?.webDesigns && <motion.section
+            {/* {details?.webDesigns && <motion.section
                 className="w-full pt-12 md:pt-20 px-4 md:px-6 pb-0"
                 initial="hidden"
                 whileInView="visible"
@@ -517,6 +517,59 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                         </div>
                     </motion.div>
                 </div>
+            </motion.section>} */}
+
+            {details?.webDesigns && <motion.section
+                className="w-full pt-12 md:pt-20 px-4 md:px-6 pb-0 bg-[#E91E63] text-white"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+            >
+                <motion.div
+                    variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                    }}
+                    className="flex-grow-0 container mx-auto"
+                >
+                    <h2 className="font-raleway font-semibold text-[#ffffff] text-2xl sm:text-3xl mb-6 md:mb-8">
+                        {details?.webDesigns?.title}
+                    </h2>
+                    <p className="font-raleway font-normal text-[#ffffff] text-base sm:text-md max-w-[1052px]">
+                        {details?.webDesigns?.description}
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    className="flex flex-col md:flex-row justify-center gap-2 mt-8"
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
+                    }}
+                >
+                    {/* <motion.img
+                        src={details?.webDesigns?.imageUrls[0]}
+                        alt="Web Design 1"
+                        className="w-full md:w-1/2 rounded-lg"
+                        variants={{ hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }}
+                    />
+                    <motion.img
+                        src={details?.webDesigns?.imageUrls[1]}
+                        alt="Web Design 2"
+                        className="w-full md:w-1/2 rounded-lg"
+                        variants={{ hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }}
+                    /> */}
+
+                    {details?.webDesigns?.imageUrls?.map((img, index) => (
+                        <motion.img
+                            key={index}
+                            className="w-full md:w-1/2 rounded-lg"
+                            variants={{ hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }}
+                            alt={`Design ${index + 1}`}
+                            src={`/assets/${img}`}
+                        />
+                    ))}
+                </motion.div>
             </motion.section>}
 
             <section
