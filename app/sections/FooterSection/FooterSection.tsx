@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface ArrowIconProps {
   color?: "white" | "black";
@@ -90,10 +91,13 @@ export const FooterSection = () => {
             >
               {/* Image Wrapper */}
               <div className="relative mb-4">
-                <img
+                <Image
                   src={service.image}
                   alt={service.altText}
                   className="object-cover w-full rounded-2xl"
+                  priority
+                  width={100}
+                  height={100}
                 />
                 <div className="absolute top-[15px] right-[15px] flex items-center justify-center w-10 h-10 border border-white backdrop-blur-sm rounded-full">
                   <ArrowIcon color="white" />
