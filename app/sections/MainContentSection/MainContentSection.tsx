@@ -338,8 +338,8 @@ export const HeaderSection = () => {
     { label: "Home", href: "/" },
     { label: "Our Process", href: "/our-process" },
     { label: "Case Studies", href: "/case-studies" },
-    { label: "Services", href: "/services" },
-    { label: "Contact", href: "/contact" },
+    // { label: "Services", href: "/services" },
+    // { label: "Contact", href: "/contact" },
   ];
 
   const toggleMobileMenu = () => {
