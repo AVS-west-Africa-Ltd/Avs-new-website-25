@@ -95,7 +95,7 @@ export default function MySwiper() {
   return (
     <Swiper {...swiperParameters}>
       {slides.map((src, index) => (
-        <SwiperSlide key={index} className="swiper-slide-4ffe">
+        <SwiperSlide key={index} className="swiper-slide-4ffe swiper2">
           <img
             className="swiper-slide-bg-image swiper-slide-bg-image-c61b w-full"
             data-swiper-parallax="10%"

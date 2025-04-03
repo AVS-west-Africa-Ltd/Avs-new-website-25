@@ -385,10 +385,10 @@ function OurProcess() {
           </p>
 
           {/* <CurvedCarousel /> */}
-                {/* <ImageSlider /> */}
+                <ImageSlider />
           {/* Contact button */}
 
-          <PanoramaSwiper />
+          {/* <PanoramaSwiper /> */}
           <Button
             onClick={() => router.push("/contact-us")}
             className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6"
