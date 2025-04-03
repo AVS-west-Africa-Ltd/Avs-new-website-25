@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
 export const HeroSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -65,10 +66,12 @@ export const HeroSection = () => {
                   className="flex items-center justify-center"
                 >
                   <div className="flex items-center justify-center h-full w-full p-4">
-                    <img
+                    <Image
                       src={logo.src}
                       alt={logo.alt}
                       className="max-w-[80%] max-h-[100px] object-contain"
+                      width={100}
+                      height={100}
                     />
                   </div>
                 </SwiperSlide>

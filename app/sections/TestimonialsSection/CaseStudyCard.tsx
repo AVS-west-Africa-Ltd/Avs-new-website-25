@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 
@@ -6,7 +7,7 @@ interface CaseStudyCardProps {
   title: string;
   subtitle: string;
   className?: string;
-  url?: string
+  url?: string;
 }
 
 export function CaseStudyCard({
@@ -14,24 +15,25 @@ export function CaseStudyCard({
   title,
   subtitle,
   className,
-  url
+  url,
 }: CaseStudyCardProps) {
   const router = useRouter();
   return (
     <div className="relative">
-      <img
+      <Image
         src={imageSrc}
         alt={title}
         className="object-contain z-0 rounded-3xl aspect-[0.8] w-full max-md:max-w-full"
+        width={100}
+        height={100}
       />
       <div
         className={`flex absolute z-0 justify-between items-center self-start w-full px-3 ${className}`}
       >
         <div className="self-stretch my-auto">
-          <h3 
-          // className="text-[15px] tracking-tight leading-none text-white"
-          className="text-[rgba(255,255,255,0.80)] font-raleway text-[15px] font-normal leading-[19.5px] tracking-[-0.3px]"
-
+          <h3
+            // className="text-[15px] tracking-tight leading-none text-white"
+            className="text-[rgba(255,255,255,0.80)] font-raleway text-[15px] font-normal leading-[19.5px] tracking-[-0.3px]"
           >
             {title}
           </h3>
@@ -40,8 +42,9 @@ export function CaseStudyCard({
           </p>
         </div>
         <button
-        onClick={() => router.push(`/${url}`)}
-         className="flex overflow-hidden gap-3 self-stretch px-1 py-1 my-auto text-base tracking-tight leading-tight bg-white rounded-[100px] text-zinc-800">
+          onClick={() => router.push(`/${url}`)}
+          className="flex overflow-hidden gap-3 self-stretch px-1 py-1 my-auto text-base tracking-tight leading-tight bg-white rounded-[100px] text-zinc-800"
+        >
           <span className="my-auto text-[11px]">View more</span>
           <img
             src={

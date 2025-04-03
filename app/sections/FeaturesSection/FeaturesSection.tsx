@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export const FeaturesSection = () => {
     const router = useRouter();
@@ -60,10 +61,12 @@ export const FeaturesSection = () => {
           className="w-full md:w-1/2 mt-8 md:mt-0"
         >
           <Card className="w-full h-auto bg-[#f0f0f0] rounded-2xl p-4 shadow-md overflow-hidden">
-            <img
+            <Image
               className="w-full h-auto object-cover rounded-xl"
               alt="Funding options illustration"
               src="/assets/link2.svg"
+              width={100}
+              height={100}
             />
           </Card>
         </motion.div>

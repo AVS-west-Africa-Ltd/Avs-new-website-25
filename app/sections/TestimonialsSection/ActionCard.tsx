@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
@@ -29,10 +30,12 @@ export function ActionCard({
     <article className={`${baseStyles} ${variantStyles}`}>
       {backgroundImage && (
         <div className="flex relative flex-col px-4 py-5 aspect-[1.005] w-full">
-          <img
+          <Image
             src={backgroundImage}
             alt=""
             className="object-cover absolute inset-0 size-full"
+            width={100}
+            height={100}
           />
 
           <div className="absolute top-1 right-1">
