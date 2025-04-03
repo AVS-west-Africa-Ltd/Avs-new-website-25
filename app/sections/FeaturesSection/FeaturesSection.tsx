@@ -26,7 +26,7 @@ export const FeaturesSection = () => {
             </h2>
 
             <p className="font-['Raleway',Helvetica] text-[#0f0f0fa6] text-[15px] leading-[19.5px] max-w-[509px]">
-              We believe great ideas deserve the right support. Whether you're
+              We believe great ideas deserve the right support. Whether you&apos;re
               launching, growing, or scaling, we offer tailored payment
               solutions and flexible, equitable commercial modeling to bring
               your vision to life—hassle-free and built for your success.

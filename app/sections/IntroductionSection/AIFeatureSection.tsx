@@ -40,7 +40,7 @@ export const AIFeatureSection = () => {
             </h1>
             <p className="self-stretch mt-4 md:mt-7 text-sm md:text-base tracking-tight leading-5 md:leading-6">
               Unlock the power of artificial intelligence to transform your
-              products. From automation to intelligent insights, we're crafting
+              products. From automation to intelligent insights, we&apos;re crafting
               next-gen AI solutions to drive your success. Stay tuned—exciting
               advancements are on the horizon!
             </p>

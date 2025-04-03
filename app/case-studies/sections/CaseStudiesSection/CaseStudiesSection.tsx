@@ -25,7 +25,7 @@ export const CaseStudiesSection = () => {
           </h2>
 
           <p className="font-raleway text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">
-            We don't just create brands; we craft unforgettable experiences that
+            We don&apos;t just create brands; we craft unforgettable experiences that
             leave a lasting impression.
           </p>
 

@@ -15,9 +15,9 @@ import { ActionCard } from "@/app/sections/TestimonialsSection/ActionCard";
 import { CaseStudyCard } from "@/app/sections/TestimonialsSection/CaseStudyCard";
 import { CaseDetails, OurProjects } from "@/constants/data";
 
-export function getProjectById(id: any): CaseDetails | undefined {
-    return OurProjects.find(project => project.id === id);
-}
+// export function getProjectById(id: any): CaseDetails | undefined {
+//     return OurProjects.find(project => project.id === id);
+// }
 
 
 function CaseId({ params }: { params: Promise<{ id: any }> }) {
@@ -520,10 +520,11 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             </motion.section>} */}
 
             {details?.webDesigns && <motion.section
-                className="w-full pt-12 md:pt-20 px-4 md:px-6 pb-0 bg-[#E91E63] text-white"
+                className="w-full pt-12 md:pt-20 px-4 md:px-6 pb-0 text-white"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
+                style={{ backgroundColor: details?.webDesigns?.bgColor || '#205352' }}
             >
                 <motion.div
                     variants={{

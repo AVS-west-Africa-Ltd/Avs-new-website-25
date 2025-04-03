@@ -1,4 +1,5 @@
 import { MapPinIcon, PhoneIcon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export const CallToActionSection = () => {
@@ -32,44 +33,44 @@ export const CallToActionSection = () => {
                 </h2>
                 <ul className="flex flex-col gap-[11px]">
                   <li>
-                    <a
+                    <Link
                       href="/"
                       className="text-white text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       Homepage
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/about"
                       className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/services"
                       className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       Services
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/work"
                       className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       Our work
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/contact"
                       className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       Contact
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -80,20 +81,20 @@ export const CallToActionSection = () => {
                 </h2>
                 <ul className="flex flex-col gap-[11px]">
                   <li>
-                    <a
+                    <Link
                       href="/privacy"
                       className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/terms"
                       className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       Terms and Conditions
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -106,12 +107,12 @@ export const CallToActionSection = () => {
               <address className="not-italic flex flex-col gap-2">
                 <div className="flex items-center gap-1">
                   <PhoneIcon color="white" size={20} aria-hidden="true" />
-                  <a
+                  <Link
                     href="tel:1-665-671-1216"
                     className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                   >
                     1-665-671-1216
-                  </a>
+                  </Link>
                 </div>
                 <div className="flex items-center gap-1">
                   <MapPinIcon color="white" size={20} aria-hidden="true" />

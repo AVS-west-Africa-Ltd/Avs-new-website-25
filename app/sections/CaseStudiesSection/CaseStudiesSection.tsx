@@ -23,7 +23,7 @@ export const CaseStudiesSection = () => {
             <span className="font-semibold">Take charge of</span>
             <span className="font-bold"> </span>
             <span className="font-medium italic">your business growth</span>
-            <span className="font-semibold">—We'll handle the operations!</span>
+            <span className="font-semibold">—We&apos;ll handle the operations!</span>
           </h2>
 
           <p className="font-raleway text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">
