@@ -118,15 +118,21 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.6 }}
                             >
-                                <img
+                                <Image
                                     className="w-5 h-5 md:w-[26px] md:h-[26px]"
                                     alt="Figma logo"
                                     src="/assets/figma-logo.svg"
+                                    width={26}
+                                    height={26}
+                                    priority
                                 />
-                                <img
+                                <Image
                                     className="w-5 h-5 md:w-[24px] md:h-[24px]"
                                     alt="Photoshop original"
                                     src="/assets/photoshop-original-logo.svg"
+                                    width={24}
+                                    height={24}
+                                    priority
                                 />
                             </motion.div>
                         ) : (
@@ -211,16 +217,17 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             {/* Mockup Section */}
             <section className="relative w-full h-[884px] md:h-[884px] sm:h-auto bg-[#e4e5e6] rounded-[30px] overflow-hidden py-8 container mx-auto px-4 md:px-6">
                 <div className="absolute w-[573px] h-[1245px] top-[72px] left-[50%] translate-x-[-50%] md:left-[628px] md:translate-x-0 rounded-[52.95px] overflow-hidden bg-gradient-to-b from-[rgba(251,251,251,1)] to-[rgba(251,251,251,1)] hidden sm:block">
-                    <img
-                        src={details?.mockups && details?.mockups[0]}
+                    <Image
+                        src={details?.mockups?.[0] || '/assets/default-mockup.svg'}
                         alt="Rateo"
                         width={573}
                         height={1245}
+                        priority
                     />
                 </div>
 
                 <div className="absolute w-[353px] h-[766px] top-[72px] left-[50%] translate-x-[-50%] sm:left-[140px] sm:translate-x-0 rounded-[27.94px] bg-[#fff5e1] overflow-hidden">
-                    <img src={details?.mockups && details?.mockups[1]} alt="Rateo" width={353} height={766} />
+                    <Image src={details?.mockups?.[1] || '/assets/default-mockup.svg'} alt="Rateo" width={353} height={766} priority />
                 </div>
             </section>
 
@@ -291,15 +298,20 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                 {/* Workshop Image Container */}
                 <div className="w-full h-auto md:h-[664px] mt-6 md:mt-8 bg-[#205352] rounded-2xl md:rounded-[45px] overflow-hidden flex flex-col items-center p-4 md:p-0">
                     <div className="relative w-full md:w-[1225px] h-auto md:h-[697px] flex flex-col md:block">
-                        <img
+                        <Image
                             className="w-full md:w-[984px] h-auto md:h-[621px] object-cover rounded-2xl md:rounded-[45px]"
                             alt="Image"
                             src={details?.workShops?.imageSrc}
+                            width={1225}
+                            height={697}
+                            priority
                         />
-                        <img
+                        <Image
                             className="w-full md:w-[686px] h-auto md:h-[433px] md:absolute md:top-[264px] md:left-[539px]"
                             alt="Image"
                             src={details?.workShops?.imageAlt}
+                            width={686}
+                            height={433}
                         />
                     </div>
                 </div>
@@ -320,10 +332,13 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                 </h3>
                                 <Card className="bg-transparent border-0">
                                     <CardContent className="p-4">
-                                        <img
+                                        <Image
                                             className="w-full h-auto object-cover "
                                             alt={flow.imageAlt}
                                             src={flow.imageSrc}
+                                            priority
+                                            width={400}
+                                            height={400}
                                         />
                                     </CardContent>
                                 </Card>
@@ -381,10 +396,13 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                             }}
                                             className=" rounded-lg md:rounded-xl overflow-hidden"
                                         >
-                                            <img
+                                            <Image
                                                 className="w-full h-auto object-contain p-2 md:p-4"
                                                 alt={`Wireframe ${index + 1}`}
                                                 src={`/assets/${img}`}
+                                                priority
+                                                width={400}
+                                                height={400}
                                             />
                                         </motion.div>
                                     )
@@ -443,10 +461,13 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                             }}
                                             className=" rounded-lg md:rounded-xl overflow-hidden"
                                         >
-                                            <img
+                                            <Image
                                                 className="w-full h-auto object-contain p-2 md:p-4"
                                                 alt={`Wireframe ${index + 1}`}
                                                 src={`/assets/${img}`}
+                                                priority
+                                                width={400}
+                                                height={400}
                                             />
                                         </motion.div>
                                     )
@@ -562,12 +583,14 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                     /> */}
 
                     {details?.webDesigns?.imageUrls?.map((img, index) => (
-                        <motion.img
+                        <Image
                             key={index}
                             className="w-full md:w-1/2 rounded-lg"
-                            variants={{ hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }}
                             alt={`Design ${index + 1}`}
                             src={`/assets/${img}`}
+                            priority
+                            width={400}
+                            height={400}
                         />
                     ))}
                 </motion.div>

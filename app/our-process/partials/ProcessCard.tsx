@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ProcessStep } from "@/constants/constants";
 import { ArrowRightIcon } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -19,10 +20,13 @@ const ProcessCard = ({ step, isReversed }: { step: ProcessStep; isReversed: bool
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
         >
-            <img
+            <Image
                 className="w-full sm:w-[350px] md:w-[400px] lg:w-[470px] h-auto md:h-[400px] lg:h-[538px] object-cover rounded-[20px]"
                 alt={`${step.title} illustration`}
                 src={step.imageSrc}
+                width={470}
+                height={538}
+                priority
             />
             <div className="flex flex-col w-full sm:w-[90%] md:w-[60%] lg:w-[444px] items-start gap-4 md:gap-6">
                 <div className="w-full font-raleway font-bold text-[#93969F] text-3xl sm:text-4xl md:text-5xl">{step.number}</div>

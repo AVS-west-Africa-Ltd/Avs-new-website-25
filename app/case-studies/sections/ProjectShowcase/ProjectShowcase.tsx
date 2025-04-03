@@ -3,6 +3,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { CaseDetails, OurProjects } from "@/constants/data";
+import Image from "next/image";
 
 interface ProjectCardProps {
   image: string;
@@ -40,9 +41,12 @@ export function ProjectCard({ data }: { data: CaseDetails }) {
       className="flex flex-col gap-5 items-start mb-3"
     >
       <Link href={`/case-studies/${data?.id}`}>
-        <img
-          src={data?.appImage}
-          alt={data?.appName}
+        <Image
+          src={data?.appImage ?? ''}
+          alt={data?.appName ?? ''}
+          width={470}
+          height={538}
+          priority
           className="object-cover w-full rounded-3xl h-[549px] max-md:h-[400px] max-sm:h-[300px] shadow-lg"
         />
         <div className="flex justify-between items-center w-full mt-2">
