@@ -24,57 +24,40 @@ import "swiper/css/scrollbar";
 
 export default function MySwiper() {
   const swiperParameters = {
-    modules: [
-      A11y,
-      Autoplay,
-      Mousewheel,
-      Pagination,
-      Parallax,
-      Scrollbar,
-      EffectPanorama,
-    ],
+    modules: [A11y, Autoplay, Pagination, EffectPanorama],
     centeredSlides: true,
-    spaceBetween: 1,
-    initialSlide: 1,
-    grabCursor: true,
-    slideToClickedSlide: true,
     loop: true,
     effect: "panorama",
-    speed: 300,
-    pagination: { enabled: false },
-    autoplay: true,
-    scrollbar: { enabled: false },
-    mousewheel: { enabled: true },
-    parallax: { enabled: true },
-    lazy: { enabled: true },
+    speed: 600,
+    pagination: { enabled: true },
+    autoplay: { enabled: true },
     breakpoints: {
       768: {
         slidesPerView: 3,
-        spaceBetween: 0,
-        initialSlide: 0,
-        scrollbar: { enabled: false },
-        onBeforeInit(swiper: any) {
+
+        onBeforeInit(swiper: any): void {
           swiper.params.panoramaEffect = { depth: 150, rotate: 30 };
         },
       },
       1024: {
         slidesPerView: 4,
-        spaceBetween: 0,
+        centeredSlides: false,
         pagination: { enabled: false },
-        onBeforeInit(swiper: any) {
-          swiper.params.panoramaEffect = { depth: 300, rotate: 25 };
-        },
+        simulateTouch: false,
       },
       1280: {
         slidesPerView: 4,
-        spaceBetween: 0,
-        pagination: { enabled: false },
-        onBeforeInit(swiper: any) {
-          swiper.params.panoramaEffect = { depth: 250, rotate: 18 };
+        centeredSlides: true,
+        pagination: { enabled: true },
+        simulateTouch: true,
+
+        onBeforeInit(swiper: any): void {
+          swiper.params.panoramaEffect = { depth: 250, rotate: 25 };
         },
       },
     },
-    onBeforeInit(swiper: any) {
+
+    onBeforeInit(swiper: any): void {
       swiper.params.panoramaEffect = { rotate: 45 };
     },
   };
@@ -95,7 +78,7 @@ export default function MySwiper() {
   return (
     <Swiper {...swiperParameters}>
       {slides.map((src, index) => (
-        <SwiperSlide key={index} className="swiper-slide-4ffe swiper2">
+        <SwiperSlide key={index} className="swiper-slide-4ffe swiper2 px-[10px]">
           <img
             className="swiper-slide-bg-image swiper-slide-bg-image-c61b w-full"
             data-swiper-parallax="10%"

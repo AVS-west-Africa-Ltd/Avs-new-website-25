@@ -126,7 +126,7 @@
   position: absolute;
   height: 100px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: red;
 }
 
 .image-grid-wrapper::before {
@@ -139,32 +139,151 @@
 }
 
 .image-grid-wrapper {
-  position: relative; 
+  position: relative;
   overflow: hidden;
   --x-offset: -50px;
   --y-offset: -50px;
 }
 
 .image-grid {
-    display: flex;
-    gap: 20px;
-    overflow-x: scroll;
-  }
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
 
-  .image-grid img {
-    flex: 0 0 auto;
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
+.image-grid img {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
-  .swiper-panorama {
-    overflow: visible;
-  }
+.swiper-panorama {
+  overflow: visible;
+}
 
-  /* components/MySwiper.css */
-/* .swiper {
+.sloped-element {
+  clip-path: polygon(0 20px, 100% 0, 100% 70px, 0 50px);
+  /* This creates a shape starting 20px from top-left corner,
+     going to top-right, then to bottom-right at 70px height,
+     and finally to bottom-left at 50px height */
+}
+/* .skewed-image {
+  width: 200px;
+  height: 70px;
+  transform: perspective(500px) rotateY(10deg);
+  Adjust the rotateY value to change the skew amount
+} */
+
+/* For skewed images (furthest from center) */
+.skewed-image {
+  clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+  transform: perspective(1000px) rotateY(15deg);
+}
+
+/* For sloped elements (second from center) */
+.sloped-element {
+  clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%);
+  transform: perspective(1000px) rotateY(15deg);
+}
+
+/* For center element */
+.center-element {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+/* For right side elements - mirror the left side */
+.right-sloped-element {
+  clip-path: polygon(0 0, 100% 20px, 100% 100%, 0 calc(100% - 20px));
+  transform: perspective(1000px) rotateY(-8deg);
+}
+
+.right-skewed-image {
+  clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px));
+  transform: perspective(1000px) rotateY(-15deg);
+}
+
+/* Base card styling */
+.card {
+  border-radius: 12px;
+  /* overflow: hidden;
+  position: absolute; */
+  transition: all 0.5s ease;
+}
+
+/* Position and size based on offset */
+.card-offset-minus2 {
+  height: 340px;
+  width: 240px;
+  z-index: 1;
+  left: 0;
+}
+
+.card-offset-minus1 {
+  height: 380px;
+  width: 260px;
+  z-index: 2;
+  left: 20%;
+}
+
+.card-offset-0 {
+  height: 420px;
+  width: 280px;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-offset-1 {
+  height: 380px;
+  width: 260px;
+  z-index: 2;
+  right: 20%;
+}
+
+.card-offset-2 {
+  height: 340px;
+  width: 240px;
+  z-index: 1;
+  right: 0;
+}
+
+/* Container for perspective effect */
+.perspective-container {
+  width: 175px;
+  height: 442px;
+  position: relative;
+  perspective: 800px;
+  /* margin: 50px auto; */
+}
+
+/* Trapezoid element with perspective */
+.trapezoid {
+  background-color: #f0f0f0;
+  transform-origin: center center;
+  transform: perspective(300px) rotateY(-10deg) scaleX(1.0);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.trapezoidB {
+  background-color: #f0f0f0;
+  transform-origin: center center;
+  transform: perspective(300px) rotateY(10deg) scaleX(1.0);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+/* Content styling */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* components/MySwiper.css */
+.swiper {
   user-select: none;
   box-sizing: border-box;
   overflow: visible;
@@ -186,23 +305,23 @@
 
 .swiper-slide-bg-image {
   position: absolute;
-  left: -10%;
+  /* left: -10%; */
   top: -10%;
   width: 120%;
   height: 120%;
-  right: -10%;
+  /* right: -10%; */
   z-index: 0;
-} */
+}
 
-/* .swiper-slide-4ffe {
-  background-color: rgba(51, 51, 51, 1);
+.swiper-slide-4ffe {
+  /* background-color: rgba(51, 51, 51, 1); */
 }
 .swiper-slide-bg-image-c61b {
   object-fit: cover;
   border-radius: inherit;
-} */
+}
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   .swiper {
     width: 100%;
     height: 300px;
@@ -239,7 +358,4 @@
     width: 100%;
     height: 100%;
   }
-} */
-
-
-
+}

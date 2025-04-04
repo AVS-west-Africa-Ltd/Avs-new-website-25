@@ -326,17 +326,81 @@ const CoverflowCarousel = () => {
 };
 
 // File: app/page.js (or pages/index.js depending on your Next.js version)
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
+import Carousel from "./partials/Carousel";
 
 // Use dynamic import with SSR disabled for the Swiper component
-const PanoramaSwiper = dynamic(() => import('./partials/PanoramaSwiper'), { 
-  ssr: false 
+const PanoramaSwiper = dynamic(() => import("./partials/PanoramaSwiper"), {
+  ssr: false,
 });
 
 function OurProcess() {
   const router = useRouter();
 
   const [activeTab, setActiveTab] = useState("build");
+
+  const sampleSlides = [
+    {
+      id: 1,
+      title: "Research & Strategy",
+      description: "Understanding the market, audience, and opportunities.",
+      imageUrl: "/assets/rectangle-4224.png",
+    },
+    {
+      id: 2,
+      title: "Brand",
+      description: "Defining your unique identity and position.",
+      imageUrl: "/assets/build2.png",
+    },
+    {
+      id: 3,
+      title: "Development",
+      description: "Building solutions that meet your goals.",
+      imageUrl: "/assets/rectangle-4224-2.png",
+    },
+    {
+      id: 4,
+      title: "Analytics",
+      description: "Measuring performance and refining strategy.",
+      imageUrl: "/assets/rectangle-4224-3.png",
+    },
+    {
+      id: 5,
+      title: "Optimization",
+      description: "Continuously improving based on data insights.",
+      imageUrl: "/assets/rectangle-4224-4.png",
+    },
+    {
+      id: 6,
+      title: "Research & Strategy",
+      description: "Understanding the market, audience, and opportunities.",
+      imageUrl: "/assets/rectangle-4224-5.png",
+    },
+    {
+      id: 7,
+      title: "Brand",
+      description: "Defining your unique identity and position.",
+      imageUrl: "/assets/rectangle-4224-6.png",
+    },
+    {
+      id: 8,
+      title: "Development",
+      description: "Building solutions that meet your goals.",
+      imageUrl: "/assets/rectangle-4224-7.png",
+    },
+    {
+      id: 9,
+      title: "Analytics",
+      description: "Measuring performance and refining strategy.",
+      imageUrl: "/assets/rectangle-4224-8.png",
+    },
+    {
+      id: 10,
+      title: "Optimization",
+      description: "Continuously improving based on data insights.",
+      imageUrl: "/assets/rectangle-4224-9.png",
+    },
+  ];
 
   return (
     <div className="bg-white flex flex-row justify-center w-full mt-[100px] py-16">
@@ -366,7 +430,7 @@ function OurProcess() {
 
         {/* <CoverflowCarousel /> */}
 
-        <div className="w-full mt-6 md:mt-12 flex flex-col items-center px-4 sm:px-6">
+        <div className="w-full mt-6 md:mt-12 flex flex-col items-center px- sm:px-6">
           {/* Main Heading */}
           <h1 className="font-raleway text-[#0f0f0f] text-center leading-tight">
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold">
@@ -384,11 +448,11 @@ function OurProcess() {
               : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."}
           </p>
 
-          {/* <CurvedCarousel /> */}
-                <ImageSlider />
-          {/* Contact button */}
+          <div className="flex justify-center items-center w-full">
+            <Carousel slides={sampleSlides} autoScrollInterval={1000} />
+          </div>
 
-          {/* <PanoramaSwiper /> */}
+          {/* Contact button */}
           <Button
             onClick={() => router.push("/contact-us")}
             className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6"
@@ -431,31 +495,30 @@ function OurProcess() {
 
 export default OurProcess;
 
-
 function ImageSlider() {
   return (
     <div className="image-grid-wrapper">
-        <div className="image-grid">
-            <div>
-                <img src="/assets/rectangle-4224.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/build2.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/rectangle-4224-2.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/rectangle-4224-3.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/rectangle-4224-4.png" alt="Image 1" />
-            </div>
-            {/* <div>
+      <div className="image-grid">
+        <div>
+          <img src="/assets/rectangle-4224.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/build2.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/rectangle-4224-2.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/rectangle-4224-3.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/rectangle-4224-4.png" alt="Image 1" />
+        </div>
+        {/* <div>
                 <img src="/assets/rectangle-4224-5.png" alt="Image 1" />
             </div> */}
 
-            {/* <div>
+        {/* <div>
                 <img src="/assets/rectangle-4224-6.png" alt="Image 1" />
             </div>
             <div>
@@ -467,7 +530,7 @@ function ImageSlider() {
             <div>
                 <img src="/assets/rectangle-4224-9.png" alt="Image 1" />
             </div> */}
-        </div>
+      </div>
     </div>
-  )
+  );
 }

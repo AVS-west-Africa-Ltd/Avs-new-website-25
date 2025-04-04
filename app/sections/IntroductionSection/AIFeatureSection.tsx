@@ -53,21 +53,26 @@
 
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 export const AIFeatureSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, x: -100 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      className="relative overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12"
+      className={`relative overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12 transition-opacity transform duration-1200 ease-out ${
+        isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-24"
+      }`}
     >
       {/* Optimized Background Image */}
       <Image
@@ -77,17 +82,14 @@ export const AIFeatureSection = () => {
         objectFit="cover"
         quality={75} // Optimize image quality
         priority // Ensure it loads quickly for above-the-fold content
-        // placeholder="blur"
-        // blurDataURL="/assets/bg-placeholder.jpg" // Low-res placeholder
         className="absolute inset-0 z-0"
       />
 
       <div className="relative z-10 flex flex-col md:flex-row gap-5">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="w-full lg:w-[40%]"
+        <div
+          className={`w-full lg:w-[40%] transition-opacity transform duration-1000 ease-out delay-300 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          }`}
         >
           <section className="flex flex-col items-start self-stretch my-auto w-full font-semibold text-white py-8 md:py-0">
             <div className="rounded-[47px] border border-white bg-[rgba(255,255,255,0.30)] backdrop-blur-[35.5px] py-2.5 px-3.5">
@@ -106,9 +108,8 @@ export const AIFeatureSection = () => {
               advancements are on the horizon!
             </p>
           </section>
-        </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
-
