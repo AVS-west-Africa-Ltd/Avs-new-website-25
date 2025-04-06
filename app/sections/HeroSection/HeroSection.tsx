@@ -31,7 +31,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section ref={ref} className="w-full h-auto bg-[#021913] py-12">
+    <section ref={ref} className="w-full bg-[#021913] py-10">
       <motion.h2
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -70,8 +70,8 @@ export const HeroSection = () => {
                       src={logo.src}
                       alt={logo.alt}
                       className="max-w-[80%] max-h-[100px] object-contain"
-                      width={100}
-                      height={100}
+                      width={200}
+                      height={200}
                     />
                   </div>
                 </SwiperSlide>
