@@ -172,7 +172,8 @@ export const VisionSection = () => {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
                 className="font-['Raleway',Helvetica] font-normal text-white text-sm md:text-[15px] tracking-[-0.30px] leading-5 md:leading-[19.5px] max-w-[382px]"
               >
-                We think beyond design—we engineer solutions that solve real business problems.
+                We think beyond design—we engineer solutions that solve real
+                business problems.
               </motion.p>
 
               <motion.div
@@ -199,7 +200,7 @@ export const VisionSection = () => {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
                 className="relative w-full max-w-[640px] h-[250px] md:h-[400px] lg:h-[436px] rounded-[26px] overflow-hidden"
               >
-                <Image
+                {/* <Image
                   src="/assets/link.svg"
                   alt="Vision Image"
                   layout="fill"
@@ -207,6 +208,15 @@ export const VisionSection = () => {
                   quality={75}
                   // placeholder="blur"
                   // blurDataURL="/assets/image-placeholder.jpg"
+                  className="rounded-[26px]"
+                /> */}
+                <Image
+                  src="/assets/link.svg"
+                  alt="Vision Image"
+                  width={640}
+                  height={436}
+                  // height={100}
+                  // quality={75}
                   className="rounded-[26px]"
                 />
               </motion.div>
@@ -219,13 +229,19 @@ export const VisionSection = () => {
                 className="flex flex-col w-full max-w-[513px] gap-4 md:gap-6 text-center md:text-left"
               >
                 <h3 className="font-['Raleway',Helvetica] font-semibold text-white text-2xl md:text-3xl lg:text-4xl">
-                  From concept to execution, we provide the expertise and support needed to turn ideas into{" "}
-                  <span className="italic">successful market-ready products</span>.
+                  From concept to execution, we provide the expertise and
+                  support needed to turn ideas into{" "}
+                  <span className="italic">
+                    successful market-ready products
+                  </span>
+                  .
                 </h3>
 
                 <p className="font-['Raleway',Helvetica] font-normal text-white text-sm md:text-[15px]">
-                  Our strategic approach ensures seamless planning, development, and launch—helping you stay ahead in a
-                  competitive landscape. Whether you&#39;re refining a vision or ready to scale, we&apos;ve got you covered.
+                  Our strategic approach ensures seamless planning, development,
+                  and launch—helping you stay ahead in a competitive landscape.
+                  Whether you&#39;re refining a vision or ready to scale,
+                  we&apos;ve got you covered.
                 </p>
               </motion.div>
             </div>
@@ -235,4 +251,3 @@ export const VisionSection = () => {
     </section>
   );
 };
-

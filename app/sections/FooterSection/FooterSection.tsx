@@ -68,7 +68,7 @@ export const FooterSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="flex justify-between items-center mb-12 flex-col sm:flex-row text-center sm:text-left"
+          className="flex justify-between  gap-[30px] items-center mb-12 flex-col sm:flex-row text-center sm:text-left"
         >
           <h2 className="text-3xl font-bold text-stone-950 sm:text-2xl">
             Everything you need, all in one place...

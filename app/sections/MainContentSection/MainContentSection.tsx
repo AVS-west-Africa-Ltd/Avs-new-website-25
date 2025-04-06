@@ -175,7 +175,6 @@
 // //   );
 // // };
 
-
 // "use client";
 
 // import React, { useState, useEffect } from "react";
@@ -303,7 +302,6 @@
 //   );
 // };
 
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -348,7 +346,9 @@ export const HeaderSection = () => {
 
   return (
     <header
-      className={`fixed top-0 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 z-50 transition-all duration-300 ${scrolled ? "py-0 top-0" : ""}`}
+      className={`fixed top-0 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 z-50 transition-all duration-300 ${
+        scrolled ? "py-0 top-0" : ""
+      }`}
     >
       <div className="py-4 relative rounded-[0px_0px_26px_26px] bg-[#f0f0f0] backdrop-blur-[2.5px] overflow-hidden mx-auto max-w-[1400px]">
         <div className="flex items-center justify-between h-full px-6 lg:px-12">
@@ -360,7 +360,11 @@ export const HeaderSection = () => {
                   <NavigationMenuItem key={index}>
                     <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
-                        className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item.href ? "text-black font-bold" : "text-[#0f0f0fa6]"}`}
+                        className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
+                          pathname === item.href
+                            ? "text-black font-bold"
+                            : "text-[#0f0f0fa6]"
+                        }`}
                       >
                         {item.label}
                       </NavigationMenuLink>
@@ -386,19 +390,28 @@ export const HeaderSection = () => {
 
           {/* Buttons and mobile menu toggle - right side */}
           <div className="flex items-center justify-end gap-4 flex-1">
-            <Button
-              onClick={() => router.push("/contact-us")}
-              className="hidden md:block h-10 !rounded-full font-normal text-white bg-[#0f0f0f] hover:bg-gray-800 transition-colors"
-            >
-              Get in touch
-            </Button>
+            {/* Wrapper div for responsive visibility */}
+            <div className="hidden md:block">
+              <Button
+                onClick={() => router.push("/contact-us")}
+                variant="default"
+                size="lg"
+                className="rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+              >
+                Get in touch
+              </Button>
+            </div>
 
             <button
               onClick={toggleMobileMenu}
               className="lg:hidden flex items-center justify-center"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X size={24} className="text-gray-900" /> : <Menu size={24} className="text-gray-900" />}
+              {mobileMenuOpen ? (
+                <X size={24} className="text-gray-900" />
+              ) : (
+                <Menu size={24} className="text-gray-900" />
+              )}
             </button>
           </div>
         </div>
@@ -431,7 +444,11 @@ export const HeaderSection = () => {
                 >
                   <Link
                     href={item.href}
-                    className={`block py-3 px-4 text-lg ${pathname === item.href ? "text-black font-medium" : "text-[#0f0f0fa6]"} hover:bg-gray-200 rounded-lg transition-colors`}
+                    className={`block py-3 px-4 text-lg ${
+                      pathname === item.href
+                        ? "text-black font-medium"
+                        : "text-[#0f0f0fa6]"
+                    } hover:bg-gray-200 rounded-lg transition-colors`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
