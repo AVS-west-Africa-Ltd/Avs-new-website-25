@@ -16,6 +16,7 @@ import {
 import { Eye, Upload, X } from "lucide-react";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { toast } from "sonner"; // Add toast for notifications
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<{
@@ -38,8 +39,7 @@ const ContactForm = () => {
     file: null,
   });
 
-  // Recipient email address
-  const recipientEmail = "your-email@example.com"; // Replace with your actual email
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -69,34 +69,61 @@ const ContactForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Construct the email subject and body
-    const subject = `Contact Form Submission from ${formData.firstName} ${formData.lastName}`;
-    
-    let body = `
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Looking For: ${formData.lookingFor}
-Subscribed to Updates: ${formData.subscribed ? 'Yes' : 'No'}
-
-Message:
-${formData.message}
-    `;
-    
-    if (formData.file) {
-      body += `\n\nFile attached: ${formData.file.name} (${(formData.file.size / 1024).toFixed(2)} KB)`;
+    try {
+      // Create FormData object to handle file upload
+      const formDataToSend = new FormData();
+      formDataToSend.append('firstName', formData.firstName);
+      formDataToSend.append('lastName', formData.lastName);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('lookingFor', formData.lookingFor);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('subscribed', formData.subscribed.toString());
+      
+      // Append file if it exists
+      if (formData.file) {
+        formDataToSend.append('file', formData.file);
+      }
+      
+      // Send data to API route
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          lookingFor: "",
+          message: "",
+          subscribed: false,
+          file: null,
+        });
+        // Reset file input
+        const fileInput = document.getElementById('file') as HTMLInputElement;
+        if (fileInput) {
+          fileInput.value = '';
+        }
+      } else {
+        toast.error(result.message || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+      console.error("Error sending form:", error);
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    // Create the mailto link
-    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open the email client
-    window.location.href = mailtoLink;
-    
-    console.log("Form submitted with data:", formData);
   };
 
   return (
@@ -272,9 +299,9 @@ ${formData.message}
               </div>
             )}
             
-            {/* <p className="text-xs text-gray-500 mt-1">
-              Note: File attachments cannot be sent via mailto. The file name will be mentioned in the email.
-            </p> */}
+            <p className="text-xs text-gray-500 mt-1">
+              Files will be securely attached to your email
+            </p>
           </div>
 
           <div className="flex items-center space-x-2">
@@ -300,8 +327,9 @@ ${formData.message}
             type="submit"
             size={"lg"}
             className="w-full bg-black text-white hover:bg-gray-800 py-4"
+            disabled={isSubmitting}
           >
-            Submit form
+            {isSubmitting ? "Sending..." : "Submit form"}
           </Button>
         </form>
       </div>

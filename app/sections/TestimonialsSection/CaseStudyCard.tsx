@@ -19,13 +19,14 @@ export function CaseStudyCard({
 }: CaseStudyCardProps) {
   const router = useRouter();
   return (
-    <div className="relative">
+    <div className="relative h-[550px] w-full">
       <Image
         src={imageSrc}
         alt={title}
-        className="object-contain z-0 rounded-3xl aspect-[0.8] w-full max-md:max-w-full"
-        width={100}
-        height={100}
+        className=" z-0 rounded-3xl aspect-[0.8] w-full max-md:max-w-full h-full"
+        // width={500}
+        // height={500}
+        layout="fill"
       />
       <div
         className={`flex absolute z-0 justify-between items-center self-start w-full px-3 ${className}`}

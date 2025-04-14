@@ -130,16 +130,16 @@ export const CallToActionSection = () => {
             Connect with us
           </div>
           <div className="flex items-center gap-[11px] flex-wrap justify-center">
-            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[33px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
+            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[33px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
               Facebook
             </button>
-            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[36px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
+            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[36px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
               Twitter
             </button>
-            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[69px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
+            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[69px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
               TikTok
             </button>
-            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[56px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
+            <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[56px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
               Instagram
             </button>
           </div>

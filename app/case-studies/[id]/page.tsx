@@ -70,7 +70,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
     };
 
     return (
-        <div className="bg-white w-full pt-24 md:pt-16">
+        <div className="bg-white w-full pt-20 md:pt-16">
             {/* Hero Section */}
             <motion.section
                 initial="hidden"

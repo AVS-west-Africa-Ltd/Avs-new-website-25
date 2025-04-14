@@ -20,7 +20,7 @@ export const processSteps: ProcessStep[] = [
       "We conduct in-depth market research, analyse competitors, and identify your target audience to define a clear, data-driven strategy.",
       "By understanding industry trends and customer needs, we ensure that your vision aligns with real market demands, giving you the best chance for success.",
     ],
-    imageSrc: "/assets/rectangle-4224.png",
+    imageSrc: "/assets/Our process/Rectangle 4225.png",
   },
   {
     number: "02",
@@ -30,7 +30,7 @@ export const processSteps: ProcessStep[] = [
       "We help you craft a strong, memorable brand identity with compelling visuals, a unique voice, and consistent messaging.",
       "From typography and colour schemes to brand positioning and guidelines, we ensure your brand resonates with your audience and builds trust.",
     ],
-    imageSrc: "/assets/build2.png",
+    imageSrc: "/assets/Our process/build2.png",
   },
   {
     number: "03",
@@ -40,7 +40,7 @@ export const processSteps: ProcessStep[] = [
       "We create intuitive, engaging, and high-converting user experiences that keep your audience coming back.",
       "Our UI/UX design process focuses on clarity, ease of use, and functionality to ensure that every interaction is smooth and meaningful, leading to higher customer satisfaction and retention.",
     ],
-    imageSrc: "/assets/rectangle-4224-2.png",
+    imageSrc: "/assets/Our process/rectangle-4224-2.png",
   },
   {
     number: "04",
@@ -50,7 +50,7 @@ export const processSteps: ProcessStep[] = [
       "Our project management approach ensures seamless collaboration, clear communication, and timely execution.",
       "We set milestones, manage resources, and keep the project on track so you can focus on your business while we handle the details.",
     ],
-    imageSrc: "/assets/rectangle-4224-3.png",
+    imageSrc: "/assets/Our process/Rectangle4225-3.png",
   },
   {
     number: "05",
@@ -60,7 +60,7 @@ export const processSteps: ProcessStep[] = [
       "Our development team ensures your website or application is responsive, scalable, and optimised for a seamless user experience.",
       "Whether it's a web platform, mobile app, or SaaS solution, we use best practices and the latest tech to bring your vision to life.",
     ],
-    imageSrc: "/assets/rectangle-4224-4.png",
+    imageSrc: "/assets/Our process/Rectangle 4225-4.png",
   },
   {
     number: "06",
@@ -70,7 +70,7 @@ export const processSteps: ProcessStep[] = [
       "We conduct rigorous testing across multiple devices, browsers, and use cases to ensure a flawless experience.",
       "From functionality and security tests to performance optimisation, we refine every detail, fixing bugs and improving usability before launch.",
     ],
-    imageSrc: "/assets/rectangle-4224-5.png",
+    imageSrc: "/assets/Our process/Rectangle 4225-5.png",
   },
   {
     number: "07",
@@ -80,7 +80,7 @@ export const processSteps: ProcessStep[] = [
       "We guide you through a smooth and strategic launch, ensuring your product is deployed efficiently and reaches the right audience.",
       "Our team ensures everything runs seamlessly, whether it's setting up hosting, configuring domains, or integrating analytics to track performance.",
     ],
-    imageSrc: "/assets/rectangle-4224-6.png",
+    imageSrc: "/assets/Our process/Rectangle 4225-6.png",
   },
   {
     number: "08",
@@ -90,7 +90,7 @@ export const processSteps: ProcessStep[] = [
       "We provide continuous support, updates, and optimisations to keep your product running smoothly.",
       "From adding new features to enhancing performance and security, we ensure your business remains competitive and scalable as it grows.",
     ],
-    imageSrc: "/assets/rectangle-4224-7.png",
+    imageSrc: "/assets/Our process/Rectangle 4225-7.png",
   },
   {
     number: "09",
@@ -100,7 +100,7 @@ export const processSteps: ProcessStep[] = [
       "We help you identify funding opportunities, whether through bootstrapping, grants, angel investors, or venture capital.",
       "Our team works with you to refine your funding strategy, ensuring that your business is financially structured for success.",
     ],
-    imageSrc: "/assets/rectangle-4224-8.png",
+    imageSrc: "/assets/Our process/Rectangle 4225-8.png",
     hasButton: true,
   },
   {
@@ -111,7 +111,7 @@ export const processSteps: ProcessStep[] = [
       "We introduce you to key players in the industry—potential investors, mentors, and strategic partners who can help accelerate your growth.",
       "By leveraging our network, we create opportunities for collaboration, investment, and long-term success.",
     ],
-    imageSrc: "/assets/rectangle-4224-9.png",
+    imageSrc: "/assets/Our process/Rectangle 4225-9.png",
   },
 ];
 
@@ -267,7 +267,7 @@ export const designSteps = [
   },
 ];
 
-export  const userFlows = [
+export const userFlows = [
   {
     title: "Onboarding flow for Individuals",
     imageSrc: "/assets/image 459.svg",

@@ -181,8 +181,8 @@ const Carousel: React.FC<CarouselProps> = ({
   return (
     <div
       className="relative w-full"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      // onMouseEnter={() => setIsHovering(true)}
+      // onMouseLeave={() => setIsHovering(false)}
       ref={carouselRef}
     >
       {/* Main carousel */}
@@ -268,7 +268,7 @@ const Carousel: React.FC<CarouselProps> = ({
       {renderNavButtons()}
       
       {/* Dots indicator */}
-      <div className="flex justify-center mt-4">
+      {/* <div className="flex justify-center mt-4">
         {slides.map((slide, index) => (
           <button
             key={slide.id}
@@ -279,7 +279,7 @@ const Carousel: React.FC<CarouselProps> = ({
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

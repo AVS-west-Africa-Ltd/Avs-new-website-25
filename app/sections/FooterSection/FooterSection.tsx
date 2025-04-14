@@ -31,28 +31,28 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ color = "black" }) => {
 export const FooterSection = () => {
   const services = [
     {
-      image: "/assets/img1.svg",
+      image: "/assets/homepage/six.png",
       altText: "Mobile and website design",
       title: "Intuitive Mobile and Website Designs",
       description:
         "A great product isn't just functional—it's user-friendly and visually compelling. We design intuitive digital experiences that captivate users, drive engagement, and enhance brand credibility.",
     },
     {
-      image: "/assets/img2.svg",
+      image: "/assets/homepage/eight.png",
       altText: "Funding",
       title: "Funding Your Vision",
       description:
         "Securing the right financial backing is crucial for startup success. We guide you through investor connections, pitch deck creation, and financial planning to help you attract the right funding for growth.",
     },
     {
-      image: "/assets/img3.svg",
+      image: "/assets/homepage/seven.png",
       altText: "Brand strategy",
       title: "Building a Strong Brand Strategy",
       description:
         "Your brand is more than a logo—it's your identity. We craft cohesive brand strategies that align with your mission, differentiate you from competitors, and create a lasting impression in the market.",
     },
     {
-      image: "/assets/img4.svg",
+      image: "/assets/homepage/nine.png",
       altText: "Product development",
       title: "Product Development & Innovation",
       description:
@@ -68,7 +68,7 @@ export const FooterSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="flex justify-between items-center mb-12 flex-col sm:flex-row text-center sm:text-left"
+          className="flex justify-between  gap-[30px] items-center mb-12 flex-col sm:flex-row text-center sm:text-left"
         >
           <h2 className="text-3xl font-bold text-stone-950 sm:text-2xl">
             Everything you need, all in one place...

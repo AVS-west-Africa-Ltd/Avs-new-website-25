@@ -1,0 +1,10 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
+  "/case-id/page": "/case-id",
+  "/case-studies/page": "/case-studies",
+  "/our-process/page": "/our-process",
+  "/case-studies/[id]/page": "/case-studies/[id]",
+  "/contact-us/page": "/contact-us",
+  "/page": "/"
+}

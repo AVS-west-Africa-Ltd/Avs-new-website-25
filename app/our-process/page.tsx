@@ -19,7 +19,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/navigation";
-// import PanoramaSwiper from "./partials/PanoramaSwiper";
 
 function CurvedCarousel() {
   const settings = {
@@ -329,11 +328,6 @@ const CoverflowCarousel = () => {
 import dynamic from "next/dynamic";
 import Carousel from "./partials/Carousel";
 
-// Use dynamic import with SSR disabled for the Swiper component
-const PanoramaSwiper = dynamic(() => import("./partials/PanoramaSwiper"), {
-  ssr: false,
-});
-
 function OurProcess() {
   const router = useRouter();
 
@@ -344,7 +338,7 @@ function OurProcess() {
       id: 1,
       title: "Research & Strategy",
       description: "Understanding the market, audience, and opportunities.",
-      imageUrl: "/assets/rectangle-4224.png",
+      imageUrl: "/assets/Rectangle4225.png",
     },
     {
       id: 2,
@@ -362,48 +356,48 @@ function OurProcess() {
       id: 4,
       title: "Analytics",
       description: "Measuring performance and refining strategy.",
-      imageUrl: "/assets/rectangle-4224-3.png",
+      imageUrl: "/assets/Rectangle4225-3.png",
     },
     {
       id: 5,
       title: "Optimization",
       description: "Continuously improving based on data insights.",
-      imageUrl: "/assets/rectangle-4224-4.png",
+      imageUrl: "/assets/Rectangle4225-4.png",
     },
     {
       id: 6,
       title: "Research & Strategy",
       description: "Understanding the market, audience, and opportunities.",
-      imageUrl: "/assets/rectangle-4224-5.png",
+      imageUrl: "/assets/Rectangle4225-5.png",
     },
     {
       id: 7,
       title: "Brand",
       description: "Defining your unique identity and position.",
-      imageUrl: "/assets/rectangle-4224-6.png",
+      imageUrl: "/assets/Rectangle4225-6.png",
     },
     {
       id: 8,
       title: "Development",
       description: "Building solutions that meet your goals.",
-      imageUrl: "/assets/rectangle-4224-7.png",
+      imageUrl: "/assets/Rectangle4225-7.png",
     },
     {
       id: 9,
       title: "Analytics",
       description: "Measuring performance and refining strategy.",
-      imageUrl: "/assets/rectangle-4224-8.png",
+      imageUrl: "/assets/Rectangle4225-8.png",
     },
     {
       id: 10,
       title: "Optimization",
       description: "Continuously improving based on data insights.",
-      imageUrl: "/assets/rectangle-4224-9.png",
+      imageUrl: "/assets/Rectangle4225-9.png",
     },
   ];
 
   return (
-    <div className="bg-white flex flex-row justify-center w-full mt-[100px] py-16">
+    <div className="bg-white flex flex-row justify-center w-full mt-[50px] md:mt-[100px] py-16">
       <Tabs
         defaultValue="build"
         className="w-full"

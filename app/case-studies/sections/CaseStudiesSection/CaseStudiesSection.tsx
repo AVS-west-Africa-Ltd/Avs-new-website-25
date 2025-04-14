@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 export const CaseStudiesSection = () => {
   const router = useRouter();
   return (
-    <section className="w-full py-20 mt-[100px]">
+    <section className="w-full py-20 mt-[30px] md:mt-[100px]">
       <div className="container mx-auto flex flex-col items-center gap-[72px]">
         {/* Heading and CTA Section */}
         <motion.div
