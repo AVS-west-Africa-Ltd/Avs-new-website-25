@@ -1,10 +1,1 @@
-{
-  "[project]/app/our-process/partials/PanoramaSwiper.tsx [app-client] (ecmascript, next/dynamic entry)": {
-    "id": "[project]/app/our-process/partials/PanoramaSwiper.tsx [app-client] (ecmascript, next/dynamic entry)",
-    "files": [
-      "static/chunks/_b63184b1._.js",
-      "static/chunks/node_modules_swiper_modules_8f193e9c._.css",
-      "static/chunks/app_our-process_partials_PanoramaSwiper_tsx_43664370._.js"
-    ]
-  }
-}
+{}

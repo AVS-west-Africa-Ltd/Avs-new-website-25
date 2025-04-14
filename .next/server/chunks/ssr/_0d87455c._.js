@@ -325,7 +325,7 @@ const processSteps = [
             "We conduct in-depth market research, analyse competitors, and identify your target audience to define a clear, data-driven strategy.",
             "By understanding industry trends and customer needs, we ensure that your vision aligns with real market demands, giving you the best chance for success."
         ],
-        imageSrc: "/assets/rectangle-4224.png"
+        imageSrc: "/assets/Our process/Rectangle 4225.png"
     },
     {
         number: "02",
@@ -335,7 +335,7 @@ const processSteps = [
             "We help you craft a strong, memorable brand identity with compelling visuals, a unique voice, and consistent messaging.",
             "From typography and colour schemes to brand positioning and guidelines, we ensure your brand resonates with your audience and builds trust."
         ],
-        imageSrc: "/assets/build2.png"
+        imageSrc: "/assets/Our process/build2.png"
     },
     {
         number: "03",
@@ -345,7 +345,7 @@ const processSteps = [
             "We create intuitive, engaging, and high-converting user experiences that keep your audience coming back.",
             "Our UI/UX design process focuses on clarity, ease of use, and functionality to ensure that every interaction is smooth and meaningful, leading to higher customer satisfaction and retention."
         ],
-        imageSrc: "/assets/rectangle-4224-2.png"
+        imageSrc: "/assets/Our process/rectangle-4224-2.png"
     },
     {
         number: "04",
@@ -355,7 +355,7 @@ const processSteps = [
             "Our project management approach ensures seamless collaboration, clear communication, and timely execution.",
             "We set milestones, manage resources, and keep the project on track so you can focus on your business while we handle the details."
         ],
-        imageSrc: "/assets/rectangle-4224-3.png"
+        imageSrc: "/assets/Our process/Rectangle4225-3.png"
     },
     {
         number: "05",
@@ -365,7 +365,7 @@ const processSteps = [
             "Our development team ensures your website or application is responsive, scalable, and optimised for a seamless user experience.",
             "Whether it's a web platform, mobile app, or SaaS solution, we use best practices and the latest tech to bring your vision to life."
         ],
-        imageSrc: "/assets/rectangle-4224-4.png"
+        imageSrc: "/assets/Our process/Rectangle 4225-4.png"
     },
     {
         number: "06",
@@ -375,7 +375,7 @@ const processSteps = [
             "We conduct rigorous testing across multiple devices, browsers, and use cases to ensure a flawless experience.",
             "From functionality and security tests to performance optimisation, we refine every detail, fixing bugs and improving usability before launch."
         ],
-        imageSrc: "/assets/rectangle-4224-5.png"
+        imageSrc: "/assets/Our process/Rectangle 4225-5.png"
     },
     {
         number: "07",
@@ -385,7 +385,7 @@ const processSteps = [
             "We guide you through a smooth and strategic launch, ensuring your product is deployed efficiently and reaches the right audience.",
             "Our team ensures everything runs seamlessly, whether it's setting up hosting, configuring domains, or integrating analytics to track performance."
         ],
-        imageSrc: "/assets/rectangle-4224-6.png"
+        imageSrc: "/assets/Our process/Rectangle 4225-6.png"
     },
     {
         number: "08",
@@ -395,7 +395,7 @@ const processSteps = [
             "We provide continuous support, updates, and optimisations to keep your product running smoothly.",
             "From adding new features to enhancing performance and security, we ensure your business remains competitive and scalable as it grows."
         ],
-        imageSrc: "/assets/rectangle-4224-7.png"
+        imageSrc: "/assets/Our process/Rectangle 4225-7.png"
     },
     {
         number: "09",
@@ -405,7 +405,7 @@ const processSteps = [
             "We help you identify funding opportunities, whether through bootstrapping, grants, angel investors, or venture capital.",
             "Our team works with you to refine your funding strategy, ensuring that your business is financially structured for success."
         ],
-        imageSrc: "/assets/rectangle-4224-8.png",
+        imageSrc: "/assets/Our process/Rectangle 4225-8.png",
         hasButton: true
     },
     {
@@ -416,7 +416,7 @@ const processSteps = [
             "We introduce you to key players in the industry—potential investors, mentors, and strategic partners who can help accelerate your growth.",
             "By leveraging our network, we create opportunities for collaboration, investment, and long-term success."
         ],
-        imageSrc: "/assets/rectangle-4224-9.png"
+        imageSrc: "/assets/Our process/Rectangle 4225-9.png"
     }
 ];
 const fundingSteps = [
@@ -809,8 +809,8 @@ const Carousel = ({ slides, autoScrollInterval = 3000 })=>{
         }, void 0, true);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "relative w-full",
-        onMouseEnter: ()=>setIsHovering(true),
-        onMouseLeave: ()=>setIsHovering(false),
+        // onMouseEnter={() => setIsHovering(true)}
+        // onMouseLeave={() => setIsHovering(false)}
         ref: carouselRef,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -886,23 +886,7 @@ const Carousel = ({ slides, autoScrollInterval = 3000 })=>{
                 lineNumber: 189,
                 columnNumber: 7
             }, this),
-            renderNavButtons(),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex justify-center mt-4",
-                children: slides.map((slide, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: ()=>goToSlide(index),
-                        className: `w-2 h-2 mx-1 rounded-full ${index === currentIndex ? "bg-blue-600" : "bg-gray-300"}`,
-                        "aria-label": `Go to slide ${index + 1}`
-                    }, slide.id, false, {
-                        fileName: "[project]/app/our-process/partials/Carousel.tsx",
-                        lineNumber: 273,
-                        columnNumber: 11
-                    }, this))
-            }, void 0, false, {
-                fileName: "[project]/app/our-process/partials/Carousel.tsx",
-                lineNumber: 271,
-                columnNumber: 7
-            }, this)
+            renderNavButtons()
         ]
     }, void 0, true, {
         fileName: "[project]/app/our-process/partials/Carousel.tsx",
@@ -938,10 +922,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$autoplay$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Autoplay$3e$__ = __turbopack_context__.i("[project]/node_modules/swiper/modules/autoplay.mjs [app-ssr] (ecmascript) <export default as Autoplay>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$slick$2f$lib$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-slick/lib/index.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
-// File: app/page.js (or pages/index.js depending on your Next.js version)
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$shared$2f$lib$2f$app$2d$dynamic$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/shared/lib/app-dynamic.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$our$2d$process$2f$partials$2f$Carousel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/our-process/partials/Carousel.tsx [app-ssr] (ecmascript)");
-;
 "use client";
 ;
 ;
@@ -962,7 +943,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$our$2d$process$2f$par
 ;
 ;
 ;
-// import PanoramaSwiper from "./partials/PanoramaSwiper";
 function CurvedCarousel() {
     const settings = {
         className: "center",
@@ -1037,17 +1017,17 @@ function CurvedCarousel() {
                                     className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 88,
+                                    lineNumber: 87,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 87,
+                                lineNumber: 86,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 86,
+                            lineNumber: 85,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1060,17 +1040,17 @@ function CurvedCarousel() {
                                     className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 97,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 97,
+                                lineNumber: 96,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 96,
+                            lineNumber: 95,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1083,17 +1063,17 @@ function CurvedCarousel() {
                                     className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 108,
+                                    lineNumber: 107,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 107,
+                                lineNumber: 106,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 106,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1106,17 +1086,17 @@ function CurvedCarousel() {
                                     className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 118,
+                                    lineNumber: 117,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 117,
+                                lineNumber: 116,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 116,
+                            lineNumber: 115,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1129,28 +1109,28 @@ function CurvedCarousel() {
                                     className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 128,
+                                    lineNumber: 127,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 127,
+                                lineNumber: 126,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 126,
+                            lineNumber: 125,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 85,
+                    lineNumber: 84,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 84,
+                lineNumber: 83,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1160,7 +1140,7 @@ function CurvedCarousel() {
         ]
     }, void 0, true, {
         fileName: "[project]/app/our-process/page.tsx",
-        lineNumber: 82,
+        lineNumber: 81,
         columnNumber: 5
     }, this);
 }
@@ -1217,17 +1197,17 @@ const CoverflowCarousel = ()=>{
                         className: "w-full"
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 254,
+                        lineNumber: 253,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 253,
+                    lineNumber: 252,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 252,
+                lineNumber: 251,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1239,17 +1219,17 @@ const CoverflowCarousel = ()=>{
                         className: "w-full "
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 263,
+                        lineNumber: 262,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 262,
+                    lineNumber: 261,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 261,
+                lineNumber: 260,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1261,17 +1241,17 @@ const CoverflowCarousel = ()=>{
                         className: "w-full "
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 272,
+                        lineNumber: 271,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 271,
+                    lineNumber: 270,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 270,
+                lineNumber: 269,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1283,17 +1263,17 @@ const CoverflowCarousel = ()=>{
                         className: "w-full "
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 281,
+                        lineNumber: 280,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 280,
+                    lineNumber: 279,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 279,
+                lineNumber: 278,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1305,17 +1285,17 @@ const CoverflowCarousel = ()=>{
                         className: "w-full "
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 290,
+                        lineNumber: 289,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 289,
+                    lineNumber: 288,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 288,
+                lineNumber: 287,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1327,17 +1307,17 @@ const CoverflowCarousel = ()=>{
                         className: "w-full "
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 299,
+                        lineNumber: 298,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 298,
+                    lineNumber: 297,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 297,
+                lineNumber: 296,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1349,17 +1329,17 @@ const CoverflowCarousel = ()=>{
                         className: "w-full "
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 308,
+                        lineNumber: 307,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 307,
+                    lineNumber: 306,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 306,
+                lineNumber: 305,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1371,37 +1351,27 @@ const CoverflowCarousel = ()=>{
                         className: "w-full "
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 317,
+                        lineNumber: 316,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 316,
+                    lineNumber: 315,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/our-process/page.tsx",
-                lineNumber: 315,
+                lineNumber: 314,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/our-process/page.tsx",
-        lineNumber: 224,
+        lineNumber: 223,
         columnNumber: 5
     }, this);
 };
 ;
-;
-// Use dynamic import with SSR disabled for the Swiper component
-const PanoramaSwiper = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$shared$2f$lib$2f$app$2d$dynamic$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])(()=>__turbopack_context__.r("[project]/app/our-process/partials/PanoramaSwiper.tsx [app-ssr] (ecmascript, next/dynamic entry, async loader)")(__turbopack_context__.i), {
-    loadableGenerated: {
-        modules: [
-            "[project]/app/our-process/partials/PanoramaSwiper.tsx [app-client] (ecmascript, next/dynamic entry)"
-        ]
-    },
-    ssr: false
-});
 function OurProcess() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("build");
@@ -1410,7 +1380,7 @@ function OurProcess() {
             id: 1,
             title: "Research & Strategy",
             description: "Understanding the market, audience, and opportunities.",
-            imageUrl: "/assets/rectangle-4224.png"
+            imageUrl: "/assets/Rectangle4225.png"
         },
         {
             id: 2,
@@ -1428,47 +1398,47 @@ function OurProcess() {
             id: 4,
             title: "Analytics",
             description: "Measuring performance and refining strategy.",
-            imageUrl: "/assets/rectangle-4224-3.png"
+            imageUrl: "/assets/Rectangle4225-3.png"
         },
         {
             id: 5,
             title: "Optimization",
             description: "Continuously improving based on data insights.",
-            imageUrl: "/assets/rectangle-4224-4.png"
+            imageUrl: "/assets/Rectangle4225-4.png"
         },
         {
             id: 6,
             title: "Research & Strategy",
             description: "Understanding the market, audience, and opportunities.",
-            imageUrl: "/assets/rectangle-4224-5.png"
+            imageUrl: "/assets/Rectangle4225-5.png"
         },
         {
             id: 7,
             title: "Brand",
             description: "Defining your unique identity and position.",
-            imageUrl: "/assets/rectangle-4224-6.png"
+            imageUrl: "/assets/Rectangle4225-6.png"
         },
         {
             id: 8,
             title: "Development",
             description: "Building solutions that meet your goals.",
-            imageUrl: "/assets/rectangle-4224-7.png"
+            imageUrl: "/assets/Rectangle4225-7.png"
         },
         {
             id: 9,
             title: "Analytics",
             description: "Measuring performance and refining strategy.",
-            imageUrl: "/assets/rectangle-4224-8.png"
+            imageUrl: "/assets/Rectangle4225-8.png"
         },
         {
             id: 10,
             title: "Optimization",
             description: "Continuously improving based on data insights.",
-            imageUrl: "/assets/rectangle-4224-9.png"
+            imageUrl: "/assets/Rectangle4225-9.png"
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white flex flex-row justify-center w-full mt-[100px] py-16",
+        className: "bg-white flex flex-row justify-center w-full mt-[50px] md:mt-[100px] py-16",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Tabs"], {
             defaultValue: "build",
             className: "w-full",
@@ -1485,12 +1455,12 @@ function OurProcess() {
                                 children: "Build Your Vision"
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 417,
+                                lineNumber: 411,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 413,
+                            lineNumber: 407,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -1501,18 +1471,18 @@ function OurProcess() {
                                 children: "Fund Your Vision"
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 425,
+                                lineNumber: 419,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 421,
+                            lineNumber: 415,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 412,
+                    lineNumber: 406,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1529,7 +1499,7 @@ function OurProcess() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 436,
+                                    lineNumber: 430,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1537,13 +1507,13 @@ function OurProcess() {
                                     children: activeTab === "build" ? "Idea to Reality" : "Startup’s Growth"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 439,
+                                    lineNumber: 433,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 435,
+                            lineNumber: 429,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1551,7 +1521,7 @@ function OurProcess() {
                             children: activeTab === "build" ? "Transform your vision into a market-ready product with a structured,expert-driven approach—research, branding, design, development, and beyond." : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 445,
+                            lineNumber: 439,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1561,12 +1531,12 @@ function OurProcess() {
                                 autoScrollInterval: 1000
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 452,
+                                lineNumber: 446,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 451,
+                            lineNumber: 445,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1578,19 +1548,19 @@ function OurProcess() {
                                     className: "ml-2 h-4 w-4"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
-                                    lineNumber: 460,
+                                    lineNumber: 454,
                                     columnNumber: 26
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 456,
+                            lineNumber: 450,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 433,
+                    lineNumber: 427,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -1617,17 +1587,17 @@ function OurProcess() {
                                 processSteps: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["processSteps"]
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 474,
+                                lineNumber: 468,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 473,
+                            lineNumber: 467,
                             columnNumber: 15
                         }, this)
                     }, "build", false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 466,
+                        lineNumber: 460,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                         initial: {
@@ -1651,33 +1621,33 @@ function OurProcess() {
                                 processSteps: __TURBOPACK__imported__module__$5b$project$5d2f$constants$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fundingSteps"]
                             }, void 0, false, {
                                 fileName: "[project]/app/our-process/page.tsx",
-                                lineNumber: 486,
+                                lineNumber: 480,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/our-process/page.tsx",
-                            lineNumber: 485,
+                            lineNumber: 479,
                             columnNumber: 15
                         }, this)
                     }, "fund", false, {
                         fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 478,
+                        lineNumber: 472,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 464,
+                    lineNumber: 458,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/our-process/page.tsx",
-            lineNumber: 407,
+            lineNumber: 401,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/our-process/page.tsx",
-        lineNumber: 406,
+        lineNumber: 400,
         columnNumber: 5
     }, this);
 }
@@ -1694,6 +1664,34 @@ function ImageSlider() {
                         alt: "Image 1"
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
+                        lineNumber: 497,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/our-process/page.tsx",
+                    lineNumber: 496,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                        src: "/assets/build2.png",
+                        alt: "Image 1"
+                    }, void 0, false, {
+                        fileName: "[project]/app/our-process/page.tsx",
+                        lineNumber: 500,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/our-process/page.tsx",
+                    lineNumber: 499,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                        src: "/assets/rectangle-4224-2.png",
+                        alt: "Image 1"
+                    }, void 0, false, {
+                        fileName: "[project]/app/our-process/page.tsx",
                         lineNumber: 503,
                         columnNumber: 11
                     }, this)
@@ -1704,7 +1702,7 @@ function ImageSlider() {
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/assets/build2.png",
+                        src: "/assets/rectangle-4224-3.png",
                         alt: "Image 1"
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
@@ -1718,7 +1716,7 @@ function ImageSlider() {
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/assets/rectangle-4224-2.png",
+                        src: "/assets/rectangle-4224-4.png",
                         alt: "Image 1"
                     }, void 0, false, {
                         fileName: "[project]/app/our-process/page.tsx",
@@ -1729,44 +1727,16 @@ function ImageSlider() {
                     fileName: "[project]/app/our-process/page.tsx",
                     lineNumber: 508,
                     columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/assets/rectangle-4224-3.png",
-                        alt: "Image 1"
-                    }, void 0, false, {
-                        fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 512,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 511,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/assets/rectangle-4224-4.png",
-                        alt: "Image 1"
-                    }, void 0, false, {
-                        fileName: "[project]/app/our-process/page.tsx",
-                        lineNumber: 515,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/app/our-process/page.tsx",
-                    lineNumber: 514,
-                    columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/our-process/page.tsx",
-            lineNumber: 501,
+            lineNumber: 495,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/our-process/page.tsx",
-        lineNumber: 500,
+        lineNumber: 494,
         columnNumber: 5
     }, this);
 }

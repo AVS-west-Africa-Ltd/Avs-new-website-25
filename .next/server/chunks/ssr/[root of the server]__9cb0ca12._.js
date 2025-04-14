@@ -219,285 +219,6 @@ module.exports = mod;
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-// // "use client";
-// // import React, { useState, useEffect } from "react";
-// // import { Button } from "@/components/ui/button";
-// // import {
-// //   NavigationMenu,
-// //   NavigationMenuItem,
-// //   NavigationMenuLink,
-// //   NavigationMenuList,
-// // } from "@/components/ui/navigation-menu";
-// // import Image from "next/image";
-// // import Link from "next/link";
-// // import { motion, AnimatePresence } from "framer-motion";
-// // import { Menu, X } from "lucide-react";
-// // import { useRouter } from "next/navigation";
-// // export const HeaderSection = () => {
-// //   const router = useRouter();
-// //   const [scrolled, setScrolled] = useState(false);
-// //   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-// //   useEffect(() => {
-// //     const handleScroll = () => {
-// //       setScrolled(window.scrollY > 20);
-// //     };
-// //     window.addEventListener("scroll", handleScroll);
-// //     return () => window.removeEventListener("scroll", handleScroll);
-// //   }, []);
-// //   // Navigation menu items data with added links
-// //   const navItems = [
-// //     { label: "Home", href: "/", active: true },
-// //     // { label: "About", href: "/about", active: false },
-// //     { label: "Our Process", href: "/our-process", active: false },
-// //     // { label: "Services", href: "/services", active: false },
-// //     { label: "Case Studies", href: "/case-studies", active: false },
-// //     // { label: "Build with AI", href: "/ai", active: false },
-// //   ];
-// //   const toggleMobileMenu = () => {
-// //     setMobileMenuOpen(!mobileMenuOpen);
-// //   };
-// //   return (
-// //     <header
-// //       className={`fixed top-0 left-2 right-2 z-50 transition-all duration-300 ${
-// //         scrolled ? "py-0 top-0" : ""
-// //       }`}
-// //     >
-// //       <div
-// //         className={`py-4 relative rounded-[0px_0px_26px_26px] bg-[#f0f0f0] backdrop-blur-[2.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(2.5px)_brightness(100%)] overflow-hidden ${
-// //           scrolled ? "" : "mx-0"
-// //         }`}
-// //       >
-// //         <div className="flex items-center justify-between h-full px-5">
-// //           {/* Desktop Navigation Menu - Hidden on mobile/tablet */}
-// //           <div className="hidden lg:block">
-// //             <NavigationMenu>
-// //               <NavigationMenuList className="flex items-center gap-6">
-// //                 {navItems.map((item, index) => (
-// //                   <NavigationMenuItem key={index}>
-// //                     <Link href={item.href} legacyBehavior passHref>
-// //                       <NavigationMenuLink
-// //                         className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
-// //                           item.active ? "text-[#0f0f0f]" : "text-[#0f0f0fa6]"
-// //                         }`}
-// //                       >
-// //                         {item.label}
-// //                       </NavigationMenuLink>
-// //                     </Link>
-// //                   </NavigationMenuItem>
-// //                 ))}
-// //               </NavigationMenuList>
-// //             </NavigationMenu>
-// //           </div>
-// //           {/* Logo - Moved to left for tablet view */}
-// //           <div className="flex items-center">
-// //             <Link href="/">
-// //               <img
-// //                 src="/assets/AVS Logo.svg"
-// //                 alt="Logo"
-// //                 width={150}
-// //                 height={150}
-// //                 className="object-contain"
-// //               />
-// //             </Link>
-// //           </div>
-// //           {/* Right side section with button and menu toggle */}
-// //           <div className="flex items-center gap-4">
-// //             {/* Action Button - Hidden on mobile */}
-// //             <Button
-// //               onClick={() => router.push("/contact-us")}
-// //               className="hidden md:block h-10 !rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors"
-// //             >
-// //               Get in touch
-// //             </Button>
-// //             {/* Mobile Menu Toggle - Visible only on tablet and mobile */}
-// //             <button
-// //               onClick={toggleMobileMenu}
-// //               className="lg:hidden flex items-center justify-center"
-// //               aria-label="Toggle menu"
-// //             >
-// //               {mobileMenuOpen ? (
-// //                 <X size={24} className="text-gray-900" />
-// //               ) : (
-// //                 <Menu size={24} className="text-gray-900" />
-// //               )}
-// //             </button>
-// //           </div>
-// //         </div>
-// //       </div>
-// //       {/* Mobile Navigation Menu Overlay */}
-// //       <AnimatePresence>
-// //         {mobileMenuOpen && (
-// //           <motion.div
-// //             initial={{ opacity: 0, y: -20 }}
-// //             animate={{ opacity: 1, y: 0 }}
-// //             exit={{ opacity: 0, y: -20 }}
-// //             transition={{ duration: 0.3 }}
-// //             className="lg:hidden fixed top-20 left-2 right-2 bg-[#f0f0f0] rounded-b-3xl shadow-lg overflow-hidden z-40"
-// //           >
-// //             <motion.nav
-// //               className="flex flex-col p-6"
-// //               initial={{ height: 0 }}
-// //               animate={{ height: "auto" }}
-// //               exit={{ height: 0 }}
-// //               transition={{ duration: 0.3 }}
-// //             >
-// //               {navItems.map((item, index) => (
-// //                 <motion.div
-// //                   key={index}
-// //                   initial={{ opacity: 0, y: -10 }}
-// //                   animate={{ opacity: 1, y: 0 }}
-// //                   exit={{ opacity: 0, y: -10 }}
-// //                   transition={{ delay: index * 0.05 }}
-// //                 >
-// //                   <Link
-// //                     href={item.href}
-// //                     className={`block py-3 px-4 text-lg ${
-// //                       item.active
-// //                         ? "text-[#0f0f0f] font-medium"
-// //                         : "text-[#0f0f0fa6]"
-// //                     } hover:bg-gray-200 rounded-lg transition-colors`}
-// //                     onClick={() => setMobileMenuOpen(false)}
-// //                   >
-// //                     {item.label}
-// //                   </Link>
-// //                 </motion.div>
-// //               ))}
-// //               <motion.div
-// //                 initial={{ opacity: 0, y: -10 }}
-// //                 animate={{ opacity: 1, y: 0 }}
-// //                 exit={{ opacity: 0, y: -10 }}
-// //                 transition={{ delay: navItems.length * 0.05 }}
-// //                 className="mt-6"
-// //               >
-// //                 <Button
-// //                   onClick={() => router.push("/contact-us")}
-// //                   className="w-full h-12 rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors"
-// //                 >
-// //                   Get in touch
-// //                 </Button>
-// //               </motion.div>
-// //             </motion.nav>
-// //           </motion.div>
-// //         )}
-// //       </AnimatePresence>
-// //     </header>
-// //   );
-// // };
-// "use client";
-// import React, { useState, useEffect } from "react";
-// import { Button } from "@/components/ui/button";
-// import {
-//   NavigationMenu,
-//   NavigationMenuItem,
-//   NavigationMenuLink,
-//   NavigationMenuList,
-// } from "@/components/ui/navigation-menu";
-// import Link from "next/link";
-// import { motion, AnimatePresence } from "framer-motion";
-// import { Menu, X } from "lucide-react";
-// import { usePathname, useRouter } from "next/navigation";
-// export const HeaderSection = () => {
-//   const router = useRouter();
-//   const pathname = usePathname();
-//   const [scrolled, setScrolled] = useState(false);
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setScrolled(window.scrollY > 20);
-//     };
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-//   const navItems = [
-//     { label: "Home", href: "/" },
-//     { label: "Our Process", href: "/our-process" },
-//     { label: "Case Studies", href: "/case-studies" },
-//     { label: "Services", href: "/services" },
-//     { label: "Contact", href: "/contact" },
-//   ];
-//   const toggleMobileMenu = () => {
-//     setMobileMenuOpen(!mobileMenuOpen);
-//   };
-//   return (
-//     <header
-//       className={`fixed top-0 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 z-50 transition-all duration-300 ${scrolled ? "py-0 top-0" : ""}`}
-//     >
-//       <div className="py-4 relative rounded-[0px_0px_26px_26px] bg-[#f0f0f0] backdrop-blur-[2.5px] backdrop-brightness-[100%] overflow-hidden mx-auto max-w-[1400px]">
-//         <div className="flex items-center justify-between h-full px-6 lg:px-12">
-//           {/* Navigation menu - left side for desktop */}
-//           <div className="hidden lg:flex flex-1">
-//             <NavigationMenu>
-//               <NavigationMenuList className="flex items-center gap-8">
-//                 {navItems.map((item, index) => (
-//                   <NavigationMenuItem key={index}>
-//                     <Link href={item.href} legacyBehavior passHref>
-//                       <NavigationMenuLink
-//                         className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item.href ? "text-black font-bold" : "text-[#0f0f0fa6]"}`}
-//                       >
-//                         {item.label}
-//                       </NavigationMenuLink>
-//                     </Link>
-//                   </NavigationMenuItem>
-//                 ))}
-//               </NavigationMenuList>
-//             </NavigationMenu>
-//           </div>
-//           {/* Logo - centered */}
-//           <div className="flex items-center justify-center flex-1 lg:flex-none">
-//             <Link href="/">
-//               <img
-//                 src="/assets/AVS Logo.svg"
-//                 alt="Logo"
-//                 width={150}
-//                 height={150}
-//                 className="object-contain"
-//               />
-//             </Link>
-//           </div>
-//           {/* Buttons and mobile menu toggle - right side */}
-//           <div className="flex items-center justify-end gap-4 flex-1">
-//             <Button
-//               onClick={() => router.push("/contact-us")}
-//               className="hidden md:block h-10 !rounded-full font-normal text-white text-[15px] tracking-[-0.30px] leading-[19.5px] bg-[#0f0f0f] hover:bg-gray-800 transition-colors"
-//             >
-//               Get in touch
-//             </Button>
-//             <button
-//               onClick={toggleMobileMenu}
-//               className="lg:hidden flex items-center justify-center"
-//               aria-label="Toggle menu"
-//             >
-//               {mobileMenuOpen ? (
-//                 <X size={24} className="text-gray-900" />
-//               ) : (
-//                 <Menu size={24} className="text-gray-900" />
-//               )}
-//             </button>
-//           </div>
-//         </div>
-//         {/* Mobile menu */}
-//         <AnimatePresence>
-//           {mobileMenuOpen && (
-//             <motion.div
-//               initial={{ opacity: 0, y: -10 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               exit={{ opacity: 0, y: -10 }}
-//               className="lg:hidden absolute top-full left-0 w-full bg-[#f0f0f0] shadow-md p-4"
-//             >
-//               <nav className="flex flex-col gap-4">
-//                 {navItems.map((item, index) => (
-//                   <Link key={index} href={item.href} className={`text-[15px] font-normal tracking-[-0.30px] leading-[19.5px] cursor-pointer hover:text-black transition-colors ${pathname === item.href ? "text-black font-bold" : "text-[#0f0f0fa6]"}`}>
-//                     {item.label}
-//                   </Link>
-//                 ))}
-//               </nav>
-//             </motion.div>
-//           )}
-//         </AnimatePresence>
-//       </div>
-//     </header>
-//   );
-// };
 __turbopack_context__.s({
     "HeaderSection": (()=>HeaderSection)
 });
@@ -537,10 +258,14 @@ const HeaderSection = ()=>{
             label: "Home",
             href: "/"
         },
+        // { label: "About", href: "/about" },
         {
             label: "Our Process",
             href: "/our-process"
         },
+        // { label: "Services", href: "/services" },
+        // { label: "Our Work", href: "/our-work" },
+        // { label: "Build with AI", href: "/build-with-ai" },
         {
             label: "Case Studies",
             href: "/case-studies"
@@ -562,7 +287,7 @@ const HeaderSection = ()=>{
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$navigation$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationMenu"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$navigation$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationMenuList"], {
                                     className: "flex items-center gap-8",
-                                    children: navItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$navigation$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationMenuItem"], {
+                                    children: navItems.slice(0, 5).map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$navigation$2d$menu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationMenuItem"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                                 href: item.href,
                                                 legacyBehavior: true,
@@ -572,32 +297,32 @@ const HeaderSection = ()=>{
                                                     children: item.label
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                                    lineNumber: 362,
+                                                    lineNumber: 60,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                                lineNumber: 361,
+                                                lineNumber: 59,
                                                 columnNumber: 21
                                             }, this)
                                         }, index, false, {
                                             fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                            lineNumber: 360,
+                                            lineNumber: 58,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                    lineNumber: 358,
+                                    lineNumber: 56,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                lineNumber: 357,
+                                lineNumber: 55,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                            lineNumber: 356,
+                            lineNumber: 54,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -612,187 +337,252 @@ const HeaderSection = ()=>{
                                     className: "object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                    lineNumber: 377,
+                                    lineNumber: 79,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                lineNumber: 376,
+                                lineNumber: 78,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                            lineNumber: 375,
+                            lineNumber: 77,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex items-center justify-end gap-4 flex-1",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                    onClick: ()=>router.push("/contact-us"),
-                                    className: "hidden md:block h-10 !rounded-full font-normal text-white bg-[#0f0f0f] hover:bg-gray-800 transition-colors",
-                                    children: "Get in touch"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "hidden md:block",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                        onClick: ()=>router.push("/contact-us"),
+                                        variant: "default",
+                                        size: "lg",
+                                        className: "rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors",
+                                        children: "Get in touch"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                        lineNumber: 93,
+                                        columnNumber: 15
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                    lineNumber: 389,
+                                    lineNumber: 92,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: toggleMobileMenu,
                                     className: "lg:hidden flex items-center justify-center",
                                     "aria-label": "Toggle menu",
-                                    children: mobileMenuOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
                                         size: 24,
                                         className: "text-gray-900"
                                     }, void 0, false, {
                                         fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                        lineNumber: 401,
-                                        columnNumber: 33
-                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
-                                        size: 24,
-                                        className: "text-gray-900"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                        lineNumber: 401,
-                                        columnNumber: 77
+                                        lineNumber: 111,
+                                        columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                    lineNumber: 396,
+                                    lineNumber: 103,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                            lineNumber: 388,
+                            lineNumber: 90,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                    lineNumber: 354,
+                    lineNumber: 52,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                lineNumber: 353,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                 children: mobileMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                     initial: {
-                        opacity: 0,
-                        y: -20
+                        opacity: 1,
+                        x: "-100%"
                     },
                     animate: {
                         opacity: 1,
-                        y: 0
+                        x: 0
                     },
                     exit: {
-                        opacity: 0,
-                        y: -20
+                        opacity: 1,
+                        x: "-100%"
                     },
                     transition: {
-                        duration: 0.3
+                        duration: 0.3,
+                        ease: "easeInOut"
                     },
-                    className: "lg:hidden fixed top-20 left-4 right-4 bg-[#f0f0f0] rounded-b-3xl shadow-lg overflow-hidden z-40",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].nav, {
-                        className: "flex flex-col p-6",
-                        initial: {
-                            height: 0
-                        },
-                        animate: {
-                            height: "auto"
-                        },
-                        exit: {
-                            height: 0
-                        },
-                        transition: {
-                            duration: 0.3
-                        },
-                        children: [
-                            navItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    initial: {
-                                        opacity: 0,
-                                        y: -10
-                                    },
-                                    animate: {
-                                        opacity: 1,
-                                        y: 0
-                                    },
-                                    exit: {
-                                        opacity: 0,
-                                        y: -10
-                                    },
-                                    transition: {
-                                        delay: index * 0.05
-                                    },
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                        href: item.href,
-                                        className: `block py-3 px-4 text-lg ${pathname === item.href ? "text-black font-medium" : "text-[#0f0f0fa6]"} hover:bg-gray-200 rounded-lg transition-colors`,
-                                        onClick: ()=>setMobileMenuOpen(false),
-                                        children: item.label
+                    className: "lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex justify-between items-center py-4 px-6 border-b border-gray-100",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: "/assets/AVS Logo.svg",
+                                        alt: "Logo",
+                                        width: 150,
+                                        height: 150,
+                                        className: "object-contain"
                                     }, void 0, false, {
                                         fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                        lineNumber: 432,
-                                        columnNumber: 19
+                                        lineNumber: 130,
+                                        columnNumber: 17
                                     }, this)
-                                }, index, false, {
-                                    fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                    lineNumber: 425,
-                                    columnNumber: 17
-                                }, this)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                                initial: {
-                                    opacity: 0,
-                                    y: -10
-                                },
-                                animate: {
-                                    opacity: 1,
-                                    y: 0
-                                },
-                                exit: {
-                                    opacity: 0,
-                                    y: -10
-                                },
-                                transition: {
-                                    delay: navItems.length * 0.05
-                                },
-                                className: "mt-6",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                    onClick: ()=>router.push("/contact-us"),
-                                    className: "w-full h-12 rounded-full font-normal text-white bg-[#0f0f0f] hover:bg-gray-800 transition-colors",
-                                    children: "Get in touch"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                    lineNumber: 449,
-                                    columnNumber: 17
+                                    lineNumber: 129,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: toggleMobileMenu,
+                                    className: "flex items-center justify-center",
+                                    "aria-label": "Close menu",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                        size: 24,
+                                        className: "text-gray-900"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                        lineNumber: 143,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                    lineNumber: 138,
+                                    columnNumber: 15
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                                lineNumber: 442,
-                                columnNumber: 15
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                        lineNumber: 417,
-                        columnNumber: 13
-                    }, this)
-                }, void 0, false, {
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                            lineNumber: 128,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].nav, {
+                            className: "flex flex-col p-6",
+                            transition: {
+                                duration: 0.3
+                            },
+                            children: [
+                                navItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                        initial: {
+                                            opacity: 0
+                                        },
+                                        animate: {
+                                            opacity: 1
+                                        },
+                                        transition: {
+                                            delay: index * 0.05
+                                        },
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                            href: item.href,
+                                            className: `block py-4 text-2xl font-medium ${pathname === item.href ? "text-black" : "text-gray-600"} hover:text-black transition-colors`,
+                                            onClick: ()=>setMobileMenuOpen(false),
+                                            children: item.label
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                            lineNumber: 157,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, index, false, {
+                                        fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                        lineNumber: 151,
+                                        columnNumber: 17
+                                    }, this)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                    initial: {
+                                        opacity: 0
+                                    },
+                                    animate: {
+                                        opacity: 1
+                                    },
+                                    transition: {
+                                        delay: navItems.length * 0.05
+                                    },
+                                    className: "mt-12",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                        onClick: ()=>{
+                                            router.push("/contact-us");
+                                            setMobileMenuOpen(false);
+                                        },
+                                        className: "w-auto h-12 rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors flex items-center gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "Get in touch"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                                lineNumber: 182,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "ml-1",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                    width: "16",
+                                                    height: "16",
+                                                    viewBox: "0 0 16 16",
+                                                    fill: "none",
+                                                    xmlns: "http://www.w3.org/2000/svg",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                        d: "M12.75 3H2.75C2.0625 3 1.50625 3.5625 1.50625 4.25L1.5 11.75C1.5 12.4375 2.0625 13 2.75 13H12.75C13.4375 13 14 12.4375 14 11.75V4.25C14 3.5625 13.4375 3 12.75 3ZM12.75 5.5L7.75 8.625L2.75 5.5V4.25L7.75 7.375L12.75 4.25V5.5Z",
+                                                        fill: "white"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                                        lineNumber: 191,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                                    lineNumber: 184,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                                lineNumber: 183,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                        lineNumber: 175,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                                    lineNumber: 169,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
+                            lineNumber: 146,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                    lineNumber: 410,
+                    lineNumber: 121,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                lineNumber: 408,
+                lineNumber: 119,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-        lineNumber: 350,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 };

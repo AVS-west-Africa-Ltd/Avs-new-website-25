@@ -423,7 +423,7 @@ const CallToActionSection = ()=>{
                             className: "flex items-center gap-[11px] flex-wrap justify-center",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[33px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
+                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[33px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
                                     children: "Facebook"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/CallToActionSection/CallToActionSection.tsx",
@@ -431,7 +431,7 @@ const CallToActionSection = ()=>{
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[36px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
+                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[36px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
                                     children: "Twitter"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/CallToActionSection/CallToActionSection.tsx",
@@ -439,7 +439,7 @@ const CallToActionSection = ()=>{
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[69px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
+                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[69px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
                                     children: "TikTok"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/CallToActionSection/CallToActionSection.tsx",
@@ -447,7 +447,7 @@ const CallToActionSection = ()=>{
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-4 py-2 rounded-[56px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
+                                    className: "text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[56px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors",
                                     children: "Instagram"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/CallToActionSection/CallToActionSection.tsx",

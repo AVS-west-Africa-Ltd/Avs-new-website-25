@@ -22,9 +22,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 const CaseStudiesSection = ()=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "w-full py-20 mt-[100px]",
+        className: "w-full py-20 mt-[40px] md:mt-[100px]",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "container mx-auto flex flex-col items-center gap-[72px]",
+            className: "container mx-auto flex flex-col items-center gap-[72px] px-4",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                     initial: {
@@ -42,7 +42,7 @@ const CaseStudiesSection = ()=>{
                     className: "flex flex-col items-center gap-6 max-w-[1040px] text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "font-raleway text-[56px] leading-tight text-[#0f0f0f]",
+                            className: "font-raleway text-4xl sm:text-4xl md:text-[56px] leading-tight text-[#0f0f0f]",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "font-semibold",
@@ -83,48 +83,48 @@ const CaseStudiesSection = ()=>{
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "font-raleway text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]",
+                            className: "font-raleway text-sm sm:text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]",
                             children: "Focus on building your vision while we take care of the day-to-day operations, ensuring seamless growth."
                         }, void 0, false, {
                             fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                            lineNumber: 29,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-center gap-2.5",
+                            className: "flex flex-col sm:flex-row items-center gap-4 sm:gap-2.5",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                     onClick: ()=>router.push("/case-studies"),
-                                    className: "h-10 w-[184px] rounded-[100px] bg-[#0f0f0f] text-white font-raleway font-normal text-[15px] tracking-[-0.30px]",
+                                    className: "h-10 w-full sm:w-[184px] rounded-[100px] bg-[#0f0f0f] text-white font-raleway font-normal text-[15px] tracking-[-0.30px]",
                                     children: "View our case studies"
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                                    lineNumber: 35,
+                                    lineNumber: 37,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                     onClick: ()=>router.push("/contact-us"),
                                     variant: "outline",
-                                    className: "h-10 w-[147px] rounded-[100px] bg-white text-[#0f0f0f] font-raleway font-normal text-[15px] tracking-[-0.30px] border-[#d8d8d8]",
+                                    className: "h-10 w-full sm:w-[147px] rounded-[100px] bg-white text-[#0f0f0f] font-raleway font-normal text-[15px] tracking-[-0.30px] border-[#d8d8d8]",
                                     children: [
                                         "Get in touch",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRightIcon$3e$__["ArrowRightIcon"], {
                                             className: "ml-2 h-[15px] w-[15px]"
                                         }, void 0, false, {
                                             fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                                            lineNumber: 48,
+                                            lineNumber: 50,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                                    lineNumber: 42,
+                                    lineNumber: 44,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                            lineNumber: 34,
+                            lineNumber: 36,
                             columnNumber: 11
                         }, this)
                     ]
@@ -150,20 +150,20 @@ const CaseStudiesSection = ()=>{
                                 ease: "easeOut",
                                 delay: 0.4
                             },
-                            className: "w-full md:w-[calc(66%-8px)] aspect-[928/545] rounded-3xl md:rounded-[32px] overflow-hidden",
+                            className: "w-full md:w-[calc(66%-8px)] aspect-[928/545] rounded-2xl md:rounded-[32px] overflow-hidden",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "w-full h-full bg-cover bg-center",
                                 style: {
-                                    backgroundImage: `url(/assets/one.svg)`
+                                    backgroundImage: 'url(/assets/homepage/one.png)'
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                                lineNumber: 61,
+                                lineNumber: 63,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                            lineNumber: 55,
+                            lineNumber: 57,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -180,26 +180,26 @@ const CaseStudiesSection = ()=>{
                                 ease: "easeOut",
                                 delay: 0.9
                             },
-                            className: "w-full md:w-[calc(34%-8px)] aspect-[456/545] rounded-3xl md:rounded-[32px] overflow-hidden",
+                            className: "w-full md:w-[calc(34%-8px)] aspect-[456/545] rounded-2xl md:rounded-[32px] overflow-hidden",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "w-full h-full bg-cover bg-center",
                                 style: {
-                                    backgroundImage: `url(/assets/two.svg)`
+                                    backgroundImage: 'url(/assets/homepage/two.png)'
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                                lineNumber: 76,
+                                lineNumber: 80,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                            lineNumber: 70,
+                            lineNumber: 74,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/sections/CaseStudiesSection/CaseStudiesSection.tsx",
-                    lineNumber: 53,
+                    lineNumber: 55,
                     columnNumber: 9
                 }, this)
             ]
@@ -329,78 +329,78 @@ const HeroSection = ()=>{
     const partnerLogos = [
         {
             id: 1,
-            src: "/assets/p1.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078723/p2_sajvyq.svg",
             alt: "Union"
         },
         {
             id: 2,
-            src: "/assets/p2.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078724/p3_hpffdz.svg",
             alt: "My Dex"
         },
         {
             id: 3,
-            src: "/assets/p3.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078725/p4_faw2pq.svg",
             alt: "Group 1"
         },
         {
             id: 4,
-            src: "/assets/p4.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078726/p5_penyme.svg",
             alt: "Group 2"
         },
         {
             id: 5,
-            src: "/assets/p5.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078727/p6_xbaumx.svg",
             alt: "Group 3"
         },
         {
             id: 6,
-            src: "/assets/p6.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078722/p1_b8kka0.svg",
             alt: "One Touch Football"
         },
         {
             id: 7,
-            src: "/assets/p7.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078730/p8_afoird.svg",
             alt: "ATE"
         },
         {
             id: 8,
-            src: "/assets/p8.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078731/p7_xmny98.svg",
             alt: "Logo 1"
         },
         {
             id: 9,
-            src: "/assets/p9.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078733/p10_zt40bp.svg",
             alt: "Group 4"
         },
         {
             id: 10,
-            src: "/assets/p10.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078735/p11_lt93re.svg",
             alt: "Group 5"
         },
         {
             id: 11,
-            src: "/assets/p11.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078736/p9_ohuz9i.svg",
             alt: "Group 6"
         },
         {
             id: 12,
-            src: "/assets/p12.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078738/p12_r6qtb8.svg",
             alt: "Group 7"
         },
         {
             id: 13,
-            src: "/assets/p13.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078738/p13_yn4dus.svg",
             alt: "Ye Logo"
         },
         {
             id: 14,
-            src: "/assets/p14.svg",
+            src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078739/p14_wwus8h.svg",
             alt: "Group 8"
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         ref: ref,
-        className: "w-full h-auto bg-[#021913] py-12",
+        className: "w-full bg-[#021913] py-10",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h2, {
                 initial: {
@@ -469,8 +469,8 @@ const HeroSection = ()=>{
                                             src: logo.src,
                                             alt: logo.alt,
                                             className: "max-w-[80%] max-h-[100px] object-contain",
-                                            width: 100,
-                                            height: 100
+                                            width: 200,
+                                            height: 200
                                         }, void 0, false, {
                                             fileName: "[project]/app/sections/HeroSection/HeroSection.tsx",
                                             lineNumber: 69,
@@ -756,25 +756,25 @@ const VisionSection = ()=>{
                                                         children: "View our services"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                                        lineNumber: 187,
+                                                        lineNumber: 188,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRightIcon$3e$__["ArrowRightIcon"], {
                                                         className: "ml-2 h-5 w-5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                                        lineNumber: 188,
+                                                        lineNumber: 189,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 184,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                            lineNumber: 178,
+                                            lineNumber: 179,
                                             columnNumber: 15
                                         }, this)
                                     ]
@@ -802,22 +802,19 @@ const VisionSection = ()=>{
                                             },
                                             className: "relative w-full max-w-[640px] h-[250px] md:h-[400px] lg:h-[436px] rounded-[26px] overflow-hidden",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                src: "/assets/link.svg",
+                                                src: "/assets/l1.svg",
                                                 alt: "Vision Image",
-                                                layout: "fill",
-                                                objectFit: "cover",
-                                                quality: 75,
-                                                // placeholder="blur"
-                                                // blurDataURL="/assets/image-placeholder.jpg"
+                                                width: 640,
+                                                height: 436,
                                                 className: "rounded-[26px]"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                                lineNumber: 202,
+                                                lineNumber: 213,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                            lineNumber: 196,
+                                            lineNumber: 197,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -846,14 +843,14 @@ const VisionSection = ()=>{
                                                             children: "successful market-ready products"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                                            lineNumber: 223,
+                                                            lineNumber: 232,
                                                             columnNumber: 19
                                                         }, this),
                                                         "."
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                                    lineNumber: 221,
+                                                    lineNumber: 229,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -861,19 +858,19 @@ const VisionSection = ()=>{
                                                     children: "Our strategic approach ensures seamless planning, development, and launch—helping you stay ahead in a competitive landscape. Whether you're refining a vision or ready to scale, we've got you covered."
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                                    lineNumber: 226,
+                                                    lineNumber: 238,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                            lineNumber: 215,
+                                            lineNumber: 223,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/sections/VisionSection/VisionSection.tsx",
-                                    lineNumber: 194,
+                                    lineNumber: 195,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -1038,25 +1035,25 @@ const ArrowIcon = ({ color = "black" })=>{
 const FooterSection = ()=>{
     const services = [
         {
-            image: "/assets/img1.svg",
+            image: "/assets/homepage/six.png",
             altText: "Mobile and website design",
             title: "Intuitive Mobile and Website Designs",
             description: "A great product isn't just functional—it's user-friendly and visually compelling. We design intuitive digital experiences that captivate users, drive engagement, and enhance brand credibility."
         },
         {
-            image: "/assets/img2.svg",
+            image: "/assets/homepage/eight.png",
             altText: "Funding",
             title: "Funding Your Vision",
             description: "Securing the right financial backing is crucial for startup success. We guide you through investor connections, pitch deck creation, and financial planning to help you attract the right funding for growth."
         },
         {
-            image: "/assets/img3.svg",
+            image: "/assets/homepage/seven.png",
             altText: "Brand strategy",
             title: "Building a Strong Brand Strategy",
             description: "Your brand is more than a logo—it's your identity. We craft cohesive brand strategies that align with your mission, differentiate you from competitors, and create a lasting impression in the market."
         },
         {
-            image: "/assets/img4.svg",
+            image: "/assets/homepage/nine.png",
             altText: "Product development",
             title: "Product Development & Innovation",
             description: "From ideation to launch, we focus on building high-quality, scalable products. Our structured approach ensures seamless development, robust architecture, and efficient execution tailored to your business needs."
@@ -1079,7 +1076,7 @@ const FooterSection = ()=>{
                     transition: {
                         duration: 1
                     },
-                    className: "flex justify-between items-center mb-12 flex-col sm:flex-row text-center sm:text-left",
+                    className: "flex justify-between  gap-[30px] items-center mb-12 flex-col sm:flex-row text-center sm:text-left",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                             className: "text-3xl font-bold text-stone-950 sm:text-2xl",
@@ -1243,7 +1240,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$imag
 const FeaturesSection = ()=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "w-full bg-white py-16",
+        className: "w-full bg-white py-16 overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "container mx-auto flex flex-col md:flex-row items-center gap-6 px-4",
             children: [
@@ -1259,7 +1256,7 @@ const FeaturesSection = ()=>{
                     transition: {
                         duration: 0.8
                     },
-                    className: "w-full md:w-1/2",
+                    className: "w-full md:w-1/2 min-w-0",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col gap-8 max-w-[593px]",
                         children: [
@@ -1307,7 +1304,7 @@ const FeaturesSection = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/sections/FeaturesSection/FeaturesSection.tsx",
-                                        lineNumber: 43,
+                                        lineNumber: 44,
                                         columnNumber: 15
                                     }, this)
                                 ]
@@ -1340,13 +1337,13 @@ const FeaturesSection = ()=>{
                         duration: 0.8,
                         delay: 0.2
                     },
-                    className: "w-full md:w-1/2 mt-8 md:mt-0",
+                    className: "w-full md:w-1/2 mt-8 md:mt-0 min-w-0",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                         className: "w-full h-auto bg-[#f0f0f0] rounded-2xl p-4 shadow-md overflow-hidden",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             className: "w-full h-auto object-cover rounded-xl",
                             alt: "Funding options illustration",
-                            src: "/assets/link2.svg",
+                            src: "/assets/homepage/ten.png",
                             width: 100,
                             height: 100
                         }, void 0, false, {
@@ -1394,14 +1391,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 function CaseStudyCard({ imageSrc, title, subtitle, className, url }) {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "relative",
+        className: "relative h-[550px] w-full",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 src: imageSrc,
                 alt: title,
-                className: "object-contain z-0 rounded-3xl aspect-[0.8] w-full max-md:max-w-full",
-                width: 100,
-                height: 100
+                className: " z-0 rounded-3xl aspect-[0.8] w-full max-md:max-w-full h-full",
+                // width={500}
+                // height={500}
+                layout: "fill"
             }, void 0, false, {
                 fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
                 lineNumber: 23,
@@ -1419,7 +1417,7 @@ function CaseStudyCard({ imageSrc, title, subtitle, className, url }) {
                                 children: title
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
-                                lineNumber: 34,
+                                lineNumber: 35,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1427,13 +1425,13 @@ function CaseStudyCard({ imageSrc, title, subtitle, className, url }) {
                                 children: subtitle
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
-                                lineNumber: 40,
+                                lineNumber: 41,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
-                        lineNumber: 33,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1445,7 +1443,7 @@ function CaseStudyCard({ imageSrc, title, subtitle, className, url }) {
                                 children: "View more"
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
-                                lineNumber: 48,
+                                lineNumber: 49,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -1454,19 +1452,19 @@ function CaseStudyCard({ imageSrc, title, subtitle, className, url }) {
                                 className: "object-contain shrink-0 aspect-square w-[15px]"
                             }, void 0, false, {
                                 fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
-                                lineNumber: 49,
+                                lineNumber: 50,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
-                        lineNumber: 44,
+                        lineNumber: 45,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/sections/TestimonialsSection/CaseStudyCard.tsx",
-                lineNumber: 30,
+                lineNumber: 31,
                 columnNumber: 7
             }, this)
         ]
@@ -1512,174 +1510,181 @@ function ActionCard({ variant, imageSrc, text, backgroundImage, multiline, url }
                     lineNumber: 33,
                     columnNumber: 11
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute top-1 right-1",
-                    children: variant === "light" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        width: "41",
-                        height: "41",
-                        viewBox: "0 0 41 41",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
-                                clipPath: "url(#clip0_411_950)",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                        d: "M17.84 14.6666V16.3333H23.3317L13.6733 25.9916L14.8483 27.1666L24.5067 17.5083V23H26.1733V14.6666H17.84Z",
-                                        fill: "#0F0F0F"
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    href: `/${url}`,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute top-1 right-1",
+                        children: variant === "light" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "41",
+                            height: "41",
+                            viewBox: "0 0 41 41",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                                    clipPath: "url(#clip0_411_950)",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M17.84 14.6666V16.3333H23.3317L13.6733 25.9916L14.8483 27.1666L24.5067 17.5083V23H26.1733V14.6666H17.84Z",
+                                            fill: "#0F0F0F"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                            lineNumber: 51,
+                                            columnNumber: 21
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                                            x: "0.839844",
+                                            y: "1",
+                                            width: "39",
+                                            height: "39",
+                                            rx: "19.5",
+                                            stroke: "#0F0F0F",
+                                            strokeOpacity: "0.65"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                            lineNumber: 55,
+                                            columnNumber: 21
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                    lineNumber: 50,
+                                    columnNumber: 19
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
+                                        id: "clip0_411_950",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                                            x: "0.339844",
+                                            y: "0.5",
+                                            width: "40",
+                                            height: "40",
+                                            rx: "20",
+                                            fill: "white"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                            lineNumber: 67,
+                                            columnNumber: 23
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                        lineNumber: 51,
-                                        columnNumber: 19
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
-                                        x: "0.839844",
-                                        y: "1",
-                                        width: "39",
-                                        height: "39",
-                                        rx: "19.5",
-                                        stroke: "#0F0F0F",
-                                        strokeOpacity: "0.65"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                        lineNumber: 55,
-                                        columnNumber: 19
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                lineNumber: 50,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
-                                    id: "clip0_411_950",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
-                                        x: "0.339844",
-                                        y: "0.5",
-                                        width: "40",
-                                        height: "40",
-                                        rx: "20",
-                                        fill: "white"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                        lineNumber: 67,
+                                        lineNumber: 66,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                    lineNumber: 66,
+                                    lineNumber: 65,
                                     columnNumber: 19
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                lineNumber: 65,
-                                columnNumber: 17
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                        lineNumber: 43,
-                        columnNumber: 15
-                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                        width: "41",
-                        height: "41",
-                        viewBox: "0 0 41 41",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
-                                clipPath: "url(#clip0_411_956)",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                        d: "M18.1901 14.9966V16.6632H23.6818L14.0234 26.3216L15.1984 27.4966L24.8568 17.8382V23.3299H26.5234V14.9966H18.1901Z",
-                                        fill: "white"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                            lineNumber: 43,
+                            columnNumber: 17
+                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "41",
+                            height: "41",
+                            viewBox: "0 0 41 41",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                                    clipPath: "url(#clip0_411_956)",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M18.1901 14.9966V16.6632H23.6818L14.0234 26.3216L15.1984 27.4966L24.8568 17.8382V23.3299H26.5234V14.9966H18.1901Z",
+                                            fill: "white"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                            lineNumber: 87,
+                                            columnNumber: 21
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                                            x: "1.18994",
+                                            y: "1.32996",
+                                            width: "39",
+                                            height: "39",
+                                            rx: "19.5",
+                                            stroke: "white",
+                                            strokeOpacity: "0.8"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                            lineNumber: 91,
+                                            columnNumber: 21
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                    lineNumber: 86,
+                                    columnNumber: 19
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
+                                        id: "clip0_411_956",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                                            x: "0.689941",
+                                            y: "0.829956",
+                                            width: "40",
+                                            height: "40",
+                                            rx: "20",
+                                            fill: "white"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                                            lineNumber: 103,
+                                            columnNumber: 23
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                        lineNumber: 87,
-                                        columnNumber: 19
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
-                                        x: "1.18994",
-                                        y: "1.32996",
-                                        width: "39",
-                                        height: "39",
-                                        rx: "19.5",
-                                        stroke: "white",
-                                        strokeOpacity: "0.8"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                        lineNumber: 91,
-                                        columnNumber: 19
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                lineNumber: 86,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
-                                    id: "clip0_411_956",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
-                                        x: "0.689941",
-                                        y: "0.829956",
-                                        width: "40",
-                                        height: "40",
-                                        rx: "20",
-                                        fill: "white"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                        lineNumber: 103,
+                                        lineNumber: 102,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                    lineNumber: 102,
+                                    lineNumber: 101,
                                     columnNumber: 19
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                lineNumber: 101,
-                                columnNumber: 17
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
+                            lineNumber: 79,
+                            columnNumber: 17
+                        }, this)
+                    }, void 0, false, {
                         fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                        lineNumber: 79,
-                        columnNumber: 15
+                        lineNumber: 41,
+                        columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                    lineNumber: 41,
+                    lineNumber: 40,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     href: `/${url}`,
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "absolute bottom-1",
+                        className: "absolute bottom-1 text-3xl md:text-2xl font-semibold tracking-tighter",
                         children: multiline ? text.split(" ").map((word, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                 children: [
                                     word,
                                     i === 2 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                        lineNumber: 123,
+                                        lineNumber: 124,
                                         columnNumber: 34
                                     }, this) : " "
                                 ]
                             }, i, true, {
                                 fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                                lineNumber: 121,
+                                lineNumber: 122,
                                 columnNumber: 21
                             }, this)) : text
                     }, void 0, false, {
                         fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                        lineNumber: 118,
+                        lineNumber: 119,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/sections/TestimonialsSection/ActionCard.tsx",
-                    lineNumber: 117,
+                    lineNumber: 118,
                     columnNumber: 11
                 }, this)
             ]
@@ -1826,10 +1831,10 @@ function CaseStudiesShowcase() {
                     },
                     className: "lg:w-2/3 lg:pl-5 md:w-full w-full flex items-end",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch",
+                        className: "flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch w-full he",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$sections$2f$TestimonialsSection$2f$CaseStudyCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CaseStudyCard"], {
-                                imageSrc: "/assets/case1.svg",
+                                imageSrc: "/assets/homepage/three.png",
                                 title: "Rateo",
                                 subtitle: "Redefining Workplace",
                                 className: "bottom-3",
@@ -1840,7 +1845,7 @@ function CaseStudiesShowcase() {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$sections$2f$TestimonialsSection$2f$CaseStudyCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CaseStudyCard"], {
-                                imageSrc: "/assets/case2.svg",
+                                imageSrc: "/assets/homepage/four.png",
                                 title: "One Touch Football",
                                 subtitle: "Digital home for grassroots football",
                                 className: "bottom-3",
@@ -1879,55 +1884,6 @@ function CaseStudiesShowcase() {
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-// "use client"
-// import React from "react";
-// import { motion } from "framer-motion";
-// import { useInView } from "react-intersection-observer";
-// export const AIFeatureSection = () => {
-//   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-//   return (
-//     <motion.div
-//       ref={ref}
-//       initial={{ opacity: 0, x: -100 }}
-//       animate={inView ? { opacity: 1, x: 0 } : {}}
-//       transition={{ duration: 1.2, ease: "easeOut" }}
-//       className="overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12"
-//       style={{
-//         backgroundImage: `url(/assets/bg-s.svg)`,
-//         backgroundSize: "cover",
-//         backgroundPosition: "center",
-//         backgroundRepeat: "no-repeat",
-//       }}
-//     >
-//       <div className="flex flex-col md:flex-row gap-5">
-//         <motion.div
-//           initial={{ opacity: 0, x: -50 }}
-//           animate={inView ? { opacity: 1, x: 0 } : {}}
-//           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-//           className="w-full lg:w-[40%]"
-//         >
-//           <section className="flex flex-col items-start self-stretch my-auto w-full font-semibold text-white py-8 md:py-0">
-//             <div className="rounded-[47px] border border-white bg-[rgba(255,255,255,0.30)] backdrop-blur-[35.5px] py-2.5 px-3.5">
-//               Coming soon on A Venture Studio
-//             </div>
-//             <h1 className="mt-4 text-3xl md:text-4xl lg:text-6xl">
-//               <span style={{ fontWeight: 500 }}>
-//                 Build Smarter, Innovate Faster with
-//               </span>{" "}
-//               <span style={{ color: "rgba(255,255,255,1)" }}>AI</span>
-//             </h1>
-//             <p className="self-stretch mt-4 md:mt-7 text-sm md:text-base tracking-tight leading-5 md:leading-6">
-//               Unlock the power of artificial intelligence to transform your
-//               products. From automation to intelligent insights, we&apos;re crafting
-//               next-gen AI solutions to drive your success. Stay tuned—exciting
-//               advancements are on the horizon!
-//             </p>
-//           </section>
-//         </motion.div>
-//       </div>
-//     </motion.div>
-//   );
-// };
 __turbopack_context__.s({
     "AIFeatureSection": (()=>AIFeatureSection)
 });
@@ -1946,6 +1902,15 @@ const AIFeatureSection = ()=>{
         threshold: 0.2
     });
     const [isVisible, setIsVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const handleResize = ()=>{
+            setIsMobile(window.matchMedia("(max-width: 767px)").matches);
+        };
+        handleResize(); // Set initial value
+        window.addEventListener('resize', handleResize);
+        return ()=>window.removeEventListener('resize', handleResize);
+    }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (inView) {
             setIsVisible(true);
@@ -1953,95 +1918,107 @@ const AIFeatureSection = ()=>{
     }, [
         inView
     ]);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: `relative overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12 transition-opacity transform duration-1200 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-24"}`,
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                src: "/assets/bg-s.svg" // Convert to WebP for better performance
-                ,
-                alt: "AI Feature Background",
-                layout: "fill",
-                objectFit: "cover",
-                quality: 75,
-                priority: true,
-                className: "absolute inset-0 z-0"
-            }, void 0, false, {
-                fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                lineNumber: 78,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 flex flex-col md:flex-row gap-5",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: `w-full lg:w-[40%] transition-opacity transform duration-1000 ease-out delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`,
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                        className: "flex flex-col items-start self-stretch my-auto w-full font-semibold text-white py-8 md:py-0",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "rounded-[47px] border border-white bg-[rgba(255,255,255,0.30)] backdrop-blur-[35.5px] py-2.5 px-3.5",
-                                children: "Coming soon on A Venture Studio"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                                lineNumber: 95,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "mt-4 text-3xl md:text-4xl lg:text-6xl",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        style: {
-                                            fontWeight: 500
-                                        },
-                                        children: "Build Smarter, Innovate Faster with"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                                        lineNumber: 99,
-                                        columnNumber: 15
-                                    }, this),
-                                    " ",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-white",
-                                        children: "AI"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                                        lineNumber: 102,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                                lineNumber: 98,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "self-stretch mt-4 md:mt-7 text-sm md:text-base tracking-tight leading-5 md:leading-6",
-                                children: "Unlock the power of artificial intelligence to transform your products. From automation to intelligent insights, we're crafting next-gen AI solutions to drive your success. Stay tuned—exciting advancements are on the horizon!"
-                            }, void 0, false, {
-                                fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                                lineNumber: 104,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        className: "p-4 md:p-0",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            ref: ref,
+            className: `relative overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12 transition-opacity transform duration-1200 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-24"} ${isMobile ? "!h-[900px]" : ""}`,
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute inset-0 z-0",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        src: isMobile ? "/assets/cont.jpeg" : "/assets/bg-s.svg",
+                        alt: "AI Feature Background",
+                        fill: true,
+                        quality: 75,
+                        priority: true,
+                        className: "object-cover"
+                    }, void 0, false, {
                         fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                        lineNumber: 94,
+                        lineNumber: 39,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                    lineNumber: 89,
+                    lineNumber: 38,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative z-10 flex flex-col md:flex-row gap-5 h-full",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: `w-full lg:w-[40%] transition-opacity transform duration-1000 ease-out delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`,
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                            className: "flex flex-col items-start self-stretch my-auto w-full font-semibold text-white",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "rounded-[47px] border border-white bg-[rgba(255,255,255,0.30)] backdrop-blur-[35.5px] py-2.5 px-3.5",
+                                    children: "Coming soon on A Venture Studio"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                                    lineNumber: 58,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                    className: "mt-4 text-3xl md:text-4xl lg:text-6xl",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            style: {
+                                                fontWeight: 500
+                                            },
+                                            children: "Build Smarter, Innovate Faster with"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                                            lineNumber: 62,
+                                            columnNumber: 17
+                                        }, this),
+                                        " ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-white",
+                                            children: "AI"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                                            lineNumber: 65,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                                    lineNumber: 61,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "self-stretch mt-4 md:mt-7 text-sm md:text-base tracking-tight leading-5 md:leading-6",
+                                    children: "Unlock the power of artificial intelligence to transform your products. From automation to intelligent insights, we're crafting next-gen AI solutions to drive your success. Stay tuned—exciting advancements are on the horizon!"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                                    lineNumber: 67,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                            lineNumber: 57,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                        lineNumber: 50,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+                    lineNumber: 49,
                     columnNumber: 9
                 }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-                lineNumber: 88,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
+            ]
+        }, void 0, true, {
+            fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
+            lineNumber: 31,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "[project]/app/sections/IntroductionSection/AIFeatureSection.tsx",
-        lineNumber: 71,
+        lineNumber: 30,
         columnNumber: 5
     }, this);
 };
