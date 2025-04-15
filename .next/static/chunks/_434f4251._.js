@@ -1058,21 +1058,21 @@ function CurvedCarousel() {
         ]
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "jsx-3f0da43da443c311" + " " + "slider-container relative w-full py-12",
+        className: "jsx-6129fc20940e89c1" + " " + "slider-container relative w-full py-12",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-3f0da43da443c311" + " " + "curved-carousel-wrapper",
+                className: "jsx-6129fc20940e89c1" + " " + "curved-carousel-wrapper",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$slick$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     ...settings,
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-3f0da43da443c311" + " " + "",
+                            className: "jsx-6129fc20940e89c1" + " " + "",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-3f0da43da443c311" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
+                                className: "jsx-6129fc20940e89c1" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/assets/ps3.svg",
                                     alt: "Slide 1",
-                                    className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
+                                    className: "jsx-6129fc20940e89c1" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
                                     lineNumber: 87,
@@ -1089,13 +1089,13 @@ function CurvedCarousel() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-3f0da43da443c311" + " " + "",
+                            className: "jsx-6129fc20940e89c1" + " " + "",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-3f0da43da443c311" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
+                                className: "jsx-6129fc20940e89c1" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/assets/ps3.svg",
                                     alt: "Slide 2",
-                                    className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
+                                    className: "jsx-6129fc20940e89c1" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
                                     lineNumber: 97,
@@ -1112,13 +1112,13 @@ function CurvedCarousel() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-3f0da43da443c311" + " " + "",
+                            className: "jsx-6129fc20940e89c1" + " " + "",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-3f0da43da443c311" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
+                                className: "jsx-6129fc20940e89c1" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/assets/ps3.svg",
                                     alt: "Slide 3",
-                                    className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
+                                    className: "jsx-6129fc20940e89c1" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
                                     lineNumber: 107,
@@ -1135,13 +1135,13 @@ function CurvedCarousel() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-3f0da43da443c311" + " " + "",
+                            className: "jsx-6129fc20940e89c1" + " " + "",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-3f0da43da443c311" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
+                                className: "jsx-6129fc20940e89c1" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/assets/ps3.svg",
                                     alt: "Slide 4",
-                                    className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
+                                    className: "jsx-6129fc20940e89c1" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
                                     lineNumber: 117,
@@ -1158,13 +1158,13 @@ function CurvedCarousel() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "jsx-3f0da43da443c311" + " " + "",
+                            className: "jsx-6129fc20940e89c1" + " " + "",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-3f0da43da443c311" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
+                                className: "jsx-6129fc20940e89c1" + " " + "h-full rounded-lg overflow-hidden flex justify-center items-center",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/assets/ps3.svg",
                                     alt: "Slide 5",
-                                    className: "jsx-3f0da43da443c311" + " " + "w-full h-full object-contain"
+                                    className: "jsx-6129fc20940e89c1" + " " + "w-full h-full object-contain"
                                 }, void 0, false, {
                                     fileName: "[project]/app/our-process/page.tsx",
                                     lineNumber: 127,
@@ -1192,8 +1192,8 @@ function CurvedCarousel() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                id: "3f0da43da443c311",
-                children: ".curved-carousel-wrapper.jsx-3f0da43da443c311{perspective:1200px;padding:1rem 0;overflow:hidden}.slick-track{transform-style:preserve-3d;align-items:center;display:flex}.slick-slide{border-radius:12px;margin:0 6px;transition:all .4s;overflow:hidden}.slick-center{z-index:10;transform:scale(1.05);box-shadow:0 10px 20px #00000030,0 6px 6px #0000003b}:not(.slick-center).slick-slide{transform-origin:50%;filter:brightness(.8)}:not(.slick-center):nth-child(odd).slick-slide{transform:scale(.9)translateY(10px)rotateY(-8deg)}:not(.slick-center):nth-child(2n).slick-slide{transform:scale(.9)translateY(-10px)rotateY(8deg)}.slick-dots{bottom:-30px}.slick-dots li{margin:0 2px}.slick-dots li button:before{opacity:.3;font-size:8px}.slick-dots .slick-activeli button:before{opacity:.8}"
+                id: "6129fc20940e89c1",
+                children: ".curved-carousel-wrapper.jsx-6129fc20940e89c1{perspective:1200px;padding:1rem 0;overflow:hidden}.slick-track{transform-style:preserve-3d;align-items:center;display:flex}.slick-slide{border-radius:12px;margin:0 6px;transition:all .4s;overflow:hidden}.slick-center{z-index:10;transform:scale(1.05);box-shadow:0 10px 20px #00000030,0 6px 6px #0000003b}:not(.slick-center).slick-slide{transform-origin:50%;filter:brightness(.8)}:not(.slick-center):nth-child(odd).slick-slide{transform:scale(.9)translateY(10px)rotateY(-8deg)}:not(.slick-center):nth-child(2n).slick-slide{transform:scale(.9)translateY(-10px)rotateY(8deg)}.slick-dots{bottom:-30px}.slick-dots li{margin:0 2px}.slick-dots li button:before{opacity:.3;font-size:8px}.slick-dots .slick-activeli button:before{opacity:.8}"
             }, void 0, false, void 0, this)
         ]
     }, void 0, true, {
