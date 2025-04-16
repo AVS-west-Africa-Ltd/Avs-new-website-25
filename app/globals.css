@@ -266,3 +266,18 @@
   border: 1px solid #ddd;
   box-sizing: border-box;
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .canvas-container, .canvas-container * {
+    visibility: visible;
+  }
+  .canvas-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}

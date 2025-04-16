@@ -407,17 +407,17 @@ const TemplateCard = ({ imageSrc, title, author, downloads, className = "", imag
                                     src: imageSrc,
                                     alt: "",
                                     fill: true,
-                                    sizes: "(max-width: 768px) 100vw, 430px",
+                                    // sizes="(max-width: 768px) 100vw, 430px"
                                     className: "object-cover",
                                     priority: true
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/Resources/Resources.tsx",
-                                    lineNumber: 59,
+                                    lineNumber: 62,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/Resources/Resources.tsx",
-                                lineNumber: 58,
+                                lineNumber: 61,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -425,13 +425,13 @@ const TemplateCard = ({ imageSrc, title, author, downloads, className = "", imag
                                 children: overlayText
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/Resources/Resources.tsx",
-                                lineNumber: 68,
+                                lineNumber: 71,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/Resources/Resources.tsx",
-                        lineNumber: 57,
+                        lineNumber: 60,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: `relative ${imageClassName}`,
@@ -446,17 +446,17 @@ const TemplateCard = ({ imageSrc, title, author, downloads, className = "", imag
                             className: "object-contain"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/Resources/Resources.tsx",
-                            lineNumber: 81,
+                            lineNumber: 84,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/resources/Resources/Resources.tsx",
-                        lineNumber: 73,
+                        lineNumber: 76,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/resources/Resources/Resources.tsx",
-                    lineNumber: 53,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -470,7 +470,7 @@ const TemplateCard = ({ imageSrc, title, author, downloads, className = "", imag
                                     children: title
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/Resources/Resources.tsx",
-                                    lineNumber: 93,
+                                    lineNumber: 96,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -482,19 +482,19 @@ const TemplateCard = ({ imageSrc, title, author, downloads, className = "", imag
                                             children: author
                                         }, void 0, false, {
                                             fileName: "[project]/app/resources/Resources/Resources.tsx",
-                                            lineNumber: 95,
+                                            lineNumber: 98,
                                             columnNumber: 18
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/resources/Resources/Resources.tsx",
-                                    lineNumber: 94,
+                                    lineNumber: 97,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/resources/Resources/Resources.tsx",
-                            lineNumber: 92,
+                            lineNumber: 95,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -502,19 +502,19 @@ const TemplateCard = ({ imageSrc, title, author, downloads, className = "", imag
                             children: downloads
                         }, void 0, false, {
                             fileName: "[project]/app/resources/Resources/Resources.tsx",
-                            lineNumber: 98,
+                            lineNumber: 101,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/resources/Resources/Resources.tsx",
-                    lineNumber: 91,
+                    lineNumber: 94,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/resources/Resources/Resources.tsx",
-            lineNumber: 52,
+            lineNumber: 55,
             columnNumber: 7
         }, this)
     }, void 0, false, {
@@ -525,75 +525,217 @@ const TemplateCard = ({ imageSrc, title, author, downloads, className = "", imag
 };
 _c1 = TemplateCard;
 const ResourceSection = ()=>{
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "container mx-auto my-10 px-4 md:px-0",
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateHeader, {
-                title: "Ecosystem Mapping Templates",
-                description: "Identify key players, relationships, and opportunities in your industry to position your startup strategically."
-            }, void 0, false, {
-                fileName: "[project]/app/resources/Resources/Resources.tsx",
-                lineNumber: 110,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-wrap gap-4 items-center mt-6 w-full max-md:max-w-full max-md:flex-col",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "container mx-auto my-10 px-4 md:px-0",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
-                        imageSrc: "/api/placeholder/430/313" // Replace with your actual image path
-                        ,
-                        title: "Classic naming workshop",
-                        author: "A Venture Studio",
-                        downloads: "2.3k downloads",
-                        className: "pt-5 text-5xl text-white bg-teal-900",
-                        hasOverlayText: true,
-                        overlayText: "Ecosystem Mapping",
-                        link: "/templates/Classic%20Naming%20Workshop"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateHeader, {
+                        title: "Ecosystem Mapping Templates",
+                        description: "Identify key players, relationships, and opportunities in your industry to position your startup strategically."
                     }, void 0, false, {
                         fileName: "[project]/app/resources/Resources/Resources.tsx",
-                        lineNumber: 115,
+                        lineNumber: 114,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
-                        imageSrc: "/api/placeholder/430/307" // Replace with your actual image path
-                        ,
-                        title: "Classic naming workshop",
-                        author: "A Venture Studio",
-                        downloads: "2.3k downloads",
-                        className: "pt-6 bg-orange-200",
-                        imageClassName: "aspect-[1.4]",
-                        link: "/templates/Classic%20Naming%20Workshop"
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex flex-wrap gap-4 items-center mt-6 w-full max-md:max-w-full max-md:flex-col",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/12.png" // Replace with your actual image path
+                                ,
+                                title: "Classic naming workshop",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-5 text-5xl text-white bg-[#1C4240]",
+                                hasOverlayText: true,
+                                overlayText: "",
+                                link: "/resources/1"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 119,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/1.png" // Replace with your actual image path
+                                ,
+                                title: "Classic naming workshop",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-6 bg-[#F0D8B1]",
+                                imageClassName: "aspect-[1.4]",
+                                link: "/resources/1"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 129,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/11.png" // Replace with your actual image path
+                                ,
+                                title: "Classic naming workshop",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-11 bg-[#939393]",
+                                imageClassName: "aspect-[1.5]",
+                                link: "/resources/1"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 138,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/app/resources/Resources/Resources.tsx",
-                        lineNumber: 125,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
-                        imageSrc: "/api/placeholder/430/286" // Replace with your actual image path
-                        ,
-                        title: "Classic naming workshop",
-                        author: "A Venture Studio",
-                        downloads: "2.3k downloads",
-                        className: "pt-11 bg-neutral-400",
-                        imageClassName: "aspect-[1.5]",
-                        link: "/templates/Classic%20Naming%20Workshop"
-                    }, void 0, false, {
-                        fileName: "[project]/app/resources/Resources/Resources.tsx",
-                        lineNumber: 134,
+                        lineNumber: 118,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/Resources/Resources.tsx",
-                lineNumber: 114,
+                lineNumber: 113,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "container mx-auto my-10 px-4 md:px-0",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateHeader, {
+                        title: "User flow charts",
+                        description: "Convey your ideas with user flows."
+                    }, void 0, false, {
+                        fileName: "[project]/app/resources/Resources/Resources.tsx",
+                        lineNumber: 151,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex flex-wrap gap-4 items-center mt-6 w-full max-md:max-w-full max-md:flex-col",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/2.png" // Replace with your actual image path
+                                ,
+                                title: "Ultimate User Flow Chart Template",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-5 text-5xl text-white bg-[]",
+                                hasOverlayText: true,
+                                overlayText: "",
+                                link: "/resources/3"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 156,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/21.png" // Replace with your actual image path
+                                ,
+                                title: "Onboarding Flow chart template",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-6 bg-[#EEB1F0]",
+                                imageClassName: "aspect-[1.4]",
+                                link: "/resources/3"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 166,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/22.png" // Replace with your actual image path
+                                ,
+                                title: "e-commerce Flowchart Template",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-11 bg-[#FFE2D3]",
+                                imageClassName: "aspect-[1.5]",
+                                link: "/resources/3"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 175,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/resources/Resources/Resources.tsx",
+                        lineNumber: 155,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                lineNumber: 150,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "container mx-auto my-10 px-4 md:px-0",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateHeader, {
+                        title: "User flow charts",
+                        description: "Convey your ideas with user flows."
+                    }, void 0, false, {
+                        fileName: "[project]/app/resources/Resources/Resources.tsx",
+                        lineNumber: 188,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex flex-wrap gap-4 items-center mt-6 w-full max-md:max-w-full max-md:flex-col",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/3.png" // Replace with your actual image path
+                                ,
+                                title: "Ultimate User Flow Chart Template",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-5 text-5xl text-white bg-[]",
+                                hasOverlayText: true,
+                                overlayText: "",
+                                link: "/resources/2"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 193,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/31.png" // Replace with your actual image path
+                                ,
+                                title: "Onboarding Flow chart template",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-6 bg-[#EEB1F0",
+                                imageClassName: "aspect-[1.4]",
+                                link: "/resources/2"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 203,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
+                                imageSrc: "/assets/resources/33.png" // Replace with your actual image path
+                                ,
+                                title: "e-commerce Flowchart Template",
+                                author: "A Venture Studio",
+                                downloads: "2.3k downloads",
+                                className: "pt-11 bg-[#FFE2D3",
+                                imageClassName: "aspect-[1.5]",
+                                link: "/resources/2"
+                            }, void 0, false, {
+                                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                                lineNumber: 212,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/resources/Resources/Resources.tsx",
+                        lineNumber: 192,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/resources/Resources/Resources.tsx",
+                lineNumber: 187,
                 columnNumber: 7
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "[project]/app/resources/Resources/Resources.tsx",
-        lineNumber: 109,
-        columnNumber: 5
-    }, this);
+    }, void 0, true);
 };
 _c2 = ResourceSection;
 const __TURBOPACK__default__export__ = ResourceSection;

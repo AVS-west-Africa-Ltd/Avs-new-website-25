@@ -287,12 +287,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/input.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/badge.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/textarea.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jspdf/dist/jspdf.es.min.js [app-client] (ecmascript)");
+// @ts-ignore
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$dom$2d$to$2d$image$2f$src$2f$dom$2d$to$2d$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/dom-to-image/src/dom-to-image.js [app-client] (ecmascript)");
 ;
-var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -308,6 +311,19 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 function Home() {
     _s();
     const [isOpen, setIsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        projectName: "",
+        client: "",
+        keyPartners: [],
+        keyActivities: [],
+        keyResources: [],
+        valueProposition: "",
+        customerRelationships: "",
+        customerSegments: [],
+        channels: [],
+        costStructure: [],
+        revenueStreams: []
+    });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: isOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "bg-white flex flex-row justify-center mt-[100px] container mx-auto w-full pb-20",
@@ -316,12 +332,12 @@ function Home() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FormSection, {}, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 33,
+                        lineNumber: 50,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(HowItWorksSection, {}, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 34,
+                        lineNumber: 51,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -335,25 +351,28 @@ function Home() {
                                 children: "Fill out the following form to frame your business"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 41,
+                                lineNumber: 58,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                 className: "py-10",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(BusinessDetailsSection, {}, void 0, false, {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(BusinessDetailsSection, {
+                                    formData: formData,
+                                    setFormData: setFormData
+                                }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 45,
+                                    lineNumber: 62,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 44,
+                                lineNumber: 61,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 35,
+                        lineNumber: 52,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -364,52 +383,52 @@ function Home() {
                             children: "Generate Business Model"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 49,
+                            lineNumber: 69,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 48,
+                        lineNumber: 68,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 32,
+                lineNumber: 49,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/resources/[id]/page.tsx",
-            lineNumber: 31,
+            lineNumber: 48,
             columnNumber: 9
         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "mt-[100px]",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Canvas, {
                 setIsOpen: setIsOpen,
-                isOpen: isOpen
+                isOpen: isOpen,
+                formData: formData
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 57,
+                lineNumber: 80,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/resources/[id]/page.tsx",
-            lineNumber: 56,
+            lineNumber: 79,
             columnNumber: 9
         }, this)
     }, void 0, false);
 }
-_s(Home, "mEi83NlPXQzy/XIDfTYWzOSvaHw=");
+_s(Home, "+fltiwoAUMcji1ebhvs2hmbBT68=");
 _c = Home;
 const HowItWorksSection = ()=>{
-    // Data for the steps to make the code more maintainable
     const steps = [
         {
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pencil$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__PencilIcon$3e$__["PencilIcon"], {
                 className: "w-[29px] h-[29px] text-white"
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 68,
+                lineNumber: 90,
                 columnNumber: 13
             }, this),
             description: "Fill out the canvas fields below to clarify your startup's structure."
@@ -419,7 +438,7 @@ const HowItWorksSection = ()=>{
                 className: "w-[27px] h-[27px] text-white"
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 73,
+                lineNumber: 95,
                 columnNumber: 13
             }, this),
             description: "Preview your completed canvas."
@@ -429,7 +448,7 @@ const HowItWorksSection = ()=>{
                 className: "w-[27px] h-[27px] text-white"
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 77,
+                lineNumber: 99,
                 columnNumber: 13
             }, this),
             description: "Download it as a PDF or send it to your inbox."
@@ -443,7 +462,7 @@ const HowItWorksSection = ()=>{
                 children: "How it works?"
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 83,
+                lineNumber: 105,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -458,7 +477,7 @@ const HowItWorksSection = ()=>{
                                         children: step.icon
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 90,
+                                        lineNumber: 112,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -466,13 +485,13 @@ const HowItWorksSection = ()=>{
                                         children: step.description
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 93,
+                                        lineNumber: 115,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 89,
+                                lineNumber: 111,
                                 columnNumber: 13
                             }, this),
                             index < steps.length - 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -485,57 +504,57 @@ const HowItWorksSection = ()=>{
                                                 className: "w-48 h-px absolute top-1.5 left-[9px] border-t border-dashed border-[#205352]"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 122,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "left-0 absolute w-[11px] h-[11px] top-0 bg-[#205352] rounded-[5.5px]"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 101,
+                                                lineNumber: 123,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "left-[199px] absolute w-[11px] h-[11px] top-0 bg-[#205352] rounded-[5.5px]"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 102,
+                                                lineNumber: 124,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 99,
+                                        lineNumber: 121,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "md:hidden w-[11px] h-[11px] bg-[#205352] rounded-[5.5px]"
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 126,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 98,
+                                lineNumber: 120,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, index, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 88,
+                        lineNumber: 110,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 86,
+                lineNumber: 108,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/resources/[id]/page.tsx",
-        lineNumber: 82,
+        lineNumber: 104,
         columnNumber: 5
     }, this);
 };
@@ -554,7 +573,7 @@ const FormSection = ()=>{
                             children: "Structure Your Idea"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 120,
+                            lineNumber: 141,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -562,13 +581,13 @@ const FormSection = ()=>{
                             children: " Into a Working Business"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 121,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 119,
+                    lineNumber: 140,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -576,7 +595,7 @@ const FormSection = ()=>{
                     children: "Use our guided Business Model Canvas to define your value, audience, revenue streams, and everything in between—before you build a thing."
                 }, void 0, false, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 123,
+                    lineNumber: 144,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -586,52 +605,37 @@ const FormSection = ()=>{
                             children: "Get in touch"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 128,
+                            lineNumber: 149,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRightIcon$3e$__["ArrowRightIcon"], {
                             className: "w-[15px] h-[15px]"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 129,
+                            lineNumber: 150,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 127,
+                    lineNumber: 148,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/resources/[id]/page.tsx",
-            lineNumber: 118,
+            lineNumber: 139,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/resources/[id]/page.tsx",
-        lineNumber: 117,
+        lineNumber: 138,
         columnNumber: 5
     }, this);
 };
 _c2 = FormSection;
-const BusinessDetailsSection = ()=>{
+const BusinessDetailsSection = ({ formData, setFormData })=>{
     _s1();
-    // Form state
-    const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
-        projectName: "",
-        client: "",
-        keyPartners: [],
-        keyActivities: [],
-        keyResources: [],
-        valueProposition: "",
-        customerRelationships: "",
-        customerSegments: [],
-        channels: [],
-        costStructure: [],
-        revenueStreams: []
-    });
-    // Input states
     const [partnerInput, setPartnerInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [activityInput, setActivityInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [resourceInput, setResourceInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
@@ -639,7 +643,6 @@ const BusinessDetailsSection = ()=>{
     const [channelInput, setChannelInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [costInput, setCostInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [revenueInput, setRevenueInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    // Handle text input changes
     const handleInputChange = (e)=>{
         const { name, value } = e.target;
         setFormData((prev)=>({
@@ -647,7 +650,6 @@ const BusinessDetailsSection = ()=>{
                 [name]: value
             }));
     };
-    // Handle adding items to arrays
     const handleAddItem = (field, value, setInput)=>{
         if (value.trim() && Array.isArray(formData[field])) {
             setFormData((prev)=>({
@@ -660,14 +662,12 @@ const BusinessDetailsSection = ()=>{
             setInput("");
         }
     };
-    // Handle removing items from arrays
     const handleRemoveItem = (field, index)=>{
         setFormData((prev)=>({
                 ...prev,
                 [field]: prev[field].filter((_, i)=>i !== index)
             }));
     };
-    // Handle key press (Enter) for inputs
     const handleKeyPress = (e, field, value, setInput)=>{
         if (e.key === "Enter") {
             e.preventDefault();
@@ -688,7 +688,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Project name"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 213,
+                                lineNumber: 222,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -699,13 +699,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "E.g mango tech"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 216,
+                                lineNumber: 225,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 212,
+                        lineNumber: 221,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -716,7 +716,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Client"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 225,
+                                lineNumber: 234,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -727,19 +727,19 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "E.g John Doe"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 228,
+                                lineNumber: 237,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 224,
+                        lineNumber: 233,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 211,
+                lineNumber: 220,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -753,7 +753,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Key Partners"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 241,
+                                lineNumber: 250,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -761,7 +761,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "The network of suppliers and partners that make the business model work."
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 244,
+                                lineNumber: 253,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -772,13 +772,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "Add a partner"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 248,
+                                lineNumber: 257,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 240,
+                        lineNumber: 249,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -791,7 +791,7 @@ const BusinessDetailsSection = ()=>{
                                         children: partner
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 264,
+                                        lineNumber: 273,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
@@ -799,24 +799,24 @@ const BusinessDetailsSection = ()=>{
                                         onClick: ()=>handleRemoveItem("keyPartners", index)
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 267,
+                                        lineNumber: 276,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 260,
+                                lineNumber: 269,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 258,
+                        lineNumber: 267,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 239,
+                lineNumber: 248,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -830,7 +830,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Key Activities"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 279,
+                                lineNumber: 288,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -838,7 +838,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "The most important tasks your company must do to operate effectively."
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 282,
+                                lineNumber: 291,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -849,13 +849,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "Add tasks"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 286,
+                                lineNumber: 295,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 278,
+                        lineNumber: 287,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -868,7 +868,7 @@ const BusinessDetailsSection = ()=>{
                                         children: activity
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 307,
+                                        lineNumber: 316,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
@@ -876,24 +876,24 @@ const BusinessDetailsSection = ()=>{
                                         onClick: ()=>handleRemoveItem("keyActivities", index)
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 310,
+                                        lineNumber: 319,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 303,
+                                lineNumber: 312,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 301,
+                        lineNumber: 310,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 277,
+                lineNumber: 286,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -907,7 +907,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Key Resources"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 322,
+                                lineNumber: 331,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -915,7 +915,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "The critical assets required to deliver your value proposition."
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 325,
+                                lineNumber: 334,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -926,13 +926,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "Add assets"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 328,
+                                lineNumber: 337,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 321,
+                        lineNumber: 330,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -945,7 +945,7 @@ const BusinessDetailsSection = ()=>{
                                         children: resource
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 344,
+                                        lineNumber: 353,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
@@ -953,24 +953,24 @@ const BusinessDetailsSection = ()=>{
                                         onClick: ()=>handleRemoveItem("keyResources", index)
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 347,
+                                        lineNumber: 356,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 340,
+                                lineNumber: 349,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 338,
+                        lineNumber: 347,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 320,
+                lineNumber: 329,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -983,7 +983,7 @@ const BusinessDetailsSection = ()=>{
                             children: "Value Proposition"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 359,
+                            lineNumber: 368,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -991,7 +991,7 @@ const BusinessDetailsSection = ()=>{
                             children: "The product, service, or feature that solves a problem or delivers specific benefits to your customers."
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 362,
+                            lineNumber: 371,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1002,18 +1002,18 @@ const BusinessDetailsSection = ()=>{
                             placeholder: "Description"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 366,
+                            lineNumber: 375,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 358,
+                    lineNumber: 367,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 357,
+                lineNumber: 366,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1026,7 +1026,7 @@ const BusinessDetailsSection = ()=>{
                             children: "Customer Relationships"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 379,
+                            lineNumber: 388,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1034,7 +1034,7 @@ const BusinessDetailsSection = ()=>{
                             children: "How you acquire, retain, and grow your customer base."
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 382,
+                            lineNumber: 391,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1045,18 +1045,18 @@ const BusinessDetailsSection = ()=>{
                             placeholder: "Description"
                         }, void 0, false, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 385,
+                            lineNumber: 394,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 378,
+                    lineNumber: 387,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 377,
+                lineNumber: 386,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1070,7 +1070,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Customer Segments"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 398,
+                                lineNumber: 407,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1078,7 +1078,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "The groups of people or organisations you aim to serve."
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 401,
+                                lineNumber: 410,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1089,13 +1089,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "Add customer segments"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 404,
+                                lineNumber: 413,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 397,
+                        lineNumber: 406,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1108,7 +1108,7 @@ const BusinessDetailsSection = ()=>{
                                         children: segment
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 425,
+                                        lineNumber: 434,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
@@ -1116,24 +1116,24 @@ const BusinessDetailsSection = ()=>{
                                         onClick: ()=>handleRemoveItem("customerSegments", index)
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 428,
+                                        lineNumber: 437,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 421,
+                                lineNumber: 430,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 419,
+                        lineNumber: 428,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 396,
+                lineNumber: 405,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1147,7 +1147,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Channels"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 440,
+                                lineNumber: 449,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1155,7 +1155,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "How you communicate with and deliver your product or service to customers."
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 443,
+                                lineNumber: 452,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1166,13 +1166,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "Add channels"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 447,
+                                lineNumber: 456,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 439,
+                        lineNumber: 448,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1185,7 +1185,7 @@ const BusinessDetailsSection = ()=>{
                                         children: channel
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 463,
+                                        lineNumber: 472,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
@@ -1193,24 +1193,24 @@ const BusinessDetailsSection = ()=>{
                                         onClick: ()=>handleRemoveItem("channels", index)
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 466,
+                                        lineNumber: 475,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 459,
+                                lineNumber: 468,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 457,
+                        lineNumber: 466,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 438,
+                lineNumber: 447,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1224,7 +1224,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Cost Structure"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 478,
+                                lineNumber: 487,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1232,7 +1232,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "The major costs involved in operating your business model."
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 481,
+                                lineNumber: 490,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1243,13 +1243,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "Add major costs"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 484,
+                                lineNumber: 493,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 477,
+                        lineNumber: 486,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1262,7 +1262,7 @@ const BusinessDetailsSection = ()=>{
                                         children: cost
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 500,
+                                        lineNumber: 509,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
@@ -1270,24 +1270,24 @@ const BusinessDetailsSection = ()=>{
                                         onClick: ()=>handleRemoveItem("costStructure", index)
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 503,
+                                        lineNumber: 512,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 496,
+                                lineNumber: 505,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 494,
+                        lineNumber: 503,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 476,
+                lineNumber: 485,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1301,7 +1301,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "Revenue Streams"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 515,
+                                lineNumber: 524,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1309,7 +1309,7 @@ const BusinessDetailsSection = ()=>{
                                 children: "The ways your business generates income from different customer segments."
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 518,
+                                lineNumber: 527,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1320,13 +1320,13 @@ const BusinessDetailsSection = ()=>{
                                 placeholder: "Add revenue streams"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 522,
+                                lineNumber: 531,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 514,
+                        lineNumber: 523,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1339,7 +1339,7 @@ const BusinessDetailsSection = ()=>{
                                         children: revenue
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 538,
+                                        lineNumber: 547,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
@@ -1347,36 +1347,401 @@ const BusinessDetailsSection = ()=>{
                                         onClick: ()=>handleRemoveItem("revenueStreams", index)
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 541,
+                                        lineNumber: 550,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 534,
+                                lineNumber: 543,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 532,
+                        lineNumber: 541,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 513,
+                lineNumber: 522,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/resources/[id]/page.tsx",
-        lineNumber: 209,
+        lineNumber: 218,
         columnNumber: 5
     }, this);
 };
-_s1(BusinessDetailsSection, "UlfPrcRKDMtC2AlhKwnclXA5cwU=");
+_s1(BusinessDetailsSection, "l1TlRx6s036iLG1UZT4yPlUYkyY=");
 _c3 = BusinessDetailsSection;
-const Canvas = ({ setIsOpen, isOpen })=>{
+const Canvas = ({ setIsOpen, isOpen, formData })=>{
+    _s2();
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const handleDownloadPDF = async ()=>{
+        if (!canvasRef.current) return;
+        try {
+            const dataUrl = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$dom$2d$to$2d$image$2f$src$2f$dom$2d$to$2d$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].toPng(canvasRef.current);
+            const pdf = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]("landscape");
+            pdf.addImage(dataUrl, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), 0);
+            pdf.save("canvas.pdf");
+        } catch (error) {
+            console.error(error);
+            alert("PDF failed. Try screenshot (Ctrl+P → Save as PDF)");
+        }
+    };
+    // Print-based PDF download that doesn't use hooks
+    // const handleDownloadPDF = () => {
+    //   if (!canvasRef.current) return;
+    //   try {
+    //     // Create a title for the print
+    //     const title = formData.projectName
+    //       ? `Business Model Canvas: ${formData.projectName}`
+    //       : 'Business Model Canvas';
+    //     // Create a styled version of our content for printing
+    //     const printContent = `
+    //       <html>
+    //         <head>
+    //           <title>${title}</title>
+    //           <style>
+    //             @page {
+    //               size: A4 landscape;
+    //               margin: 0;
+    //             }
+    //             @media print {
+    //               body {
+    //                 margin: 0;
+    //                 padding: 0;
+    //                 font-family: 'Raleway', Arial, sans-serif;
+    //                 background-color: #ffffff;
+    //               }
+    //               .print-container {
+    //                 width: 100%;
+    //                 height: 100%;
+    //                 display: flex;
+    //                 flex-direction: column;
+    //               }
+    //               .header {
+    //                 text-align: center;
+    //                 margin-bottom: 20px;
+    //                 padding: 20px 0;
+    //               }
+    //               .header h1 {
+    //                 font-size: 24px;
+    //                 font-weight: bold;
+    //                 margin: 0 0 8px 0;
+    //                 color: #0f0f0f;
+    //               }
+    //               .header p {
+    //                 font-size: 16px;
+    //                 margin: 0;
+    //                 color: #0f0f0f;
+    //               }
+    //               .canvas-container {
+    //                 display: flex;
+    //                 width: 100%;
+    //                 min-height: 80vh;
+    //                 border: 1px solid #e6e6e6;
+    //                 border-radius: 8px;
+    //                 overflow: hidden;
+    //                 page-break-inside: avoid;
+    //               }
+    //               .sidebar {
+    //                 background-color: #f12c16;
+    //                 width: 135px;
+    //                 display: flex;
+    //                 align-items: center;
+    //                 justify-content: center;
+    //                 position: relative;
+    //               }
+    //               .sidebar-text {
+    //                 transform: rotate(-90deg);
+    //                 white-space: nowrap;
+    //                 color: white;
+    //                 font-size: 24px;
+    //                 font-weight: bold;
+    //                 letter-spacing: 1px;
+    //                 font-family: 'Raleway', Arial, sans-serif;
+    //               }
+    //               .grid-container {
+    //                 flex: 1;
+    //                 display: grid;
+    //                 grid-template-columns: repeat(5, 1fr);
+    //                 grid-template-rows: repeat(3, minmax(150px, 1fr));
+    //                 gap: 14px;
+    //                 padding: 20px;
+    //                 background-color: #F3ECEB;
+    //               }
+    //               .grid-item {
+    //                 background-color: white;
+    //                 padding: 15px;
+    //                 border-radius: 4px;
+    //                 display: flex;
+    //                 flex-direction: column;
+    //               }
+    //               .grid-item h3 {
+    //                 font-size: 12px;
+    //                 font-weight: bold;
+    //                 margin: 0 0 8px 0;
+    //                 color: #232326;
+    //                 font-family: 'Raleway', Arial, sans-serif;
+    //               }
+    //               .grid-item p {
+    //                 font-size: 10px;
+    //                 color: #818285;
+    //                 margin: 0 0 12px 0;
+    //                 font-family: 'Raleway', Arial, sans-serif;
+    //               }
+    //               .value-prop {
+    //                 grid-row: span 2;
+    //               }
+    //               .cost-structure {
+    //                 grid-column: span 2;
+    //               }
+    //               .revenue-streams {
+    //                 grid-column: span 5;
+    //               }
+    //               .item-list {
+    //                 flex: 1;
+    //                 display: flex;
+    //                 flex-direction: column;
+    //                 gap: 6px;
+    //               }
+    //               .item {
+    //                 font-size: 11px;
+    //                 padding: 6px 8px;
+    //                 background-color: #f5f5f5;
+    //                 border-radius: 12px;
+    //                 color: #0f0f0f;
+    //               }
+    //               .revenue-items {
+    //                 display: grid;
+    //                 grid-template-columns: repeat(3, 1fr);
+    //                 gap: 10px;
+    //               }
+    //           </style>
+    //         </head>
+    //         <body>
+    //           <div class="print-container">
+    //             <div class="header">
+    //               <h1>${title}</h1>
+    //               ${formData.client ? `<p>Client: ${formData.client}</p>` : ''}
+    //             </div>
+    //             <div class="canvas-container">
+    //               <div class="sidebar">
+    //                 <div class="sidebar-text">Business Model Canvas</div>
+    //               </div>
+    //               <div class="grid-container">
+    //                 <!-- Key Partners -->
+    //                 <div class="grid-item">
+    //                   <h3>KEY PARTNERS</h3>
+    //                   <p>The network of suppliers and partners that make the business work</p>
+    //                   <div class="item-list">
+    //                     ${formData.keyPartners.map((partner: string) =>
+    //                       `<div class="item">${partner}</div>`).join('')}
+    //                   </div>
+    //                 </div>
+    //                 <!-- Key Activities -->
+    //                 <div class="grid-item">
+    //                   <h3>KEY ACTIVITIES</h3>
+    //                   <p>The most important activities your company needs to make its business work</p>
+    //                   <div class="item-list">
+    //                     ${formData.keyActivities.map((activity: string) =>
+    //                       `<div class="item">${activity}</div>`).join('')}
+    //                   </div>
+    //                 </div>
+    //                 <!-- Value Proposition -->
+    //                 <div class="grid-item value-prop">
+    //                   <h3>VALUE PROPOSITION</h3>
+    //                   <p>The products and services that create value for a specific customer segment</p>
+    //                   <div class="item">${formData.valueProposition}</div>
+    //                 </div>
+    //                 <!-- Customer Relationships -->
+    //                 <div class="grid-item">
+    //                   <h3>CUSTOMER RELATIONSHIPS</h3>
+    //                   <p>The type of relationship your company establishes with specific segments</p>
+    //                   <div class="item">${formData.customerRelationships}</div>
+    //                 </div>
+    //                 <!-- Customer Segments -->
+    //                 <div class="grid-item">
+    //                   <h3>CUSTOMER SEGMENTS</h3>
+    //                   <p>The different groups of people or organizations you aim to reach and serve</p>
+    //                   <div class="item-list">
+    //                     ${formData.customerSegments.map((segment: string) =>
+    //                       `<div class="item">${segment}</div>`).join('')}
+    //                   </div>
+    //                 </div>
+    //                 <!-- Key Resources -->
+    //                 <div class="grid-item">
+    //                   <h3>KEY RESOURCES</h3>
+    //                   <p>The most important assets required to make the business work</p>
+    //                   <div class="item-list">
+    //                     ${formData.keyResources.map((resource: string) =>
+    //                       `<div class="item">${resource}</div>`).join('')}
+    //                   </div>
+    //                 </div>
+    //                 <!-- Channels -->
+    //                 <div class="grid-item">
+    //                   <h3>CHANNELS</h3>
+    //                   <p>How you communicate with and deliver value to your target customers</p>
+    //                   <div class="item-list">
+    //                     ${formData.channels.map((channel: string) =>
+    //                       `<div class="item">${channel}</div>`).join('')}
+    //                   </div>
+    //                 </div>
+    //                 <!-- Cost Structure -->
+    //                 <div class="grid-item cost-structure">
+    //                   <h3>COST STRUCTURE</h3>
+    //                   <p>The costs incurred to operate a business model</p>
+    //                   <div class="item-list">
+    //                     ${formData.costStructure.map((cost: string) =>
+    //                       `<div class="item">${cost}</div>`).join('')}
+    //                   </div>
+    //                 </div>
+    //                 <!-- Revenue Streams -->
+    //                 <div class="grid-item revenue-streams">
+    //                   <h3>REVENUE STREAMS</h3>
+    //                   <p>The revenue you generate from each customer segment</p>
+    //                   <div class="revenue-items">
+    //                     ${formData.revenueStreams.map((revenue: string) =>
+    //                       `<div class="item">${revenue}</div>`).join('')}
+    //                   </div>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           </div>
+    //           <script>
+    //             // Print automatically when loaded
+    //             window.onload = function() {
+    //               setTimeout(function() {
+    //                 window.print();
+    //                 setTimeout(function() {
+    //                   window.close();
+    //                 }, 1000);
+    //               }, 500);
+    //             };
+    //           </script>
+    //         </body>
+    //       </html>
+    //     `;
+    //     // Open a new window for printing
+    //     const printWindow = window.open('', '_blank');
+    //     if (!printWindow) {
+    //       alert('Please allow pop-ups for this website to download the PDF');
+    //       return;
+    //     }
+    //     // Write our custom HTML to the new window
+    //     printWindow.document.write(printContent);
+    //     printWindow.document.close();
+    //   } catch (error) {
+    //     console.error('Failed to prepare PDF', error);
+    //     alert('Failed to prepare PDF. Please try again or use the browser print function (Ctrl+P).');
+    //   }
+    // };
+    // const handleDownloadPDF = async () => {
+    //   if (!canvasRef.current) return;
+    //   try {
+    //     // 1. Create a temporary container with simplified styling
+    //     const tempContainer = document.createElement('div');
+    //     tempContainer.style.position = 'fixed';
+    //     tempContainer.style.left = '-9999px';
+    //     tempContainer.style.top = '0';
+    //     tempContainer.style.width = '100%';
+    //     tempContainer.style.backgroundColor = '#ffffff';
+    //     // 2. Clone the canvas content
+    //     const clone = canvasRef.current.cloneNode(true) as HTMLElement;
+    //     // 3. Remove all classes to avoid CSS parsing issues
+    //     clone.querySelectorAll('*').forEach(el => {
+    //       el.removeAttribute('class');
+    //     });
+    //     // 4. Apply minimal necessary styling
+    //     clone.style.width = '100%';
+    //     clone.style.backgroundColor = '#ffffff';
+    //     tempContainer.appendChild(clone);
+    //     document.body.appendChild(tempContainer);
+    //     // 5. Capture as image (bypassing CSS parsing)
+    //     const canvas = await html2canvas(clone, {
+    //       scale: 2,
+    //       logging: false,
+    //       useCORS: true,
+    //       backgroundColor: '#ffffff',
+    //       allowTaint: true,
+    //       ignoreElements: (el) => false
+    //     });
+    //     // 6. Clean up
+    //     document.body.removeChild(tempContainer);
+    //     // 7. Convert to PDF
+    //     const imgData = canvas.toDataURL('image/png', 1.0);
+    //     const pdf = new jsPDF('landscape');
+    //     const pdfWidth = pdf.internal.pageSize.getWidth();
+    //     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+    //     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    //     pdf.save(`${formData.projectName || 'Business_Model_Canvas'}.pdf`);
+    //   } catch (error) {
+    //     console.error('PDF Generation Error:', error);
+    //     alert('Could not generate PDF. Please try taking a screenshot manually.');
+    //   }
+    // };
+    // const handleDownloadPDF = async () => {
+    //   if (!canvasRef.current) return;
+    //   try {
+    //     const canvas = await html2canvas(canvasRef.current, {
+    //       scale: 2,
+    //       backgroundColor: null, // Transparent background
+    //       logging: false,
+    //       useCORS: true,
+    //       allowTaint: true
+    //     });
+    //     const pdf = new jsPDF('landscape');
+    //     pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0,
+    //       pdf.internal.pageSize.getWidth(),
+    //       pdf.internal.pageSize.getHeight()
+    //     );
+    //     pdf.save('canvas.pdf');
+    //   } catch (error) {
+    //     console.error(error);
+    //     alert('PDF failed. Try screenshot (Ctrl+P → Save as PDF)');
+    //   }
+    // };
+    // const handleDownloadPDF = async () => {
+    //   if (!canvasRef.current) return;
+    //   try {
+    //     // Create a temporary container to preserve original styling
+    //     const tempDiv = document.createElement('div');
+    //     tempDiv.style.position = 'fixed';
+    //     tempDiv.style.left = '-9999px';
+    //     tempDiv.style.top = '0';
+    //     tempDiv.style.width = canvasRef.current.offsetWidth + 'px';
+    //     tempDiv.style.backgroundColor = '#F3ECEB';
+    //     tempDiv.style.padding = '20px';
+    //     // Clone the canvas with all original classes and styles
+    //     const clone = canvasRef.current.cloneNode(true) as HTMLElement;
+    //     tempDiv.appendChild(clone);
+    //     document.body.appendChild(tempDiv);
+    //     // Use html2canvas with specific options
+    //     const canvas = await html2canvas(clone, {
+    //       scale: 2,
+    //       logging: false,
+    //       useCORS: true,
+    //       backgroundColor: '#F3ECEB',
+    //       allowTaint: true,
+    //       ignoreElements: (el) => false
+    //     });
+    //     // Clean up
+    //     document.body.removeChild(tempDiv);
+    //     // Generate PDF
+    //     const imgData = canvas.toDataURL('image/png');
+    //     const pdf = new jsPDF('landscape');
+    //     const pdfWidth = pdf.internal.pageSize.getWidth();
+    //     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+    //     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    //     pdf.save(`${formData.projectName || 'Business_Model_Canvas'}.pdf`);
+    //   } catch (error) {
+    //     console.error('PDF Generation Error:', error);
+    //     alert('Could not generate PDF. Please try taking a screenshot manually (Ctrl+Shift+P → Save as PDF).');
+    //   }
+    // };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex flex-col bg-[#ffffff]",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1386,28 +1751,41 @@ const Canvas = ({ setIsOpen, isOpen })=>{
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "text-center mb-10",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-4xl font-bold text-[#0f0f0f]",
-                            children: [
-                                "Take a final look at your",
-                                " ",
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    className: "italic",
-                                    children: "Business Model Canvas"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 568,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 566,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                className: "text-4xl font-bold text-[#0f0f0f]",
+                                children: [
+                                    "Take a final look at your",
+                                    " ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "italic",
+                                        children: "Business Model Canvas"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/resources/[id]/page.tsx",
+                                        lineNumber: 980,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                lineNumber: 978,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xl mt-4",
+                                children: [
+                                    formData.projectName && `Project: ${formData.projectName}`,
+                                    formData.client && ` | Client: ${formData.client}`
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                lineNumber: 982,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 565,
+                        lineNumber: 977,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1421,519 +1799,731 @@ const Canvas = ({ setIsOpen, isOpen })=>{
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 574,
+                                        lineNumber: 993,
                                         columnNumber: 15
                                     }, this),
                                     "Edit canvas"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 573,
+                                lineNumber: 989,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: handleDownloadPDF,
                                 className: "cursor-pointer flex items-center gap-2 bg-[#0f0f0f] text-white rounded-full px-6 py-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 578,
+                                        lineNumber: 1000,
                                         columnNumber: 15
                                     }, this),
-                                    "Download"
+                                    "Download PDF"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 577,
+                                lineNumber: 996,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 572,
+                        lineNumber: 988,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex border border-[#e6e6e6] rounded-lg overflow-hidden",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-[#f12c16] w-[135px] flex-shrink-0 relative",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-white text-4xl font-bold tracking-wide",
-                                        children: "Business Model Canvas"
-                                    }, void 0, false, {
+                        ref: canvasRef,
+                        className: "flex border border-[#e6e6e6] rounded-lg overflow-hidden min-h-[120vh] w-full overflow-x-auto",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ref: canvasRef,
+                            className: "flex border border-[#e6e6e6] rounded-lg overflow-hidden min-h-[120vh] w-full overflow-x-auto",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-[#f12c16] w-[255px] flex-shrink-0 relative",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute top- left-1/2 bottom-1/3 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: " text-white text-2xl font-bold mb-4 flex w-[600px] gap-[100px]",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "w-1/2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                                                className: "font-bond text-[15px]",
+                                                                children: formData.projectName && `Project:      ${formData.projectName}`
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                                                lineNumber: 1052,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "border-b border-[#e6e6e6] mt-[10px]"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                                                lineNumber: 1056,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/resources/[id]/page.tsx",
+                                                        lineNumber: 1051,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "w-1/2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                                                className: "font-bond text-[15px]",
+                                                                children: formData.client && `Client:       ${formData.client}`
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                                                lineNumber: 1060,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "border-b border-[#e6e6e6] mt-[10px]"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                                                lineNumber: 1063,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/resources/[id]/page.tsx",
+                                                        lineNumber: 1059,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                                lineNumber: 1050,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-white text-6xl font-bold tracking-wide",
+                                                children: "Business Model Canvas"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                                lineNumber: 1066,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-white text-[20px] font-medium",
+                                                children: [
+                                                    " ",
+                                                    "It is a visual artifact with elements describing a service’s or product's ",
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                                        fileName: "[project]/app/resources/[id]/page.tsx",
+                                                        lineNumber: 1073,
+                                                        columnNumber: 34
+                                                    }, this),
+                                                    "value proposition, infrastructure, customers, and finances"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/resources/[id]/page.tsx",
+                                                lineNumber: 1070,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 588,
+                                        lineNumber: 1049,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 587,
+                                    lineNumber: 1048,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "KEY PARTNERS"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1083,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The network of suppliers and partners that make the business work"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1084,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-2",
+                                                    children: formData.keyPartners.map((partner, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded text-sm",
+                                                            children: partner
+                                                        }, index, false, {
+                                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                                            lineNumber: 1091,
+                                                            columnNumber: 25
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1088,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1082,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60 col-span-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "KEY ACTIVITIES"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1100,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The most important activities your company needs to make its business work"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1101,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-2",
+                                                    children: formData.keyActivities.map((activity, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded text-sm",
+                                                            children: activity
+                                                        }, index, false, {
+                                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                                            lineNumber: 1108,
+                                                            columnNumber: 25
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1105,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1099,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60 row-span-2",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "VALUE PROPOSITION"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1117,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The products and services that create value for a specific customer segment"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1118,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "p-2 rounded h-full overflow-y-auto",
+                                                    children: formData.valueProposition
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1122,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1116,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "CUSTOMER RELATIONSHIPS"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1128,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The type of relationship your company establishes with specific segments"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1131,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "p-2 rounded h-full overflow-y-auto",
+                                                    children: formData.customerRelationships
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1135,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1127,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "CUSTOMER SEGMENTS"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1141,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The different groups of people or organizations you aim to reach and serve"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1142,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-2",
+                                                    children: formData.customerSegments.map((segment, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded text-sm",
+                                                            children: segment
+                                                        }, index, false, {
+                                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                                            lineNumber: 1149,
+                                                            columnNumber: 25
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1146,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1140,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60 col-span-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "KEY RESOURCES"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1159,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The most important assets required to make the business work"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1160,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-2",
+                                                    children: formData.keyResources.map((resource, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded text-sm",
+                                                            children: resource
+                                                        }, index, false, {
+                                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                                            lineNumber: 1166,
+                                                            columnNumber: 25
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1163,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1158,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "CHANNELS"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1175,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "How you communicate with and deliver value to your target customers"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1176,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-2",
+                                                    children: formData.channels.map((channel, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded text-sm",
+                                                            children: channel
+                                                        }, index, false, {
+                                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                                            lineNumber: 1182,
+                                                            columnNumber: 23
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1180,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1174,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60 col-span-2",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "COST STRUCTURE"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1191,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The costs incurred to operate a business model"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1192,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-2",
+                                                    children: formData.costStructure.map((cost, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded text-sm",
+                                                            children: cost
+                                                        }, index, false, {
+                                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                                            lineNumber: 1198,
+                                                            columnNumber: 25
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1195,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1190,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "bg-white p-6 min-h-60 col-span-5",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-bold text-sm mb-2",
+                                                    children: "REVENUE STREAMS"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1207,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-[#818285] mb-6",
+                                                    children: "The revenue you generate from each customer segment"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1208,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "grid grid-cols-3 gap-4",
+                                                    children: formData.revenueStreams.map((revenue, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "p-2 rounded text-sm",
+                                                            children: revenue
+                                                        }, index, false, {
+                                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                                            lineNumber: 1214,
+                                                            columnNumber: 25
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                                    lineNumber: 1211,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/resources/[id]/page.tsx",
+                                            lineNumber: 1206,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/resources/[id]/page.tsx",
+                                    lineNumber: 1080,
                                     columnNumber: 15
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 586,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "KEY PARTNERS"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 600,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The network of suppliers and partners that make the business work"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 601,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Key Partners",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 608,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 607,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 597,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60 col-span-1",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "KEY ACTIVITIES"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 621,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The most important activities your company needs to make its business work"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 622,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Key Activities",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 629,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 628,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 618,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 h-[120px row-span-2",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "VALUE PROPOSITION"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 642,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The products and services that create value for a specific customer segment"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 643,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Value Proposition",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 650,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 649,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 639,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "CUSTOMER RELATIONSHIPS"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 663,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The type of relationship your company establishes with specific segments"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 666,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Customer Relationships",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 673,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 672,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 660,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "CUSTOMER SEGMENTS"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 686,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The different groups of people or organizations you aim to reach and serve"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 687,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Customer Segments",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 694,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 693,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 683,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60 col-span-1",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "KEY RESOURCES"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 708,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The most important assets required to make the business work"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 709,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Key Resources",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 715,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 714,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 705,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "CHANNELS"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 728,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "How you communicate with and deliver value to your target customers"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 729,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Channels",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 736,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 735,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 725,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60 col-span-2",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "COST STRUCTURE"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 750,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The costs incurred to operate a business model"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 751,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Cost Structure",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 757,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 756,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 747,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white p-6 min-h-60 col-span-5",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                className: "font-bold text-sm mb-2",
-                                                children: "REVENUE STREAMS"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 770,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "text-xs text-[#818285] mb-6",
-                                                children: [
-                                                    " ",
-                                                    "The revenue you generate from each customer segment"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 771,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: "/placeholder.svg?height=100&width=100",
-                                                    alt: "Revenue Streams",
-                                                    width: 100,
-                                                    height: 100,
-                                                    className: "opacity-20"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/resources/[id]/page.tsx",
-                                                    lineNumber: 777,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                                lineNumber: 776,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 767,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 595,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/resources/[id]/page.tsx",
+                            lineNumber: 1043,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 584,
+                        lineNumber: 1006,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 564,
+                lineNumber: 976,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/app/resources/[id]/page.tsx",
-            lineNumber: 563,
+            lineNumber: 975,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/resources/[id]/page.tsx",
-        lineNumber: 561,
+        lineNumber: 973,
         columnNumber: 5
     }, this);
-};
+}; // import {
+ //   PDFDownloadLink,
+ //   Document,
+ //   Page,
+ //   View,
+ //   Text,
+ //   StyleSheet,
+ // } from "@react-pdf/renderer";
+ // Create styles for PDF
+ // const styles = StyleSheet.create({
+ //   page: {
+ //     flexDirection: 'row',
+ //     backgroundColor: '#F3ECEB',
+ //     padding: 20
+ //   },
+ //   section: {
+ //     margin: 10,
+ //     padding: 10,
+ //     flexGrow: 1,
+ //     backgroundColor: '#ffffff',
+ //     border: '1px solid #e6e6e6' mt-[30px],
+ //     borderRadius: 5
+ //   },
+ //   title: {
+ //     fontSize: 12,
+ //     fontWeight: 'bold',
+ //     marginBottom: 5
+ //   },
+ //   description: {
+ //     fontSize: 8,
+ //     color: '#818285',
+ //     marginBottom: 10
+ //   },
+ //   item: {
+ //     fontSize: 10,
+ //     marginBottom: 5
+ //   },
+ //   sidebar: {
+ //     width: 135,
+ //     backgroundColor: '#f12c16',
+ //     justifyContent: 'center',
+ //     alignItems: 'center',
+ //     padding: 10
+ //   },
+ //   sidebarText: {
+ //     color: 'white',
+ //     fontSize: 24,
+ //     fontWeight: 'bold',
+ //     transform: 'rotate(-90deg)',
+ //     whiteSpace: 'nowrap'
+ //   }
+ // });
+ // // PDF Document Component
+ // const MyDocument = ({ formData }) => (
+ //   <Document>
+ //     <Page size="A4" style={styles.page} orientation="landscape">
+ //       {/* Left Sidebar */}
+ //       <View style={styles.sidebar}>
+ //         <Text style={styles.sidebarText}>Business Model Canvas</Text>
+ //       </View>
+ //       {/* Main Content Grid */}
+ //       <View style={{ flex: 1, flexDirection: 'column', flexWrap: 'wrap', height: '100%' }}>
+ //         {/* Row 1 */}
+ //         <View style={{ flexDirection: 'row', marginBottom: 14 }}>
+ //           {/* Key Partners */}
+ //           <View style={[styles.section, { flex: 1 }]}>
+ //             <Text style={styles.title}>KEY PARTNERS</Text>
+ //             <Text style={styles.description}>The network of suppliers and partners that make the business work</Text>
+ //             {formData.keyPartners.map((partner, index) => (
+ //               <Text key={index} style={styles.item}>• {partner}</Text>
+ //             ))}
+ //           </View>
+ //           {/* Key Activities */}
+ //           <View style={[styles.section, { flex: 1 }]}>
+ //             <Text style={styles.title}>KEY ACTIVITIES</Text>
+ //             <Text style={styles.description}>The most important activities your company needs to make its business work</Text>
+ //             {formData.keyActivities.map((activity, index) => (
+ //               <Text key={index} style={styles.item}>• {activity}</Text>
+ //             ))}
+ //           </View>
+ //           {/* Value Proposition (spanning 2 rows) */}
+ //           <View style={[styles.section, { flex: 1, height: '200%' }]}>
+ //             <Text style={styles.title}>VALUE PROPOSITION</Text>
+ //             <Text style={styles.description}>The products and services that create value for a specific customer segment</Text>
+ //             <Text style={styles.item}>{formData.valueProposition}</Text>
+ //           </View>
+ //           {/* Customer Relationships */}
+ //           <View style={[styles.section, { flex: 1 }]}>
+ //             <Text style={styles.title}>CUSTOMER RELATIONSHIPS</Text>
+ //             <Text style={styles.description}>The type of relationship your company establishes with specific segments</Text>
+ //             <Text style={styles.item}>{formData.customerRelationships}</Text>
+ //           </View>
+ //           {/* Customer Segments */}
+ //           <View style={[styles.section, { flex: 1 }]}>
+ //             <Text style={styles.title}>CUSTOMER SEGMENTS</Text>
+ //             <Text style={styles.description}>The different groups of people or organizations you aim to reach and serve</Text>
+ //             {formData.customerSegments.map((segment, index) => (
+ //               <Text key={index} style={styles.item}>• {segment}</Text>
+ //             ))}
+ //           </View>
+ //         </View>
+ //         {/* Row 2 */}
+ //         <View style={{ flexDirection: 'row', marginBottom: 14 }}>
+ //           {/* Key Resources */}
+ //           <View style={[styles.section, { flex: 1 }]}>
+ //             <Text style={styles.title}>KEY RESOURCES</Text>
+ //             <Text style={styles.description}>The most important assets required to make the business work</Text>
+ //             {formData.keyResources.map((resource, index) => (
+ //               <Text key={index} style={styles.item}>• {resource}</Text>
+ //             ))}
+ //           </View>
+ //           {/* Channels */}
+ //           <View style={[styles.section, { flex: 1 }]}>
+ //             <Text style={styles.title}>CHANNELS</Text>
+ //             <Text style={styles.description}>How you communicate with and deliver value to your target customers</Text>
+ //             {formData.channels.map((channel, index) => (
+ //               <Text key={index} style={styles.item}>• {channel}</Text>
+ //             ))}
+ //           </View>
+ //         </View>
+ //         {/* Row 3 */}
+ //         <View style={{ flexDirection: 'row' }}>
+ //           {/* Cost Structure */}
+ //           <View style={[styles.section, { flex: 2 }]}>
+ //             <Text style={styles.title}>COST STRUCTURE</Text>
+ //             <Text style={styles.description}>The costs incurred to operate a business model</Text>
+ //             {formData.costStructure.map((cost, index) => (
+ //               <Text key={index} style={styles.item}>• {cost}</Text>
+ //             ))}
+ //           </View>
+ //           {/* Revenue Streams */}
+ //           <View style={[styles.section, { flex: 3 }]}>
+ //             <Text style={styles.title}>REVENUE STREAMS</Text>
+ //             <Text style={styles.description}>The revenue you generate from each customer segment</Text>
+ //             <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+ //               {formData.revenueStreams.map((revenue, index) => (
+ //                 <View key={index} style={{ width: '33%', marginBottom: 5 }}>
+ //                   <Text style={styles.item}>• {revenue}</Text>
+ //                 </View>
+ //               ))}
+ //             </View>
+ //           </View>
+ //         </View>
+ //       </View>
+ //     </Page>
+ //   </Document>
+ // );
+ // const Canvas = ({ setIsOpen, isOpen, formData }) => {
+ //   return (
+ //     <div className="flex flex-col bg-[#ffffff]">
+ //       <main className="flex-grow py-12 px-6">
+ //         <div className="mx-auto">
+ //           <div className="text-center mb-10">
+ //             <h1 className="text-4xl font-bold text-[#0f0f0f]">
+ //               Take a final look at your{" "}
+ //               <span className="italic">Business Model Canvas</span>
+ //             </h1>
+ //             <p className="text-xl mt-4">
+ //               {formData.projectName && `Project: ${formData.projectName}`}
+ //               {formData.client && ` | Client: ${formData.client}`}
+ //             </p>
+ //           </div>
+ //           <div className="flex justify-center gap-4 mb-10">
+ //             <button
+ //               onClick={() => setIsOpen(!isOpen)}
+ //               className="cursor-pointer flex items-center gap-2 border border-[#0f0f0f] rounded-full px-6 py-2"
+ //             >
+ //               <Edit className="h-5 w-5" />
+ //               Edit canvas
+ //             </button>
+ //             {/* PDF Download Button */}
+ //             <PDFDownloadLink
+ //               document={<MyDocument formData={formData} />}
+ //               fileName={`${formData.projectName || 'Business_Model_Canvas'}.pdf`}
+ //             >
+ //               {({ loading }) => (
+ //                 <button className="cursor-pointer flex items-center gap-2 bg-[#0f0f0f] text-white rounded-full px-6 py-2">
+ //                   <Download className="h-5 w-5" />
+ //                   {loading ? 'Preparing PDF...' : 'Download'}
+ //                 </button>
+ //               )}
+ //             </PDFDownloadLink>
+ //           </div>
+ //           {/* Your existing canvas display */}
+ //           <div className="flex border border-[#e6e6e6] rounded-lg overflow-hidden">
+ //             {/* Left Sidebar */}
+ //             <div className="bg-[#f12c16] w-[135px] flex-shrink-0 relative">
+ //               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
+ //                 <h2 className="text-white text-4xl font-bold tracking-wide">
+ //                   Business Model Canvas
+ //                 </h2>
+ //               </div>
+ //             </div>
+ //             {/* Canvas Grid */}
+ //             <div className="flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]">
+ //               {/* Your existing canvas content */}
+ //             </div>
+ //           </div>
+ //         </div>
+ //       </main>
+ //     </div>
+ //   );
+ // };
+_s2(Canvas, "hw7YJ5TVw+lAu0tRkzoDS8rL7/E=");
 _c4 = Canvas;
 var _c, _c1, _c2, _c3, _c4;
 __turbopack_context__.k.register(_c, "Home");
