@@ -72,7 +72,6 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
   );
 };
 
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -156,7 +155,7 @@ const TemplateSection = () => {
             {/* Repeat for other slides */}
           </Swiper>
           <Swiper
-            //@ts-ignore
+            //@ts-expect-error  Missing type definitions for external library
             onSwiper={setThumbsSwiper}
             loop={true}
             spaceBetween={10}
@@ -365,7 +364,7 @@ const TemplateSection = () => {
             {/* Repeat for other slides */}
           </Swiper>
           <Swiper
-            //@ts-ignore
+            //@ts-expect-error  Missing type definitions for external library
             onSwiper={setThumbsSwiper}
             loop={true}
             spaceBetween={10}
@@ -471,7 +470,7 @@ const TemplateSection = () => {
                 style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/1.png"
+                  src="/assets/resources/Le/1.png"
                   alt="Slide 1"
                   // width={1000}
                   // height={1000}
@@ -485,7 +484,7 @@ const TemplateSection = () => {
                 style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/2.png"
+                  src="/assets/resources/Le/2.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain" }}
@@ -497,10 +496,8 @@ const TemplateSection = () => {
                 style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/3.png"
+                  src="/assets/resources/Le/3.png"
                   alt="Slide 1"
-                  // width={1000}
-                  // height={1000}
                   fill
                   style={{ objectFit: "contain" }}
                 />
@@ -511,7 +508,7 @@ const TemplateSection = () => {
                 style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/4.png"
+                  src="/assets/resources/Le/4.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain" }}
@@ -521,7 +518,7 @@ const TemplateSection = () => {
             {/* Repeat for other slides */}
           </Swiper>
           <Swiper
-            //@ts-ignore
+            //@ts-expect-error  Missing type definitions for external library
             onSwiper={setThumbsSwiper}
             loop={true}
             spaceBetween={10}
@@ -536,7 +533,7 @@ const TemplateSection = () => {
               // style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/1.png"
+                  src="/assets/resources/Le/1.png"
                   alt="Thumbnail 1"
                   fill
                   style={{ objectFit: "cover" }}
@@ -548,7 +545,7 @@ const TemplateSection = () => {
               // style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/2.png"
+                  src="/assets/resources/Le/2.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "cover" }}
@@ -560,7 +557,7 @@ const TemplateSection = () => {
               // style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/3.png"
+                  src="/assets/resources/Le/3.png"
                   alt="Slide 1"
                   // width={1000}
                   // height={1000}
@@ -574,7 +571,7 @@ const TemplateSection = () => {
               // style={{ width: "100%", height: "600px", position: "relative" }}
               >
                 <Image
-                  src="/assets/resources/le/4.png"
+                  src="/assets/resources/Le/4.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain" }}

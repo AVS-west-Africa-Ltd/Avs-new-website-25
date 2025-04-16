@@ -17,24 +17,24 @@ export const CaseStudiesSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col items-center gap-6 max-w-[1040px] text-center"
+          className="flex flex-col items-center gap-6 max-w-[700px] text-center"
         >
           <h2 className="font-raleway text-4xl sm:text-4xl md:text-[56px] leading-tight text-[#0f0f0f]">
-            <span className="font-semibold">Take charge of</span>
+            <span className="font-semibold">Everything You Need to</span>
             <span className="font-bold"> </span>
-            <span className="font-medium italic">your business growth</span>
-            <span className="font-semibold">
+            <span className="font-medium italic">Build Smarter</span>
+            {/* <span className="font-semibold">
               —We&apos;ll handle the operations!
-            </span>
+            </span> */}
           </h2>
 
           <p className="font-raleway text-sm sm:text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">
-            Focus on building your vision while we take care of the day-to-day
-            operations, ensuring seamless growth.
+            Explore expert guides, startup tools, and practical templates
+            designed to help you launch, grow, and scale with clarity and
+            confidence.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2.5">
-
             <Button
               onClick={() => {
                 router.push("/contact-us");

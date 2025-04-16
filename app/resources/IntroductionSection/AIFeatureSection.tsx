@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import { useRouter } from "next/navigation";
 
 interface CallToActionProps {
   text: string;
@@ -12,9 +13,12 @@ export const CallToAction: React.FC<CallToActionProps> = ({
   text,
   onClick,
 }) => {
+  const router = useRouter();
   return (
     <button
-      onClick={onClick}
+      onClick={
+        () => router.push("/resources/services")
+      }
       className="mt-7 px-8 py-4  max-w-full text-base tracking-tight leading-tight text-white bg-stone-950 rounded-[100px] max-md:px-5 hover:bg-stone-800 transition-colors cursor-pointer"
     >
       {text}
@@ -26,6 +30,7 @@ export const AIFeatureSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,7 +50,7 @@ export const AIFeatureSection = () => {
   }, [inView]);
 
   return (
-    <section className="p-4 md:p-0">
+    <section className="p-4 md:px-14">
       <div
         ref={ref}
         className={`relative overflow-hidden px-4 md:pl-16 rounded-3xl py-[120px] mb-12 transition-opacity transform duration-1200 ease-out ${

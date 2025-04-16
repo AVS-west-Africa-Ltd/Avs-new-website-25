@@ -23,7 +23,7 @@ import Link from "next/link";
 import { ChevronDown, Edit, Download, Phone, MapPin } from "lucide-react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-// @ts-ignore
+// @ts-expect-error  Missing type definitions for external library
 import domtoimage from "dom-to-image";
 
 export default function Home() {
@@ -53,7 +53,7 @@ export default function Home() {
               style={{
                 backgroundColor: "#F0F0F0",
               }}
-              className="mx-auto rounded-[30px] bg-[#F0F0F0] p-6"
+              className="mx-auto rounded-[30px] bg-[#F0F0F0] p-2"
             >
               <h2 className="text-center font-semibold text-[#071914] text-2xl [font-family:'Raleway',Helvetica] my-10">
                 Fill out the following form to frame your business
@@ -83,8 +83,7 @@ export default function Home() {
     </>
   );
 }
-
-export const HowItWorksSection = () => {
+const HowItWorksSection = () => {
   const steps = [
     {
       icon: <PencilIcon className="w-[29px] h-[29px] text-white" />,
@@ -133,7 +132,7 @@ export const HowItWorksSection = () => {
   );
 };
 
-export const FormSection = () => {
+const FormSection = () => {
   return (
     <section className="flex flex-col items-center gap-[72px] w-full py-10">
       <div className="flex flex-col items-center gap-6">
@@ -154,7 +153,7 @@ export const FormSection = () => {
   );
 };
 
-export const BusinessDetailsSection = ({
+const BusinessDetailsSection = ({
   formData,
   setFormData,
 }: {
@@ -584,391 +583,6 @@ const Canvas = ({
     }
   };
 
-  // Print-based PDF download that doesn't use hooks
-  // const handleDownloadPDF = () => {
-  //   if (!canvasRef.current) return;
-
-  //   try {
-  //     // Create a title for the print
-  //     const title = formData.projectName
-  //       ? `Business Model Canvas: ${formData.projectName}`
-  //       : 'Business Model Canvas';
-
-  //     // Create a styled version of our content for printing
-  //     const printContent = `
-  //       <html>
-  //         <head>
-  //           <title>${title}</title>
-  //           <style>
-  //             @page {
-  //               size: A4 landscape;
-  //               margin: 0;
-  //             }
-  //             @media print {
-  //               body {
-  //                 margin: 0;
-  //                 padding: 0;
-  //                 font-family: 'Raleway', Arial, sans-serif;
-  //                 background-color: #ffffff;
-  //               }
-  //               .print-container {
-  //                 width: 100%;
-  //                 height: 100%;
-  //                 display: flex;
-  //                 flex-direction: column;
-  //               }
-  //               .header {
-  //                 text-align: center;
-  //                 margin-bottom: 20px;
-  //                 padding: 20px 0;
-  //               }
-  //               .header h1 {
-  //                 font-size: 24px;
-  //                 font-weight: bold;
-  //                 margin: 0 0 8px 0;
-  //                 color: #0f0f0f;
-  //               }
-  //               .header p {
-  //                 font-size: 16px;
-  //                 margin: 0;
-  //                 color: #0f0f0f;
-  //               }
-  //               .canvas-container {
-  //                 display: flex;
-  //                 width: 100%;
-  //                 min-height: 80vh;
-  //                 border: 1px solid #e6e6e6;
-  //                 border-radius: 8px;
-  //                 overflow: hidden;
-  //                 page-break-inside: avoid;
-  //               }
-  //               .sidebar {
-  //                 background-color: #f12c16;
-  //                 width: 135px;
-  //                 display: flex;
-  //                 align-items: center;
-  //                 justify-content: center;
-  //                 position: relative;
-  //               }
-  //               .sidebar-text {
-  //                 transform: rotate(-90deg);
-  //                 white-space: nowrap;
-  //                 color: white;
-  //                 font-size: 24px;
-  //                 font-weight: bold;
-  //                 letter-spacing: 1px;
-  //                 font-family: 'Raleway', Arial, sans-serif;
-  //               }
-  //               .grid-container {
-  //                 flex: 1;
-  //                 display: grid;
-  //                 grid-template-columns: repeat(5, 1fr);
-  //                 grid-template-rows: repeat(3, minmax(150px, 1fr));
-  //                 gap: 14px;
-  //                 padding: 20px;
-  //                 background-color: #F3ECEB;
-  //               }
-  //               .grid-item {
-  //                 background-color: white;
-  //                 padding: 15px;
-  //                 border-radius: 4px;
-  //                 display: flex;
-  //                 flex-direction: column;
-  //               }
-  //               .grid-item h3 {
-  //                 font-size: 12px;
-  //                 font-weight: bold;
-  //                 margin: 0 0 8px 0;
-  //                 color: #232326;
-  //                 font-family: 'Raleway', Arial, sans-serif;
-  //               }
-  //               .grid-item p {
-  //                 font-size: 10px;
-  //                 color: #818285;
-  //                 margin: 0 0 12px 0;
-  //                 font-family: 'Raleway', Arial, sans-serif;
-  //               }
-  //               .value-prop {
-  //                 grid-row: span 2;
-  //               }
-  //               .cost-structure {
-  //                 grid-column: span 2;
-  //               }
-  //               .revenue-streams {
-  //                 grid-column: span 5;
-  //               }
-  //               .item-list {
-  //                 flex: 1;
-  //                 display: flex;
-  //                 flex-direction: column;
-  //                 gap: 6px;
-  //               }
-  //               .item {
-  //                 font-size: 11px;
-  //                 padding: 6px 8px;
-  //                 background-color: #f5f5f5;
-  //                 border-radius: 12px;
-  //                 color: #0f0f0f;
-  //               }
-  //               .revenue-items {
-  //                 display: grid;
-  //                 grid-template-columns: repeat(3, 1fr);
-  //                 gap: 10px;
-  //               }
-  //           </style>
-  //         </head>
-  //         <body>
-  //           <div class="print-container">
-  //             <div class="header">
-  //               <h1>${title}</h1>
-  //               ${formData.client ? `<p>Client: ${formData.client}</p>` : ''}
-  //             </div>
-  //             <div class="canvas-container">
-  //               <div class="sidebar">
-  //                 <div class="sidebar-text">Business Model Canvas</div>
-  //               </div>
-  //               <div class="grid-container">
-  //                 <!-- Key Partners -->
-  //                 <div class="grid-item">
-  //                   <h3>KEY PARTNERS</h3>
-  //                   <p>The network of suppliers and partners that make the business work</p>
-  //                   <div class="item-list">
-  //                     ${formData.keyPartners.map((partner: string) =>
-  //                       `<div class="item">${partner}</div>`).join('')}
-  //                   </div>
-  //                 </div>
-
-  //                 <!-- Key Activities -->
-  //                 <div class="grid-item">
-  //                   <h3>KEY ACTIVITIES</h3>
-  //                   <p>The most important activities your company needs to make its business work</p>
-  //                   <div class="item-list">
-  //                     ${formData.keyActivities.map((activity: string) =>
-  //                       `<div class="item">${activity}</div>`).join('')}
-  //                   </div>
-  //                 </div>
-
-  //                 <!-- Value Proposition -->
-  //                 <div class="grid-item value-prop">
-  //                   <h3>VALUE PROPOSITION</h3>
-  //                   <p>The products and services that create value for a specific customer segment</p>
-  //                   <div class="item">${formData.valueProposition}</div>
-  //                 </div>
-
-  //                 <!-- Customer Relationships -->
-  //                 <div class="grid-item">
-  //                   <h3>CUSTOMER RELATIONSHIPS</h3>
-  //                   <p>The type of relationship your company establishes with specific segments</p>
-  //                   <div class="item">${formData.customerRelationships}</div>
-  //                 </div>
-
-  //                 <!-- Customer Segments -->
-  //                 <div class="grid-item">
-  //                   <h3>CUSTOMER SEGMENTS</h3>
-  //                   <p>The different groups of people or organizations you aim to reach and serve</p>
-  //                   <div class="item-list">
-  //                     ${formData.customerSegments.map((segment: string) =>
-  //                       `<div class="item">${segment}</div>`).join('')}
-  //                   </div>
-  //                 </div>
-
-  //                 <!-- Key Resources -->
-  //                 <div class="grid-item">
-  //                   <h3>KEY RESOURCES</h3>
-  //                   <p>The most important assets required to make the business work</p>
-  //                   <div class="item-list">
-  //                     ${formData.keyResources.map((resource: string) =>
-  //                       `<div class="item">${resource}</div>`).join('')}
-  //                   </div>
-  //                 </div>
-
-  //                 <!-- Channels -->
-  //                 <div class="grid-item">
-  //                   <h3>CHANNELS</h3>
-  //                   <p>How you communicate with and deliver value to your target customers</p>
-  //                   <div class="item-list">
-  //                     ${formData.channels.map((channel: string) =>
-  //                       `<div class="item">${channel}</div>`).join('')}
-  //                   </div>
-  //                 </div>
-
-  //                 <!-- Cost Structure -->
-  //                 <div class="grid-item cost-structure">
-  //                   <h3>COST STRUCTURE</h3>
-  //                   <p>The costs incurred to operate a business model</p>
-  //                   <div class="item-list">
-  //                     ${formData.costStructure.map((cost: string) =>
-  //                       `<div class="item">${cost}</div>`).join('')}
-  //                   </div>
-  //                 </div>
-
-  //                 <!-- Revenue Streams -->
-  //                 <div class="grid-item revenue-streams">
-  //                   <h3>REVENUE STREAMS</h3>
-  //                   <p>The revenue you generate from each customer segment</p>
-  //                   <div class="revenue-items">
-  //                     ${formData.revenueStreams.map((revenue: string) =>
-  //                       `<div class="item">${revenue}</div>`).join('')}
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //           <script>
-  //             // Print automatically when loaded
-  //             window.onload = function() {
-  //               setTimeout(function() {
-  //                 window.print();
-  //                 setTimeout(function() {
-  //                   window.close();
-  //                 }, 1000);
-  //               }, 500);
-  //             };
-  //           </script>
-  //         </body>
-  //       </html>
-  //     `;
-
-  //     // Open a new window for printing
-  //     const printWindow = window.open('', '_blank');
-  //     if (!printWindow) {
-  //       alert('Please allow pop-ups for this website to download the PDF');
-  //       return;
-  //     }
-
-  //     // Write our custom HTML to the new window
-  //     printWindow.document.write(printContent);
-  //     printWindow.document.close();
-  //   } catch (error) {
-  //     console.error('Failed to prepare PDF', error);
-  //     alert('Failed to prepare PDF. Please try again or use the browser print function (Ctrl+P).');
-  //   }
-  // };
-
-  // const handleDownloadPDF = async () => {
-  //   if (!canvasRef.current) return;
-
-  //   try {
-  //     // 1. Create a temporary container with simplified styling
-  //     const tempContainer = document.createElement('div');
-  //     tempContainer.style.position = 'fixed';
-  //     tempContainer.style.left = '-9999px';
-  //     tempContainer.style.top = '0';
-  //     tempContainer.style.width = '100%';
-  //     tempContainer.style.backgroundColor = '#ffffff';
-
-  //     // 2. Clone the canvas content
-  //     const clone = canvasRef.current.cloneNode(true) as HTMLElement;
-
-  //     // 3. Remove all classes to avoid CSS parsing issues
-  //     clone.querySelectorAll('*').forEach(el => {
-  //       el.removeAttribute('class');
-  //     });
-
-  //     // 4. Apply minimal necessary styling
-  //     clone.style.width = '100%';
-  //     clone.style.backgroundColor = '#ffffff';
-
-  //     tempContainer.appendChild(clone);
-  //     document.body.appendChild(tempContainer);
-
-  //     // 5. Capture as image (bypassing CSS parsing)
-  //     const canvas = await html2canvas(clone, {
-  //       scale: 2,
-  //       logging: false,
-  //       useCORS: true,
-  //       backgroundColor: '#ffffff',
-  //       allowTaint: true,
-  //       ignoreElements: (el) => false
-  //     });
-
-  //     // 6. Clean up
-  //     document.body.removeChild(tempContainer);
-
-  //     // 7. Convert to PDF
-  //     const imgData = canvas.toDataURL('image/png', 1.0);
-  //     const pdf = new jsPDF('landscape');
-  //     const pdfWidth = pdf.internal.pageSize.getWidth();
-  //     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-  //     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-  //     pdf.save(`${formData.projectName || 'Business_Model_Canvas'}.pdf`);
-
-  //   } catch (error) {
-  //     console.error('PDF Generation Error:', error);
-  //     alert('Could not generate PDF. Please try taking a screenshot manually.');
-  //   }
-  // };
-
-  // const handleDownloadPDF = async () => {
-  //   if (!canvasRef.current) return;
-
-  //   try {
-  //     const canvas = await html2canvas(canvasRef.current, {
-  //       scale: 2,
-  //       backgroundColor: null, // Transparent background
-  //       logging: false,
-  //       useCORS: true,
-  //       allowTaint: true
-  //     });
-
-  //     const pdf = new jsPDF('landscape');
-  //     pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0,
-  //       pdf.internal.pageSize.getWidth(),
-  //       pdf.internal.pageSize.getHeight()
-  //     );
-  //     pdf.save('canvas.pdf');
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert('PDF failed. Try screenshot (Ctrl+P → Save as PDF)');
-  //   }
-  // };
-
-  // const handleDownloadPDF = async () => {
-  //   if (!canvasRef.current) return;
-
-  //   try {
-  //     // Create a temporary container to preserve original styling
-  //     const tempDiv = document.createElement('div');
-  //     tempDiv.style.position = 'fixed';
-  //     tempDiv.style.left = '-9999px';
-  //     tempDiv.style.top = '0';
-  //     tempDiv.style.width = canvasRef.current.offsetWidth + 'px';
-  //     tempDiv.style.backgroundColor = '#F3ECEB';
-  //     tempDiv.style.padding = '20px';
-
-  //     // Clone the canvas with all original classes and styles
-  //     const clone = canvasRef.current.cloneNode(true) as HTMLElement;
-  //     tempDiv.appendChild(clone);
-  //     document.body.appendChild(tempDiv);
-
-  //     // Use html2canvas with specific options
-  //     const canvas = await html2canvas(clone, {
-  //       scale: 2,
-  //       logging: false,
-  //       useCORS: true,
-  //       backgroundColor: '#F3ECEB',
-  //       allowTaint: true,
-  //       ignoreElements: (el) => false
-  //     });
-
-  //     // Clean up
-  //     document.body.removeChild(tempDiv);
-
-  //     // Generate PDF
-  //     const imgData = canvas.toDataURL('image/png');
-  //     const pdf = new jsPDF('landscape');
-  //     const pdfWidth = pdf.internal.pageSize.getWidth();
-  //     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-  //     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-  //     pdf.save(`${formData.projectName || 'Business_Model_Canvas'}.pdf`);
-  //   } catch (error) {
-  //     console.error('PDF Generation Error:', error);
-  //     alert('Could not generate PDF. Please try taking a screenshot manually (Ctrl+Shift+P → Save as PDF).');
-  //   }
-  // };
-
   return (
     <div className="flex flex-col bg-[#ffffff]">
       {/* Main Content */}
@@ -1002,13 +616,208 @@ const Canvas = ({
             </button>
           </div>
 
-          {/* Business Model Canvas */}
-          <div
-            ref={canvasRef}
-            className="flex border border-[#e6e6e6] rounded-lg overflow-hidden min-h-[120vh] w-full overflow-x-auto"
-          >
-            {/* Left Sidebar */}
-            {/* <div className="bg-[#f12c16] w-full md:w-[255px] flex-shrink-0 relative p-4">
+          {/* Fixed width canvas that will force scrolling on small screens */}
+          <div className="w-full overflow-hidden">
+            {/* Container with horizontal scroll */}
+            <div
+              ref={canvasRef}
+              className="w-full overflow-x-auto"
+              style={{
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {/* Fixed width canvas that will force scrolling on small screens */}
+              <div className="flex" style={{ width: "1610px", margin: "0 auto" }}>
+                {/* Left Sidebar */}
+                <div className="bg-[#f12c16] w-[255px] flex-shrink-0 relative">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
+                    <div className="text-white text-2xl font-bold mb-4 flex w-[600px] gap-[100px]">
+                      <div className="w-1/2">
+                        <h1 className="font-bold text-[15px]">
+                          {formData.projectName &&
+                            `Project: ${formData.projectName}`}
+                        </h1>
+                        <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
+                      </div>
+
+                      <div className="w-1/2">
+                        <h1 className="font-bold text-[15px]">
+                          {formData.client && `Client: ${formData.client}`}
+                        </h1>
+                        <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
+                      </div>
+                    </div>
+                    <h2 className="text-white text-6xl font-bold tracking-wide">
+                      Business Model Canvas
+                    </h2>
+
+                    <p className="text-white text-[20px] font-medium">
+                      It is a visual artifact with elements describing a
+                      service&apos;s or product&apos;s <br />
+                      value proposition, infrastructure, customers, and finances
+                    </p>
+                  </div>
+                </div>
+
+                {/* Canvas Grid - Fixed width */}
+                <div
+                  className="flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]"
+                  style={{ width: "945px" }}
+                >
+                  {/* KEY PARTNERS */}
+                  <div className="bg-white p-6 min-h-60">
+                    <h3 className="font-bold text-sm mb-2">KEY PARTNERS</h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The network of suppliers and partners that make the
+                      business work
+                    </p>
+                    <ul className="space-y-2 list-disc pl-5">
+                      {formData.keyPartners?.map((partner: string, index: number) => (
+                        <li key={index} className="text-[13px]">
+                          {partner}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* KEY ACTIVITIES */}
+                  <div className="bg-white p-6 min-h-60 col-span-1">
+                    <h3 className="font-bold text-sm mb-2">KEY ACTIVITIES</h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The most important activities your company needs to make
+                      its business work
+                    </p>
+                    <ul className="space-y-2 list-disc pl-5">
+                      {formData.keyActivities?.map((activity: string, index: number) => (
+                        <li key={index} className="text-[13px]">
+                          {activity}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* VALUE PROPOSITION */}
+                  <div className="bg-white p-6 min-h-60 row-span-2">
+                    <h3 className="font-bold text-sm mb-2">
+                      VALUE PROPOSITION
+                    </h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The products and services that create value for a specific
+                      customer segment
+                    </p>
+                    <div className="p-2 rounded h-full overflow-y-auto">
+                      {formData.valueProposition}
+                    </div>
+                  </div>
+
+                  {/* CUSTOMER RELATIONSHIPS */}
+                  <div className="bg-white p-6 min-h-60">
+                    <h3 className="font-bold text-sm mb-2">
+                      CUSTOMER RELATIONSHIPS
+                    </h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The type of relationship your company establishes with
+                      specific segments
+                    </p>
+                    <div className="p-2 rounded h-full overflow-y-auto">
+                      {formData.customerRelationships}
+                    </div>
+                  </div>
+
+                  {/* CUSTOMER SEGMENTS */}
+                  <div className="bg-white p-6 min-h-60">
+                    <h3 className="font-bold text-sm mb-2">
+                      CUSTOMER SEGMENTS
+                    </h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The different groups of people or organizations you aim to
+                      reach and serve
+                    </p>
+                    <ul className="space-y-2 list-disc pl-5">
+                      {formData.customerSegments?.map((segment: string, index: number) => (
+                        <li key={index} className="text-[13px]">
+                          {segment}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* KEY RESOURCES */}
+                  <div className="bg-white p-6 min-h-60 col-span-1">
+                    <h3 className="font-bold text-sm mb-2">KEY RESOURCES</h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The most important assets required to make the business
+                      work
+                    </p>
+                    <ul className="space-y-2 list-disc pl-5">
+                      {formData.keyResources?.map((resource: string, index: number) => (
+                        <li key={index} className="text-[13px]">
+                          {resource}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CHANNELS */}
+                  <div className="bg-white p-6 min-h-60">
+                    <h3 className="font-bold text-sm mb-2">CHANNELS</h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      How you communicate with and deliver value to your target
+                      customers
+                    </p>
+                    <ul className="space-y-2 list-disc pl-5">
+                      {formData.channels?.map((channel: string, index: number) => (
+                        <li key={index} className="text-[13px]">
+                          {channel}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* COST STRUCTURE */}
+                  <div className="bg-white p-6 min-h-60 col-span-2">
+                    <h3 className="font-bold text-sm mb-2">COST STRUCTURE</h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The costs incurred to operate a business model
+                    </p>
+                    <ul className="space-y-2 list-disc pl-5">
+                      {formData.costStructure?.map((cost: string, index: number) => (
+                        <li key={index} className="text-[13px]">
+                          {cost}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* REVENUE STREAMS */}
+                  <div className="bg-white p-6 min-h-60 col-span-5">
+                    <h3 className="font-bold text-sm mb-2">REVENUE STREAMS</h3>
+                    <p className="text-xs text-[#818285] mb-6">
+                      The revenue you generate from each customer segment
+                    </p>
+                    <ul className="grid grid-cols-3 gap-4 list-disc pl-5">
+                      {formData.revenueStreams?.map((revenue: string, index: number) => (
+                        <li key={index} className="text-[13px]">
+                          {revenue}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+{
+  /* Left Sidebar */
+}
+{
+  /* <div className="bg-[#f12c16] w-full md:w-[255px] flex-shrink-0 relative p-4">
               <div className="md:absolute md:top-1/2 md:left-1/2 md:bottom-1/3 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:-rotate-90 md:whitespace-nowrap">
                 <div className=" text-white text-2xl font-bold mb-4 flex flex-col md:flex-row w-[600px] gap-[10px] md:gap-[100px]">
                   <div className="w-full md:w-1/2">
@@ -1037,192 +846,14 @@ const Canvas = ({
                   value proposition, infrastructure, customers, and finances
                 </p>
               </div>
-            </div> */}
+            </div> */
+}
 
-            {/* Business Model Canvas */}
-            <div
-              ref={canvasRef}
-              className="flex border border-[#e6e6e6] rounded-lg overflow-hidden min-h-[120vh] w-full overflow-x-auto"
-            >
-              {/* Left Sidebar */}
-              <div className="bg-[#f12c16] w-[255px] flex-shrink-0 relative">
-                <div className="absolute top- left-1/2 bottom-1/3 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
-                  <div className=" text-white text-2xl font-bold mb-4 flex w-[600px] gap-[100px]">
-                    <div className="w-1/2">
-                      <h1 className="font-bond text-[15px]">
-                        {formData.projectName &&
-                          `Project:      ${formData.projectName}`}
-                      </h1>
-                      <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
-                    </div>
-
-                    <div className="w-1/2">
-                      <h1 className="font-bond text-[15px]">
-                        {formData.client && `Client:       ${formData.client}`}
-                      </h1>
-                      <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
-                    </div>
-                  </div>
-                  <h2 className="text-white text-6xl font-bold tracking-wide">
-                    Business Model Canvas
-                  </h2>
-
-                  <p className="text-white text-[20px] font-medium">
-                    {" "}
-                    It is a visual artifact with elements describing a service’s
-                    or product's <br />
-                    value proposition, infrastructure, customers, and finances
-                  </p>
-                </div>
-              </div>
-
-              {/* Canvas Grid */}
-              <div className="flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]">
-                {/* Row 1 */}
-                <div className="bg-white p-6 min-h-60">
-                  <h3 className="font-bold text-sm mb-2">KEY PARTNERS</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The network of suppliers and partners that make the business
-                    work
-                  </p>
-                  <div className="space-y-2">
-                    {formData.keyPartners.map(
-                      (partner: string, index: number) => (
-                        <div key={index} className="p-2 rounded text-sm">
-                          {partner}
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 min-h-60 col-span-1">
-                  <h3 className="font-bold text-sm mb-2">KEY ACTIVITIES</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The most important activities your company needs to make its
-                    business work
-                  </p>
-                  <div className="space-y-2">
-                    {formData.keyActivities.map(
-                      (activity: string, index: number) => (
-                        <div key={index} className="p-2 rounded text-sm">
-                          {activity}
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 min-h-60 row-span-2">
-                  <h3 className="font-bold text-sm mb-2">VALUE PROPOSITION</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The products and services that create value for a specific
-                    customer segment
-                  </p>
-                  <div className="p-2 rounded h-full overflow-y-auto">
-                    {formData.valueProposition}
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 min-h-60">
-                  <h3 className="font-bold text-sm mb-2">
-                    CUSTOMER RELATIONSHIPS
-                  </h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The type of relationship your company establishes with
-                    specific segments
-                  </p>
-                  <div className="p-2 rounded h-full overflow-y-auto">
-                    {formData.customerRelationships}
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 min-h-60">
-                  <h3 className="font-bold text-sm mb-2">CUSTOMER SEGMENTS</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The different groups of people or organizations you aim to
-                    reach and serve
-                  </p>
-                  <div className="space-y-2">
-                    {formData.customerSegments.map(
-                      (segment: string, index: number) => (
-                        <div key={index} className="p-2 rounded text-sm">
-                          {segment}
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                {/* Row 2 */}
-                <div className="bg-white p-6 min-h-60 col-span-1">
-                  <h3 className="font-bold text-sm mb-2">KEY RESOURCES</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The most important assets required to make the business work
-                  </p>
-                  <div className="space-y-2">
-                    {formData.keyResources.map(
-                      (resource: string, index: number) => (
-                        <div key={index} className="p-2 rounded text-sm">
-                          {resource}
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 min-h-60">
-                  <h3 className="font-bold text-sm mb-2">CHANNELS</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    How you communicate with and deliver value to your target
-                    customers
-                  </p>
-                  <div className="space-y-2">
-                    {formData.channels.map((channel: string, index: number) => (
-                      <div key={index} className="p-2 rounded text-sm">
-                        {channel}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Row 3 */}
-                <div className="bg-white p-6 min-h-60 col-span-2">
-                  <h3 className="font-bold text-sm mb-2">COST STRUCTURE</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The costs incurred to operate a business model
-                  </p>
-                  <div className="space-y-2">
-                    {formData.costStructure.map(
-                      (cost: string, index: number) => (
-                        <div key={index} className="p-2 rounded text-sm">
-                          {cost}
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 min-h-60 col-span-5">
-                  <h3 className="font-bold text-sm mb-2">REVENUE STREAMS</h3>
-                  <p className="text-xs text-[#818285] mb-6">
-                    The revenue you generate from each customer segment
-                  </p>
-                  <div className="grid grid-cols-3 gap-4">
-                    {formData.revenueStreams.map(
-                      (revenue: string, index: number) => (
-                        <div key={index} className="p-2 rounded text-sm">
-                          {revenue}
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Canvas Grid */}
-            {/* <div className="flex-grow overflow-x-auto">
+{
+  /* Canvas Grid */
+}
+{
+  /* <div className="flex-grow overflow-x-auto">
               <div className="min-w-[900px] grid grid-cols-5 grid-rows-3 gap-3 bg-[#F3ECEB] p-4">
                 
                 <div className="bg-white p-6 min-h-60">
@@ -1363,13 +994,8 @@ const Canvas = ({
                   </div>
                 </div>
               </div>
-            </div> */}
-          </div>
-        </div>
-      </main>
-    </div>
-  );
-};
+            </div> */
+}
 
 // import {
 //   PDFDownloadLink,
@@ -1589,4 +1215,389 @@ const Canvas = ({
 //       </main>
 //     </div>
 //   );
+// };
+
+// Print-based PDF download that doesn't use hooks
+// const handleDownloadPDF = () => {
+//   if (!canvasRef.current) return;
+
+//   try {
+//     // Create a title for the print
+//     const title = formData.projectName
+//       ? `Business Model Canvas: ${formData.projectName}`
+//       : 'Business Model Canvas';
+
+//     // Create a styled version of our content for printing
+//     const printContent = `
+//       <html>
+//         <head>
+//           <title>${title}</title>
+//           <style>
+//             @page {
+//               size: A4 landscape;
+//               margin: 0;
+//             }
+//             @media print {
+//               body {
+//                 margin: 0;
+//                 padding: 0;
+//                 font-family: 'Raleway', Arial, sans-serif;
+//                 background-color: #ffffff;
+//               }
+//               .print-container {
+//                 width: 100%;
+//                 height: 100%;
+//                 display: flex;
+//                 flex-direction: column;
+//               }
+//               .header {
+//                 text-align: center;
+//                 margin-bottom: 20px;
+//                 padding: 20px 0;
+//               }
+//               .header h1 {
+//                 font-size: 24px;
+//                 font-weight: bold;
+//                 margin: 0 0 8px 0;
+//                 color: #0f0f0f;
+//               }
+//               .header p {
+//                 font-size: 16px;
+//                 margin: 0;
+//                 color: #0f0f0f;
+//               }
+//               .canvas-container {
+//                 display: flex;
+//                 width: 100%;
+//                 min-height: 80vh;
+//                 border: 1px solid #e6e6e6;
+//                 border-radius: 8px;
+//                 overflow: hidden;
+//                 page-break-inside: avoid;
+//               }
+//               .sidebar {
+//                 background-color: #f12c16;
+//                 width: 135px;
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 position: relative;
+//               }
+//               .sidebar-text {
+//                 transform: rotate(-90deg);
+//                 white-space: nowrap;
+//                 color: white;
+//                 font-size: 24px;
+//                 font-weight: bold;
+//                 letter-spacing: 1px;
+//                 font-family: 'Raleway', Arial, sans-serif;
+//               }
+//               .grid-container {
+//                 flex: 1;
+//                 display: grid;
+//                 grid-template-columns: repeat(5, 1fr);
+//                 grid-template-rows: repeat(3, minmax(150px, 1fr));
+//                 gap: 14px;
+//                 padding: 20px;
+//                 background-color: #F3ECEB;
+//               }
+//               .grid-item {
+//                 background-color: white;
+//                 padding: 15px;
+//                 border-radius: 4px;
+//                 display: flex;
+//                 flex-direction: column;
+//               }
+//               .grid-item h3 {
+//                 font-size: 12px;
+//                 font-weight: bold;
+//                 margin: 0 0 8px 0;
+//                 color: #232326;
+//                 font-family: 'Raleway', Arial, sans-serif;
+//               }
+//               .grid-item p {
+//                 font-size: 10px;
+//                 color: #818285;
+//                 margin: 0 0 12px 0;
+//                 font-family: 'Raleway', Arial, sans-serif;
+//               }
+//               .value-prop {
+//                 grid-row: span 2;
+//               }
+//               .cost-structure {
+//                 grid-column: span 2;
+//               }
+//               .revenue-streams {
+//                 grid-column: span 5;
+//               }
+//               .item-list {
+//                 flex: 1;
+//                 display: flex;
+//                 flex-direction: column;
+//                 gap: 6px;
+//               }
+//               .item {
+//                 font-size: 11px;
+//                 padding: 6px 8px;
+//                 background-color: #f5f5f5;
+//                 border-radius: 12px;
+//                 color: #0f0f0f;
+//               }
+//               .revenue-items {
+//                 display: grid;
+//                 grid-template-columns: repeat(3, 1fr);
+//                 gap: 10px;
+//               }
+//           </style>
+//         </head>
+//         <body>
+//           <div class="print-container">
+//             <div class="header">
+//               <h1>${title}</h1>
+//               ${formData.client ? `<p>Client: ${formData.client}</p>` : ''}
+//             </div>
+//             <div class="canvas-container">
+//               <div class="sidebar">
+//                 <div class="sidebar-text">Business Model Canvas</div>
+//               </div>
+//               <div class="grid-container">
+//                 <!-- Key Partners -->
+//                 <div class="grid-item">
+//                   <h3>KEY PARTNERS</h3>
+//                   <p>The network of suppliers and partners that make the business work</p>
+//                   <div class="item-list">
+//                     ${formData.keyPartners.map((partner: string) =>
+//                       `<div class="item">${partner}</div>`).join('')}
+//                   </div>
+//                 </div>
+
+//                 <!-- Key Activities -->
+//                 <div class="grid-item">
+//                   <h3>KEY ACTIVITIES</h3>
+//                   <p>The most important activities your company needs to make its business work</p>
+//                   <div class="item-list">
+//                     ${formData.keyActivities.map((activity: string) =>
+//                       `<div class="item">${activity}</div>`).join('')}
+//                   </div>
+//                 </div>
+
+//                 <!-- Value Proposition -->
+//                 <div class="grid-item value-prop">
+//                   <h3>VALUE PROPOSITION</h3>
+//                   <p>The products and services that create value for a specific customer segment</p>
+//                   <div class="item">${formData.valueProposition}</div>
+//                 </div>
+
+//                 <!-- Customer Relationships -->
+//                 <div class="grid-item">
+//                   <h3>CUSTOMER RELATIONSHIPS</h3>
+//                   <p>The type of relationship your company establishes with specific segments</p>
+//                   <div class="item">${formData.customerRelationships}</div>
+//                 </div>
+
+//                 <!-- Customer Segments -->
+//                 <div class="grid-item">
+//                   <h3>CUSTOMER SEGMENTS</h3>
+//                   <p>The different groups of people or organizations you aim to reach and serve</p>
+//                   <div class="item-list">
+//                     ${formData.customerSegments.map((segment: string) =>
+//                       `<div class="item">${segment}</div>`).join('')}
+//                   </div>
+//                 </div>
+
+//                 <!-- Key Resources -->
+//                 <div class="grid-item">
+//                   <h3>KEY RESOURCES</h3>
+//                   <p>The most important assets required to make the business work</p>
+//                   <div class="item-list">
+//                     ${formData.keyResources.map((resource: string) =>
+//                       `<div class="item">${resource}</div>`).join('')}
+//                   </div>
+//                 </div>
+
+//                 <!-- Channels -->
+//                 <div class="grid-item">
+//                   <h3>CHANNELS</h3>
+//                   <p>How you communicate with and deliver value to your target customers</p>
+//                   <div class="item-list">
+//                     ${formData.channels.map((channel: string) =>
+//                       `<div class="item">${channel}</div>`).join('')}
+//                   </div>
+//                 </div>
+
+//                 <!-- Cost Structure -->
+//                 <div class="grid-item cost-structure">
+//                   <h3>COST STRUCTURE</h3>
+//                   <p>The costs incurred to operate a business model</p>
+//                   <div class="item-list">
+//                     ${formData.costStructure.map((cost: string) =>
+//                       `<div class="item">${cost}</div>`).join('')}
+//                   </div>
+//                 </div>
+
+//                 <!-- Revenue Streams -->
+//                 <div class="grid-item revenue-streams">
+//                   <h3>REVENUE STREAMS</h3>
+//                   <p>The revenue you generate from each customer segment</p>
+//                   <div class="revenue-items">
+//                     ${formData.revenueStreams.map((revenue: string) =>
+//                       `<div class="item">${revenue}</div>`).join('')}
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//           <script>
+//             // Print automatically when loaded
+//             window.onload = function() {
+//               setTimeout(function() {
+//                 window.print();
+//                 setTimeout(function() {
+//                   window.close();
+//                 }, 1000);
+//               }, 500);
+//             };
+//           </script>
+//         </body>
+//       </html>
+//     `;
+
+//     // Open a new window for printing
+//     const printWindow = window.open('', '_blank');
+//     if (!printWindow) {
+//       alert('Please allow pop-ups for this website to download the PDF');
+//       return;
+//     }
+
+//     // Write our custom HTML to the new window
+//     printWindow.document.write(printContent);
+//     printWindow.document.close();
+//   } catch (error) {
+//     console.error('Failed to prepare PDF', error);
+//     alert('Failed to prepare PDF. Please try again or use the browser print function (Ctrl+P).');
+//   }
+// };
+
+// const handleDownloadPDF = async () => {
+//   if (!canvasRef.current) return;
+
+//   try {
+//     // 1. Create a temporary container with simplified styling
+//     const tempContainer = document.createElement('div');
+//     tempContainer.style.position = 'fixed';
+//     tempContainer.style.left = '-9999px';
+//     tempContainer.style.top = '0';
+//     tempContainer.style.width = '100%';
+//     tempContainer.style.backgroundColor = '#ffffff';
+
+//     // 2. Clone the canvas content
+//     const clone = canvasRef.current.cloneNode(true) as HTMLElement;
+
+//     // 3. Remove all classes to avoid CSS parsing issues
+//     clone.querySelectorAll('*').forEach(el => {
+//       el.removeAttribute('class');
+//     });
+
+//     // 4. Apply minimal necessary styling
+//     clone.style.width = '100%';
+//     clone.style.backgroundColor = '#ffffff';
+
+//     tempContainer.appendChild(clone);
+//     document.body.appendChild(tempContainer);
+
+//     // 5. Capture as image (bypassing CSS parsing)
+//     const canvas = await html2canvas(clone, {
+//       scale: 2,
+//       logging: false,
+//       useCORS: true,
+//       backgroundColor: '#ffffff',
+//       allowTaint: true,
+//       ignoreElements: (el) => false
+//     });
+
+//     // 6. Clean up
+//     document.body.removeChild(tempContainer);
+
+//     // 7. Convert to PDF
+//     const imgData = canvas.toDataURL('image/png', 1.0);
+//     const pdf = new jsPDF('landscape');
+//     const pdfWidth = pdf.internal.pageSize.getWidth();
+//     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+//     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+//     pdf.save(`${formData.projectName || 'Business_Model_Canvas'}.pdf`);
+
+//   } catch (error) {
+//     console.error('PDF Generation Error:', error);
+//     alert('Could not generate PDF. Please try taking a screenshot manually.');
+//   }
+// };
+
+// const handleDownloadPDF = async () => {
+//   if (!canvasRef.current) return;
+
+//   try {
+//     const canvas = await html2canvas(canvasRef.current, {
+//       scale: 2,
+//       backgroundColor: null, // Transparent background
+//       logging: false,
+//       useCORS: true,
+//       allowTaint: true
+//     });
+
+//     const pdf = new jsPDF('landscape');
+//     pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0,
+//       pdf.internal.pageSize.getWidth(),
+//       pdf.internal.pageSize.getHeight()
+//     );
+//     pdf.save('canvas.pdf');
+//   } catch (error) {
+//     console.error(error);
+//     alert('PDF failed. Try screenshot (Ctrl+P → Save as PDF)');
+//   }
+// };
+
+// const handleDownloadPDF = async () => {
+//   if (!canvasRef.current) return;
+
+//   try {
+//     // Create a temporary container to preserve original styling
+//     const tempDiv = document.createElement('div');
+//     tempDiv.style.position = 'fixed';
+//     tempDiv.style.left = '-9999px';
+//     tempDiv.style.top = '0';
+//     tempDiv.style.width = canvasRef.current.offsetWidth + 'px';
+//     tempDiv.style.backgroundColor = '#F3ECEB';
+//     tempDiv.style.padding = '20px';
+
+//     // Clone the canvas with all original classes and styles
+//     const clone = canvasRef.current.cloneNode(true) as HTMLElement;
+//     tempDiv.appendChild(clone);
+//     document.body.appendChild(tempDiv);
+
+//     // Use html2canvas with specific options
+//     const canvas = await html2canvas(clone, {
+//       scale: 2,
+//       logging: false,
+//       useCORS: true,
+//       backgroundColor: '#F3ECEB',
+//       allowTaint: true,
+//       ignoreElements: (el) => false
+//     });
+
+//     // Clean up
+//     document.body.removeChild(tempDiv);
+
+//     // Generate PDF
+//     const imgData = canvas.toDataURL('image/png');
+//     const pdf = new jsPDF('landscape');
+//     const pdfWidth = pdf.internal.pageSize.getWidth();
+//     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+//     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+//     pdf.save(`${formData.projectName || 'Business_Model_Canvas'}.pdf`);
+//   } catch (error) {
+//     console.error('PDF Generation Error:', error);
+//     alert('Could not generate PDF. Please try taking a screenshot manually (Ctrl+Shift+P → Save as PDF).');
+//   }
 // };

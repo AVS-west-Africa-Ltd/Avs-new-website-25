@@ -30,7 +30,7 @@ export default function MySwiper() {
     effect: "panorama",
     speed: 600,
     pagination: { enabled: true },
-    autoplay: { enabled: true },
+    autoplay: { delay: 3000, disableOnInteraction: false },
     breakpoints: {
       768: {
         slidesPerView: 3,
