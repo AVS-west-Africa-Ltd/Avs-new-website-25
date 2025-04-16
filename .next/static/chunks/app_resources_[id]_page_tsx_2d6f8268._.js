@@ -23,7 +23,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$imag
 var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature();
 "use client";
 ;
-const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
+const TemplateCard = ({ name, creator, type, downloads, description, link: downloadUrl })=>{
+    const handleDownload = ()=>{
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = "figma.deck";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "max-w-s rounded-lg bg-white p-4  md:px-[140px] mx-auto flex flex-col justify-center gap-4",
         children: [
@@ -32,7 +40,7 @@ const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
                 children: name
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 24,
+                lineNumber: 33,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -48,16 +56,14 @@ const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 25,
+                lineNumber: 34,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mt-4",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                    href: link,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: "flex items-center gap-2 rounded-full bg-gray-900 w-[140px] px-4 py-2 text-sm font-medium text-white",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    onClick: handleDownload,
+                    className: "flex items-center gap-2 rounded-full bg-gray-900 w-[140px] px-4 py-2 text-sm font-medium text-white cursor-pointer",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                             width: "20",
@@ -74,7 +80,7 @@ const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
                                     strokeLinejoin: "round"
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 42,
+                                    lineNumber: 49,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -85,7 +91,7 @@ const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
                                     strokeLinejoin: "round"
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 49,
+                                    lineNumber: 56,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -96,25 +102,32 @@ const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
                                     strokeLinejoin: "round"
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 63,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/resources/[id]/page.tsx",
-                            lineNumber: 35,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, this),
-                        "Download"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "text-sm font-medium text-white",
+                            children: "Download"
+                        }, void 0, false, {
+                            fileName: "[project]/app/resources/[id]/page.tsx",
+                            lineNumber: 72,
+                            columnNumber: 11
+                        }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 29,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 28,
+                lineNumber: 37,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -125,7 +138,7 @@ const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
                         children: "Overview"
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 68,
+                        lineNumber: 76,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -133,19 +146,19 @@ const TemplateCard = ({ name, creator, type, downloads, description, link })=>{
                         children: description
                     }, void 0, false, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 69,
+                        lineNumber: 77,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 67,
+                lineNumber: 75,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/resources/[id]/page.tsx",
-        lineNumber: 23,
+        lineNumber: 32,
         columnNumber: 5
     }, this);
 };
@@ -200,17 +213,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 108,
+                                        lineNumber: 115,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 105,
+                                    lineNumber: 112,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 104,
+                                lineNumber: 111,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -229,17 +242,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 122,
+                                        lineNumber: 129,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 119,
+                                    lineNumber: 126,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 118,
+                                lineNumber: 125,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -260,17 +273,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 141,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 131,
+                                    lineNumber: 138,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 130,
+                                lineNumber: 137,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -289,27 +302,27 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 148,
+                                        lineNumber: 155,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 145,
+                                    lineNumber: 152,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 144,
+                                lineNumber: 151,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 96,
+                        lineNumber: 103,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Swiper"], {
-                        //@ts-ignore
+                        //@ts-expect-error  Missing type definitions for external library
                         onSwiper: setThumbsSwiper,
                         loop: true,
                         spaceBetween: 10,
@@ -334,17 +347,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 173,
+                                        lineNumber: 180,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 170,
+                                    lineNumber: 177,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 169,
+                                lineNumber: 176,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -358,17 +371,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 185,
+                                        lineNumber: 192,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 182,
+                                    lineNumber: 189,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 181,
+                                lineNumber: 188,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -384,17 +397,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 204,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 194,
+                                    lineNumber: 201,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 193,
+                                lineNumber: 200,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -408,17 +421,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 211,
+                                        lineNumber: 218,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 208,
+                                    lineNumber: 215,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 207,
+                                lineNumber: 214,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -434,17 +447,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 230,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 220,
+                                    lineNumber: 227,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 219,
+                                lineNumber: 226,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -458,29 +471,29 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 244,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 234,
+                                    lineNumber: 241,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 233,
+                                lineNumber: 240,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 158,
+                        lineNumber: 165,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 95,
+                lineNumber: 102,
                 columnNumber: 9
             }, this),
             Number(id) === 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -518,17 +531,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 264,
+                                        lineNumber: 271,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 261,
+                                    lineNumber: 268,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 260,
+                                lineNumber: 267,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -547,17 +560,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 278,
+                                        lineNumber: 285,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 275,
+                                    lineNumber: 282,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 274,
+                                lineNumber: 281,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -578,17 +591,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 290,
+                                        lineNumber: 297,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 287,
+                                    lineNumber: 294,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 286,
+                                lineNumber: 293,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -607,17 +620,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 304,
+                                        lineNumber: 311,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 301,
+                                    lineNumber: 308,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 300,
+                                lineNumber: 307,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -638,17 +651,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 317,
+                                        lineNumber: 324,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 321,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 313,
+                                lineNumber: 320,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -667,17 +680,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 331,
+                                        lineNumber: 338,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 328,
+                                    lineNumber: 335,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 327,
+                                lineNumber: 334,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -698,17 +711,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 343,
+                                        lineNumber: 350,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 340,
+                                    lineNumber: 347,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 339,
+                                lineNumber: 346,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -727,27 +740,27 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 357,
+                                        lineNumber: 364,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 354,
+                                    lineNumber: 361,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 353,
+                                lineNumber: 360,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 252,
+                        lineNumber: 259,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Swiper"], {
-                        //@ts-ignore
+                        //@ts-expect-error  Missing type definitions for external library
                         onSwiper: setThumbsSwiper,
                         loop: true,
                         spaceBetween: 10,
@@ -772,17 +785,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 382,
+                                        lineNumber: 389,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 379,
+                                    lineNumber: 386,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 378,
+                                lineNumber: 385,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -796,17 +809,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 394,
+                                        lineNumber: 401,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 391,
+                                    lineNumber: 398,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 390,
+                                lineNumber: 397,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -822,17 +835,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 406,
+                                        lineNumber: 413,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 403,
+                                    lineNumber: 410,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 402,
+                                lineNumber: 409,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -846,17 +859,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 420,
+                                        lineNumber: 427,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 417,
+                                    lineNumber: 424,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 416,
+                                lineNumber: 423,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -872,17 +885,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 432,
+                                        lineNumber: 439,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 429,
+                                    lineNumber: 436,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 428,
+                                lineNumber: 435,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -896,29 +909,29 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 446,
+                                        lineNumber: 453,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 443,
+                                    lineNumber: 450,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 442,
+                                lineNumber: 449,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 367,
+                        lineNumber: 374,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 251,
+                lineNumber: 258,
                 columnNumber: 9
             }, this),
             Number(id) === 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -946,7 +959,7 @@ const TemplateSection = ()=>{
                                         position: "relative"
                                     },
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/1.png",
+                                        src: "/assets/resources/Le/1.png",
                                         alt: "Slide 1",
                                         // width={1000}
                                         // height={1000}
@@ -956,17 +969,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 473,
+                                        lineNumber: 480,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 470,
+                                    lineNumber: 477,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 469,
+                                lineNumber: 476,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -977,7 +990,7 @@ const TemplateSection = ()=>{
                                         position: "relative"
                                     },
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/2.png",
+                                        src: "/assets/resources/Le/2.png",
                                         alt: "Slide 2",
                                         fill: true,
                                         style: {
@@ -985,17 +998,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 487,
+                                        lineNumber: 494,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 484,
+                                    lineNumber: 491,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 483,
+                                lineNumber: 490,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1006,27 +1019,25 @@ const TemplateSection = ()=>{
                                         position: "relative"
                                     },
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/3.png",
+                                        src: "/assets/resources/Le/3.png",
                                         alt: "Slide 1",
-                                        // width={1000}
-                                        // height={1000}
                                         fill: true,
                                         style: {
                                             objectFit: "contain"
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 499,
+                                        lineNumber: 506,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 496,
+                                    lineNumber: 503,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 495,
+                                lineNumber: 502,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1037,7 +1048,7 @@ const TemplateSection = ()=>{
                                         position: "relative"
                                     },
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/4.png",
+                                        src: "/assets/resources/Le/4.png",
                                         alt: "Slide 2",
                                         fill: true,
                                         style: {
@@ -1045,27 +1056,27 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 513,
+                                        lineNumber: 518,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 510,
+                                    lineNumber: 515,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 509,
+                                lineNumber: 514,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 461,
+                        lineNumber: 468,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Swiper"], {
-                        //@ts-ignore
+                        //@ts-expect-error  Missing type definitions for external library
                         onSwiper: setThumbsSwiper,
                         loop: true,
                         spaceBetween: 10,
@@ -1082,7 +1093,7 @@ const TemplateSection = ()=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/1.png",
+                                        src: "/assets/resources/Le/1.png",
                                         alt: "Thumbnail 1",
                                         fill: true,
                                         style: {
@@ -1090,23 +1101,23 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 538,
+                                        lineNumber: 543,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 535,
+                                    lineNumber: 540,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 534,
+                                lineNumber: 539,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/2.png",
+                                        src: "/assets/resources/Le/2.png",
                                         alt: "Slide 2",
                                         fill: true,
                                         style: {
@@ -1114,23 +1125,23 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 550,
+                                        lineNumber: 555,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 547,
+                                    lineNumber: 552,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 546,
+                                lineNumber: 551,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/3.png",
+                                        src: "/assets/resources/Le/3.png",
                                         alt: "Slide 1",
                                         // width={1000}
                                         // height={1000}
@@ -1140,23 +1151,23 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 562,
+                                        lineNumber: 567,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 559,
+                                    lineNumber: 564,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 558,
+                                lineNumber: 563,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                        src: "/assets/resources/le/4.png",
+                                        src: "/assets/resources/Le/4.png",
                                         alt: "Slide 2",
                                         fill: true,
                                         style: {
@@ -1164,17 +1175,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 576,
+                                        lineNumber: 581,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 573,
+                                    lineNumber: 578,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 572,
+                                lineNumber: 577,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1190,17 +1201,17 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 588,
+                                        lineNumber: 593,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 585,
+                                    lineNumber: 590,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 584,
+                                lineNumber: 589,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -1214,29 +1225,29 @@ const TemplateSection = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/[id]/page.tsx",
-                                        lineNumber: 602,
+                                        lineNumber: 607,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/resources/[id]/page.tsx",
-                                    lineNumber: 599,
+                                    lineNumber: 604,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/[id]/page.tsx",
-                                lineNumber: 598,
+                                lineNumber: 603,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/[id]/page.tsx",
-                        lineNumber: 523,
+                        lineNumber: 528,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/resources/[id]/page.tsx",
-                lineNumber: 460,
+                lineNumber: 467,
                 columnNumber: 9
             }, this)
         ]
@@ -1286,11 +1297,11 @@ function Home() {
                     creator: "A Venture Studio",
                     type: "Figma",
                     downloads: "3.3k",
-                    link: "https://drive.google.com/file/d/1rCslolPuL3_IYF11hyRz5B6Hl6kmAIAj/view?usp=drive_link",
+                    link: "/assets/resources/Peaches/Peaches.deck",
                     description: "An ecosystem mapping workshop is a collaborative session where participants work together to visually identify and map stakeholders, resources within a specific system, and map their relationships. It helps create a shared understanding of the system's dynamics and identify opportunities or challenges within the ecosystem. This process results in alignments, co-commitments, solutions, insights, and ideas that could help lead to better strategies and collaborations."
                 }, void 0, false, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 654,
+                    lineNumber: 659,
                     columnNumber: 11
                 }, this),
                 Number(id) === 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
@@ -1298,11 +1309,11 @@ function Home() {
                     creator: "A Venture Studio",
                     type: "Figma Slide Deck",
                     downloads: "3.4k",
-                    link: "https://drive.google.com/file/d/1o8SkoT8UwxKS9tv2kGwFk7-hZVPDNkdh/view?usp=drive_link",
+                    link: "/assets/resources/Le/LeOrange.deck",
                     description: "A pitch deck is a concise, visually engaging presentation that effectively highlights the key aspects of a business, product, or project to potential investors, partners, or stakeholders. Its primary goal is to generate interest and secure funding or support. This template provides a clean, modern design that helps you present your business case clearly and professionally."
                 }, void 0, false, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 665,
+                    lineNumber: 670,
                     columnNumber: 11
                 }, this),
                 Number(id) === 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateCard, {
@@ -1310,22 +1321,22 @@ function Home() {
                     creator: "A Venture Studio",
                     type: "Figma",
                     downloads: "2.5k",
-                    link: "https://drive.google.com/file/d/1Vhos5cq9KxHjeGWCj3id2ZA_vmsl33oR/view?usp=drive_link",
+                    link: "/assets/resources/los/LosBlancosHermanos.deck",
                     description: "A visual representation of the steps a user takes to complete a specific task or reach a goal within a website or digital product. It helps designers, developers, and stakeholders understand the user's journey, identify friction points, and create intuitive, user-friendly interfaces. This template includes common flow patterns and is fully customizable for your specific needs."
                 }, void 0, false, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 676,
+                    lineNumber: 681,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(TemplateSection, {}, void 0, false, {
                     fileName: "[project]/app/resources/[id]/page.tsx",
-                    lineNumber: 686,
+                    lineNumber: 691,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/resources/[id]/page.tsx",
-            lineNumber: 652,
+            lineNumber: 657,
             columnNumber: 7
         }, this)
     }, void 0, false);

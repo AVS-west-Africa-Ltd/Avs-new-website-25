@@ -38,14 +38,14 @@ const CaseStudiesSection = ()=>{
                     duration: 0.6,
                     ease: "easeOut"
                 },
-                className: "flex flex-col items-center gap-6 max-w-[1040px] text-center",
+                className: "flex flex-col items-center gap-6 max-w-[700px] text-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                         className: "font-raleway text-4xl sm:text-4xl md:text-[56px] leading-tight text-[#0f0f0f]",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "font-semibold",
-                                children: "Take charge of"
+                                children: "Everything You Need to"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/CaseStudiesSection/CaseStudiesSection.tsx",
                                 lineNumber: 23,
@@ -61,18 +61,10 @@ const CaseStudiesSection = ()=>{
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "font-medium italic",
-                                children: "your business growth"
+                                children: "Build Smarter"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/CaseStudiesSection/CaseStudiesSection.tsx",
                                 lineNumber: 25,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-semibold",
-                                children: "—We'll handle the operations!"
-                            }, void 0, false, {
-                                fileName: "[project]/app/resources/CaseStudiesSection/CaseStudiesSection.tsx",
-                                lineNumber: 26,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -83,7 +75,7 @@ const CaseStudiesSection = ()=>{
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "font-raleway text-sm sm:text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]",
-                        children: "Focus on building your vision while we take care of the day-to-day operations, ensuring seamless growth."
+                        children: "Explore expert guides, startup tools, and practical templates designed to help you launch, grow, and scale with clarity and confidence."
                     }, void 0, false, {
                         fileName: "[project]/app/resources/CaseStudiesSection/CaseStudiesSection.tsx",
                         lineNumber: 31,
@@ -139,7 +131,7 @@ const CaseStudiesSection = ()=>{
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/resources/CaseStudiesSection/CaseStudiesSection.tsx",
-                        lineNumber: 36,
+                        lineNumber: 37,
                         columnNumber: 11
                     }, this)
                 ]
@@ -184,26 +176,35 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-intersection-observer/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 ;
-var _s = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
 ;
+;
 const CallToAction = ({ text, onClick })=>{
+    _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-        onClick: onClick,
+        onClick: ()=>router.push("/resources/services"),
         className: "mt-7 px-8 py-4  max-w-full text-base tracking-tight leading-tight text-white bg-stone-950 rounded-[100px] max-md:px-5 hover:bg-stone-800 transition-colors cursor-pointer",
         children: text
     }, void 0, false, {
         fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-        lineNumber: 16,
+        lineNumber: 18,
         columnNumber: 5
     }, this);
 };
+_s(CallToAction, "fN7XvhJ+p5oE6+Xlo0NJmXpxjC8=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = CallToAction;
 const AIFeatureSection = ()=>{
-    _s();
+    _s1();
     const { ref, inView } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useInView"])({
         triggerOnce: true,
         threshold: 0.2
@@ -234,7 +235,7 @@ const AIFeatureSection = ()=>{
         inView
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "p-4 md:p-0",
+        className: "p-4 md:px-14",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             ref: ref,
             className: `relative overflow-hidden px-4 md:pl-16 rounded-3xl py-[120px] mb-12 transition-opacity transform duration-1200 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-24"}`,
@@ -251,12 +252,12 @@ const AIFeatureSection = ()=>{
                         className: "object-cover"
                     }, void 0, false, {
                         fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                        lineNumber: 57,
+                        lineNumber: 62,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                    lineNumber: 56,
+                    lineNumber: 61,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -277,14 +278,14 @@ const AIFeatureSection = ()=>{
                                                 children: "Business Model Canvas"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                                                lineNumber: 81,
+                                                lineNumber: 86,
                                                 columnNumber: 17
                                             }, this),
                                             " "
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 85,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -292,46 +293,46 @@ const AIFeatureSection = ()=>{
                                         children: "Define how your startup creates, delivers, and captures value—one building block at a time."
                                     }, void 0, false, {
                                         fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 88,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                                lineNumber: 76,
+                                lineNumber: 81,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CallToAction, {
                                 text: "Start Mapping"
                             }, void 0, false, {
                                 fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                                lineNumber: 88,
+                                lineNumber: 93,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                        lineNumber: 69,
+                        lineNumber: 74,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-                    lineNumber: 68,
+                    lineNumber: 73,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-            lineNumber: 49,
+            lineNumber: 54,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/resources/IntroductionSection/AIFeatureSection.tsx",
-        lineNumber: 48,
+        lineNumber: 53,
         columnNumber: 5
     }, this);
 };
-_s(AIFeatureSection, "r+jxJ0jQRPK/36klTy/sGNYlpIg=", false, function() {
+_s1(AIFeatureSection, "r+jxJ0jQRPK/36klTy/sGNYlpIg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useInView"]
     ];

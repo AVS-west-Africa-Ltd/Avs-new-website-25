@@ -1457,6 +1457,10 @@
     max-width: 640px;
   }
 
+  .max-w-\[700px\] {
+    max-width: 700px;
+  }
+
   .max-w-\[760px\] {
     max-width: 760px;
   }
@@ -3020,6 +3024,10 @@
 
   .text-\[12px\] {
     font-size: 12px;
+  }
+
+  .text-\[13px\] {
+    font-size: 13px;
   }
 
   .text-\[15px\] {
@@ -4992,6 +5000,12 @@
   @media (width >= 48rem) {
     .md\:px-6 {
       padding-inline: calc(var(--spacing) * 6);
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:px-14 {
+      padding-inline: calc(var(--spacing) * 14);
     }
   }
 

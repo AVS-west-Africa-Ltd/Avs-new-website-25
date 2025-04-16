@@ -296,32 +296,27 @@ const HeaderSection = ()=>{
         }
     ];
     const dropdownItems = [
-        {
-            label: "Services",
-            href: "/resources/services",
-            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                width: "19",
-                height: "19",
-                viewBox: "0 0 19 19",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                    d: "M15.4375 9.95283L9.50003 15.8333L3.56253 9.95283C3.1709 9.57173 2.86242 9.11367 2.65651 8.6075C2.4506 8.10132 2.35173 7.558 2.36612 7.01173C2.38051 6.46547 2.50785 5.9281 2.74012 5.43347C2.97239 4.93884 3.30456 4.49765 3.71571 4.1377C4.12686 3.77775 4.60809 3.50683 5.12909 3.342C5.65009 3.17717 6.19958 3.122 6.74295 3.17996C7.28632 3.23793 7.8118 3.40777 8.28631 3.6788C8.76082 3.94982 9.17406 4.31616 9.50003 4.75474C9.82742 4.31935 10.2411 3.95621 10.7153 3.68806C11.1895 3.41991 11.7139 3.25252 12.2558 3.19637C12.7976 3.14021 13.3452 3.19651 13.8643 3.36172C14.3834 3.52694 14.8628 3.79752 15.2725 4.15653C15.6822 4.51555 16.0134 4.95526 16.2454 5.44816C16.4773 5.94106 16.605 6.47653 16.6205 7.02106C16.636 7.56558 16.5389 8.10745 16.3354 8.61273C16.1318 9.11802 15.8262 9.57585 15.4375 9.95758M9.50006 4.75L6.89311 7.35696C6.74469 7.50542 6.66132 7.70675 6.66132 7.91667C6.66132 8.12659 6.74469 8.32792 6.89311 8.47637L7.32298 8.90625C7.86923 9.4525 8.7559 9.4525 9.30215 8.90625L10.0938 8.11458C10.5662 7.64217 11.207 7.37677 11.8751 7.37677C12.5432 7.37677 13.1839 7.64217 13.6563 8.11458L15.4376 9.89583M9.89602 12.2708L11.4793 13.8542M11.8752 10.2917L13.4585 11.875",
-                    stroke: "black",
-                    strokeWidth: "1.58333",
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round"
-                }, void 0, false, {
-                    fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                    lineNumber: 70,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/sections/MainContentSection/MainContentSection.tsx",
-                lineNumber: 63,
-                columnNumber: 9
-            }, this)
-        },
+        // {
+        //   label: "Services",
+        //   href: "/resources/services",
+        //   icon: (
+        //     <svg
+        //       width="19"
+        //       height="19"
+        //       viewBox="0 0 19 19"
+        //       fill="none"
+        //       xmlns="http://www.w3.org/2000/svg"
+        //     >
+        //       <path
+        //         d="M15.4375 9.95283L9.50003 15.8333L3.56253 9.95283C3.1709 9.57173 2.86242 9.11367 2.65651 8.6075C2.4506 8.10132 2.35173 7.558 2.36612 7.01173C2.38051 6.46547 2.50785 5.9281 2.74012 5.43347C2.97239 4.93884 3.30456 4.49765 3.71571 4.1377C4.12686 3.77775 4.60809 3.50683 5.12909 3.342C5.65009 3.17717 6.19958 3.122 6.74295 3.17996C7.28632 3.23793 7.8118 3.40777 8.28631 3.6788C8.76082 3.94982 9.17406 4.31616 9.50003 4.75474C9.82742 4.31935 10.2411 3.95621 10.7153 3.68806C11.1895 3.41991 11.7139 3.25252 12.2558 3.19637C12.7976 3.14021 13.3452 3.19651 13.8643 3.36172C14.3834 3.52694 14.8628 3.79752 15.2725 4.15653C15.6822 4.51555 16.0134 4.95526 16.2454 5.44816C16.4773 5.94106 16.605 6.47653 16.6205 7.02106C16.636 7.56558 16.5389 8.10745 16.3354 8.61273C16.1318 9.11802 15.8262 9.57585 15.4375 9.95758M9.50006 4.75L6.89311 7.35696C6.74469 7.50542 6.66132 7.70675 6.66132 7.91667C6.66132 8.12659 6.74469 8.32792 6.89311 8.47637L7.32298 8.90625C7.86923 9.4525 8.7559 9.4525 9.30215 8.90625L10.0938 8.11458C10.5662 7.64217 11.207 7.37677 11.8751 7.37677C12.5432 7.37677 13.1839 7.64217 13.6563 8.11458L15.4376 9.89583M9.89602 12.2708L11.4793 13.8542M11.8752 10.2917L13.4585 11.875"
+        //         stroke="black"
+        //         strokeWidth="1.58333"
+        //         strokeLinecap="round"
+        //         strokeLinejoin="round"
+        //       />
+        //     </svg>
+        //   ),
+        // },
         {
             label: "Resources",
             href: "/resources",
@@ -398,7 +393,8 @@ const HeaderSection = ()=>{
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: toggleDropdown,
-                                                    className: `flex items-center gap-1 font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === "/offerings" || pathname === "/services" || pathname === "/resources" ? "text-black font-bold" : "text-[#0f0f0fa6]"}`,
+                                                    className: `flex items-center gap-1 font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === "/offerings" || // pathname === "/services" ||
+                                                    pathname === "/resources" ? "text-black font-bold" : "text-[#0f0f0fa6]"}`,
                                                     children: [
                                                         "Offerings",
                                                         " ",

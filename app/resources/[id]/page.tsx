@@ -17,8 +17,17 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
   type,
   downloads,
   description,
-  link,
+  link: downloadUrl,
 }) => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.download = "figma.deck";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="max-w-s rounded-lg bg-white p-4  md:px-[140px] mx-auto flex flex-col justify-center gap-4">
       <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
@@ -26,11 +35,9 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
         by {creator} • {type} • {downloads} downloads
       </div>
       <div className="mt-4">
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full bg-gray-900 w-[140px] px-4 py-2 text-sm font-medium text-white"
+        <button
+          onClick={handleDownload}
+          className="flex items-center gap-2 rounded-full bg-gray-900 w-[140px] px-4 py-2 text-sm font-medium text-white cursor-pointer"
         >
           <svg
             width="20"
@@ -61,8 +68,9 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
               strokeLinejoin="round"
             />
           </svg>
-          Download
-        </a>
+
+          <span className="text-sm font-medium text-white">Download</span>
+        </button>
       </div>
       <div className="mt-6">
         <h3 className="font-bold text-gray-900">Overview</h3>
@@ -653,7 +661,7 @@ export default function Home() {
             creator="A Venture Studio"
             type="Figma"
             downloads="3.3k"
-            link="https://drive.google.com/file/d/1rCslolPuL3_IYF11hyRz5B6Hl6kmAIAj/view?usp=drive_link"
+            link="/assets/resources/Peaches/Peaches.deck"
             description="An ecosystem mapping workshop is a collaborative session where participants work together to visually identify and map stakeholders, resources within a specific system, and map their relationships. It helps create a shared understanding of the system's dynamics and identify opportunities or challenges within the ecosystem. This process results in alignments, co-commitments, solutions, insights, and ideas that could help lead to better strategies and collaborations."
           />
         )}
@@ -664,7 +672,7 @@ export default function Home() {
             creator="A Venture Studio"
             type="Figma Slide Deck"
             downloads="3.4k"
-            link="https://drive.google.com/file/d/1o8SkoT8UwxKS9tv2kGwFk7-hZVPDNkdh/view?usp=drive_link"
+            link="/assets/resources/Le/LeOrange.deck"
             description="A pitch deck is a concise, visually engaging presentation that effectively highlights the key aspects of a business, product, or project to potential investors, partners, or stakeholders. Its primary goal is to generate interest and secure funding or support. This template provides a clean, modern design that helps you present your business case clearly and professionally."
           />
         )}
@@ -675,7 +683,7 @@ export default function Home() {
             creator="A Venture Studio"
             type="Figma"
             downloads="2.5k"
-            link="https://drive.google.com/file/d/1Vhos5cq9KxHjeGWCj3id2ZA_vmsl33oR/view?usp=drive_link"
+            link="/assets/resources/los/LosBlancosHermanos.deck"
             description="A visual representation of the steps a user takes to complete a specific task or reach a goal within a website or digital product. It helps designers, developers, and stakeholders understand the user's journey, identify friction points, and create intuitive, user-friendly interfaces. This template includes common flow patterns and is fully customizable for your specific needs."
           />
         )}
