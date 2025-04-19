@@ -9,21 +9,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
 export const HeroSection = () => {
-//   const partnerLogos = [
-//     { id: 1, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078723/p2_sajvyq.svg", alt: "Union" },
-//     { id: 2, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078724/p3_hpffdz.svg", alt: "My Dex" },
-//     { id: 3, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078725/p4_faw2pq.svg", alt: "Group 1" },
-//     { id: 5, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078727/p6_xbaumx.svg", alt: "Group 3" },
-//     { id: 6, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078722/p1_b8kka0.svg", alt: "One Touch Football" },
-//     { id: 7, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078730/p8_afoird.svg", alt: "ATE" },
-//     { id: 8, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078731/p7_xmny98.svg", alt: "Logo 1" },
-//     { id: 9, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078733/p10_zt40bp.svg", alt: "Group 4" },
-//     { id: 10, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078735/p11_lt93re.svg", alt: "Group 5" },
-//     { id: 11, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078736/p9_ohuz9i.svg", alt: "Group 6" },
-//     { id: 12, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078738/p12_r6qtb8.svg", alt: "Group 7" },
-//     { id: 13, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078738/p13_yn4dus.svg", alt: "Ye Logo" },
-//     { id: 14, src: "https://res.cloudinary.com/elijjaaahhhh/image/upload/v1744078739/p14_wwus8h.svg", alt: "Group 8" },
-//   ];
+  // Array of partner logos
+  // Each logo has an id, src (source), and alt (alternative text)
+  // The id is used as a key for each SwiperSlide
+  // The src is the path to the logo image
+  // The alt is the alternative text for the image, which is important for accessibility
+  // and SEO purposes
+  // The logos are stored in an array of objects, each representing a logo
 
 const partnerLogos = [
   { id: 1, src: "/assets/p1.svg", alt: "Union" },
