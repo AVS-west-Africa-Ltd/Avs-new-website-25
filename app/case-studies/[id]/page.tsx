@@ -613,10 +613,10 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                 <h2 className="text-2xl sm:text-3xl font-semibold tracking-tighter text-stone-950">
                                     Check out our other case studies
                                 </h2>
-                                <p className="mt-4 text-base text-stone-950">
+                                {/* <p className="mt-4 text-base text-stone-950">
                                     Lorem ipsum dolor sit amet consectetur. A elit elit diam
                                     pretium habitant.
-                                </p>
+                                </p> */}
                             </div>
                             <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 items-start mt-8 text-xl sm:text-2xl font-medium tracking-tight leading-7">
                                 <ActionCard

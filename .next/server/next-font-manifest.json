@@ -1,9 +1,12 @@
 {
   "app": {
-    "[project]/app/resources/[id]/page": [
+    "[project]/app/case-studies/page": [
       "static/media/1Ptug8zYS_SKggPNyC0IT4ttDfA-s.p.aacc4992.woff2"
     ],
-    "[project]/app/resources/page": [
+    "[project]/app/our-process/page": [
+      "static/media/1Ptug8zYS_SKggPNyC0IT4ttDfA-s.p.aacc4992.woff2"
+    ],
+    "[project]/app/page": [
       "static/media/1Ptug8zYS_SKggPNyC0IT4ttDfA-s.p.aacc4992.woff2"
     ]
   },

@@ -34,21 +34,32 @@ export const CaseStudiesSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2.5">
-            <Button
+            <button
               onClick={() => router.push("/case-studies")}
-              className="h-10 w-full sm:w-[184px] rounded-[100px] bg-[#0f0f0f] text-white font-raleway font-normal text-[15px] tracking-[-0.30px]"
+              className="whitespace-nowrap gap-3 flex items-center py-3 px-4  w-full rounded-[100px] bg-[#0f0f0f] text-white font-raleway font-normal text-[15px] tracking-[-0.30px] cursor-pointer"
             >
               View our case studies
-            </Button>
+            </button>
 
-            <Button
+            <button
               onClick={() => router.push("/contact-us")}
-              variant="outline"
-              className="h-10 w-full sm:w-[147px] rounded-[100px] bg-white text-[#0f0f0f] font-raleway font-normal text-[15px] tracking-[-0.30px] border-[#d8d8d8]"
+              className="whitespace-nowrap gap-2 py-3 px-4 flex text-center rounded-[100px] bg-white text-[#0f0f0f] font-raleway font-normal text-[15px] border border-[#d8d8d8] cursor-pointer"
             >
-              Get in touch
-              <ArrowRightIcon className="ml-2 h-[15px] w-[15px]" />
-            </Button>
+              <span className="">Get in touch</span>
+              <svg
+                className="mt-1"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.125 3H3.125C2.4375 3 1.88125 3.5625 1.88125 4.25L1.875 11.75C1.875 12.4375 2.4375 13 3.125 13H13.125C13.8125 13 14.375 12.4375 14.375 11.75V4.25C14.375 3.5625 13.8125 3 13.125 3ZM13.125 5.5L8.125 8.625L3.125 5.5V4.25L8.125 7.375L13.125 4.25V5.5Z"
+                  fill="#0F0F0F"
+                />
+              </svg>
+            </button>
           </div>
         </motion.div>
 
@@ -63,12 +74,10 @@ export const CaseStudiesSection = () => {
             <div
               className="w-full h-full bg-cover bg-center"
               style={{
-                backgroundImage: 'url(/assets/homepage/one.png)',
+                backgroundImage: "url(/assets/homepage/one.png)",
               }}
             />
           </motion.div>
-
-          
 
           {/* Secondary Case Study */}
           <motion.div
@@ -80,7 +89,7 @@ export const CaseStudiesSection = () => {
             <div
               className="w-full h-full bg-cover bg-center"
               style={{
-                backgroundImage: 'url(/assets/homepage/two.png)',
+                backgroundImage: "url(/assets/homepage/two.png)",
               }}
             />
           </motion.div>

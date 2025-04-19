@@ -68,7 +68,7 @@ const ProcessCard = ({ step, isReversed }: { step: ProcessStep; isReversed: bool
                     {step.subDescription}
                 </div>}
 
-                {step.hasButton && (
+                {/* {step.hasButton && (
                     <Button
                         variant="outline"
                         className="h-10 px-3 rounded-[100px] border border-solid border-[#d8d8d8] bg-white"
@@ -78,7 +78,7 @@ const ProcessCard = ({ step, isReversed }: { step: ProcessStep; isReversed: bool
                         </span>
                         <ArrowRightIcon className="ml-2 w-5 h-5" />
                     </Button>
-                )}
+                )} */}
             </div>
         </motion.div>
     );

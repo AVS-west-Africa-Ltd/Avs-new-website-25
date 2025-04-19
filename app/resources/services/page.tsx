@@ -25,6 +25,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 // @ts-expect-error  Missing type definitions for external library
 import domtoimage from "dom-to-image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(true);
@@ -133,6 +134,7 @@ const HowItWorksSection = () => {
 };
 
 const FormSection = () => {
+  const router = useRouter();
   return (
     <section className="flex flex-col items-center gap-[72px] w-full py-10">
       <div className="flex flex-col items-center gap-6">
@@ -144,10 +146,24 @@ const FormSection = () => {
           Use our guided Business Model Canvas to define your value, audience,
           revenue streams, and everything in between—before you build a thing.
         </p>
-        <Button className="flex items-center gap-2.5 px-5 py-2.5 bg-[#0F0F0F] rounded-[100px] text-[15px] font-['Raleway',Helvetica] font-normal tracking-[-0.30px]">
+        <button
+          onClick={() => router.push("/contact-us")}
+          className="flex items-center px-6 py-3 cursor-pointer gap-2.5 text-white bg-[#0F0F0F] rounded-[100px] text-[15px] font-['Raleway',Helvetica] font-normal tracking-[-0.30px]"
+        >
           <span>Get in touch</span>
-          <ArrowRightIcon className="w-[15px] h-[15px]" />
-        </Button>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.5422 2.75H2.54224C1.85474 2.75 1.29849 3.3125 1.29849 4L1.29224 11.5C1.29224 12.1875 1.85474 12.75 2.54224 12.75H12.5422C13.2297 12.75 13.7922 12.1875 13.7922 11.5V4C13.7922 3.3125 13.2297 2.75 12.5422 2.75ZM12.5422 5.25L7.54224 8.375L2.54224 5.25V4L7.54224 7.125L12.5422 4V5.25Z"
+              fill="white"
+            />
+          </svg>
+        </button>
       </div>
     </section>
   );
@@ -569,6 +585,70 @@ const Canvas = ({
 }) => {
   const canvasRef = useRef<HTMLDivElement>(null);
 
+  // const handleDownloadPDF = async () => {
+  //   if (!canvasRef.current) return;
+
+  //   try {
+  //     // 1. First convert the image to base64 to ensure it's loaded
+  //     const convertImageToBase64 = (img: HTMLImageElement) => {
+  //       const canvas = document.createElement('canvas');
+  //       canvas.width = img.naturalWidth;
+  //       canvas.height = img.naturalHeight;
+  //       const ctx = canvas.getContext('2d');
+  //       if (ctx) {
+  //         ctx.drawImage(img, 0, 0);
+  //         return canvas.toDataURL('image/png');
+  //       }
+  //       return '';
+  //     };
+
+  //     // 2. Wait for all images to load
+  //     const images = canvasRef.current.getElementsByTagName('img');
+  //     await Promise.all(Array.from(images).map(img => {
+  //       if (img.complete) return Promise.resolve();
+  //       return new Promise((resolve) => {
+  //         img.onload = resolve;
+  //         img.onerror = resolve; // Continue even if some images fail
+  //       });
+  //     }));
+
+  //     // 3. Replace all image sources with base64 data
+  //     Array.from(images).forEach(img => {
+  //       img.src = convertImageToBase64(img);
+  //     });
+
+  //     // 4. Use html2canvas with proper configuration
+  //     const canvas = await html2canvas(canvasRef.current, {
+  //       scale: 2, // Higher resolution
+  //       logging: false,
+  //       useCORS: true,
+  //       allowTaint: true,
+  //       backgroundColor: '#ffffff',
+  //       scrollX: 0,
+  //       scrollY: 0,
+  //       windowWidth: canvasRef.current.scrollWidth,
+  //       windowHeight: canvasRef.current.scrollHeight
+  //     });
+
+  //     // 5. Create PDF with proper dimensions
+  //     const pdf = new jsPDF({
+  //       orientation: 'landscape',
+  //       unit: 'mm',
+  //       format: [canvas.width * 0.264583, canvas.height * 0.264583] // Convert px to mm
+  //     });
+
+  //     // 6. Add image to PDF
+  //     const imgData = canvas.toDataURL('image/png', 1.0);
+  //     pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+      
+  //     // 7. Save the PDF
+  //     pdf.save(`${formData.projectName || 'business-model'}-canvas.pdf`);
+  //   } catch (error) {
+  //     console.error('PDF generation error:', error);
+  //     alert("PDF generation failed. Please try again or use browser print (Ctrl+P → Save as PDF)");
+  //   }
+  // };
+
   const handleDownloadPDF = async () => {
     if (!canvasRef.current) return;
 
@@ -627,7 +707,10 @@ const Canvas = ({
               }}
             >
               {/* Fixed width canvas that will force scrolling on small screens */}
-              <div className="flex" style={{ width: "1610px", margin: "0 auto" }}>
+              <div
+                className="flex"
+                style={{ width: "1610px", margin: "0 auto", height: "120vh" }}
+              >
                 {/* Left Sidebar */}
                 <div className="bg-[#f12c16] w-[255px] flex-shrink-0 relative">
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
@@ -661,9 +744,28 @@ const Canvas = ({
 
                 {/* Canvas Grid - Fixed width */}
                 <div
-                  className="flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]"
+                  className="relative flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]"
                   style={{ width: "945px" }}
                 >
+                   {/* Background Image - Now with priority loading */}
+                   <div className="absolute top-[300px] left-[200px] flex justify-center mb-10 z-0">
+                    {/* <Image
+                      src="/assets/AVSlong.png"
+                      alt="Canvas Background"
+                      width={1110}
+                      height={900}
+                      className="w-auto h-auto object-contain"
+                      priority
+                      onLoadingComplete={() => console.log('Background image loaded')}
+                    /> */}
+                  </div>
+                  {/* Watermark Background */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                <div className="text-[#00000010] text-[130px] font-bold rotate-[-40deg]">
+                  A{" "}VENTURE STUDIO
+                </div>
+              </div>
+
                   {/* KEY PARTNERS */}
                   <div className="bg-white p-6 min-h-60">
                     <h3 className="font-bold text-sm mb-2">KEY PARTNERS</h3>
@@ -672,11 +774,13 @@ const Canvas = ({
                       business work
                     </p>
                     <ul className="space-y-2 list-disc pl-5">
-                      {formData.keyPartners?.map((partner: string, index: number) => (
-                        <li key={index} className="text-[13px]">
-                          {partner}
-                        </li>
-                      ))}
+                      {formData.keyPartners?.map(
+                        (partner: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {partner}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
 
@@ -688,11 +792,13 @@ const Canvas = ({
                       its business work
                     </p>
                     <ul className="space-y-2 list-disc pl-5">
-                      {formData.keyActivities?.map((activity: string, index: number) => (
-                        <li key={index} className="text-[13px]">
-                          {activity}
-                        </li>
-                      ))}
+                      {formData.keyActivities?.map(
+                        (activity: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {activity}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
 
@@ -734,11 +840,13 @@ const Canvas = ({
                       reach and serve
                     </p>
                     <ul className="space-y-2 list-disc pl-5">
-                      {formData.customerSegments?.map((segment: string, index: number) => (
-                        <li key={index} className="text-[13px]">
-                          {segment}
-                        </li>
-                      ))}
+                      {formData.customerSegments?.map(
+                        (segment: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {segment}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
 
@@ -750,11 +858,13 @@ const Canvas = ({
                       work
                     </p>
                     <ul className="space-y-2 list-disc pl-5">
-                      {formData.keyResources?.map((resource: string, index: number) => (
-                        <li key={index} className="text-[13px]">
-                          {resource}
-                        </li>
-                      ))}
+                      {formData.keyResources?.map(
+                        (resource: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {resource}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
 
@@ -766,11 +876,13 @@ const Canvas = ({
                       customers
                     </p>
                     <ul className="space-y-2 list-disc pl-5">
-                      {formData.channels?.map((channel: string, index: number) => (
-                        <li key={index} className="text-[13px]">
-                          {channel}
-                        </li>
-                      ))}
+                      {formData.channels?.map(
+                        (channel: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {channel}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
 
@@ -781,11 +893,13 @@ const Canvas = ({
                       The costs incurred to operate a business model
                     </p>
                     <ul className="space-y-2 list-disc pl-5">
-                      {formData.costStructure?.map((cost: string, index: number) => (
-                        <li key={index} className="text-[13px]">
-                          {cost}
-                        </li>
-                      ))}
+                      {formData.costStructure?.map(
+                        (cost: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {cost}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
 
@@ -796,11 +910,13 @@ const Canvas = ({
                       The revenue you generate from each customer segment
                     </p>
                     <ul className="grid grid-cols-3 gap-4 list-disc pl-5">
-                      {formData.revenueStreams?.map((revenue: string, index: number) => (
-                        <li key={index} className="text-[13px]">
-                          {revenue}
-                        </li>
-                      ))}
+                      {formData.revenueStreams?.map(
+                        (revenue: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {revenue}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -1599,5 +1715,53 @@ const Canvas = ({
 //   } catch (error) {
 //     console.error('PDF Generation Error:', error);
 //     alert('Could not generate PDF. Please try taking a screenshot manually (Ctrl+Shift+P → Save as PDF).');
+//   }
+// };
+
+// ***********************************************************
+
+// const handleDownloadPDF = async () => {
+//   if (!canvasRef.current) return;
+
+//   try {
+//     const dataUrl = await domtoimage.toPng(canvasRef.current);
+//     const pdf = new jsPDF("landscape");
+//     pdf.addImage(dataUrl, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), 0);
+//     pdf.save("canvas.pdf");
+//   } catch (error) {
+//     console.error(error);
+//     alert("PDF failed. Try screenshot (Ctrl+P → Save as PDF)");
+//   }
+// };
+
+// const handleDownloadPDF = async () => {
+//   if (!canvasRef.current) return;
+
+//   try {
+//     // Wait for images to load
+//     const images = canvasRef.current.getElementsByTagName('img');
+//     const imageLoadPromises = Array.from(images).map(img => {
+//       if (img.complete) return Promise.resolve();
+//       return new Promise<void>((resolve) => {
+//         img.onload = () => resolve();
+//         img.onerror = () => resolve(); // Continue even if some images fail
+//       });
+//     });
+
+//     await Promise.all(imageLoadPromises);
+
+//     const dataUrl = await domtoimage.toPng(canvasRef.current, {
+//       quality: 1,
+//       bgcolor: '#ffffff',
+//     });
+
+//     const pdf = new jsPDF("landscape");
+//     const imgWidth = pdf.internal.pageSize.getWidth();
+//     const imgHeight = (canvasRef.current.offsetHeight / canvasRef.current.offsetWidth) * imgWidth;
+//     pdf.addImage(dataUrl, "PNG", 0, 0, imgWidth, imgHeight);
+//     pdf.save("canvas.pdf");
+//   } catch (error) {
+//     console.error(error);
+//     alert("PDF failed. Try screenshot (Ctrl+P → Save as PDF)");
 //   }
 // };

@@ -447,12 +447,30 @@ function OurProcess() {
           </div>
 
           {/* Contact button */}
-          <Button
+          {/* <Button
             onClick={() => router.push("/contact-us")}
             className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6"
           >
             Get in touch <Mail className="ml-2 h-4 w-4" />
-          </Button>
+          </Button> */}
+          <button
+                onClick={() => router.push("/contact-us")}
+                className="cursor-pointer py-3 px-6 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+              >
+                <span className="flex items-center gap-2 text-[15px]">Get in touch</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5847 2.75H2.58472C1.89722 2.75 1.34097 3.3125 1.34097 4L1.33472 11.5C1.33472 12.1875 1.89722 12.75 2.58472 12.75H12.5847C13.2722 12.75 13.8347 12.1875 13.8347 11.5V4C13.8347 3.3125 13.2722 2.75 12.5847 2.75ZM12.5847 5.25L7.58472 8.375L2.58472 5.25V4L7.58472 7.125L12.5847 4V5.25Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
         </div>
 
         <AnimatePresence mode="wait">

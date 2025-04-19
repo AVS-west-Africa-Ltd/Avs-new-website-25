@@ -35,12 +35,12 @@ export const CaseStudiesSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2.5">
-            <Button
+            <button
               onClick={() => {
                 router.push("/contact-us");
                 //  setMobileMenuOpen(false);
               }}
-              className="w-auto font-normal text-white bg-stone-950 rounded-[100px] hover:bg-gray-800 transition-colors flex items-center gap-2"
+              className="w-auto px-6 py-3 cursor-pointer font-normal text-white bg-stone-950 rounded-[100px] hover:bg-gray-800 transition-colors flex items-center gap-2"
             >
               <span>Get in touch</span>
               <span className="ml-1">
@@ -57,7 +57,7 @@ export const CaseStudiesSection = () => {
                   />
                 </svg>
               </span>
-            </Button>
+            </button>
           </div>
         </motion.div>
       </div>

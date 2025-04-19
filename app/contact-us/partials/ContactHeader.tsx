@@ -15,12 +15,12 @@ const ContactHeader = () => {
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-4xl mb-8 mt-3 leading-snug">
         Share your project brief and ideas. <br className="hidden md:block" /> Let&apos;s make it happen.
       </h1>
-      <Button
+      {/* <Button
         variant="outline"
         className="bg-white !rounded-md text-black hover:bg-gray-200 hover:text-black transition-all duration-300"
       >
         Let&apos;s connect now!
-      </Button>
+      </Button> */}
     </motion.div>
   );
 };

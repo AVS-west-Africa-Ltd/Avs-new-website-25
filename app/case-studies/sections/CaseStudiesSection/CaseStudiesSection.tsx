@@ -25,17 +25,29 @@ export const CaseStudiesSection = () => {
           </h2>
 
           <p className="font-raleway text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">
-            We don&apos;t just create brands; we craft unforgettable experiences that
-            leave a lasting impression.
+            We don&apos;t just create brands; we craft unforgettable experiences
+            that leave a lasting impression.
           </p>
 
           {/* Contact button */}
-          <Button
+          <button
             onClick={() => router.push("/contact-us")}
-            className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6 cursor-pointer"
+            className="whitespace-nowrap gap-2 py-3 px-6 flex text-center rounded-[100px] text-white bg-[#0f0f0f] font-raleway font-normal text-[15px] border border-[#d8d8d8] cursor-pointer flex items-center"
           >
-            Get in touch <Mail className="ml-2 h-4 w-4" />
-          </Button>
+            <span className="">Get in touch</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.543 2.75H2.54297C1.85547 2.75 1.29922 3.3125 1.29922 4L1.29297 11.5C1.29297 12.1875 1.85547 12.75 2.54297 12.75H12.543C13.2305 12.75 13.793 12.1875 13.793 11.5V4C13.793 3.3125 13.2305 2.75 12.543 2.75ZM12.543 5.25L7.54297 8.375L2.54297 5.25V4L7.54297 7.125L12.543 4V5.25Z"
+                fill="white"
+              />
+            </svg>
+          </button>
         </motion.div>
       </div>
     </section>

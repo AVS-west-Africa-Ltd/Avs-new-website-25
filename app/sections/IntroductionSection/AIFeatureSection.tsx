@@ -27,17 +27,17 @@ export const AIFeatureSection = () => {
   }, [inView]);
 
   return (
-    <section className="p-4 md:p-0">
+    <section className="p-4 md:px-20">
       <div
         ref={ref}
-        className={`relative overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12 transition-opacity transform duration-1200 ease-out ${
+        className={`relative max-w-[1500px] mx-auto overflow-hidden px-4 md:pl-16 rounded-3xl py-14 mb-12 transition-opacity transform duration-1200 ease-out ${
           isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-24"
-        } ${isMobile ? "!h-[900px]" : ""}`}
+        } ${isMobile ? "!h-[700px]" : ""}`}
       >
         {/* Optimized Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={isMobile ? "/assets/cont.jpeg" : "/assets/bg-s.svg"}
+            src={isMobile ? "/assets/ai-image2.png" : "/assets/ai-image.png"}
             alt="AI Feature Background"
             fill
             quality={75}
@@ -46,7 +46,7 @@ export const AIFeatureSection = () => {
           />
         </div>
 
-        <div className="relative z-10 flex flex-col md:flex-row gap-5 h-full">
+        <div className="relative z-10 flex flex-col md:flex-row gap-5 h-full px-4">
           <div
             className={`w-full lg:w-[40%] transition-opacity transform duration-1000 ease-out delay-300 ${
               isVisible
@@ -64,7 +64,7 @@ export const AIFeatureSection = () => {
                 </span>{" "}
                 <span className="text-white">AI</span>
               </h1>
-              <p className="self-stretch mt-4 md:mt-7 text-sm md:text-base tracking-tight leading-5 md:leading-6">
+              <p className="self-stretch mt-4 md:mt-7 text-[15px] md:text-base tracking-tight leading-5 md:leading-6">
                 Unlock the power of artificial intelligence to transform your
                 products. From automation to intelligent insights, we&apos;re
                 crafting next-gen AI solutions to drive your success. Stay

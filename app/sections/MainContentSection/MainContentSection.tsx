@@ -49,8 +49,8 @@ export const HeaderSection = () => {
 
   const navItems = [
     { label: "Home", href: "/" },
-    // { label: "About", href: "/about" },
     { label: "Our Process", href: "/our-process" },
+    { label: "Resources", href: "/resources" },
     { label: "Case studies", href: "/case-studies" },
     // { label: "Build with AI", href: "/build-with-ai" },
   ];
@@ -137,7 +137,7 @@ export const HeaderSection = () => {
                 ))}
 
                 {/* Dropdown Menu */}
-                <NavigationMenuItem className="relative" ref={dropdownRef}>
+                {/* <NavigationMenuItem className="relative" ref={dropdownRef}>
                   <button
                     onClick={toggleDropdown}
                     className={`flex items-center gap-1 font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
@@ -156,7 +156,6 @@ export const HeaderSection = () => {
                     />
                   </button>
 
-                  {/* Dropdown Content - Rendered in a portal to prevent clipping */}
                   {dropdownOpen && (
                     <div
                       className="absolute top-full left-0 mt-4 w-[240px] bg-white rounded-lg shadow-lg z-50 overflow-visible"
@@ -182,7 +181,7 @@ export const HeaderSection = () => {
                       ))}
                     </div>
                   )}
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
 
                 {navItems.slice(3).map((item, index) => (
                   <NavigationMenuItem key={index + 3}>
@@ -220,14 +219,24 @@ export const HeaderSection = () => {
           <div className="flex items-center justify-end gap-4 flex-1">
             {/* Wrapper div for responsive visibility */}
             <div className="hidden md:block">
-              <Button
+              <button
                 onClick={() => router.push("/contact-us")}
-                variant="default"
-                size="lg"
-                className="rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+                className="cursor-pointer py-2 px-4 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
               >
-                Get in touch
-              </Button>
+                <span className="flex items-center gap-2 text-[15px]">Get in touch</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5847 2.75H2.58472C1.89722 2.75 1.34097 3.3125 1.34097 4L1.33472 11.5C1.33472 12.1875 1.89722 12.75 2.58472 12.75H12.5847C13.2722 12.75 13.8347 12.1875 13.8347 11.5V4C13.8347 3.3125 13.2722 2.75 12.5847 2.75ZM12.5847 5.25L7.58472 8.375L2.58472 5.25V4L7.58472 7.125L12.5847 4V5.25Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
             </div>
 
             <button
@@ -294,7 +303,7 @@ export const HeaderSection = () => {
               ))}
 
               {/* Mobile Offerings dropdown */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 3 * 0.05 }}
@@ -315,7 +324,7 @@ export const HeaderSection = () => {
                     </Link>
                   ))}
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Remaining navigation items */}
               {navItems.slice(3).map((item, index) => (

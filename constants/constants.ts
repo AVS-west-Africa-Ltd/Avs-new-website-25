@@ -124,7 +124,7 @@ export const fundingSteps: ProcessStep[] = [
       "We help you evaluate your financial requirements for product development, operations, marketing, hiring, and long-term growth. ",
       "By analysing your business model and goals, we ensure you have a clear roadmap for how funds will be allocated, preventing unnecessary financial strain down the line.",
     ],
-    imageSrc: "/assets/fund1.png",
+    imageSrc: "/assets/assess.png",
   },
   {
     number: "02",
