@@ -1,6 +1,6 @@
 {
+  "/build-with-ai/page": "app/build-with-ai/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js",
-  "/resources/page": "app/resources/page.js",
-  "/resources/services/page": "app/resources/services/page.js"
+  "/idea-generator/page": "app/idea-generator/page.js",
+  "/page": "app/page.js"
 }
