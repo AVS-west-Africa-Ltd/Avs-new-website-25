@@ -18,6 +18,7 @@ import "swiper/css/pagination";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useRouter } from "next/navigation";
 
 function CurvedCarousel() {
   const settings = {
@@ -81,7 +82,6 @@ function CurvedCarousel() {
       {/* Add curved effect with a wrapper div */}
       <div className="curved-carousel-wrapper">
         <Slider {...settings}>
-
           <div className="">
             <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
@@ -93,17 +93,17 @@ function CurvedCarousel() {
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 2"
-               className="w-full h-full object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 3"
@@ -113,7 +113,7 @@ function CurvedCarousel() {
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 4"
@@ -123,7 +123,7 @@ function CurvedCarousel() {
           </div>
 
           <div className="">
-          <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
+            <div className="h-full rounded-lg overflow-hidden flex justify-center items-center">
               <img
                 src="/assets/ps3.svg"
                 alt="Slide 5"
@@ -324,11 +324,80 @@ const CoverflowCarousel = () => {
   );
 };
 
+// File: app/page.js (or pages/index.js depending on your Next.js version)
+import dynamic from "next/dynamic";
+import Carousel from "./partials/Carousel";
+
 function OurProcess() {
+  const router = useRouter();
+
   const [activeTab, setActiveTab] = useState("build");
 
+  const sampleSlides = [
+    {
+      id: 1,
+      title: "Research & Strategy",
+      description: "Understanding the market, audience, and opportunities.",
+      imageUrl: "/assets/Rectangle4225.png",
+    },
+    {
+      id: 2,
+      title: "Brand",
+      description: "Defining your unique identity and position.",
+      imageUrl: "/assets/build2.png",
+    },
+    {
+      id: 3,
+      title: "Development",
+      description: "Building solutions that meet your goals.",
+      imageUrl: "/assets/rectangle-4224-2.png",
+    },
+    {
+      id: 4,
+      title: "Analytics",
+      description: "Measuring performance and refining strategy.",
+      imageUrl: "/assets/Rectangle4225-3.png",
+    },
+    {
+      id: 5,
+      title: "Optimization",
+      description: "Continuously improving based on data insights.",
+      imageUrl: "/assets/Rectangle4225-4.png",
+    },
+    {
+      id: 6,
+      title: "Research & Strategy",
+      description: "Understanding the market, audience, and opportunities.",
+      imageUrl: "/assets/Rectangle4225-5.png",
+    },
+    {
+      id: 7,
+      title: "Brand",
+      description: "Defining your unique identity and position.",
+      imageUrl: "/assets/Rectangle4225-6.png",
+    },
+    {
+      id: 8,
+      title: "Development",
+      description: "Building solutions that meet your goals.",
+      imageUrl: "/assets/Rectangle4225-7.png",
+    },
+    {
+      id: 9,
+      title: "Analytics",
+      description: "Measuring performance and refining strategy.",
+      imageUrl: "/assets/Rectangle4225-8.png",
+    },
+    {
+      id: 10,
+      title: "Optimization",
+      description: "Continuously improving based on data insights.",
+      imageUrl: "/assets/Rectangle4225-9.png",
+    },
+  ];
+
   return (
-    <div className="bg-white flex flex-row justify-center w-full mt-[100px] py-16">
+    <div className="bg-white flex flex-row justify-center w-full mt-[50px] md:mt-[100px] py-16">
       <Tabs
         defaultValue="build"
         className="w-full"
@@ -355,7 +424,7 @@ function OurProcess() {
 
         {/* <CoverflowCarousel /> */}
 
-        <div className="w-full mt-6 md:mt-12 flex flex-col items-center px-4 sm:px-6">
+        <div className="w-full mt-6 md:mt-12 flex flex-col items-center px- sm:px-6">
           {/* Main Heading */}
           <h1 className="font-raleway text-[#0f0f0f] text-center leading-tight">
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold">
@@ -367,18 +436,41 @@ function OurProcess() {
           </h1>
 
           {/* Subheading */}
-          <p className="font-inter text-[#0f0f0fa6] text-center mt-4 sm:mt-6 max-w-xs sm:max-w-sm md:max-w-xl mx-auto  text-sm sm:text-base leading-relaxed tracking-tight">
+          <p className="font-inter text-[#0f0f0fa6] text-center mt-4 sm:mt-6 max-w-xs sm:max-w-sm md:max-w-xl mx-auto  text-sm sm:text-base leading-relaxed tracking-tight mb-12">
             {activeTab === "build"
               ? "Transform your vision into a market-ready product with a structured,expert-driven approach—research, branding, design, development, and beyond."
               : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."}
           </p>
 
-          {/* <CurvedCarousel /> */}
-                <ImageSlider />
+          <div className="flex justify-center items-center w-full">
+            <Carousel slides={sampleSlides} autoScrollInterval={1000} />
+          </div>
+
           {/* Contact button */}
-          <Button className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6">
+          {/* <Button
+            onClick={() => router.push("/contact-us")}
+            className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6"
+          >
             Get in touch <Mail className="ml-2 h-4 w-4" />
-          </Button>
+          </Button> */}
+          <button
+                onClick={() => router.push("/contact-us")}
+                className="cursor-pointer py-3 px-6 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+              >
+                <span className="flex items-center gap-2 text-[15px]">Get in touch</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5847 2.75H2.58472C1.89722 2.75 1.34097 3.3125 1.34097 4L1.33472 11.5C1.33472 12.1875 1.89722 12.75 2.58472 12.75H12.5847C13.2722 12.75 13.8347 12.1875 13.8347 11.5V4C13.8347 3.3125 13.2722 2.75 12.5847 2.75ZM12.5847 5.25L7.58472 8.375L2.58472 5.25V4L7.58472 7.125L12.5847 4V5.25Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
         </div>
 
         <AnimatePresence mode="wait">
@@ -415,31 +507,30 @@ function OurProcess() {
 
 export default OurProcess;
 
-
 function ImageSlider() {
   return (
     <div className="image-grid-wrapper">
-        <div className="image-grid">
-            <div>
-                <img src="/assets/rectangle-4224.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/build2.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/rectangle-4224-2.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/rectangle-4224-3.png" alt="Image 1" />
-            </div>
-            <div>
-                <img src="/assets/rectangle-4224-4.png" alt="Image 1" />
-            </div>
-            {/* <div>
+      <div className="image-grid">
+        <div>
+          <img src="/assets/rectangle-4224.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/build2.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/rectangle-4224-2.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/rectangle-4224-3.png" alt="Image 1" />
+        </div>
+        <div>
+          <img src="/assets/rectangle-4224-4.png" alt="Image 1" />
+        </div>
+        {/* <div>
                 <img src="/assets/rectangle-4224-5.png" alt="Image 1" />
             </div> */}
 
-            {/* <div>
+        {/* <div>
                 <img src="/assets/rectangle-4224-6.png" alt="Image 1" />
             </div>
             <div>
@@ -451,7 +542,7 @@ function ImageSlider() {
             <div>
                 <img src="/assets/rectangle-4224-9.png" alt="Image 1" />
             </div> */}
-        </div>
+      </div>
     </div>
-  )
+  );
 }

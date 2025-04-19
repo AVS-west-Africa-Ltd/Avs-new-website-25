@@ -1,13 +1,22 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Eye, Upload } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Eye, Upload, X } from "lucide-react";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { toast } from "sonner"; // Add toast for notifications
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<{
@@ -20,37 +29,117 @@ const ContactForm = () => {
     subscribed: boolean;
     file: File | null;
   }>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    lookingFor: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    lookingFor: "",
+    message: "",
     subscribed: false,
-    file: null
+    file: null,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFormData((prev) => ({
+        ...prev,
+        file: e.target.files?.[0] || null,
+      }));
+    }
+  };
+
+  const removeFile = () => {
+    setFormData((prev) => ({
+      ...prev,
+      file: null,
+    }));
+    // Reset the file input
+    const fileInput = document.getElementById('file') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted with data:', formData);
-    // Here you would typically send the data to your backend
+    setIsSubmitting(true);
+    
+    try {
+      // Create FormData object to handle file upload
+      const formDataToSend = new FormData();
+      formDataToSend.append('firstName', formData.firstName);
+      formDataToSend.append('lastName', formData.lastName);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('lookingFor', formData.lookingFor);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('subscribed', formData.subscribed.toString());
+      
+      // Append file if it exists
+      if (formData.file) {
+        formDataToSend.append('file', formData.file);
+      }
+      
+      // Send data to API route
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          lookingFor: "",
+          message: "",
+          subscribed: false,
+          file: null,
+        });
+        // Reset file input
+        const fileInput = document.getElementById('file') as HTMLInputElement;
+        if (fileInput) {
+          fileInput.value = '';
+        }
+      } else {
+        toast.error(result.message || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+      console.error("Error sending form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="bg-gray-50 py-16 px-4 md:py-24">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">We would love to hear from you</h2>
-        
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+          We would love to hear from you
+        </h2>
+
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label className='font-bold' htmlFor="firstName">First name</Label>
-              <Input 
+              <Label className="font-bold" htmlFor="firstName">
+                First name
+              </Label>
+              <Input
                 id="firstName"
                 name="firstName"
                 placeholder="John"
@@ -59,10 +148,12 @@ const ContactForm = () => {
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
-              <Label className='font-bold' htmlFor="lastName">Last name</Label>
-              <Input 
+              <Label className="font-bold" htmlFor="lastName">
+                Last name
+              </Label>
+              <Input
                 id="lastName"
                 name="lastName"
                 placeholder="Doe"
@@ -74,9 +165,11 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
-            <Label className='font-bold' htmlFor="email">Email</Label>
+            <Label className="font-bold" htmlFor="email">
+              Email
+            </Label>
             <div className="relative">
-              <Input 
+              <Input
                 id="email"
                 name="email"
                 type="email"
@@ -85,37 +178,59 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
               />
-              <Eye className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label className='font-bold' htmlFor="phone">Phone</Label>
-            <div className="flex">
-              <div className="w-14 flex items-center justify-center bg-gray-100 border border-gray-300 rounded-l-md">
-                <span className="text-sm">+1</span>
-              </div>
-              <Input 
-                id="phone"
-                name="phone"
-                placeholder="(555) 555-1234"
-                value={formData.phone}
-                onChange={handleChange}
-                className="rounded-l-none"
-              />
-            </div>
+            <Label className="font-bold" htmlFor="phone">
+              Phone
+            </Label>
+            <PhoneInput
+              country={'us'}
+              value={formData.phone}
+              onChange={(phone) => setFormData((prev) => ({ ...prev, phone: phone || "" }))}
+              inputProps={{
+                name: 'phone',
+                id: 'phone',
+                required: true,
+              }}
+              containerClass="phone-input-container"
+              inputClass="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              buttonClass="border border-gray-300 bg-gray-100 rounded-l-md"
+              placeholder="(555) 555-1234"
+            />
+            <style jsx global>{`
+              .phone-input-container {
+                display: flex;
+                width: 100%;
+              }
+              .phone-input-container .form-control {
+                width: 100%;
+                height: 40px;
+                border-radius: 0 0.375rem 0.375rem 0 !important;
+              }
+              .phone-input-container .flag-dropdown {
+                border-radius: 0.375rem 0 0 0.375rem;
+              }
+            `}</style>
           </div>
 
           <div className="space-y-2">
-            <Label className='font-bold' htmlFor="lookingFor">Looking for?</Label>
+            <Label className="font-bold" htmlFor="lookingFor">
+              Looking for?
+            </Label>
             <Select
-              onValueChange={(value) => setFormData(prev => ({ ...prev, lookingFor: value }))}
+              onValueChange={(value) =>
+                setFormData((prev) => ({ ...prev, lookingFor: value }))
+              }
             >
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Partnerships & Advisory" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="partnerships">Partnerships & Advisory</SelectItem>
+                <SelectItem value="partnerships">
+                  Partnerships & Advisory
+                </SelectItem>
                 <SelectItem value="consulting">Consulting Services</SelectItem>
                 <SelectItem value="development">Development Work</SelectItem>
                 <SelectItem value="other">Other Inquiries</SelectItem>
@@ -124,53 +239,97 @@ const ContactForm = () => {
           </div>
 
           <div className="space-y-2">
-            <Label className='font-bold' htmlFor="message">Message</Label>
-            <Textarea 
+            <Label className="font-bold" htmlFor="message">
+              Message
+            </Label>
+            <Textarea
               id="message"
               name="message"
               placeholder="Hello, I'm interested in..."
               value={formData.message}
               onChange={handleChange}
-              rows={6}
+              rows={10}
               required
             />
           </div>
 
           <div className="space-y-2">
-            <Label className='font-bold' htmlFor="file">Attach brief</Label>
-            <div className="border border-gray-300 rounded-md p-4 text-center cursor-pointer hover:bg-gray-50">
-              <input 
-                type="file" 
-                id="file" 
-                className="hidden" 
-                onChange={(e) => setFormData(prev => ({ ...prev, file: e.target.files?.[0] || null }))}
-              />
-              <label htmlFor="file" className="cursor-pointer flex flex-col items-center">
-                <Upload className="h-5 w-5 mb-2" />
-                <span>Add a file</span>
-              </label>
-            </div>
+            <Label className="font-bold" htmlFor="file">
+              Attach brief
+            </Label>
+            
+            {formData.file ? (
+              // Display selected file
+              <div className="border border-gray-300 rounded-md p-4 bg-white">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div className="flex-shrink-0 p-2 bg-gray-100 rounded-md">
+                      <Upload className="h-5 w-5 text-gray-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">{formData.file.name}</p>
+                      <p className="text-xs text-gray-500">{(formData.file.size / 1024).toFixed(2)} KB</p>
+                    </div>
+                  </div>
+                  <button 
+                    type="button" 
+                    onClick={removeFile}
+                    className="p-1 text-gray-500 hover:text-gray-700 focus:outline-none"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              // File upload button when no file is selected
+              <div className="border border-gray-300 rounded-md p-4 text-center cursor-pointer bg-white hover:bg-gray-50">
+                <input
+                  type="file"
+                  id="file"
+                  className="hidden"
+                  onChange={handleFileChange}
+                />
+                <label
+                  htmlFor="file"
+                  className="cursor-pointer flex flex-col items-center"
+                >
+                  <Upload className="h-5 w-5 mb-2" />
+                  <span>Add a file</span>
+                </label>
+              </div>
+            )}
+            
+            <p className="text-xs text-gray-500 mt-1">
+              Files will be securely attached to your email
+            </p>
           </div>
 
           <div className="flex items-center space-x-2">
-            <Checkbox 
-              id="subscribed" 
+            <Checkbox
+              id="subscribed"
               checked={formData.subscribed}
-              onCheckedChange={(checked) => setFormData(prev => ({ ...prev, subscribed: checked as boolean }))}
+              onCheckedChange={(checked) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  subscribed: checked as boolean,
+                }))
+              }
             />
-            <label 
-              htmlFor="subscribed" 
+            <label
+              htmlFor="subscribed"
               className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               By Subscribing you agree to receive emails and updates regularly
             </label>
           </div>
 
-          <Button 
-            type="submit" 
-            className="w-full bg-black text-white hover:bg-gray-800"
+          <Button
+            type="submit"
+            size={"lg"}
+            className="w-full bg-black text-white hover:bg-gray-800 py-4"
+            disabled={isSubmitting}
           >
-            Submit form
+            {isSubmitting ? "Sending..." : "Submit form"}
           </Button>
         </form>
       </div>
