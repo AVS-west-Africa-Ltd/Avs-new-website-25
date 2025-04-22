@@ -918,7 +918,7 @@ export default function Home() {
                 type="Figma"
                 downloads="510+"
                 link="/assets/Vision-Statement-Template/Vision-Statement-Template.jam"
-                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organizations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualizing connections, and analyzing the resulting map to inform strategies and collaborations."
+                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
 
@@ -929,18 +929,18 @@ export default function Home() {
                 type="Figma Slide Deck"
                 downloads="600+"
                 link="/assets/Vision-Statement-Template/Know-Your-Product-Template.jam"
-                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organizations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualizing connections, and analyzing the resulting map to inform strategies and collaborations."
+                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
 
             {Number(id) === 3 && (
               <TemplateCard
-                name="Feature Prioritization Matrix Template"
+                name="Feature Prioritisation Matrix Template"
                 creator="A Venture Studio"
                 type="Figma"
                 downloads="230+"
                 link="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix.jam"
-                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organizations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualizing connections, and analyzing the resulting map to inform strategies and collaborations."
+                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
 
