@@ -1,0 +1,283 @@
+@import "tailwindcss";
+/* @import "tw-animate-css"; */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.image-grid-wrapper::before,
+.image-grid-wrapper::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.image-grid-wrapper::before {
+  inset: var(--y-offset) var(--x-offset) 0;
+}
+
+.image-grid-wrapper::after {
+  inset: 0 var(--x-offset) var(--y-offset);
+  top: unset;
+}
+
+.image-grid-wrapper {
+  position: relative;
+  overflow: hidden;
+  --x-offset: -50px;
+  --y-offset: -50px;
+}
+
+.image-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
+
+.image-grid img {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.swiper-panorama {
+  overflow: visible;
+}
+
+.sloped-element {
+  clip-path: polygon(0 20px, 100% 0, 100% 70px, 0 50px);
+  /* This creates a shape starting 20px from top-left corner,
+     going to top-right, then to bottom-right at 70px height,
+     and finally to bottom-left at 50px height */
+}
+
+/* For skewed images (furthest from center) */
+.skewed-image {
+  clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+  transform: perspective(1000px) rotateY(15deg);
+}
+
+/* For sloped elements (second from center) */
+.sloped-element {
+  clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%);
+  transform: perspective(1000px) rotateY(15deg);
+}
+
+/* For center element */
+.center-element {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+/* For right side elements - mirror the left side */
+.right-sloped-element {
+  clip-path: polygon(0 0, 100% 20px, 100% 100%, 0 calc(100% - 20px));
+  transform: perspective(1000px) rotateY(-8deg);
+}
+
+.right-skewed-image {
+  clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 40px));
+  transform: perspective(1000px) rotateY(-15deg);
+}
+
+/* Base card styling */
+.card {
+  border-radius: 12px;
+  transition: all 0.5s ease;
+}
+
+/* Position and size based on offset */
+.card-offset-minus2 {
+  height: 340px;
+  width: 240px;
+  z-index: 1;
+  left: 0;
+}
+
+.card-offset-minus1 {
+  height: 380px;
+  width: 260px;
+  z-index: 2;
+  left: 20%;
+}
+
+.card-offset-0 {
+  height: 420px;
+  width: 280px;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-offset-1 {
+  height: 380px;
+  width: 260px;
+  z-index: 2;
+  right: 20%;
+}
+
+.card-offset-2 {
+  height: 340px;
+  width: 240px;
+  z-index: 1;
+  right: 0;
+}
+
+/* Container for perspective effect */
+.perspective-container {
+  width: 175px;
+  height: 442px;
+  position: relative;
+  perspective: 800px;
+}
+
+/* Trapezoid element with perspective */
+.trapezoid {
+  background-color: #f0f0f0;
+  transform-origin: center center;
+  transform: perspective(300px) rotateY(-10deg) scaleX(1.0);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.trapezoidB {
+  background-color: #f0f0f0;
+  transform-origin: center center;
+  transform: perspective(300px) rotateY(10deg) scaleX(1.0);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .canvas-container, .canvas-container * {
+    visibility: visible;
+  }
+  .canvas-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
