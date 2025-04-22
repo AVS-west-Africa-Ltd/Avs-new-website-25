@@ -4199,6 +4199,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-blue-700:hover {
+      background-color: var(--color-blue-700);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-destructive\/80:hover {
       background-color: var(--destructive);
     }

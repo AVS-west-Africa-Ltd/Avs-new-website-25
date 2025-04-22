@@ -1,6 +1,5 @@
 {
   "/build-with-ai/page": "app/build-with-ai/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/idea-generator/page": "app/idea-generator/page.js",
-  "/page": "app/page.js"
+  "/logo-generator/page": "app/logo-generator/page.js"
 }
