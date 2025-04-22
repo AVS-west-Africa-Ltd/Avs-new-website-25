@@ -32,19 +32,15 @@ export async function POST(req: NextRequest) {
     //     pass: "uzam xobg qgqs aewa", // Use process.env.EMAIL_PASSWORD in production
     //   },
     // });
-
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false, // Use true for port 465
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // Use SSL
       auth: {
-        user: "idris@aventurestud.io", // move to process.env.EMAIL_USER in prod
-        pass: "uzam xobg qgqs aewa",   // move to process.env.EMAIL_PASS
+        user: "idris@aventurestud.io", 
+        pass: "uzam xobg qgqs aewa",
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
-      connectionTimeout: 10000, // optional but helpful (10 sec)
+      connectionTimeout: 60000,
     });
     
     
