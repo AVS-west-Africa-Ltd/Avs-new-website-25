@@ -114,7 +114,7 @@ export const ResourceSection: React.FC = () => {
           />
           <TemplateCard
             imageSrc="/assets/Feature prioritisation.png"
-            title="Feature Prioritization Matrix Template"
+            title="Feature Prioritisation Matrix Template"
             author="A Venture Studio"
             downloads="230+ downloads"
             className="bg-[#939393]"

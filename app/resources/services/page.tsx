@@ -29,6 +29,7 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(true);
+  const [isGenerating, setIsGenerating] = useState(false); // New loading state
   const [formData, setFormData] = useState({
     projectName: "",
     client: "",
@@ -42,6 +43,16 @@ export default function Home() {
     costStructure: [] as string[],
     revenueStreams: [] as string[],
   });
+
+  const handleGenerateClick = () => {
+    setIsGenerating(true); // Set loading to true when clicked
+
+    // Simulate processing delay
+    setTimeout(() => {
+      setIsOpen(!isOpen);
+      setIsGenerating(false); // Set loading to false after delay
+    }, 2500); // 2.5 second delay
+  };
 
   return (
     <>
@@ -67,12 +78,13 @@ export default function Home() {
               </CardContent>
             </Card>
             <div className="flex justify-center mt-8 mb-12">
-              <Button
-                onClick={() => setIsOpen(!isOpen)}
-                className="bg-[#0F0F0F] text-white rounded-[100px] h-10 w-[230px] [font-family:'Raleway',Helvetica] font-normal text-[15px] tracking-[-0.30px]"
+              <button
+                onClick={handleGenerateClick}
+                disabled={isGenerating} // Disable button when loading
+                className="bg-[#0F0F0F] text-white rounded-[100px] py-4 px-6 cursor-pointer w-[230px] [font-family:'Raleway',Helvetica] font-normal text-[15px] tracking-[-0.30px]"
               >
-                Generate Business Model
-              </Button>
+                {isGenerating ? "Generating..." : "Generate Business Model"}
+              </button>
             </div>
           </div>
         </div>
@@ -640,7 +652,7 @@ const Canvas = ({
   //     // 6. Add image to PDF
   //     const imgData = canvas.toDataURL('image/png', 1.0);
   //     pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-      
+
   //     // 7. Save the PDF
   //     pdf.save(`${formData.projectName || 'business-model'}-canvas.pdf`);
   //   } catch (error) {
@@ -747,24 +759,12 @@ const Canvas = ({
                   className="relative flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]"
                   style={{ width: "945px" }}
                 >
-                   {/* Background Image - Now with priority loading */}
-                   <div className="absolute top-[300px] left-[200px] flex justify-center mb-10 z-0">
-                    {/* <Image
-                      src="/assets/AVSlong.png"
-                      alt="Canvas Background"
-                      width={1110}
-                      height={900}
-                      className="w-auto h-auto object-contain"
-                      priority
-                      onLoadingComplete={() => console.log('Background image loaded')}
-                    /> */}
+                  {/* Watermark Background - moved to bottom right */}
+                  <div className="absolute bottom-0 right-0 flex items-center justify-center pointer-events-none z-0 p-[20px]">
+                    <div className="text-[#00000010] text-[20px] mx-2 font-bold rotate-[40de]">
+                      A VENTURE STUDIO
+                    </div>
                   </div>
-                  {/* Watermark Background */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                <div className="text-[#00000010] text-[130px] font-bold rotate-[-40deg]">
-                  A{" "}VENTURE STUDIO
-                </div>
-              </div>
 
                   {/* KEY PARTNERS */}
                   <div className="bg-white p-6 min-h-60">

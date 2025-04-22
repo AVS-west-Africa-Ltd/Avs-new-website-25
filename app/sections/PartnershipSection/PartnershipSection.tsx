@@ -8,7 +8,7 @@ export const PartnershipSection = () => {
     {
       id: 1,
       content:
-        "At Aventure Studio (AVS), we rethink how businesses are built. Too often, companies chase trends over strategy, prioritising short-term gains over lasting impact. We do things differently. By combining expertise, ambition, and creative rebellion, we create ventures designed to endure—not just to grow. If you’re ready to break the mould, let’s build something remarkable.",
+        "At A Venture Studio (AVS), we rethink how businesses are built. Too often, companies chase trends over strategy, prioritising short-term gains over lasting impact. We do things differently. By combining expertise, ambition, and creative rebellion, we create ventures designed to endure—not just to grow. If you’re ready to break the mould, let’s build something remarkable.",
     },
     {
       id: 2,

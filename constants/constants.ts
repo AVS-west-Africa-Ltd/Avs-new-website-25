@@ -137,6 +137,7 @@ export const fundingSteps: ProcessStep[] = [
     imageSrc: "/assets/fund2.png",
     hasList: true,
     bulletList: [
+      "Studio Partnership Model – Work with A Venture Studio to fund your business using a blended model of equity and cash support.",
       "Bootstrapping – Using personal savings or revenue to fund growth.",
       "Angel Investors – Securing funds from individuals looking to invest in early-stage startups.",
       "Venture Capital – Attracting institutional investors for high-growth potential.",
