@@ -444,7 +444,7 @@ function OurProcess() {
 
           <div className="flex justify-center items-center w-full">
             <Carousel
-            {/* @ts-ignore */}
+              // @ts-expect-error fundingSteps
               slides={activeTab === "build" ? sampleSlides : fundingSteps}
               autoScrollInterval={1000}
             />
