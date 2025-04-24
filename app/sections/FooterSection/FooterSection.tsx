@@ -31,28 +31,28 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ color = "black" }) => {
 export const FooterSection = () => {
   const services = [
     {
-      image: "/assets/1.png",
+      image: "/assets/homepage/1.svg",
       altText: "Mobile and website design",
       title: "Intuitive Mobile and Website Designs",
       description:
         "A great product isn't just functional—it's user-friendly and visually compelling. We design intuitive digital experiences that captivate users, drive engagement, and enhance brand credibility.",
     },
     {
-      image: "/assets/2.png",
+      image: "/assets/homepage/2.svg",
       altText: "Funding",
       title: "Funding Your Vision",
       description:
         "Securing the right financial backing is crucial for startup success. We guide you through investor connections, pitch deck creation, and financial planning to help you attract the right funding for growth.",
     },
     {
-      image: "/assets/3.png",
+      image: "/assets/homepage/3.svg",
       altText: "Brand strategy",
       title: "Building a Strong Brand Strategy",
       description:
         "Your brand is more than a logo—it's your identity. We craft cohesive brand strategies that align with your mission, differentiate you from competitors, and create a lasting impression in the market.",
     },
     {
-      image: "/assets/4.png",
+      image: "/assets/homepage/4.svg",
       altText: "Product development",
       title: "Product Development & Innovation",
       description:

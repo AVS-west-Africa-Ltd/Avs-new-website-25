@@ -162,7 +162,7 @@ export const fundingSteps: ProcessStep[] = [
       "We connect you with venture capitalists, angel investors, accelerators, and crowdfunding platforms to maximise your chances of securing capital. ",
       "Our approach ensures you’re targeting investors who align with your industry, stage, and business goals.",
     ],
-    imageSrc: "/assets/fund4.png",
+    imageSrc: "/assets/ourprocess9.svg",
   },
   {
     number: "05",

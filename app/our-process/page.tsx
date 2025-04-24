@@ -344,7 +344,7 @@ function OurProcess() {
       id: 2,
       title: "Brand",
       description: "Defining your unique identity and position.",
-      imageSrc: "/assets/build2.png",
+      imageSrc: "/assets/Our-process/ourprocess7.svg",
     },
     {
       id: 3,
