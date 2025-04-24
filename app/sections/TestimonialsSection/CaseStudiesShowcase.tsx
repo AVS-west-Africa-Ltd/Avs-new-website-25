@@ -50,7 +50,7 @@ export default function CaseStudiesShowcase() {
               url={`case-studies/1`}
             />
             <CaseStudyCard
-              imageSrc="/assets/homepage/four.png"
+              imageSrc="/assets/homepage/otf.svg"
               title="One Touch Football"
               subtitle="Digital home for grassroots football"
               className="bottom-3"
