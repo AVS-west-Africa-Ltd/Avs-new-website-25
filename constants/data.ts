@@ -93,7 +93,7 @@ export const OurProjects: CaseDetails[] = [
         isTools: true,
       },
     ],
-    appImage: "/assets/Casestudies/rateo-bg.png",
+    appImage: "/assets/Casestudies/rateo.svg",
     overviewData: {
       title: "Overview",
       data: [
