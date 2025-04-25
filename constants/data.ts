@@ -112,27 +112,27 @@ export const OurProjects: CaseDetails[] = [
       designSteps: [
         {
           id: 1,
-          title: "Ideation & Workshops",
+          title: "Business Audit",
         },
         {
           id: 2,
-          title: "Research & Interviews",
+          title: " Ideation & Workshops",
         },
         {
           id: 3,
-          title: "Lo-Fi Wireframing",
+          title: "Research & Interviews ",
         },
         {
           id: 4,
-          title: "Review & Q/A",
+          title: "Lo-Fi Wireframing",
         },
         {
           id: 5,
-          title: "Hi-Fi Wireframing & Prototyping",
+          title: "Usability Testing",
         },
         {
           id: 6,
-          title: "Usability Testing",
+          title: "Hi-Fi Wireframing & Prototyping ",
         },
         {
           id: 7,
@@ -140,7 +140,7 @@ export const OurProjects: CaseDetails[] = [
         },
         {
           id: 8,
-          title: "Testing",
+          title: "Q/A & Testing",
         },
       ],
     },
@@ -232,27 +232,27 @@ export const OurProjects: CaseDetails[] = [
       designSteps: [
         {
           id: 1,
-          title: "Ideation & Workshops",
+          title: "Business Audit",
         },
         {
           id: 2,
-          title: "Research & Interviews",
+          title: " Ideation & Workshops",
         },
         {
           id: 3,
-          title: "Lo-Fi Wireframing",
+          title: "Research & Interviews ",
         },
         {
           id: 4,
-          title: "Review & Q/A",
+          title: "Lo-Fi Wireframing",
         },
         {
           id: 5,
-          title: "Hi-Fi Wireframing & Prototyping",
+          title: "Usability Testing",
         },
         {
           id: 6,
-          title: "Usability Testing",
+          title: "Hi-Fi Wireframing & Prototyping ",
         },
         {
           id: 7,
@@ -260,7 +260,7 @@ export const OurProjects: CaseDetails[] = [
         },
         {
           id: 8,
-          title: "Testing",
+          title: "Q/A & Testing",
         },
       ],
     },
@@ -326,27 +326,27 @@ export const OurProjects: CaseDetails[] = [
       designSteps: [
         {
           id: 1,
-          title: "Ideation & Workshops",
+          title: "Business Audit",
         },
         {
           id: 2,
-          title: "Research & Interviews",
+          title: " Ideation & Workshops",
         },
         {
           id: 3,
-          title: "Lo-Fi Wireframing",
+          title: "Research & Interviews ",
         },
         {
           id: 4,
-          title: "Review & Q/A",
+          title: "Lo-Fi Wireframing",
         },
         {
           id: 5,
-          title: "Hi-Fi Wireframing & Prototyping",
+          title: "Usability Testing",
         },
         {
           id: 6,
-          title: "Usability Testing",
+          title: "Hi-Fi Wireframing & Prototyping ",
         },
         {
           id: 7,
@@ -354,7 +354,7 @@ export const OurProjects: CaseDetails[] = [
         },
         {
           id: 8,
-          title: "Testing",
+          title: "Q/A & Testing",
         },
       ],
     },
@@ -426,27 +426,27 @@ export const OurProjects: CaseDetails[] = [
       designSteps: [
         {
           id: 1,
-          title: "Ideation & Workshops",
+          title: "Business Audit",
         },
         {
           id: 2,
-          title: "Research & Interviews",
+          title: " Ideation & Workshops",
         },
         {
           id: 3,
-          title: "Lo-Fi Wireframing",
+          title: "Research & Interviews ",
         },
         {
           id: 4,
-          title: "Review & Q/A",
+          title: "Lo-Fi Wireframing",
         },
         {
           id: 5,
-          title: "Hi-Fi Wireframing & Prototyping",
+          title: "Usability Testing",
         },
         {
           id: 6,
-          title: "Usability Testing",
+          title: "Hi-Fi Wireframing & Prototyping ",
         },
         {
           id: 7,
@@ -454,7 +454,7 @@ export const OurProjects: CaseDetails[] = [
         },
         {
           id: 8,
-          title: "Testing",
+          title: "Q/A & Testing",
         },
       ],
     },

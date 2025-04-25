@@ -562,11 +562,14 @@ function CaseId() {
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch">
               <CaseStudyCard
-                imageSrc="/assets/otg1.svg"
+                imageSrc="https://res.cloudinary.com/dv5mvrtwx/image/upload/v1745537628/rateocase.png_jzcj3l.png"
                 title="On The Go"
                 subtitle="Get free wifi, On the Go!"
                 className="bottom-3"
               />
+
+           
+
               <CaseStudyCard
                 imageSrc="/assets/case2.svg"
                 title="One Touch Football"
