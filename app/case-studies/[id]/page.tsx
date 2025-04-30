@@ -14,6 +14,7 @@ import { useInView } from "react-intersection-observer";
 import { ActionCard } from "@/app/sections/TestimonialsSection/ActionCard";
 import { CaseStudyCard } from "@/app/sections/TestimonialsSection/CaseStudyCard";
 import { CaseDetails, OurProjects } from "@/constants/data";
+import CaseStudiesShowcase from "@/app/sections/TestimonialsSection/CaseStudiesShowcase";
 
 // export function getProjectById(id: any): CaseDetails | undefined {
 //     return OurProjects.find(project => project.id === id);
@@ -596,13 +597,16 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                 </motion.div>
             </motion.section>}
 
-            <section
+
+                 {/* Left Column - Content */}
+
+            {/* <section
                 ref={ref}
                 className="container overflow-hidden px-4 sm:px-6 lg:px-8 py-24 mx-auto"
             >
                 <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Left Column - Content */}
-                    <motion.div
+                */}
+                    {/* <motion.div
                         initial={{ opacity: 0, x: -100 }}
                         animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 1, ease: "easeOut" }}
@@ -613,10 +617,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                 <h2 className="text-2xl sm:text-3xl font-semibold tracking-tighter text-stone-950">
                                     Check out our other case studies
                                 </h2>
-                                {/* <p className="mt-4 text-base text-stone-950">
-                                    Lorem ipsum dolor sit amet consectetur. A elit elit diam
-                                    pretium habitant.
-                                </p> */}
+                            
                             </div>
                             <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 items-start mt-8 text-xl sm:text-2xl font-medium tracking-tight leading-7">
                                 <ActionCard
@@ -636,10 +637,10 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                 />
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.div> */}
 
                     {/* Right Column - Case Studies */}
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, x: 100 }}
                         animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
@@ -647,21 +648,27 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                     >
                         <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch">
                             <CaseStudyCard
-                                imageSrc="/assets/otg1.svg"
+                                imageSrc="/assets/homepage/otfootbal.jpg.png"
                                 title="On The Go"
                                 subtitle="Get free wifi, On the Go!"
                                 className="bottom-3"
                             />
+                          
                             <CaseStudyCard
-                                imageSrc="/assets/case2.svg"
+                                imageSrc='/assets/homepage/otfootbal.jpg.png'
                                 title="One Touch Football"
                                 subtitle="Digital home for grassroots football"
                                 className="bottom-3"
                             />
                         </div>
-                    </motion.div>
+                    </motion.div>  */}
+
+
+{/* 
                 </div>
-            </section>
+            </section> */}
+
+            <CaseStudiesShowcase/>
         </div>
     );
 }

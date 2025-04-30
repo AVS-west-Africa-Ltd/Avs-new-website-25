@@ -3,12 +3,12 @@
   "/api/send-email/route": "/api/send-email",
   "/favicon.ico/route": "/favicon.ico",
   "/case-studies/page": "/case-studies",
-  "/case-id/page": "/case-id",
-  "/page": "/",
-  "/case-studies/[id]/page": "/case-studies/[id]",
-  "/resources/page": "/resources",
   "/contact-us/page": "/contact-us",
   "/our-process/page": "/our-process",
+  "/case-studies/[id]/page": "/case-studies/[id]",
+  "/page": "/",
+  "/case-id/page": "/case-id",
+  "/resources/page": "/resources",
   "/resources/[id]/page": "/resources/[id]",
   "/resources/services/page": "/resources/services"
 }

@@ -43,14 +43,14 @@ export default function CaseStudiesShowcase() {
         <div className="lg:w-2/3 lg:pl-5 md:w-full w-full flex items-end">
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch w-full he">
             <CaseStudyCard
-              imageSrc="/assets/homepage/three.png"
+              imageSrc="/assets/homepage/rateo.png.png"
               title="Rateo"
               subtitle="Redefining Workplace"
               className="bottom-3"
               url={`case-studies/1`}
             />
             <CaseStudyCard
-              imageSrc="/assets/homepage/four.png"
+              imageSrc="/assets/homepage/otfootbal.jpg.png"
               title="One Touch Football"
               subtitle="Digital home for grassroots football"
               className="bottom-3"

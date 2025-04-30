@@ -96,7 +96,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/jemmienaturals/Desktop/Elijah/Avs-new-website-25",
+    "outputFileTracingRoot": "/Users/mac/Desktop/AVS/Avs-new-website-25",
     "experimental": {
       "allowedDevOrigins": [],
       "nodeMiddleware": false,
@@ -175,7 +175,7 @@
       "forceSwcTransforms": false,
       "largePageDataBytes": 128000,
       "turbo": {
-        "root": "/Users/jemmienaturals/Desktop/Elijah/Avs-new-website-25"
+        "root": "/Users/mac/Desktop/AVS/Avs-new-website-25"
       },
       "typedRoutes": false,
       "typedEnv": false,
@@ -281,7 +281,7 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts"
   },
-  "appDir": "/Users/jemmienaturals/Desktop/Elijah/Avs-new-website-25",
+  "appDir": "/Users/mac/Desktop/AVS/Avs-new-website-25",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",
