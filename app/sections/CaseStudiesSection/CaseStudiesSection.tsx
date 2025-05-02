@@ -20,12 +20,12 @@ export const CaseStudiesSection = () => {
           className="flex flex-col items-center gap-6 max-w-[1040px] text-center"
         >
           <h2 className="font-raleway text-4xl sm:text-4xl md:text-[50px] leading-tight text-[#0f0f0f]">
-            <span className="font-semibold">Take charge of</span>
+            <span className="font-semibold">We don’t just build</span>
             <span className="font-bold"> </span>
-            <span className="font-medium ">your business growth<span className="font-semibold">—We</span> </span>
+            <span className="font-medium italic">businesses that <br></br>launch</span>
             <span className="font-semibold">
-              don’t just build businesses that launch— We build businesses 
-            </span><span className="font-medium italic"> that Lead.</span>
+            <span className="font-semibold">— We</span>    build 
+            </span><span className="font-medium italic"> businesses that Lead.</span>
           </h2>
 
           <p className="font-raleway text-sm sm:text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">

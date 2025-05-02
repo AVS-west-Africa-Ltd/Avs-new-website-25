@@ -342,56 +342,56 @@ function OurProcess() {
     },
     {
       id: 2,
-      title: "Brand",
+      title: "Branding & Identity",
       description: "Defining your unique identity and position.",
       imageSrc: "/assets/Our-process/ourprocess7.svg",
     },
     {
       id: 3,
-      title: "Development",
+      title: "User Experience & Design",
       description: "Building solutions that meet your goals.",
       imageSrc: "/assets/Our-process/ourprocess6.svg",
     },
     {
       id: 4,
-      title: "Analytics",
+      title: "Project Management",
       description: "Measuring performance and refining strategy.",
       imageSrc: "/assets/Our-process/ourprocess5.svg",
     },
     {
       id: 5,
-      title: "Optimization",
+      title: "Development & Implementation",
       description: "Continuously improving based on data insights.",
       imageSrc: "/assets/Our-process/ourprocess4.svg",
     },
     {
       id: 6,
-      title: "Research & Strategy",
-      description: "Understanding the market, audience, and opportunities.",
+      title: "Testing & Refinement",
+      description: "we refine every detail, fixing bugs and improving usability before launch",
       imageSrc: "/assets/Our-process/ourprocess3.svg",
     },
     {
       id: 7,
-      title: "Brand",
-      description: "Defining your unique identity and position.",
+      title: "Launch & Deployment",
+      description: "The big moment!.",
       imageSrc: "/assets/Our-process/ourprocess2.svg",
     },
     {
       id: 8,
-      title: "Development",
-      description: "Building solutions that meet your goals.",
+      title: "Ongoing Support & Maintenance",
+      description: "Your journey doesn't end at launch..",
       imageSrc: "/assets/Our-process/ourprocess1.svg",
     },
     {
       id: 9,
-      title: "Analytics",
-      description: "Measuring performance and refining strategy.",
+      title: "Funding",
+      description: "Even the best ideas need financial backing to thrive.",
       imageSrc: "/assets/Rectangle4225-8.png",
     },
     {
       id: 10,
-      title: "Optimization",
-      description: "Continuously improving based on data insights.",
+      title: "Networking Introductions",
+      description: "Success often comes down to the right connections.",
       imageSrc: "/assets/Our-process/ourprocess9.svg",
     },
   ];
@@ -446,7 +446,7 @@ function OurProcess() {
             <Carousel
               // @ts-expect-error fundingSteps
               slides={activeTab === "build" ? sampleSlides : fundingSteps}
-              autoScrollInterval={1000}
+              autoScrollInterval={5000}
             />
           </div>
 

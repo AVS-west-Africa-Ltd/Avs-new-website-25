@@ -29,6 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${raleway.className}`}>
+      <head>
+        <link rel="icon" href="/assets/Dark.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/assets/Dark.png" />
+      </head>
       <body
         className={`${raleway.variable} antialiased`}
       >
