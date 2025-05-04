@@ -395,6 +395,13 @@ function OurProcess() {
       imageSrc: "/assets/Our-process/ourprocess9.svg",
     },
   ];
+  const slugify = (text: string) => text.toLowerCase().replace(/\s+/g, "-");
+  const handleScrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div className="bg-white flex flex-row justify-center w-full mt-[50px] md:mt-[100px] py-16">

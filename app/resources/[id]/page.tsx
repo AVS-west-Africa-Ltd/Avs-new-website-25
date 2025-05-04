@@ -58,12 +58,14 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
                   height={24}
                   className="w-6 h-6"
                 />
-              </span>
+              </span> 
               <span>{type}</span>
+              {type=='Figma'||'Figma Slide Deck'?(<span className="mx-2">You’ll need Figma to open this file.</span>):null}
             </span>
             <span className="mx-2">•</span>
             <span>{downloads} downloads</span>
           </div>
+         
         </div>
       </div>
       <div className="mt-2">

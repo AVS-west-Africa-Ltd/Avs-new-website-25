@@ -11,6 +11,7 @@ const cardVariants = {
 };
 
 const ProcessCard = ({ step, isReversed }: { step: ProcessStep; isReversed: boolean }) => {
+
     return (
         <motion.div
             className={`flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16 lg:gap-32 w-full 
@@ -19,6 +20,7 @@ const ProcessCard = ({ step, isReversed }: { step: ProcessStep; isReversed: bool
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
+            id={step.title}
         >
             <Image
                 className="w-full sm:w-[350px] md:w-[400px] lg:w-[470px] h-auto md:h-[400px] lg:h-[538px] object-cover rounded-[20px]"
@@ -28,7 +30,8 @@ const ProcessCard = ({ step, isReversed }: { step: ProcessStep; isReversed: bool
                 height={538}
                 priority
             />
-            <div className="flex flex-col w-full sm:w-[90%] md:w-[60%] lg:w-[444px] items-start gap-4 md:gap-6">
+            {/* shift idris */}
+            <div className="flex flex-col w-full sm:w-[90%] md:w-[60%] lg:w-[444px] items-start gap-4 md:gap-6" >
                 <div className="w-full font-raleway font-bold text-[#93969F] text-3xl sm:text-4xl md:text-5xl">{step.number}</div>
                 <div className="w-full font-raleway font-bold text-[#0f0f0f] text-2xl sm:text-3xl md:text-4xl">{step.title}</div>
                 <div className="w-full font-raleway font-normal text-medium text-sm sm:text-base">
