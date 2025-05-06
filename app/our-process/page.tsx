@@ -404,7 +404,7 @@ function OurProcess() {
   };
 
   return (
-    <div className="bg-white flex flex-row justify-center w-full mt-[50px] md:mt-[100px] py-16">
+    <div className="bg-white flex flex-row justify-center w-full mt-[50px] md:mt-[100px] py-16 ">
       <Tabs
         defaultValue="build"
         className="w-full"
@@ -437,7 +437,7 @@ function OurProcess() {
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold">
               {activeTab === "build" ? "From" : "Fuel Your"}{" "}
             </span>
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-medium italic">
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-medium italic pr-6">
               {activeTab === "build" ? "Idea to Reality" : "Startup’s Growth"}
             </span>
           </h1>
@@ -466,10 +466,10 @@ function OurProcess() {
           </Button> */}
           <button
             onClick={() => router.push("/contact-us")}
-            className="cursor-pointer py-3 px-6 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+            className="cursor-pointer py-3 px-6 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors mt-10"
           >
             <span className="flex items-center gap-2 text-[15px]">
-              Get in touch
+              Get in touch 
             </span>
             <svg
               width="16"
