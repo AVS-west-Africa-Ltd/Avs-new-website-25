@@ -90,17 +90,17 @@ export const PartnershipSection = () => {
 
 <section className="w-full bg-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-2">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-top">
           {/* Left side with heading and CTA */}
           <div className="md:col-span-2">
-            <h2 className="text-3xl md:text-xl lg:text-1xl font-bold tracking-tight mb-6">
+            <h2 className="text-4xl md:text-xl lg:text-1.5xl font-bold tracking-tight mb-6">
               <span className="whitespace-nowrap">Investing in yourself </span>{' '}
               is important
             </h2>
-            <Button variant="default" className="bg-black text-white hover:bg-gray-800 rounded-full px-6 flex items-center gap-2">
+            {/* <Button variant="default" className="bg-black text-white hover:bg-gray-800 rounded-full px-6 flex items-center gap-2">
               More about us
               <ArrowRight className="h-4 w-4" />
-            </Button>
+            </Button> */}
           </div>
           
           {/* Middle paragraph */}
