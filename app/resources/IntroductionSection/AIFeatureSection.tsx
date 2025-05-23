@@ -227,7 +227,7 @@ export const FeatureCardsSection = () => {
       title: "Let's Build Your \nStartup Together",
       description: "Partner with our Venture Studio for funding and hands-on support—equity and cash combined.",
       buttonText: "Get Started",
-      buttonLink: "/resources/services",
+      buttonLink: "/resources/funding",
       backgroundImage: "/assets/resources/Funding.svg",
       backgroundGradient: "linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 95, 70, 0.1) 100%)",
     },
