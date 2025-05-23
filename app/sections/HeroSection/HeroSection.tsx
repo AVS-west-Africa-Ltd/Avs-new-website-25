@@ -54,8 +54,9 @@ const partnerLogos = [
               1024: { slidesPerView: 5, spaceBetween: 30 },
             }}
           >
+           
             {partnerLogos.map((logo) => (
-              <SwiperSlide key={logo.id} className="flex items-center justify-center">
+              <SwiperSlide key={logo.id} className="flex items-center justify-center !bg-transparent ">
                 <div className="flex items-center justify-center h-full w-full p-4">
                   <Image
                     src={logo.src}

@@ -31,7 +31,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = downloadUrl;
-    link.download = "figma.deck";
+    link.download = "";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -49,7 +49,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
         <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
           <span>File format:</span>
           <div className="flex items-center gap-2 text-sm">
-            <span className="font-medium flex items-center gap-2">
+            <span className="font-semibold flex items-center gap-1 text-sm font-raleway text-[#636363]">
               <span>
                 <Image
                   src="/assets/figma-icon.png"
@@ -63,12 +63,12 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
               {type=='Figma'||'Figma Slide Deck'?(<span className="mx-2">You’ll need Figma to open this file.</span>):null}
             </span>
             <span className="mx-2">•</span>
-            <span>{downloads} downloads</span>
+            <span className="font-semibold font-raleway text-[#636363]">{downloads} downloads</span>
           </div>
          
         </div>
       </div>
-      <div className="mt-2">
+      <div className="mt-2 flex gap-4">
         <button
           onClick={handleDownload}
           className="flex items-center justify-center gap-2 rounded-full bg-gray-900 w-full md:w-[140px] px-4 py-2 text-sm font-medium text-white cursor-pointer hover:bg-gray-800 transition-colors"
@@ -104,6 +104,13 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
           </svg>
           <span className="text-sm font-medium text-white">Download</span>
         </button>
+
+        <button className="flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 cursor-pointer hover:bg-gray-50 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+  <path d="M10.5 5.25H5.25C4.78587 5.25 4.34075 5.43437 4.01256 5.76256C3.68437 6.09075 3.5 6.53587 3.5 7V15.75C3.5 16.2141 3.68437 16.6592 4.01256 16.9874C4.34075 17.3156 4.78587 17.5 5.25 17.5H14C14.4641 17.5 14.9092 17.3156 15.2374 16.9874C15.5656 16.6592 15.75 16.2141 15.75 15.75V10.5M9.625 11.375L17.5 3.5M17.5 3.5H13.125M17.5 3.5V7.875" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+          <span className="text-sm font-medium">Preview</span>
+        </button>
       </div>
       {description && (
         <div className="mt-4 md:mt-6">
@@ -120,7 +127,7 @@ const TemplateSection = () => {
   const { id } = useParams();
 
   return (
-    <>
+    <div className="resources-page">
       {Number(id) === 1 && (
         <div className="flex flex-col gap-2 p-1">
           <Swiper
@@ -132,10 +139,10 @@ const TemplateSection = () => {
             className="mySwiper2"
           >
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <div className="absolute inset-0">
                   <Image
-                    src="/assets/vision statement.png"
+                    src="/assets/resources/Resources/visionstatement.png"
                     alt="Slide 1"
                     fill
                     style={{ objectFit: "contain", padding: "20px" }}
@@ -144,7 +151,7 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <div className="absolute inset-0">
                   <Image
                     src="/assets/Vision-Statement-Template/KYP2.PNG"
@@ -168,25 +175,25 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer bg-[#F0F0F0]">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <div className="absolute inset-0">
                   <Image
-                    src="/assets/Vision-Statement-Template/KYP.PNG"
+                    src="/assets/resources/Resources/visionstatement.png"
                     alt="Thumbnail 1"
                     fill
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer bg-[#F0F0F0]">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5 ">
                 <div className="absolute inset-0">
                   <Image
                     src="/assets/Vision-Statement-Template/KYP2.PNG"
                     alt="Slide 2"
                     fill
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
               </div>
@@ -206,9 +213,9 @@ const TemplateSection = () => {
             className="mySwiper2"
           >
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
-                  src="/assets/Know-Your-Product/KYP2PNG.PNG"
+                  src="/assets/resources/Resources/knowyourproduct.png"
                   alt="Slide 1"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -216,7 +223,7 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
                   src="/assets/Know-Your-Product/KYP.PNG"
                   alt="Slide 2"
@@ -238,22 +245,22 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
-                  src="/assets/Know-Your-Product/KYP2PNG.PNG"
+                  src="/assets/resources/Resources/knowyourproduct.png"
                   alt="Thumbnail 1"
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
                   src="/assets/Know-Your-Product/KYP.PNG"
                   alt="Thumbnail 2"
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>
@@ -272,9 +279,9 @@ const TemplateSection = () => {
             className="mySwiper2"
           >
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
-                  src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix.PNG"
+                  src="/assets/resources/Resources/feature_prioritisationavs.png"
                   alt="Slide 1"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -282,7 +289,7 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 1.PNG"
                   alt="Slide 2"
@@ -292,7 +299,7 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 3.PNG"
                   alt="Slide 3"
@@ -314,22 +321,22 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
-                  src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix.PNG"
+                  src="/assets/resources/Resources/feature_prioritisationavs.png"
                   alt="Thumbnail 1"
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 1.PNG"
                   alt="Slide 2"
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>
@@ -337,7 +344,9 @@ const TemplateSection = () => {
         </div>
       )}
 
-      {Number(id) === 4 && (
+
+
+{Number(id) === 4 && (
         <div className="flex flex-col gap-2  p-1">
           <Swiper
             loop={true}
@@ -348,9 +357,9 @@ const TemplateSection = () => {
             className="mySwiper2"
           >
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
-                  src="/assets/User-Flow-Charts/Ultimate-Flow-Chart-Template/Cover.png"
+                  src="/assets/resources/Resources/ecosystemmapping.png"
                   alt="Slide 1"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -358,9 +367,9 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
-                  src="/assets/User-Flow-Charts/Ultimate-Flow-Chart-Template/1.png"
+                  src="/assets/resources/Resources/ecosystemmapping.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -368,9 +377,10 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              {/* bg-[#F0F0F0] this was bg i remove */}
                 <Image
-                  src="/assets/User-Flow-Charts/Ultimate-Flow-Chart-Template/2.png"
+                  src="/assets/resources/Resources/ecosystemmapping.png"
                   alt="Slide 3"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -390,32 +400,22 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
-                  src="/assets/User-Flow-Charts/Ultimate-Flow-Chart-Template/Cover.png"
+                  src="/assets/resources/Resources/ecosystemmapping.png"
                   alt="Thumbnail 1"
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
-                  src="/assets/User-Flow-Charts/Ultimate-Flow-Chart-Template/1.png"
+                  src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 1.PNG"
                   alt="Slide 2"
                   fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/User-Flow-Charts/Ultimate-Flow-Chart-Template/1.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>
@@ -423,487 +423,78 @@ const TemplateSection = () => {
         </div>
       )}
 
-      {Number(id) === 5 && (
-        <div className="flex flex-col gap-2  p-1">
-          <Swiper
-            loop={true}
-            spaceBetween={10}
-            navigation={false}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-          >
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/User-Flow-Charts/Onboarding Flow chart template/Cover.png"
-                  alt="Slide 1"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/User-Flow-Charts/Onboarding Flow chart template/1.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/User-Flow-Charts/Onboarding Flow chart template/2.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <Swiper
-            //@ts-expect-error Missing type definitions for external library
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/User-Flow-Charts/Onboarding Flow chart template/Cover.png"
-                  alt="Thumbnail 1"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/User-Flow-Charts/Onboarding Flow chart template/1.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/User-Flow-Charts/Onboarding Flow chart template/2.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      )}
-
-      {Number(id) === 6 && (
-        <div className="flex flex-col gap-2  p-1">
-          <Swiper
-            loop={true}
-            spaceBetween={10}
-            navigation={false}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-          >
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/User-Flow-Charts/e-commerce Flowchart Template/cover.png"
-                  alt="Slide 1"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/User-Flow-Charts/e-commerce Flowchart Template/1.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/User-Flow-Charts/e-commerce Flowchart Template/2.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <Swiper
-            //@ts-expect-error Missing type definitions for external library
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/User-Flow-Charts/e-commerce Flowchart Template/cover.png"
-                  alt="Thumbnail 1"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/User-Flow-Charts/e-commerce Flowchart Template/1.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/User-Flow-Charts/e-commerce Flowchart Template/2.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      )}
-
-      {Number(id) === 7 && (
-        <div className="flex flex-col gap-2 p-4 rounded-lg">
-          <Swiper
-            loop={true}
-            spaceBetween={10}
-            navigation={false}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-          >
-            <SwiperSlide>
-              <div
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]"
-                style={{ padding: "20px", backgroundColor: "#f2f2f2" }}
-              >
-                <Image
-                  src="/assets/Pitch Decks/Los Blancos Hermanos Pitch Deck/1.png"
-                  alt="Slide 1"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Los Blancos Hermanos Pitch Deck/2.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Los Blancos Hermanos Pitch Deck/3.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <Swiper
-            //@ts-expect-error Missing type definitions for external library
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Los Blancos Hermanos Pitch Deck/1.png"
-                  alt="Thumbnail 1"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Los Blancos Hermanos Pitch Deck/2.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Los Blancos Hermanos Pitch Deck/3.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      )}
-
-      {Number(id) === 8 && (
-        <div className="flex flex-col gap-2  p-4">
-          <Swiper
-            loop={true}
-            spaceBetween={10}
-            navigation={false}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-          >
-            <SwiperSlide>
-              <div
-                className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]"
-                style={{ padding: "20px", backgroundColor: "#f8fefd" }}
-              >
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/1.png"
-                  alt="Slide 1"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/2.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/3.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/4.png"
-                  alt="Slide 4"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/5.png"
-                  alt="Slide 5"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <Swiper
-            //@ts-expect-error Missing type definitions for external library
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/1.png"
-                  alt="Thumbnail 1"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/2.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/3.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/4.png"
-                  alt="Slide 4"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Le Orange pitch deck/5.png"
-                  alt="Slide 5"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      )}
-
-      {Number(id) === 9 && (
-        <div className="flex flex-col gap-2  p-1">
-          <Swiper
-            loop={true}
-            spaceBetween={10}
-            navigation={false}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2"
-          >
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Peaches pitch deck/1.png"
-                  alt="Slide 1"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Peaches pitch deck/2.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden bg-[#F0F0F0]">
-                <Image
-                  src="/assets/Pitch Decks/Peaches pitch deck/3.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <Swiper
-            //@ts-expect-error Missing type definitions for external library
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper"
-          >
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Peaches pitch deck/1.png"
-                  alt="Thumbnail 1"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Peaches pitch deck/2.png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer">
-                <Image
-                  src="/assets/Pitch Decks/Peaches pitch deck/3.png"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-      )}
-    </>
+    </div>
   );
 };
+interface ResourceCardProps {
+  id: number
+  name: string
+  image: string
+}
 
+const ResourceCard: React.FC<ResourceCardProps> = ({ id, name, image }) => {
+  return (
+    <a href={`/resources/${id}`} className="block group">
+      <div className="overflow-hidden rounded-lg">
+        <div className="relative h-48 w-full overflow-hidden">
+          <Image
+            src={image || "/placeholder.svg"}
+            alt={name}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+      </div>
+    </a>
+  )
+}
+
+const SimilarResources = ({ currentId }: { currentId: number }) => {
+  const allResources = [
+    {
+      id: 1,
+      name: "Vision Statement Template",
+      image: "/assets/resources/Resources/visionstatement.png",
+    },
+    {
+      id: 2,
+      name: "Know Your Product Template",
+      image: "/assets/resources/Resources/knowyourproduct.png",
+    },
+    {
+      id: 3,
+      name: "Feature Prioritisation Matrix Template",
+      image: "/assets/resources/Resources/feature_prioritisationavs.png",
+    },
+    {
+      id: 4,
+      name: "Ecosystem Mapping Template",
+      image: "/assets/resources/Resources/ecosystemmapping.png",
+    },
+  ]
+
+  // Filter out the current active resource
+  const similarResources = allResources.filter((resource) => resource.id !== currentId)
+
+  return (
+    <div className="mt-16">
+     
+      <div className="flex items-center mb-8">
+          <div className="h-px bg-gray-300 flex-1" />
+          <h2 className="px-4 text-lg font-medium">Explore similar resources</h2>
+          <div className="h-px bg-gray-300 flex-1" />
+        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {similarResources.map((resource) => (
+          <ResourceCard key={resource.id} id={resource.id} name={resource.name} image={resource.image} />
+        ))}
+      </div>
+    </div>
+  )
+}
 export default function Home() {
   const { id } = useParams();
+  const currentId = id ? Number(id) : 1
 
   return (
     <div className="min-h-screen bg-gray- mt-16">
@@ -928,9 +519,9 @@ export default function Home() {
               <TemplateCard
                 name="Know Your Product Template"
                 creator="A Venture Studio"
-                type="Figma Slide Deck"
+                type="Figjam"
                 downloads="600+"
-                link="/assets/Vision-Statement-Template/Know-Your-Product-Template.jam"
+                link="/assets/Know-Your-Product/Know-Your-Product-Template.jam"
                 description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
@@ -946,74 +537,25 @@ export default function Home() {
               />
             )}
 
-            {Number(id) === 4 && (
+{Number(id) === 4 && (
               <TemplateCard
-                name="Ultimate User Flow Chart Template"
+                name="Ecosystem Mapping"
                 creator="A Venture Studio"
                 type="Figma"
-                downloads="190+"
-                link="/assets/User-Flow-Charts/Ultimate-Flow-Chart-Template/Ultimate Flow Chart Template.fig"
-                description="A user flow chart is a visual representation of the steps a user takes to complete a specific task or achieve a goal within a website, app, or digital product. It helps designers, developers, and stakeholders understand the user's journey, identify friction points, and create intuitive, user-friendly experiences."
-              />
-            )}
-
-            {Number(id) === 5 && (
-              <TemplateCard
-                name="Onboarding Flow chart template"
-                creator="A Venture Studio"
-                type="Figma Slide Deck"
-                downloads="130+"
-                link="/assets/User-Flow-Charts/Onboarding Flow chart template/Onboarding Flow chart template.jam"
-                description="A user flow chart is a visual representation of the steps a user takes to complete a specific task or achieve a goal within a website, app, or digital product. It helps designers, developers, and stakeholders understand the user's journey, identify friction points, and create intuitive, user-friendly experiences."
-              />
-            )}
-
-            {Number(id) === 6 && (
-              <TemplateCard
-                name="e-commerce Flowchart Template"
-                creator="A Venture Studio"
-                type="Figma"
-                downloads="500+"
-                link="/assets/User-Flow-Charts/e-commerce Flowchart Template/e-commerce Flowchart Template.jam"
-                description="A user flow chart is a visual representation of the steps a user takes to complete a specific task or achieve a goal within a website, app, or digital product. It helps designers, developers, and stakeholders understand the user's journey, identify friction points, and create intuitive, user-friendly experiences."
-              />
-            )}
-
-            {Number(id) === 7 && (
-              <TemplateCard
-                name="Los Blancos Hermanos Pitch Deck"
-                creator="A Venture Studio"
-                type="Figma"
-                downloads="300+"
-                link="/assets/Pitch Decks/Los Blancos Hermanos Pitch Deck/Los Blancos Hermanos.deck"
-                description="A pitch deck is a concise, visually engaging presentation used to communicate the key aspects of a business, product, or project to potential investors, partners, or stakeholders. Its primary goal is to generate interest, spark conversation, and secure funding or support."
-              />
-            )}
-
-            {Number(id) === 8 && (
-              <TemplateCard
-                name="Le Orange Pitch Deck Template"
-                creator="A Venture Studio"
-                type="Figma Slide Deck"
-                downloads="200+"
-                link="/assets/Pitch Decks/Le Orange pitch deck/Le Orange.deck"
-                description="A pitch deck is a concise, visually engaging presentation used to communicate the key aspects of a business, product, or project to potential investors, partners, or stakeholders. Its primary goal is to generate interest, spark conversation, and secure funding or support."
-              />
-            )}
-
-            {Number(id) === 9 && (
-              <TemplateCard
-                name="Peaches Pitch Deck Template"
-                creator="A Venture Studio"
-                type="Figma"
-                downloads="412+"
-                link="/assets/Pitch Decks/Peaches pitch deck/Peaches.deck"
-                description="A pitch deck is a concise, visually engaging presentation used to communicate the key aspects of a business, product, or project to potential investors, partners, or stakeholders. Its primary goal is to generate interest, spark conversation, and secure funding or support."
+                downloads="230+"
+                link="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix.jam"
+                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
           </div>
         </div>
+
+        <SimilarResources currentId={currentId} />
+
       </div>
     </div>
   );
 }
+
+
+
