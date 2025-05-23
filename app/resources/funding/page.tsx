@@ -8,7 +8,8 @@ import {
   MapPinIcon,
   PencilIcon,
   PhoneIcon,
-  ScanSearchIcon,Upload 
+  ScanSearchIcon,Upload, 
+  X
 } from "lucide-react";
 import React, { useRef } from "react";
 import { XIcon } from "lucide-react";
@@ -19,7 +20,9 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState , DragEvent } from "react";
+import toast from "react-hot-toast";
+import ToastNotification from "../../../components/ToastNotification";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Edit, Download, Phone, MapPin } from "lucide-react";
@@ -58,7 +61,7 @@ export default function Home() {
 
   return (
     <>
-      {isOpen ? (
+    
         <div className="bg-white flex flex-row justify-center mt-[100px] container mx-auto w-full pb-20">
           <div className="bg-white w-full relative">
             <FormSection />
@@ -76,22 +79,10 @@ export default function Home() {
                <StartupForm/>
               </CardContent>
             </Card>
-            <div className="flex justify-center mt-8 mb-12">
-              <button
-                onClick={handleGenerateClick}
-                disabled={isGenerating} // Disable button when loading
-                className="bg-[#0F0F0F] text-white rounded-[100px] py-4 px-6 cursor-pointer w-[230px] [font-family:'Raleway',Helvetica] font-normal text-[15px] tracking-[-0.30px]"
-              >
-                {isGenerating ? "Generating..." : "Generate Business Model"}
-              </button>
-            </div>
+            
           </div>
         </div>
-      ) : (
-        <div className="mt-[100px]">
-          <Canvas setIsOpen={setIsOpen} isOpen={isOpen} formData={formData} />
-        </div>
-      )}
+     
     </>
   );
 }
@@ -171,21 +162,119 @@ const FormSection = () => {
 const StartupForm = () => {
     const [funding, setFunding] = useState('');
     const [support, setSupport] = useState<string[]>([]);
+    const [formData, setFormData] = useState<{ file: File | null }>({ file: null });
+    const [file, setFile] = useState<File | null>(null);
+    const [dragActive, setDragActive] = useState(false);
   
-    const toggleSupport = (option: string) => {
-      setSupport(prev =>
-        prev.includes(option)
-          ? prev.filter(s => s !== option)
-          : [...prev, option]
-      );
-    };
   
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files && e.target.files[0]) {
+        setFile(e.target.files[0])
+      }
+    }
+  
+    const handleDrag = (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault()
+      e.stopPropagation()
+      if (e.type === 'dragenter' || e.type === 'dragover') {
+        setDragActive(true)
+      } else if (e.type === 'dragleave') {
+        setDragActive(false)
+      }
+    }
+  
+    const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault()
+      e.stopPropagation()
+      setDragActive(false)
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        setFile(e.dataTransfer.files[0])
+      }
+    }
+  
+    const removeFile = () => {
+      setFile(null)
+    }
 
-        return (
-            <div className="flex justify-center items-center min-h-screen  p-4">
-              <div className="w-full max-w-4xl  p-8 rounded-lg">
+
+  
+    
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+      
+        const founderName = (document.getElementById('founderName') as HTMLInputElement).value;
+        const email = (document.getElementById('email') as HTMLInputElement).value;
+        const startupName = (document.getElementById('startupName') as HTMLInputElement).value;
+        const website = (document.getElementById('website') as HTMLInputElement).value;
+        const description = (document.getElementById('description') as HTMLTextAreaElement).value;
+        const problem = (document.getElementById('problem') as HTMLTextAreaElement).value;
+        const customers = (document.getElementById('customers') as HTMLTextAreaElement).value;
+        const revenue = (document.getElementById('revenue') as HTMLTextAreaElement).value;
+        const notes = (document.getElementById('notes') as HTMLTextAreaElement).value;
+      
+        const stageRadios = document.getElementsByName('startupStage') as NodeListOf<HTMLInputElement>;
+        const startupStage = Array.from(stageRadios).find(radio => radio.checked)?.id || '';
+      
+        const fundingRadios = document.getElementsByName('existingFunding') as NodeListOf<HTMLInputElement>;
+        const existingFunding = Array.from(fundingRadios).find(radio => radio.checked)?.id || '';
+      
+        console.log('ok')
+        console.log(founderName, email, notes, revenue ,startupStage , existingFunding)
+        if (!file) {
+          alert('Please upload your pitch deck.');
+          return;
+        }
+        if (!founderName || !email || !startupName || !description || !problem || !customers || !revenue) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+      
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('founderName', founderName);
+        formData.append('email', email);
+        formData.append('startupName', startupName);
+        formData.append('website', website);
+        formData.append('description', description);
+        formData.append('problem', problem);
+        formData.append('customers', customers);
+        formData.append('revenue', revenue);
+        formData.append('notes', notes);
+        formData.append('startupStage', startupStage);
+        formData.append('existingFunding', existingFunding);
+        formData.append('support', JSON.stringify(support));
+      
+
         
-                <div className="space-y-6">
+        return
+        try {
+          const res = await fetch('/api/send-startup-form', {
+            method: 'POST',
+            body: formData
+          });
+      
+          const result = await res.json();
+          if (res.ok) {
+            alert('Form submitted successfully!');
+          } else {
+            alert(`Failed to submit: ${result.message}`);
+          }
+        } catch (error) {
+          alert('Something went wrong submitting the form.');
+          console.error(error);
+        }
+      };
+      
+
+
+
+
+
+
+    return (
+        <div className="flex justify-center items-center min-h-screen  p-4">
+          <form className="w-full max-w-4xl  p-8 rounded-lg"  onSubmit={handleSubmit}>
+            <div className="space-y-6">
 
              
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -315,7 +404,7 @@ const StartupForm = () => {
                         id="description"
                         placeholder="Description"
                         rows={4}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        className="w-full bg-white px-3 py-2 border border-gray-300 rounded-md"
                       />
                     </div>
         
@@ -327,7 +416,7 @@ const StartupForm = () => {
                         id="problem"
                         placeholder="Description"
                         rows={4}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        className="w-full  bg-white px-3 py-2 border border-gray-300 rounded-md"
                       />
                     </div>
         
@@ -339,25 +428,25 @@ const StartupForm = () => {
                         id="customers"
                         placeholder="Description"
                         rows={4}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        className="w-full bg-white px-3 py-2 border border-gray-300 rounded-md"
                       />
                     </div>
         
-                    <div className="space-y-2">
-                      <label htmlFor="revenue" className="block text-sm font-medium">
+                    <div className="space-y-4">
+                      <label htmlFor="revenue" className="block  font-semibold text-[#232326] text-base">
                         Revenue model (if known)
                       </label>
                       <textarea
                         id="revenue"
                         placeholder="Description"
                         rows={4}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        className="w-full bg-white px-3 py-2 border border-gray-300 rounded-md"
                       />
                     </div>
                   </div>
         
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium">Any existing funding?</label>
+                  <div className="space-y-4">
+                    <label className="block  font-semibold text-[#232326] text-base">Any existing funding?</label>
                     <div className="flex space-x-6">
                       <div className="flex items-center">
                         <input
@@ -366,7 +455,7 @@ const StartupForm = () => {
                           type="radio"
                           className="h-4 w-4 text-black border-gray-300"
                         />
-                        <label htmlFor="fundingYes" className="ml-2 text-sm">
+                        <label htmlFor="fundingYes" className="ml-2 font-semibold text-[#232326] text-base">
                           Yes
                         </label>
                       </div>
@@ -377,7 +466,7 @@ const StartupForm = () => {
                           type="radio"
                           className="h-4 w-4 text-black border-gray-300"
                         />
-                        <label htmlFor="fundingNo" className="ml-2 text-sm">
+                        <label htmlFor="fundingNo" className="ml-2 font-semibold text-[#232326] text-base">
                           No
                         </label>
                       </div>
@@ -385,29 +474,28 @@ const StartupForm = () => {
                   </div>
         
                   <div className="space-y-2">
-                    <label htmlFor="notes" className="block text-sm font-medium">
-                      Make a note (optional)
-                    </label>
-                    <textarea id="notes" rows={3} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                
+                      
+                    <textarea id="notes" rows={3} placeholder="Make a note (optional)" className="w-full bg-white px-3 py-2 border border-gray-300 rounded-md" />
                   </div>
         
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium">What support are you seeking from the studio?</label>
-                    <div className="grid grid-cols-2 gap-2">
+                  <div className="space-y-4">
+                    <label className="block font-semibold text-[#232326] text-base">What support are you seeking from the studio?</label>
+                    <div className="grid grid-cols-4 gap-2   bg-white py-8 rounded-md">
                       <div className="flex items-center">
                         <input
                           id="partnership"
                           name="supportType"
                           type="radio"
-                          className="h-4 w-4 text-black border-gray-300"
+                          className="h-4 w-4 text-black border-gray-300 ml-2"
                         />
-                        <label htmlFor="partnership" className="ml-2 text-sm">
+                        <label htmlFor="partnership" className="ml-2 font-semibold text-[#232326] text-sm">
                           Partnership
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input id="funding" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300" />
-                        <label htmlFor="funding" className="ml-2 text-sm">
+                        <label htmlFor="funding" className="ml-2 font-semibold text-[#232326] text-sm">
                           Funding
                         </label>
                       </div>
@@ -418,41 +506,87 @@ const StartupForm = () => {
                           type="radio"
                           className="h-4 w-4 text-black border-gray-300"
                         />
-                        <label htmlFor="productDevelopment" className="ml-2 text-sm">
+                        <label htmlFor="productDevelopment" className="ml-2 font-semibold text-[#232326] text-sm">
                           Product Development
                         </label>
                       </div>
                       <div className="flex items-center">
                         <input id="operations" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300" />
-                        <label htmlFor="operations" className="ml-2 text-sm">
-                          Operations & Infrastructure
+                        <label htmlFor="operations" className="ml-2 font-semibold text-[#232326] text-sm mr-1">
+                          Operations&Infrastructure
                         </label>
                       </div>
                     </div>
                   </div>
         
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium">Upload your pitch deck (PDF)</label>
-                    <div className="border border-gray-300 rounded-md p-6 flex flex-col items-center justify-center">
-                      <Upload className="h-6 w-6 text-gray-500 mb-2" />
-                      <p className="text-sm text-center">
-                        Click to upload or drag and drop
-                        <br />
-                        <span className="text-xs text-gray-500">in PDF Format, Max 5MB</span>
-                      </p>
-                    </div>
-                  </div>
-        
-                  <div className="flex justify-center pt-4">
+
+
+<div className="space-y-4 mt-10">
+      <label className="block font-semibold text-[#232326] text-base">
+        Upload your pitch deck (PDF)
+      </label>
+
+      {!file ? (
+        <div
+          className={`border bg-white border-solid rounded-md p-6 flex flex-col items-center justify-center cursor-pointer transition-all duration-150 ${
+            dragActive ? 'border-blue-500' : 'border-gray-300'
+          }`}
+          onDragEnter={handleDrag}
+          onDragOver={handleDrag}
+          onDragLeave={handleDrag}
+          onDrop={handleDrop}
+        >
+          <input
+            type="file"
+            accept="application/pdf"
+            id="file"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          <label htmlFor="file" className="flex flex-col items-center cursor-pointer">
+            <Upload className="h-6 w-6 text-gray-500 mb-2" />
+            <p className="font-semibold text-[#232326] text-base text-center">
+              Click to upload or drag and drop
+            </p>
+            <span className="text-xs text-gray-500">in PDF format, Max 5MB</span>
+          </label>
+        </div>
+      ) : (
+        <div className="border border-gray-300 rounded-md p-4 bg-white">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <div className="flex-shrink-0 p-2 bg-gray-100 rounded-md">
+                <Upload className="h-5 w-5 text-gray-600" />
+              </div>
+              <div>
+                <p className="text-sm font-medium">{file.name}</p>
+                <p className="text-xs text-gray-500">
+                  {(file.size / 1024).toFixed(2)} KB
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={removeFile}
+              className="p-1 text-gray-500 hover:text-gray-700 focus:outline-none"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+    
+                  <div className="flex justify-center pt-4 mt-16">
                     <button
                       type="submit"
-                      className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+                      className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors cursor-pointer"
                     >
                       Submit Application
                     </button>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           )
   };
@@ -864,282 +998,4 @@ const StartupForm = () => {
 //   );
 // };
 
-const Canvas = ({
-  setIsOpen,
-  isOpen,
-  formData,
-}: {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isOpen: boolean;
-  formData: any;
-}) => {
-  const canvasRef = useRef<HTMLDivElement>(null);
 
-  
-  const handleDownloadPDF = async () => {
-    if (!canvasRef.current) return;
-
-    try {
-      const dataUrl = await domtoimage.toPng(canvasRef.current);
-      const pdf = new jsPDF("landscape");
-      pdf.addImage(dataUrl, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), 0);
-      pdf.save("canvas.pdf");
-    } catch (error) {
-      console.error(error);
-      alert("PDF failed. Try screenshot (Ctrl+P → Save as PDF)");
-    }
-  };
-
-  return (
-    <div className="flex flex-col bg-[#ffffff]">
-      {/* Main Content */}
-      <main className="flex-grow py-12 px-6">
-        <div className="mx-auto">
-          <div className="text-center mb-10">
-            <h1 className="text-4xl font-bold text-[#0f0f0f]">
-              Take a final look at your{" "}
-              <span className="italic">Business Model Canvas</span>
-            </h1>
-            <p className="text-xl mt-4">
-              {formData.projectName && `Project: ${formData.projectName}`}
-              {formData.client && ` | Client: ${formData.client}`}
-            </p>
-          </div>
-
-          <div className="flex justify-center gap-4 mb-10">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer flex items-center gap-2 border border-[#0f0f0f] rounded-full px-6 py-2"
-            >
-              <Edit className="h-5 w-5" />
-              Edit canvas
-            </button>
-            <button
-              onClick={handleDownloadPDF}
-              className="cursor-pointer flex items-center gap-2 bg-[#0f0f0f] text-white rounded-full px-6 py-2"
-            >
-              <Download className="h-5 w-5" />
-              Download PDF
-            </button>
-          </div>
-
-          {/* Fixed width canvas that will force scrolling on small screens */}
-          <div className="w-full overflow-hidden">
-            {/* Container with horizontal scroll */}
-            <div
-              ref={canvasRef}
-              className="w-full overflow-x-auto"
-              style={{
-                WebkitOverflowScrolling: "touch",
-              }}
-            >
-              {/* Fixed width canvas that will force scrolling on small screens */}
-              <div
-                className="flex"
-                style={{ width: "1610px", margin: "0 auto", height: "120vh" }}
-              >
-                {/* Left Sidebar */}
-                <div className="bg-[#f12c16] w-[255px] flex-shrink-0 relative">
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
-                    <div className="text-white text-2xl font-bold mb-4 flex w-[600px] gap-[100px]">
-                      <div className="w-1/2">
-                        <h1 className="font-bold text-[15px]">
-                          {formData.projectName &&
-                            `Project: ${formData.projectName}`}
-                        </h1>
-                        <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
-                      </div>
-
-                      <div className="w-1/2">
-                        <h1 className="font-bold text-[15px]">
-                          {formData.client && `Client: ${formData.client}`}
-                        </h1>
-                        <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
-                      </div>
-                    </div>
-                    <h2 className="text-white text-6xl font-bold tracking-wide">
-                      Business Model Canvas
-                    </h2>
-
-                    <p className="text-white text-[20px] font-medium">
-                      It is a visual artifact with elements describing a
-                      service&apos;s or product&apos;s <br />
-                      value proposition, infrastructure, customers, and finances
-                    </p>
-                  </div>
-                </div>
-
-                {/* Canvas Grid - Fixed width */}
-                <div
-                  className="relative flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]"
-                  style={{ width: "945px" }}
-                >
-                  {/* Watermark Background - moved to bottom right */}
-                  <div className="absolute bottom-0 right-0 flex items-center justify-center pointer-events-none z-0 p-[20px]">
-                    <div className="text-[#00000010] text-[20px] mx-2 font-bold rotate-[40de]">
-                      A VENTURE STUDIO
-                    </div>
-                  </div>
-
-                  {/* KEY PARTNERS */}
-                  <div className="bg-white p-6 min-h-60">
-                    <h3 className="font-bold text-sm mb-2">KEY PARTNERS</h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The network of suppliers and partners that make the
-                      business work
-                    </p>
-                    <ul className="space-y-2 list-disc pl-5">
-                      {formData.keyPartners?.map(
-                        (partner: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {partner}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
-                  {/* KEY ACTIVITIES */}
-                  <div className="bg-white p-6 min-h-60 col-span-1">
-                    <h3 className="font-bold text-sm mb-2">KEY ACTIVITIES</h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The most important activities your company needs to make
-                      its business work
-                    </p>
-                    <ul className="space-y-2 list-disc pl-5">
-                      {formData.keyActivities?.map(
-                        (activity: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {activity}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
-                  {/* VALUE PROPOSITION */}
-                  <div className="bg-white p-6 min-h-60 row-span-2">
-                    <h3 className="font-bold text-sm mb-2">
-                      VALUE PROPOSITION
-                    </h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The products and services that create value for a specific
-                      customer segment
-                    </p>
-                    <div className="p-2 rounded h-full overflow-y-auto">
-                      {formData.valueProposition}
-                    </div>
-                  </div>
-
-                  {/* CUSTOMER RELATIONSHIPS */}
-                  <div className="bg-white p-6 min-h-60">
-                    <h3 className="font-bold text-sm mb-2">
-                      CUSTOMER RELATIONSHIPS
-                    </h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The type of relationship your company establishes with
-                      specific segments
-                    </p>
-                    <div className="p-2 rounded h-full overflow-y-auto">
-                      {formData.customerRelationships}
-                    </div>
-                  </div>
-
-                  {/* CUSTOMER SEGMENTS */}
-                  <div className="bg-white p-6 min-h-60">
-                    <h3 className="font-bold text-sm mb-2">
-                      CUSTOMER SEGMENTS
-                    </h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The different groups of people or organizations you aim to
-                      reach and serve
-                    </p>
-                    <ul className="space-y-2 list-disc pl-5">
-                      {formData.customerSegments?.map(
-                        (segment: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {segment}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
-                  {/* KEY RESOURCES */}
-                  <div className="bg-white p-6 min-h-60 col-span-1">
-                    <h3 className="font-bold text-sm mb-2">KEY RESOURCES</h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The most important assets required to make the business
-                      work
-                    </p>
-                    <ul className="space-y-2 list-disc pl-5">
-                      {formData.keyResources?.map(
-                        (resource: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {resource}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
-                  {/* CHANNELS */}
-                  <div className="bg-white p-6 min-h-60">
-                    <h3 className="font-bold text-sm mb-2">CHANNELS</h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      How you communicate with and deliver value to your target
-                      customers
-                    </p>
-                    <ul className="space-y-2 list-disc pl-5">
-                      {formData.channels?.map(
-                        (channel: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {channel}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
-                  {/* COST STRUCTURE */}
-                  <div className="bg-white p-6 min-h-60 col-span-2">
-                    <h3 className="font-bold text-sm mb-2">COST STRUCTURE</h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The costs incurred to operate a business model
-                    </p>
-                    <ul className="space-y-2 list-disc pl-5">
-                      {formData.costStructure?.map(
-                        (cost: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {cost}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
-                  {/* REVENUE STREAMS */}
-                  <div className="bg-white p-6 min-h-60 col-span-5">
-                    <h3 className="font-bold text-sm mb-2">REVENUE STREAMS</h3>
-                    <p className="text-xs text-[#818285] mb-6">
-                      The revenue you generate from each customer segment
-                    </p>
-                    <ul className="grid grid-cols-3 gap-4 list-disc pl-5">
-                      {formData.revenueStreams?.map(
-                        (revenue: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {revenue}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
-};

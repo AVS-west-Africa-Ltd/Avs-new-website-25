@@ -402,7 +402,7 @@ if (
                     src={template.image.startsWith("/") ? template.image : `/${template.image}`}
                     alt={template.alt}
                     fill
-                    className="object-cover"
+                    className="object-fit"
                     priority
                   />
                 </div>
