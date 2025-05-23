@@ -8,7 +8,7 @@ import {
   MapPinIcon,
   PencilIcon,
   PhoneIcon,
-  ScanSearchIcon,
+  ScanSearchIcon,Upload 
 } from "lucide-react";
 import React, { useRef } from "react";
 import { XIcon } from "lucide-react";
@@ -70,13 +70,10 @@ export default function Home() {
               className="mx-auto rounded-[30px] bg-[#F0F0F0] p-2"
             >
               <h2 className="text-center font-semibold text-[#071914] text-2xl [font-family:'Raleway',Helvetica] my-10">
-                Fill out the following form to frame your business
+             Your Journey starts here
               </h2>
               <CardContent className="py-10">
-                <BusinessDetailsSection
-                  formData={formData}
-                  setFormData={setFormData}
-                />
+               <StartupForm/>
               </CardContent>
             </Card>
             <div className="flex justify-center mt-8 mb-12">
@@ -170,410 +167,702 @@ const FormSection = () => {
   );
 };
 
-const BusinessDetailsSection = ({
-  formData,
-  setFormData,
-}: {
-  formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
-}) => {
-  const [partnerInput, setPartnerInput] = useState("");
-  const [activityInput, setActivityInput] = useState("");
-  const [resourceInput, setResourceInput] = useState("");
-  const [segmentInput, setSegmentInput] = useState("");
-  const [channelInput, setChannelInput] = useState("");
-  const [costInput, setCostInput] = useState("");
-  const [revenueInput, setRevenueInput] = useState("");
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev: any) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+const StartupForm = () => {
+    const [funding, setFunding] = useState('');
+    const [support, setSupport] = useState<string[]>([]);
+  
+    const toggleSupport = (option: string) => {
+      setSupport(prev =>
+        prev.includes(option)
+          ? prev.filter(s => s !== option)
+          : [...prev, option]
+      );
+    };
+  
 
-  const handleAddItem = (
-    field: keyof typeof formData,
-    value: string,
-    setInput: React.Dispatch<React.SetStateAction<string>>
-  ) => {
-    if (value.trim() && Array.isArray(formData[field])) {
-      setFormData((prev: any) => ({
-        ...prev,
-        [field]: [...(prev[field] as string[]), value.trim()],
-      }));
-      setInput("");
-    }
-  };
+        return (
+            <div className="flex justify-center items-center min-h-screen  p-4">
+              <div className="w-full max-w-4xl  p-8 rounded-lg">
+        
+                <div className="space-y-6">
 
-  const handleRemoveItem = (field: keyof typeof formData, index: number) => {
-    setFormData((prev: any) => ({
-      ...prev,
-      [field]: (prev[field] as string[]).filter(
-        (_: any, i: number) => i !== index
-      ),
-    }));
-  };
+             
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      {/* <label htmlFor="founderName" className="block text-sm font-medium"> */}
+                      <Label className="font-semibold text-[#232326] text-base">
 
-  const handleKeyPress = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-    field: keyof typeof formData,
-    value: string,
-    setInput: React.Dispatch<React.SetStateAction<string>>
-  ) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleAddItem(field, value, setInput);
-    }
-  };
-
-  return (
-    <section className="flex flex-col w-full max-w-[860px] mx-auto items-start gap-10">
-      {/* Project and Client Row */}
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full">
-        <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
-          <Label className="font-semibold text-[#232326] text-base">
-            Project name
+                        Founder Name
+                      {/* </label> */}
           </Label>
-          <Input
+
+                       <Input
             name="projectName"
-            value={formData.projectName}
-            onChange={handleInputChange}
+        
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="E.g mango tech"
-          />
-        </div>
-        <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
+            id="founderName"
+            type="text"
+            placeholder="E.g John Doe"          />
+                    </div>
+        
+                    <div className="space-y-4">
+                    
           <Label className="font-semibold text-[#232326] text-base">
-            Client
-          </Label>
-          <Input
-            name="client"
-            value={formData.client}
-            onChange={handleInputChange}
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="E.g John Doe"
-          />
-        </div>
-      </div>
 
-      {/* Key Partners */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Key Partners
+                        Email Address
+                     
           </Label>
-          <p className="font-normal text-medium text-sm">
-            The network of suppliers and partners that make the business model
-            work.
-          </p>
-          <Input
-            value={partnerInput}
-            onChange={(e) => setPartnerInput(e.target.value)}
-            onKeyDown={(e) =>
-              handleKeyPress(e, "keyPartners", partnerInput, setPartnerInput)
-            }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add a partner"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-3.5">
-          {formData.keyPartners.map((partner: string, index: number) => (
-            <Badge
-              key={index}
-              className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-            >
-              <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-                {partner}
-              </span>
-              <XIcon
-                className="w-3.5 h-3.5 cursor-pointer"
-                onClick={() => handleRemoveItem("keyPartners", index)}
-              />
-            </Badge>
-          ))}
-        </div>
-      </div>
 
-      {/* Key Activities */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Key Activities
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            The most important tasks your company must do to operate
-            effectively.
-          </p>
-          <Input
-            value={activityInput}
-            onChange={(e) => setActivityInput(e.target.value)}
-            onKeyDown={(e) =>
-              handleKeyPress(
-                e,
-                "keyActivities",
-                activityInput,
-                setActivityInput
-              )
-            }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add tasks"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-3.5">
-          {formData.keyActivities.map((activity: string, index: number) => (
-            <Badge
-              key={index}
-              className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-            >
-              <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-                {activity}
-              </span>
-              <XIcon
-                className="w-3.5 h-3.5 cursor-pointer"
-                onClick={() => handleRemoveItem("keyActivities", index)}
-              />
-            </Badge>
-          ))}
-        </div>
-      </div>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="E.g johndoe@mail.com"
+                        className="w-full px-3 py-4 border border-gray-300 rounded-md"
+                        // className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
 
-      {/* Key Resources */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Key Resources
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            The critical assets required to deliver your value proposition.
-          </p>
-          <Input
-            value={resourceInput}
-            onChange={(e) => setResourceInput(e.target.value)}
-            onKeyDown={(e) =>
-              handleKeyPress(e, "keyResources", resourceInput, setResourceInput)
-            }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add assets"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-3.5">
-          {formData.keyResources.map((resource: string, index: number) => (
-            <Badge
-              key={index}
-              className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-            >
-              <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-                {resource}
-              </span>
-              <XIcon
-                className="w-3.5 h-3.5 cursor-pointer"
-                onClick={() => handleRemoveItem("keyResources", index)}
-              />
-            </Badge>
-          ))}
-        </div>
-      </div>
+                      />
+                    </div>
+        
+                    <div className="space-y-4 mt-4">
+                      <label htmlFor="startupName" className="block font-semibold text-[#232326] text-base">
+                        Startup Name
+                      </label>
+                      <input
+                        id="startupName"
+                        type="text"
+                        placeholder="E.g mango tech"
+                        className="w-full bg-white px-3 py-4 border border-gray-300 rounded-md"
+                      />
+                    </div>
+        
+                    <div className="space-y-4 mt-4">
+                      <label htmlFor="website" className="block font-semibold text-[#232326] text-base">
+                        Website (if available)
+                      </label>
+                      <input
+                        id="website"
+                        type="text"
+                        placeholder="E.g mangotech.com"
+                        className="w-full  bg-white px-3 py-4 border border-gray-300 rounded-md"
+                      />
+                    </div>
+                  </div>
+        
+                  <div className="space-y-4 mt-10">
+                    <label className="block  font-semibold text-[#232326] text-base">What stage is your startup in?</label>
+                    <div className="grid bg-white grid-cols-2 md:grid-cols-3 gap-2 px-3 py-4 rounded-md">
+                      <div className="flex items-center">
+                        <input id="ideaStage" name="startupStage" type="radio" className="h-4 w-4 text-black border-gray-300" />
+                        <label htmlFor="ideaStage" className="ml-2 font-semibold text-[#232326] text-base">
+                          Idea Stage
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input
+                          id="validating"
+                          name="startupStage"
+                          type="radio"
+                          className="h-4 w-4 text-black border-gray-300"
+                        />
+                        <label htmlFor="validating" className="ml-2 font-semibold text-[#232326] text-base">
+                          Validating
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input
+                          id="buildingMVP"
+                          name="startupStage"
+                          type="radio"
+                          className="h-4 w-4 text-black border-gray-300"
+                        />
+                        <label htmlFor="buildingMVP" className="ml-2 font-semibold text-[#232326] text-base">
+                          Building MVP
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input id="launched" name="startupStage" type="radio" className="h-4 w-4 text-black border-gray-300" />
+                        <label htmlFor="launched" className="ml-2 font-semibold text-[#232326] text-base">
+                          Launched
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input
+                          id="gainingTraction"
+                          name="startupStage"
+                          type="radio"
+                          className="h-4 w-4 text-black border-gray-300"
+                        />
+                        <label htmlFor="gainingTraction" className="ml-2 font-semibold text-[#232326] text-base">
+                          Gaining Traction
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input id="scaling" name="startupStage" type="radio" className="h-4 w-4 text-black border-gray-300" />
+                        <label htmlFor="scaling" className="ml-2 font-semibold text-[#232326] text-base">
+                          Scaling
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                    <div className="space-y-4">
+                      <label htmlFor="description" className="block font-semibold text-[#232326] text-base">
+                        Describe your startup in one sentence
+                      </label>
+                      <textarea
+                        id="description"
+                        placeholder="Description"
+                        rows={4}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      />
+                    </div>
+        
+                    <div className="space-y-4">
+                      <label htmlFor="problem" className="block font-semibold text-[#232326] text-base">
+                        What problem are you solving?
+                      </label>
+                      <textarea
+                        id="problem"
+                        placeholder="Description"
+                        rows={4}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      />
+                    </div>
+        
+                    <div className="space-y-4">
+                      <label htmlFor="customers" className="block font-semibold text-[#232326] text-base">
+                        Who are your target customers?
+                      </label>
+                      <textarea
+                        id="customers"
+                        placeholder="Description"
+                        rows={4}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      />
+                    </div>
+        
+                    <div className="space-y-2">
+                      <label htmlFor="revenue" className="block text-sm font-medium">
+                        Revenue model (if known)
+                      </label>
+                      <textarea
+                        id="revenue"
+                        placeholder="Description"
+                        rows={4}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      />
+                    </div>
+                  </div>
+        
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium">Any existing funding?</label>
+                    <div className="flex space-x-6">
+                      <div className="flex items-center">
+                        <input
+                          id="fundingYes"
+                          name="existingFunding"
+                          type="radio"
+                          className="h-4 w-4 text-black border-gray-300"
+                        />
+                        <label htmlFor="fundingYes" className="ml-2 text-sm">
+                          Yes
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input
+                          id="fundingNo"
+                          name="existingFunding"
+                          type="radio"
+                          className="h-4 w-4 text-black border-gray-300"
+                        />
+                        <label htmlFor="fundingNo" className="ml-2 text-sm">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div className="space-y-2">
+                    <label htmlFor="notes" className="block text-sm font-medium">
+                      Make a note (optional)
+                    </label>
+                    <textarea id="notes" rows={3} className="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                  </div>
+        
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium">What support are you seeking from the studio?</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="flex items-center">
+                        <input
+                          id="partnership"
+                          name="supportType"
+                          type="radio"
+                          className="h-4 w-4 text-black border-gray-300"
+                        />
+                        <label htmlFor="partnership" className="ml-2 text-sm">
+                          Partnership
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input id="funding" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300" />
+                        <label htmlFor="funding" className="ml-2 text-sm">
+                          Funding
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input
+                          id="productDevelopment"
+                          name="supportType"
+                          type="radio"
+                          className="h-4 w-4 text-black border-gray-300"
+                        />
+                        <label htmlFor="productDevelopment" className="ml-2 text-sm">
+                          Product Development
+                        </label>
+                      </div>
+                      <div className="flex items-center">
+                        <input id="operations" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300" />
+                        <label htmlFor="operations" className="ml-2 text-sm">
+                          Operations & Infrastructure
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium">Upload your pitch deck (PDF)</label>
+                    <div className="border border-gray-300 rounded-md p-6 flex flex-col items-center justify-center">
+                      <Upload className="h-6 w-6 text-gray-500 mb-2" />
+                      <p className="text-sm text-center">
+                        Click to upload or drag and drop
+                        <br />
+                        <span className="text-xs text-gray-500">in PDF Format, Max 5MB</span>
+                      </p>
+                    </div>
+                  </div>
+        
+                  <div className="flex justify-center pt-4">
+                    <button
+                      type="submit"
+                      className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+                    >
+                      Submit Application
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+  };
+  
+//   export default StartupForm;
+  
+// const BusinessDetailsSection = ({
+//   formData,
+//   setFormData,
+// }: {
+//   formData: any;
+//   setFormData: React.Dispatch<React.SetStateAction<any>>;
+// }) => {
+//   const [partnerInput, setPartnerInput] = useState("");
+//   const [activityInput, setActivityInput] = useState("");
+//   const [resourceInput, setResourceInput] = useState("");
+//   const [segmentInput, setSegmentInput] = useState("");
+//   const [channelInput, setChannelInput] = useState("");
+//   const [costInput, setCostInput] = useState("");
+//   const [revenueInput, setRevenueInput] = useState("");
 
-      {/* Value Proposition */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Value Proposition
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            The product, service, or feature that solves a problem or delivers
-            specific benefits to your customers.
-          </p>
-          <Textarea
-            name="valueProposition"
-            value={formData.valueProposition}
-            onChange={handleInputChange}
-            className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Description"
-          />
-        </div>
-      </div>
+//   const handleInputChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     const { name, value } = e.target;
+//     setFormData((prev: any) => ({
+//       ...prev,
+//       [name]: value,
+//     }));
+//   };
 
-      {/* Customer Relationships */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Customer Relationships
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            How you acquire, retain, and grow your customer base.
-          </p>
-          <Textarea
-            name="customerRelationships"
-            value={formData.customerRelationships}
-            onChange={handleInputChange}
-            className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Description"
-          />
-        </div>
-      </div>
+//   const handleAddItem = (
+//     field: keyof typeof formData,
+//     value: string,
+//     setInput: React.Dispatch<React.SetStateAction<string>>
+//   ) => {
+//     if (value.trim() && Array.isArray(formData[field])) {
+//       setFormData((prev: any) => ({
+//         ...prev,
+//         [field]: [...(prev[field] as string[]), value.trim()],
+//       }));
+//       setInput("");
+//     }
+//   };
 
-      {/* Customer Segments */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Customer Segments
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            The groups of people or organisations you aim to serve.
-          </p>
-          <Input
-            value={segmentInput}
-            onChange={(e) => setSegmentInput(e.target.value)}
-            onKeyDown={(e) =>
-              handleKeyPress(
-                e,
-                "customerSegments",
-                segmentInput,
-                setSegmentInput
-              )
-            }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add customer segments"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-3.5">
-          {formData.customerSegments.map((segment: string, index: number) => (
-            <Badge
-              key={index}
-              className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-            >
-              <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-                {segment}
-              </span>
-              <XIcon
-                className="w-3.5 h-3.5 cursor-pointer"
-                onClick={() => handleRemoveItem("customerSegments", index)}
-              />
-            </Badge>
-          ))}
-        </div>
-      </div>
+//   const handleRemoveItem = (field: keyof typeof formData, index: number) => {
+//     setFormData((prev: any) => ({
+//       ...prev,
+//       [field]: (prev[field] as string[]).filter(
+//         (_: any, i: number) => i !== index
+//       ),
+//     }));
+//   };
 
-      {/* Channels */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Channels
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            How you communicate with and deliver your product or service to
-            customers.
-          </p>
-          <Input
-            value={channelInput}
-            onChange={(e) => setChannelInput(e.target.value)}
-            onKeyDown={(e) =>
-              handleKeyPress(e, "channels", channelInput, setChannelInput)
-            }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add channels"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-3.5">
-          {formData.channels.map((channel: string, index: number) => (
-            <Badge
-              key={index}
-              className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[30px] flex items-center gap-2.5"
-            >
-              <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-                {channel}
-              </span>
-              <XIcon
-                className="w-3.5 h-3.5 cursor-pointer"
-                onClick={() => handleRemoveItem("channels", index)}
-              />
-            </Badge>
-          ))}
-        </div>
-      </div>
+//   const handleKeyPress = (
+//     e: React.KeyboardEvent<HTMLInputElement>,
+//     field: keyof typeof formData,
+//     value: string,
+//     setInput: React.Dispatch<React.SetStateAction<string>>
+//   ) => {
+//     if (e.key === "Enter") {
+//       e.preventDefault();
+//       handleAddItem(field, value, setInput);
+//     }
+//   };
 
-      {/* Cost Structure */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Cost Structure
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            The major costs involved in operating your business model.
-          </p>
-          <Input
-            value={costInput}
-            onChange={(e) => setCostInput(e.target.value)}
-            onKeyDown={(e) =>
-              handleKeyPress(e, "costStructure", costInput, setCostInput)
-            }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add major costs"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-3.5">
-          {formData.costStructure.map((cost: string, index: number) => (
-            <Badge
-              key={index}
-              className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-            >
-              <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-                {cost}
-              </span>
-              <XIcon
-                className="w-3.5 h-3.5 cursor-pointer"
-                onClick={() => handleRemoveItem("costStructure", index)}
-              />
-            </Badge>
-          ))}
-        </div>
-      </div>
+//   return (
+//     <section className="flex flex-col w-full max-w-[860px] mx-auto items-start gap-10">
+//       {/* Project and Client Row */}
+//       <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full">
+//         <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Project name
+//           </Label>
+//           <Input
+//             name="projectName"
+//             value={formData.projectName}
+//             onChange={handleInputChange}
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="E.g mango tech"
+//           />
+//         </div>
+//         <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Client
+//           </Label>
+//           <Input
+//             name="client"
+//             value={formData.client}
+//             onChange={handleInputChange}
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="E.g John Doe"
+//           />
+//         </div>
+//       </div>
 
-      {/* Revenue Streams */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Revenue Streams
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            The ways your business generates income from different customer
-            segments.
-          </p>
-          <Input
-            value={revenueInput}
-            onChange={(e) => setRevenueInput(e.target.value)}
-            onKeyDown={(e) =>
-              handleKeyPress(e, "revenueStreams", revenueInput, setRevenueInput)
-            }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add revenue streams"
-          />
-        </div>
-        <div className="flex flex-wrap items-center gap-3.5">
-          {formData.revenueStreams.map((revenue: string, index: number) => (
-            <Badge
-              key={index}
-              className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-            >
-              <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-                {revenue}
-              </span>
-              <XIcon
-                className="w-3.5 h-3.5 cursor-pointer"
-                onClick={() => handleRemoveItem("revenueStreams", index)}
-              />
-            </Badge>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+//       {/* Key Partners */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Key Partners
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             The network of suppliers and partners that make the business model
+//             work.
+//           </p>
+//           <Input
+//             value={partnerInput}
+//             onChange={(e) => setPartnerInput(e.target.value)}
+//             onKeyDown={(e) =>
+//               handleKeyPress(e, "keyPartners", partnerInput, setPartnerInput)
+//             }
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Add a partner"
+//           />
+//         </div>
+//         <div className="flex flex-wrap items-center gap-3.5">
+//           {formData.keyPartners.map((partner: string, index: number) => (
+//             <Badge
+//               key={index}
+//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
+//             >
+//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+//                 {partner}
+//               </span>
+//               <XIcon
+//                 className="w-3.5 h-3.5 cursor-pointer"
+//                 onClick={() => handleRemoveItem("keyPartners", index)}
+//               />
+//             </Badge>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Key Activities */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Key Activities
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             The most important tasks your company must do to operate
+//             effectively.
+//           </p>
+//           <Input
+//             value={activityInput}
+//             onChange={(e) => setActivityInput(e.target.value)}
+//             onKeyDown={(e) =>
+//               handleKeyPress(
+//                 e,
+//                 "keyActivities",
+//                 activityInput,
+//                 setActivityInput
+//               )
+//             }
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Add tasks"
+//           />
+//         </div>
+//         <div className="flex flex-wrap items-center gap-3.5">
+//           {formData.keyActivities.map((activity: string, index: number) => (
+//             <Badge
+//               key={index}
+//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
+//             >
+//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+//                 {activity}
+//               </span>
+//               <XIcon
+//                 className="w-3.5 h-3.5 cursor-pointer"
+//                 onClick={() => handleRemoveItem("keyActivities", index)}
+//               />
+//             </Badge>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Key Resources */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Key Resources
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             The critical assets required to deliver your value proposition.
+//           </p>
+//           <Input
+//             value={resourceInput}
+//             onChange={(e) => setResourceInput(e.target.value)}
+//             onKeyDown={(e) =>
+//               handleKeyPress(e, "keyResources", resourceInput, setResourceInput)
+//             }
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Add assets"
+//           />
+//         </div>
+//         <div className="flex flex-wrap items-center gap-3.5">
+//           {formData.keyResources.map((resource: string, index: number) => (
+//             <Badge
+//               key={index}
+//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
+//             >
+//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+//                 {resource}
+//               </span>
+//               <XIcon
+//                 className="w-3.5 h-3.5 cursor-pointer"
+//                 onClick={() => handleRemoveItem("keyResources", index)}
+//               />
+//             </Badge>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Value Proposition */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Value Proposition
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             The product, service, or feature that solves a problem or delivers
+//             specific benefits to your customers.
+//           </p>
+//           <Textarea
+//             name="valueProposition"
+//             value={formData.valueProposition}
+//             onChange={handleInputChange}
+//             className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Description"
+//           />
+//         </div>
+//       </div>
+
+//       {/* Customer Relationships */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Customer Relationships
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             How you acquire, retain, and grow your customer base.
+//           </p>
+//           <Textarea
+//             name="customerRelationships"
+//             value={formData.customerRelationships}
+//             onChange={handleInputChange}
+//             className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Description"
+//           />
+//         </div>
+//       </div>
+
+//       {/* Customer Segments */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Customer Segments
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             The groups of people or organisations you aim to serve.
+//           </p>
+//           <Input
+//             value={segmentInput}
+//             onChange={(e) => setSegmentInput(e.target.value)}
+//             onKeyDown={(e) =>
+//               handleKeyPress(
+//                 e,
+//                 "customerSegments",
+//                 segmentInput,
+//                 setSegmentInput
+//               )
+//             }
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Add customer segments"
+//           />
+//         </div>
+//         <div className="flex flex-wrap items-center gap-3.5">
+//           {formData.customerSegments.map((segment: string, index: number) => (
+//             <Badge
+//               key={index}
+//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
+//             >
+//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+//                 {segment}
+//               </span>
+//               <XIcon
+//                 className="w-3.5 h-3.5 cursor-pointer"
+//                 onClick={() => handleRemoveItem("customerSegments", index)}
+//               />
+//             </Badge>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Channels */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Channels
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             How you communicate with and deliver your product or service to
+//             customers.
+//           </p>
+//           <Input
+//             value={channelInput}
+//             onChange={(e) => setChannelInput(e.target.value)}
+//             onKeyDown={(e) =>
+//               handleKeyPress(e, "channels", channelInput, setChannelInput)
+//             }
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Add channels"
+//           />
+//         </div>
+//         <div className="flex flex-wrap items-center gap-3.5">
+//           {formData.channels.map((channel: string, index: number) => (
+//             <Badge
+//               key={index}
+//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[30px] flex items-center gap-2.5"
+//             >
+//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+//                 {channel}
+//               </span>
+//               <XIcon
+//                 className="w-3.5 h-3.5 cursor-pointer"
+//                 onClick={() => handleRemoveItem("channels", index)}
+//               />
+//             </Badge>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Cost Structure */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Cost Structure
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             The major costs involved in operating your business model.
+//           </p>
+//           <Input
+//             value={costInput}
+//             onChange={(e) => setCostInput(e.target.value)}
+//             onKeyDown={(e) =>
+//               handleKeyPress(e, "costStructure", costInput, setCostInput)
+//             }
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Add major costs"
+//           />
+//         </div>
+//         <div className="flex flex-wrap items-center gap-3.5">
+//           {formData.costStructure.map((cost: string, index: number) => (
+//             <Badge
+//               key={index}
+//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
+//             >
+//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+//                 {cost}
+//               </span>
+//               <XIcon
+//                 className="w-3.5 h-3.5 cursor-pointer"
+//                 onClick={() => handleRemoveItem("costStructure", index)}
+//               />
+//             </Badge>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Revenue Streams */}
+//       <div className="flex flex-col items-start gap-[15px] w-full">
+//         <div className="flex flex-col items-start gap-2 w-full">
+//           <Label className="font-semibold text-[#232326] text-base">
+//             Revenue Streams
+//           </Label>
+//           <p className="font-normal text-medium text-sm">
+//             The ways your business generates income from different customer
+//             segments.
+//           </p>
+//           <Input
+//             value={revenueInput}
+//             onChange={(e) => setRevenueInput(e.target.value)}
+//             onKeyDown={(e) =>
+//               handleKeyPress(e, "revenueStreams", revenueInput, setRevenueInput)
+//             }
+//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+//             placeholder="Add revenue streams"
+//           />
+//         </div>
+//         <div className="flex flex-wrap items-center gap-3.5">
+//           {formData.revenueStreams.map((revenue: string, index: number) => (
+//             <Badge
+//               key={index}
+//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
+//             >
+//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+//                 {revenue}
+//               </span>
+//               <XIcon
+//                 className="w-3.5 h-3.5 cursor-pointer"
+//                 onClick={() => handleRemoveItem("revenueStreams", index)}
+//               />
+//             </Badge>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
 const Canvas = ({
   setIsOpen,
@@ -586,70 +875,7 @@ const Canvas = ({
 }) => {
   const canvasRef = useRef<HTMLDivElement>(null);
 
-  // const handleDownloadPDF = async () => {
-  //   if (!canvasRef.current) return;
-
-  //   try {
-  //     // 1. First convert the image to base64 to ensure it's loaded
-  //     const convertImageToBase64 = (img: HTMLImageElement) => {
-  //       const canvas = document.createElement('canvas');
-  //       canvas.width = img.naturalWidth;
-  //       canvas.height = img.naturalHeight;
-  //       const ctx = canvas.getContext('2d');
-  //       if (ctx) {
-  //         ctx.drawImage(img, 0, 0);
-  //         return canvas.toDataURL('image/png');
-  //       }
-  //       return '';
-  //     };
-
-  //     // 2. Wait for all images to load
-  //     const images = canvasRef.current.getElementsByTagName('img');
-  //     await Promise.all(Array.from(images).map(img => {
-  //       if (img.complete) return Promise.resolve();
-  //       return new Promise((resolve) => {
-  //         img.onload = resolve;
-  //         img.onerror = resolve; // Continue even if some images fail
-  //       });
-  //     }));
-
-  //     // 3. Replace all image sources with base64 data
-  //     Array.from(images).forEach(img => {
-  //       img.src = convertImageToBase64(img);
-  //     });
-
-  //     // 4. Use html2canvas with proper configuration
-  //     const canvas = await html2canvas(canvasRef.current, {
-  //       scale: 2, // Higher resolution
-  //       logging: false,
-  //       useCORS: true,
-  //       allowTaint: true,
-  //       backgroundColor: '#ffffff',
-  //       scrollX: 0,
-  //       scrollY: 0,
-  //       windowWidth: canvasRef.current.scrollWidth,
-  //       windowHeight: canvasRef.current.scrollHeight
-  //     });
-
-  //     // 5. Create PDF with proper dimensions
-  //     const pdf = new jsPDF({
-  //       orientation: 'landscape',
-  //       unit: 'mm',
-  //       format: [canvas.width * 0.264583, canvas.height * 0.264583] // Convert px to mm
-  //     });
-
-  //     // 6. Add image to PDF
-  //     const imgData = canvas.toDataURL('image/png', 1.0);
-  //     pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-
-  //     // 7. Save the PDF
-  //     pdf.save(`${formData.projectName || 'business-model'}-canvas.pdf`);
-  //   } catch (error) {
-  //     console.error('PDF generation error:', error);
-  //     alert("PDF generation failed. Please try again or use browser print (Ctrl+P → Save as PDF)");
-  //   }
-  // };
-
+  
   const handleDownloadPDF = async () => {
     if (!canvasRef.current) return;
 

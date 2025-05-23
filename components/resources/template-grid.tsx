@@ -152,153 +152,153 @@ const templates = [
   },
 ]
 
-export function TemplateGrids() {
-  const [activeFilter, setActiveFilter] = useState("all")
-  const [filteredTemplates, setFilteredTemplates] = useState(templates)
-  const [gridLayout, setGridLayout] = useState<any[]>([])
+// export function TemplateGrids() {
+//   const [activeFilter, setActiveFilter] = useState("all")
+//   const [filteredTemplates, setFilteredTemplates] = useState(templates)
+//   const [gridLayout, setGridLayout] = useState<any[]>([])
 
-  // Listen for filter changes from the FilterTabs component
-  useEffect(() => {
-    const handleFilterChange = (event: CustomEvent) => {
-      setActiveFilter(event.detail)
+//   // Listen for filter changes from the FilterTabs component
+//   useEffect(() => {
+//     const handleFilterChange = (event: CustomEvent) => {
+//       setActiveFilter(event.detail)
 
-      if (event.detail === "all") {
-        setFilteredTemplates(templates)
-      } else {
-        setFilteredTemplates(templates.filter((template) => template.category === event.detail))
-      }
-    }
+//       if (event.detail === "all") {
+//         setFilteredTemplates(templates)
+//       } else {
+//         setFilteredTemplates(templates.filter((template) => template.category === event.detail))
+//       }
+//     }
 
-    window.addEventListener("filterChange" as any, handleFilterChange)
-    return () => {
-      window.removeEventListener("filterChange" as any, handleFilterChange)
-    }
-  }, [])
+//     window.addEventListener("filterChange" as any, handleFilterChange)
+//     return () => {
+//       window.removeEventListener("filterChange" as any, handleFilterChange)
+//     }
+//   }, [])
 
-  // Organize templates into rows for proper layout
-  useEffect(() => {
-    // Group templates into rows based on their positions
-    const organizeTemplates = () => {
-      const rows: any[] = []
-      let currentRow: any[] = []
-      let currentRowWidth = 0
+//   // Organize templates into rows for proper layout
+//   useEffect(() => {
+//     // Group templates into rows based on their positions
+//     const organizeTemplates = () => {
+//       const rows: any[] = []
+//       let currentRow: any[] = []
+//       let currentRowWidth = 0
 
-      // Sort templates by ID to maintain order
-      const sortedTemplates = [...filteredTemplates].sort((a, b) => a.id - b.id)
+//       // Sort templates by ID to maintain order
+//       const sortedTemplates = [...filteredTemplates].sort((a, b) => a.id - b.id)
 
-      sortedTemplates.forEach((template) => {
-        // Calculate width based on gridArea
-        const width = template.gridArea.includes("span 3") ? 3 : template.gridArea.includes("span 2") ? 2 : 1
+//       sortedTemplates.forEach((template) => {
+//         // Calculate width based on gridArea
+//         const width = template.gridArea.includes("span 3") ? 3 : template.gridArea.includes("span 2") ? 2 : 1
    
-        // If adding this template would exceed row width, start a new row
-        if (currentRowWidth + width > 4) {
-          rows.push([...currentRow])
-          currentRow = [template]
-          currentRowWidth = width
-        } else {
-          currentRow.push(template)
-          currentRowWidth += width
-        }
-      })
+//         // If adding this template would exceed row width, start a new row
+//         if (currentRowWidth + width > 4) {
+//           rows.push([...currentRow])
+//           currentRow = [template]
+//           currentRowWidth = width
+//         } else {
+//           currentRow.push(template)
+//           currentRowWidth += width
+//         }
+//       })
 
-      // Add the last row if it has items
-      if (currentRow.length > 0) {
-        rows.push(currentRow)
-      }
+//       // Add the last row if it has items
+//       if (currentRow.length > 0) {
+//         rows.push(currentRow)
+//       }
 
-      setGridLayout(rows)
-    }
+//       setGridLayout(rows)
+//     }
 
-    organizeTemplates()
-  }, [filteredTemplates])
+//     organizeTemplates()
+//   }, [filteredTemplates])
 
-  return (
-    <div className="space-y-4">
-      {gridLayout.map((row, rowIndex) => (
-        <div key={`row-${rowIndex}`} className="grid grid-cols-4 gap-4">
-          {row.map((template: any) => {
-            // Calculate column span based on template properties
+//   return (
+//     <div className="space-y-4">
+//       {gridLayout.map((row, rowIndex) => (
+//         <div key={`row-${rowIndex}`} className="grid grid-cols-4 gap-4">
+//           {row.map((template: any) => {
+//             // Calculate column span based on template properties
            
-//             let colSpan = "col-span-1"
+// //             let colSpan = "col-span-1"
 
-// if (activeFilter === "ecosystem" && template.id === 7) {
-//   colSpan = "col-span-2"
-// } else if (template.gridArea.includes("span 3")) {
-//   colSpan = "col-span-3"
+// // if (activeFilter === "ecosystem" && template.id === 7) {
+// //   colSpan = "col-span-2"
+// // } else if (template.gridArea.includes("span 3")) {
+// //   colSpan = "col-span-3"
+// // } else if (template.gridArea.includes("span 2")) {
+// //   colSpan = "col-span-2"
+// // }
+
+// let colSpan = "col-span-1";
+
+// if (template.gridArea.includes("span 3")) {
+//   colSpan = "col-span-3";
 // } else if (template.gridArea.includes("span 2")) {
-//   colSpan = "col-span-2"
+//   colSpan = "col-span-2";
 // }
 
-let colSpan = "col-span-1";
-
-if (template.gridArea.includes("span 3")) {
-  colSpan = "col-span-3";
-} else if (template.gridArea.includes("span 2")) {
-  colSpan = "col-span-2";
-}
-
-// Override for specific filtered state
-if (
-  activeFilter === "ecosystem" &&
-  (template.id === 7 || template.id === 8)
-) {
-  colSpan = "col-span-2";
-}
+// // Override for specific filtered state
+// if (
+//   activeFilter === "ecosystem" &&
+//   (template.id === 7 || template.id === 8)
+// ) {
+//   colSpan = "col-span-2";
+// }
 
 
 
-let customHeight = template.height;
+// let customHeight = template.height;
 
-if (
-  activeFilter === "ecosystem" ||activeFilter === "startups"&&
-  (template.category === "ecosystem" || template.category === "startups") &&
-  (template.id === 7 || template.id === 8)
-) {
-  customHeight = "400.21px";
-}
+// if (
+//   activeFilter === "ecosystem" ||activeFilter === "startups"&&
+//   (template.category === "ecosystem" || template.category === "startups") &&
+//   (template.id === 7 || template.id === 8)
+// ) {
+//   customHeight = "400.21px";
+// }
 
 
-            return (
+//             return (
 
-              <div
-                key={template.id}
-                className={cn(
-                  "group relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.03] hover:z-10",
-                  colSpan,
-                )}
-              >
-              {/* <Link href={`/resources/${template.link}`} key={template.id}> */}
+//               <div
+//                 key={template.id}
+//                 className={cn(
+//                   "group relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.03] hover:z-10",
+//                   colSpan,
+//                 )}
+//               >
+//               {/* <Link href={`/resources/${template.link}`} key={template.id}> */}
 
-                <div className={cn("relative   w-full overflow-hidden", template.color)}    style={{ height: customHeight }}>
-                  <Image
-                    src={template.image.startsWith("/") ? template.image : `/${template.image}`}
-                    alt={template.alt}
-                    fill
-                    className="object-fit"
-                    priority
-                  />
+//                 <div className={cn("relative   w-full overflow-hidden", template.color)}    style={{ height: customHeight }}>
+//                   <Image
+//                     src={template.image.startsWith("/") ? template.image : `/${template.image}`}
+//                     alt={template.alt}
+//                     fill
+//                     className="object-fit"
+//                     priority
+//                   />
                  
-                </div>
-              {/* </Link> */}
+//                 </div>
+//               {/* </Link> */}
 
-                <div className="absolute inset-0 cursor-pointer bg-black opacity-0 transition-opacity group-hover:opacity-10"></div>
+//                 <div className="absolute inset-0 cursor-pointer bg-black opacity-0 transition-opacity group-hover:opacity-10"></div>
 
-                {/* Clickable Link Layer */}
-    <Link
-      href={`/resources/${template.link}`}
-      className="absolute inset-0 z-20"
-      aria-label={`Go to ${template.alt}`}
-    >
-      <span className="sr-only">Go to {template.alt}</span>
-    </Link>
-              </div>
-            )
-          })}
-        </div>
-      ))}
-    </div>
-  )
-}
+//                 {/* Clickable Link Layer */}
+//     <Link
+//       href={`/resources/${template.link}`}
+//       className="absolute inset-0 z-20"
+//       aria-label={`Go to ${template.alt}`}
+//     >
+//       <span className="sr-only">Go to {template.alt}</span>
+//     </Link>
+//               </div>
+//             )
+//           })}
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }
 
 
 export function TemplateGrid() {

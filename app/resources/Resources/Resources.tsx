@@ -1,7 +1,7 @@
  "use client";
 
 import { FilterTabs } from "@/components/resources/filter-tab"
-import { TemplateGrid, TemplateGrids } from "@/components/resources/template-grid"
+import { TemplateGrid } from "@/components/resources/template-grid"
 
 // import * as React from "react";
 // import Image from "next/image";
@@ -213,7 +213,7 @@ return (
   <main className="min-h-screen bg-white px-4 py-8 md:px-8 lg:px-12">
     <div className="mx-auto max-w-7xl">
       <FilterTabs />
-      <TemplateGrids />
+     
 
       <TemplateGrid />
     </div>
