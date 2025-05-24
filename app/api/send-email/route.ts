@@ -53,53 +53,142 @@ export async function POST(req: NextRequest) {
     
     // HTML email version
     const htmlContent = `
-      <html>
-        <head>
-          <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            h2 { color: #2a2a2a; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-            .field { margin-bottom: 15px; }
-            .label { font-weight: bold; }
-            .message-box { background-color: #f9f9f9; padding: 15px; border-radius: 4px; margin-top: 20px; }
-            .footer { margin-top: 30px; font-size: 12px; color: #666; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <h2>A Venture Studio New Contact Form Submission</h2>
-            
-            <div class="field">
-              <span class="label">From:</span> ${firstName} ${lastName}
-            </div>
-            
-            <div class="field">
-              <span class="label">Email:</span> ${email}
-            </div>
-            
-            <div class="field">
-              <span class="label">Phone:</span> ${phone}
-            </div>
-            
-            <div class="field">
-              <span class="label">Looking For:</span> ${lookingFor || 'Not specified'}
-            </div>
-            
-            <div class="field">
-              <span class="label">Subscribed to Updates:</span> ${subscribed ? 'Yes' : 'No'}
-            </div>
-            
-            <div class="message-box">
-              <h3>Message:</h3>
-              <p>${message.replace(/\n/g, '<br>')}</p>
-            </div>
-            
-            <div class="footer">
-              <p>This email was sent from the Aventure Studio contact</p>
-            </div>
+    <html>
+      <head>
+        <style>
+          body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+          }
+          .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          }
+          .header {
+            text-align: center;
+            margin-bottom: 30px;
+          }
+          .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+          }
+          h1 {
+            color: #2a2a2a;
+            font-size: 24px;
+            margin-bottom: 5px;
+          }
+          .subtitle {
+            color: #666666;
+            font-size: 16px;
+            margin-bottom: 30px;
+          }
+          .divider {
+            border-top: 1px solid #eeeeee;
+            margin: 25px 0;
+          }
+          .field { 
+            margin-bottom: 15px;
+            display: flex;
+          }
+          .label { 
+            font-weight: 600;
+            color: #444444;
+            min-width: 120px;
+          }
+          .value {
+            flex: 1;
+          }
+          .message-box { 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 6px; 
+            margin-top: 25px;
+            border-left: 4px solid #3b82f6;
+          }
+          .message-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2a2a2a;
+          }
+          .footer { 
+            margin-top: 40px; 
+            font-size: 13px; 
+            color: #999999;
+            text-align: center;
+          }
+          .signature {
+            margin-top: 30px;
+            color: #444444;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <!-- Replace with your actual logo URL -->
+            <img src="https://www.aventurestud.io/assets/AVSLogo.png" alt="Aventure Studio Logo" class="logo">
+            <h1>New Contact Submission</h1>
+            <p class="subtitle">You've received a new message through the contact form</p>
           </div>
-        </body>
-      </html>
+          
+          <div class="divider"></div>
+          
+          <div class="field">
+            <span class="label">From:</span>
+            <span class="value">${firstName} ${lastName}</span>
+          </div>
+          
+          <div class="field">
+            <span class="label">Email:</span>
+            <span class="value"><a href="mailto:${email}">${email}</a></span>
+          </div>
+          
+          <div class="field">
+            <span class="label">Phone:</span>
+            <span class="value"><a href="tel:${phone}">${phone}</a></span>
+          </div>
+          
+          <div class="field">
+            <span class="label">Interest:</span>
+            <span class="value">${lookingFor || 'Not specified'}</span>
+          </div>
+          
+          <div class="field">
+            <span class="label">Subscribed:</span>
+            <span class="value">${subscribed ? '✅ Yes' : '❌ No'}</span>
+          </div>
+          
+          <div class="message-box">
+            <div class="message-title">Message:</div>
+            <p>${message.replace(/\n/g, '<br>')}</p>
+          </div>
+          
+          <div class="divider"></div>
+          
+          <div class="footer">
+            <p>This message was sent via the Aventure Studio contact form</p>
+            <p class="signature">
+              Best regards,<br>
+              <strong>The Aventure Studio Team</strong>
+            </p>
+            <p>
+              <small>
+                <a href="https://aventurestud.io" style="color: #3b82f6;">aventurestud.io</a> | 
+                <a href="mailto:hello@aventurestud.io" style="color: #3b82f6;">hello@aventurestud.io</a>
+              </small>
+            </p>
+          </div>
+        </div>
+      </body>
+    </html>
     `;
     
     // Plain text version as fallback
@@ -118,10 +207,10 @@ ${message}
 This email was sent from the Aventure Studio contact form.
     `;
     
-    // Prepare email options
+    // Prepare email options hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io,
     const mailOptions: nodemailer.SendMailOptions = {
       from: email,
-      to: "hello@aventurestud.io,jt@aventurestud.io,idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
+      to: "idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
       subject: emailSubject,
       text: textContent, // Plain text version
       html: htmlContent,  // HTML version

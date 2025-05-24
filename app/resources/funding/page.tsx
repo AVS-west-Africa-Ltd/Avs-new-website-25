@@ -9,7 +9,9 @@ import {
   PencilIcon,
   PhoneIcon,
   ScanSearchIcon,Upload, 
-  X
+  X,
+
+  Mail, Check,
 } from "lucide-react";
 import React, { useRef } from "react";
 import { XIcon } from "lucide-react";
@@ -160,11 +162,17 @@ const FormSection = () => {
 
 
 const StartupForm = () => {
-    const [funding, setFunding] = useState('');
-    const [support, setSupport] = useState<string[]>([]);
+    // const [funding, setFunding] = useState('');
+    // const [support, setSupport] = useState<string[]>([]);
     const [formData, setFormData] = useState<{ file: File | null }>({ file: null });
     const [file, setFile] = useState<File | null>(null);
     const [dragActive, setDragActive] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false); // Add this state
+
+  const [showModal, setShowModal] = useState(false);
+  const animationRef = useRef<number | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   
   
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -201,6 +209,10 @@ const StartupForm = () => {
     
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsSubmitting(true); // Start loading
+
+       
+             
       
         const founderName = (document.getElementById('founderName') as HTMLInputElement).value;
         const email = (document.getElementById('email') as HTMLInputElement).value;
@@ -217,15 +229,30 @@ const StartupForm = () => {
       
         const fundingRadios = document.getElementsByName('existingFunding') as NodeListOf<HTMLInputElement>;
         const existingFunding = Array.from(fundingRadios).find(radio => radio.checked)?.id || '';
+
+        const supportRadios = document.getElementsByName('supportType') as NodeListOf<HTMLInputElement>;
+        const supportType = Array.from(supportRadios).find(radio => radio.checked)?.id || '';
       
         console.log('ok')
-        console.log(founderName, email, notes, revenue ,startupStage , existingFunding)
-        if (!file) {
-          alert('Please upload your pitch deck.');
+        console.log(founderName, email, description,problem,customers, notes, revenue ,startupStage ,'fff', existingFunding,supportType)
+       
+        if (!founderName || !email || !startupName || !description || !problem || !customers || !revenue) {
+          toast.error("please fill all required fields");
+          setIsSubmitting(false); // Start loading
+
+        setShowModal(false);
+
+
           return;
         }
-        if (!founderName || !email || !startupName || !description || !problem || !customers || !revenue) {
-          alert('Please fill in all required fields.');
+
+        if (!file) {
+
+          toast.error("Please upload your pitch deck.!");
+        setIsSubmitting(false); // Start loading
+        setShowModal(false);
+
+
           return;
         }
       
@@ -242,33 +269,105 @@ const StartupForm = () => {
         formData.append('notes', notes);
         formData.append('startupStage', startupStage);
         formData.append('existingFunding', existingFunding);
-        formData.append('support', JSON.stringify(support));
+        formData.append('supportType', supportType);
       
-
-        
-        return
         try {
           const res = await fetch('/api/send-startup-form', {
             method: 'POST',
             body: formData
           });
-      
+        
           const result = await res.json();
+          
           if (res.ok) {
-            alert('Form submitted successfully!');
+            // 1. Set success states first
+            setIsSubmitted(true);
+            setShowModal(true);
+            toast.success(result.message || "Form submitted successfully! Check your email for confirmation.");
+            
+            // 2. Reset form fields
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+              if (!(input instanceof HTMLInputElement && input.type === 'file')) {
+                if (input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement) {
+                  input.value = '';
+                }
+              }
+            });
+            
+            // 3. Reset file state
+            setFile(null);
+            
+            // 4. Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // 5. Set auto-close and refresh timers
+            const modalTimer = setTimeout(() => {
+              setShowModal(false);
+            }, 15000);
+            
+            const refreshTimer = setTimeout(() => {
+              window.location.reload();
+            }, 30000);
+            
+            // Cleanup timers if component unmounts
+            return () => {
+              clearTimeout(modalTimer);
+              clearTimeout(refreshTimer);
+            };
+            
           } else {
-            alert(`Failed to submit: ${result.message}`);
+            throw new Error(result.message || "Submission failed");
           }
         } catch (error) {
-          alert('Something went wrong submitting the form.');
-          console.error(error);
+          console.error('submissionerror', error);
+          toast.error(error instanceof Error ? error.message : 'Network error or something went wrong');
+        } finally {
+          setIsSubmitting(false);
+          // Don't setShowModal(false) here - let the timer handle it
         }
       };
       
 
 
 
-
+      const SubmissionModal = () => {
+        return (
+          <div className="fixed inset-0 bg-black/20 backdrop-blur-xs flex items-center justify-center z-50">
+            <div 
+              ref={modalRef}
+              className="bg-white/90 p-8 rounded-lg max-w-md w-full mx-4 shadow-xl border border-white/20"
+            >
+              <div className="flex flex-col items-center space-y-6">
+                {/* Success icon */}
+                <div className="relative">
+                  <Mail className="h-12 w-12 text-[#232326] animate-float" />
+                  <Check className="absolute -bottom-1 -right-1 h-6 w-6 text-white bg-green-500 rounded-full p-1" />
+                </div>
+                
+                {/* Success message */}
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-medium text-gray-800">
+                    Application Submitted!
+                  </h3>
+                  <p className="text-gray-600/90">
+                    Your application has been successfully submitted.<br />
+                    A confirmation email has been sent to your mail.
+                  </p>
+                </div>
+                
+                {/* Close button */}
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="mt-2 px-6 py-2 bg-black text-white rounded-full hover:bg-gray-700 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      };
 
 
     return (
@@ -513,7 +612,7 @@ const StartupForm = () => {
                       <div className="flex items-center">
                         <input id="operations" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300" />
                         <label htmlFor="operations" className="ml-2 font-semibold text-[#232326] text-sm mr-1">
-                          Operations&Infrastructure
+                          Operations & Infrastructure
                         </label>
                       </div>
                     </div>
@@ -576,426 +675,89 @@ const StartupForm = () => {
         </div>
       )}
     </div>
-    
-                  <div className="flex justify-center pt-4 mt-16">
-                    <button
-                      type="submit"
-                      className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors cursor-pointer"
-                    >
-                      Submit Application
-                    </button>
-                  </div>
+    <div className="flex flex-col items-center pt-4 mt-16 space-y-4">
+  {/* Progress bar (only shows during submission) */}
+  {isSubmitting && (
+    <div className="w-full max-w-xs bg-gray-200 rounded-full h-1.5">
+      <div 
+        className="bg-black h-1.5 rounded-full animate-pulse" 
+        style={{ width: '50%' }} // Set actual progress if available
+      ></div>
+    </div>
+  )}
+
+  {/* Button with loading state */}
+  <button
+    type="submit"
+    disabled={isSubmitting}
+    className={`px-6 py-2 bg-black text-white rounded-full transition-colors ${
+      isSubmitting 
+        ? 'hover:bg-black cursor-not-allowed opacity-90' 
+        : 'hover:bg-gray-800 cursor-pointer'
+    } flex items-center justify-center min-w-40`}
+  >
+    {isSubmitting ? (
+      <>
+        <svg 
+          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24"
+        >
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Submitting...
+      </>
+    ) : (
+      'Submit Application'
+    )}
+  </button>
+</div>
                 </div>
+
               </form>
+    {/* Success Modal - only shows after submission */}
+    {isSubmitted && showModal && (
+      <div className="fixed inset-0 bg-black/20 backdrop-blur-xs flex items-center justify-center z-50">
+        <div className="bg-white/90 p-8 rounded-lg max-w-md w-full mx-4 shadow-xl border border-white/20">
+          <div className="flex flex-col items-center space-y-6">
+            {/* Success icon */}
+            <div className="relative">
+              <Mail className="h-12 w-12 text-[#232326] animate-float" />
+              <Check className="absolute -bottom-1 -right-1 h-6 w-6 text-white bg-green-500 rounded-full p-1" />
+            </div>
+            
+            {/* Success message */}
+            <div className="text-center space-y-2">
+              <h3 className="text-xl font-medium text-gray-800">
+                Application Submitted!
+              </h3>
+              <p className="text-gray-600/90">
+                Your application has been successfully submitted.<br />
+                A confirmation email has been sent to your mail.
+              </p>
+            </div>
+            
+            {/* Close button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-2 px-6 py-2 bg-black text-white rounded-full hover:bg-gray-700 transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+             
+              <ToastNotification
+                />
+
+
             </div>
           )
   };
   
-//   export default StartupForm;
-  
-// const BusinessDetailsSection = ({
-//   formData,
-//   setFormData,
-// }: {
-//   formData: any;
-//   setFormData: React.Dispatch<React.SetStateAction<any>>;
-// }) => {
-//   const [partnerInput, setPartnerInput] = useState("");
-//   const [activityInput, setActivityInput] = useState("");
-//   const [resourceInput, setResourceInput] = useState("");
-//   const [segmentInput, setSegmentInput] = useState("");
-//   const [channelInput, setChannelInput] = useState("");
-//   const [costInput, setCostInput] = useState("");
-//   const [revenueInput, setRevenueInput] = useState("");
-
-//   const handleInputChange = (
-//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-//   ) => {
-//     const { name, value } = e.target;
-//     setFormData((prev: any) => ({
-//       ...prev,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleAddItem = (
-//     field: keyof typeof formData,
-//     value: string,
-//     setInput: React.Dispatch<React.SetStateAction<string>>
-//   ) => {
-//     if (value.trim() && Array.isArray(formData[field])) {
-//       setFormData((prev: any) => ({
-//         ...prev,
-//         [field]: [...(prev[field] as string[]), value.trim()],
-//       }));
-//       setInput("");
-//     }
-//   };
-
-//   const handleRemoveItem = (field: keyof typeof formData, index: number) => {
-//     setFormData((prev: any) => ({
-//       ...prev,
-//       [field]: (prev[field] as string[]).filter(
-//         (_: any, i: number) => i !== index
-//       ),
-//     }));
-//   };
-
-//   const handleKeyPress = (
-//     e: React.KeyboardEvent<HTMLInputElement>,
-//     field: keyof typeof formData,
-//     value: string,
-//     setInput: React.Dispatch<React.SetStateAction<string>>
-//   ) => {
-//     if (e.key === "Enter") {
-//       e.preventDefault();
-//       handleAddItem(field, value, setInput);
-//     }
-//   };
-
-//   return (
-//     <section className="flex flex-col w-full max-w-[860px] mx-auto items-start gap-10">
-//       {/* Project and Client Row */}
-//       <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full">
-//         <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Project name
-//           </Label>
-//           <Input
-//             name="projectName"
-//             value={formData.projectName}
-//             onChange={handleInputChange}
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="E.g mango tech"
-//           />
-//         </div>
-//         <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Client
-//           </Label>
-//           <Input
-//             name="client"
-//             value={formData.client}
-//             onChange={handleInputChange}
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="E.g John Doe"
-//           />
-//         </div>
-//       </div>
-
-//       {/* Key Partners */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Key Partners
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             The network of suppliers and partners that make the business model
-//             work.
-//           </p>
-//           <Input
-//             value={partnerInput}
-//             onChange={(e) => setPartnerInput(e.target.value)}
-//             onKeyDown={(e) =>
-//               handleKeyPress(e, "keyPartners", partnerInput, setPartnerInput)
-//             }
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Add a partner"
-//           />
-//         </div>
-//         <div className="flex flex-wrap items-center gap-3.5">
-//           {formData.keyPartners.map((partner: string, index: number) => (
-//             <Badge
-//               key={index}
-//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-//             >
-//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-//                 {partner}
-//               </span>
-//               <XIcon
-//                 className="w-3.5 h-3.5 cursor-pointer"
-//                 onClick={() => handleRemoveItem("keyPartners", index)}
-//               />
-//             </Badge>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Key Activities */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Key Activities
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             The most important tasks your company must do to operate
-//             effectively.
-//           </p>
-//           <Input
-//             value={activityInput}
-//             onChange={(e) => setActivityInput(e.target.value)}
-//             onKeyDown={(e) =>
-//               handleKeyPress(
-//                 e,
-//                 "keyActivities",
-//                 activityInput,
-//                 setActivityInput
-//               )
-//             }
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Add tasks"
-//           />
-//         </div>
-//         <div className="flex flex-wrap items-center gap-3.5">
-//           {formData.keyActivities.map((activity: string, index: number) => (
-//             <Badge
-//               key={index}
-//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-//             >
-//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-//                 {activity}
-//               </span>
-//               <XIcon
-//                 className="w-3.5 h-3.5 cursor-pointer"
-//                 onClick={() => handleRemoveItem("keyActivities", index)}
-//               />
-//             </Badge>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Key Resources */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Key Resources
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             The critical assets required to deliver your value proposition.
-//           </p>
-//           <Input
-//             value={resourceInput}
-//             onChange={(e) => setResourceInput(e.target.value)}
-//             onKeyDown={(e) =>
-//               handleKeyPress(e, "keyResources", resourceInput, setResourceInput)
-//             }
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Add assets"
-//           />
-//         </div>
-//         <div className="flex flex-wrap items-center gap-3.5">
-//           {formData.keyResources.map((resource: string, index: number) => (
-//             <Badge
-//               key={index}
-//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-//             >
-//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-//                 {resource}
-//               </span>
-//               <XIcon
-//                 className="w-3.5 h-3.5 cursor-pointer"
-//                 onClick={() => handleRemoveItem("keyResources", index)}
-//               />
-//             </Badge>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Value Proposition */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Value Proposition
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             The product, service, or feature that solves a problem or delivers
-//             specific benefits to your customers.
-//           </p>
-//           <Textarea
-//             name="valueProposition"
-//             value={formData.valueProposition}
-//             onChange={handleInputChange}
-//             className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Description"
-//           />
-//         </div>
-//       </div>
-
-//       {/* Customer Relationships */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Customer Relationships
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             How you acquire, retain, and grow your customer base.
-//           </p>
-//           <Textarea
-//             name="customerRelationships"
-//             value={formData.customerRelationships}
-//             onChange={handleInputChange}
-//             className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Description"
-//           />
-//         </div>
-//       </div>
-
-//       {/* Customer Segments */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Customer Segments
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             The groups of people or organisations you aim to serve.
-//           </p>
-//           <Input
-//             value={segmentInput}
-//             onChange={(e) => setSegmentInput(e.target.value)}
-//             onKeyDown={(e) =>
-//               handleKeyPress(
-//                 e,
-//                 "customerSegments",
-//                 segmentInput,
-//                 setSegmentInput
-//               )
-//             }
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Add customer segments"
-//           />
-//         </div>
-//         <div className="flex flex-wrap items-center gap-3.5">
-//           {formData.customerSegments.map((segment: string, index: number) => (
-//             <Badge
-//               key={index}
-//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-//             >
-//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-//                 {segment}
-//               </span>
-//               <XIcon
-//                 className="w-3.5 h-3.5 cursor-pointer"
-//                 onClick={() => handleRemoveItem("customerSegments", index)}
-//               />
-//             </Badge>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Channels */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Channels
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             How you communicate with and deliver your product or service to
-//             customers.
-//           </p>
-//           <Input
-//             value={channelInput}
-//             onChange={(e) => setChannelInput(e.target.value)}
-//             onKeyDown={(e) =>
-//               handleKeyPress(e, "channels", channelInput, setChannelInput)
-//             }
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Add channels"
-//           />
-//         </div>
-//         <div className="flex flex-wrap items-center gap-3.5">
-//           {formData.channels.map((channel: string, index: number) => (
-//             <Badge
-//               key={index}
-//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[30px] flex items-center gap-2.5"
-//             >
-//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-//                 {channel}
-//               </span>
-//               <XIcon
-//                 className="w-3.5 h-3.5 cursor-pointer"
-//                 onClick={() => handleRemoveItem("channels", index)}
-//               />
-//             </Badge>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Cost Structure */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Cost Structure
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             The major costs involved in operating your business model.
-//           </p>
-//           <Input
-//             value={costInput}
-//             onChange={(e) => setCostInput(e.target.value)}
-//             onKeyDown={(e) =>
-//               handleKeyPress(e, "costStructure", costInput, setCostInput)
-//             }
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Add major costs"
-//           />
-//         </div>
-//         <div className="flex flex-wrap items-center gap-3.5">
-//           {formData.costStructure.map((cost: string, index: number) => (
-//             <Badge
-//               key={index}
-//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-//             >
-//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-//                 {cost}
-//               </span>
-//               <XIcon
-//                 className="w-3.5 h-3.5 cursor-pointer"
-//                 onClick={() => handleRemoveItem("costStructure", index)}
-//               />
-//             </Badge>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Revenue Streams */}
-//       <div className="flex flex-col items-start gap-[15px] w-full">
-//         <div className="flex flex-col items-start gap-2 w-full">
-//           <Label className="font-semibold text-[#232326] text-base">
-//             Revenue Streams
-//           </Label>
-//           <p className="font-normal text-medium text-sm">
-//             The ways your business generates income from different customer
-//             segments.
-//           </p>
-//           <Input
-//             value={revenueInput}
-//             onChange={(e) => setRevenueInput(e.target.value)}
-//             onKeyDown={(e) =>
-//               handleKeyPress(e, "revenueStreams", revenueInput, setRevenueInput)
-//             }
-//             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-//             placeholder="Add revenue streams"
-//           />
-//         </div>
-//         <div className="flex flex-wrap items-center gap-3.5">
-//           {formData.revenueStreams.map((revenue: string, index: number) => (
-//             <Badge
-//               key={index}
-//               className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
-//             >
-//               <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
-//                 {revenue}
-//               </span>
-//               <XIcon
-//                 className="w-3.5 h-3.5 cursor-pointer"
-//                 onClick={() => handleRemoveItem("revenueStreams", index)}
-//               />
-//             </Badge>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
 
 
