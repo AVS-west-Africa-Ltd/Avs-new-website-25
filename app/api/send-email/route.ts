@@ -80,6 +80,11 @@ export async function POST(req: NextRequest) {
             max-width: 150px;
             margin-bottom: 20px;
           }
+ .fotologo {
+            width: 140px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+          }
           h1 {
             color: #2a2a2a;
             font-size: 24px;
@@ -133,8 +138,7 @@ export async function POST(req: NextRequest) {
       <body>
         <div class="container">
           <div class="header">
-            <!-- Replace with your actual logo URL -->
-            <img src="https://www.aventurestud.io/assets/AVSLogo.png" alt="Aventure Studio Logo" class="logo">
+            <img src="https://avswebsiteupdate.vercel.app/assets/AVSLogo.png" alt="Aventure Studio Logo" class="logo">
             <h1>New Contact Submission</h1>
             <p class="subtitle">You've received a new message through the contact form</p>
           </div>
@@ -178,10 +182,15 @@ export async function POST(req: NextRequest) {
             <p class="signature">
               Best regards,<br>
               <strong>The Aventure Studio Team</strong>
+
             </p>
+            <div>
+              <img src="https://avswebsiteupdate.vercel.app/assets/AVSLogo.png" alt="Aventure Studio Logo" class="fotologo">
+
+            </div>
             <p>
               <small>
-                <a href="https://aventurestud.io" style="color: #3b82f6;">aventurestud.io</a> | 
+              <a href="https://aventurestud.io" style="color: #3b82f6;">aventurestud.io</a> | 
                 <a href="mailto:hello@aventurestud.io" style="color: #3b82f6;">hello@aventurestud.io</a>
               </small>
             </p>
@@ -210,7 +219,7 @@ This email was sent from the Aventure Studio contact form.
     // Prepare email options hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io,
     const mailOptions: nodemailer.SendMailOptions = {
       from: email,
-      to: "idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
+      to: "hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io ,idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
       subject: emailSubject,
       text: textContent, // Plain text version
       html: htmlContent,  // HTML version
