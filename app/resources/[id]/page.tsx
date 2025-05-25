@@ -10,6 +10,7 @@ import "./styles.css";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 interface TemplateCardProps {
   name: string;
@@ -17,6 +18,7 @@ interface TemplateCardProps {
   type: string;
   downloads: string;
   description?: string;
+  preview?:string;
   link: string;
 }
 
@@ -26,6 +28,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
   type,
   downloads,
   description,
+  preview,
   link: downloadUrl,
 }) => {
   const handleDownload = () => {
@@ -105,12 +108,12 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
           <span className="text-sm font-medium text-white">Download</span>
         </button>
 
-        <button className="flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 cursor-pointer hover:bg-gray-50 transition-colors">
+        <button  onClick={() => window.open(preview, "_blank")} className="flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 cursor-pointer hover:bg-gray-50 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
   <path d="M10.5 5.25H5.25C4.78587 5.25 4.34075 5.43437 4.01256 5.76256C3.68437 6.09075 3.5 6.53587 3.5 7V15.75C3.5 16.2141 3.68437 16.6592 4.01256 16.9874C4.34075 17.3156 4.78587 17.5 5.25 17.5H14C14.4641 17.5 14.9092 17.3156 15.2374 16.9874C15.5656 16.6592 15.75 16.2141 15.75 15.75V10.5M9.625 11.375L17.5 3.5M17.5 3.5H13.125M17.5 3.5V7.875" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
           <span className="text-sm font-medium">Preview</span>
-        </button>
+        </button> 
       </div>
       {description && (
         <div className="mt-4 md:mt-6">
@@ -509,8 +512,9 @@ export default function Home() {
                 name="Vision Statement Template"
                 creator="A Venture Studio"
                 type="Figma"
+                preview="https://www.figma.com/board/sdZ7K6JkJZH9suKYm4LGyP/Vision-Statement-Template--Community-?node-id=0-1&t=RH6GNnajUDnZ8KIW-1"
                 downloads="510+"
-                link="/assets/Vision-Statement-Template/Vision-Statement-Template.jam"
+                link="/assets/Vision-Statement-Template/Vision Statement Template (Community).jam"
                 description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
@@ -521,7 +525,8 @@ export default function Home() {
                 creator="A Venture Studio"
                 type="Figjam"
                 downloads="600+"
-                link="/assets/Know-Your-Product/Know-Your-Product-Template.jam"
+                preview="https://www.figma.com/board/gIh22jXyPxwmUlfaeHMLw0/Know-Your-Product-Template--Community-?node-id=0-1&t=w1ynTaZWpkLQTVuY-1"
+                link="/assets/Know-Your-Product/Know Your Product Template (Community).jam"
                 description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
@@ -532,7 +537,8 @@ export default function Home() {
                 creator="A Venture Studio"
                 type="Figma"
                 downloads="230+"
-                link="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix.jam"
+                preview="https://www.figma.com/board/yhJtAoo5KrNKJdRAH499vW/Feature-Prioritisation-Template--Community-?node-id=0-1&t=rZIzql9OQg51K5AX-1"
+                link="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritisation Template (Community).jam"
                 description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
@@ -543,7 +549,8 @@ export default function Home() {
                 creator="A Venture Studio"
                 type="Figma"
                 downloads="230+"
-                link="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix.jam"
+                preview="https://www.figma.com/board/qfGePFsNr07k3Fh5d4PgBa/Ecosystem-Mapping--Community-?node-id=0-1&t=wld2tAbnlVTvSicx-1"
+                link="/assets/Feature-Prioritization-Matrix-Template/Ecosystem Mapping (Community).jam"
                 description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
               />
             )}
