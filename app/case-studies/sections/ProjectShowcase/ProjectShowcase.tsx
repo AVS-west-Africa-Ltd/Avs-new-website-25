@@ -3,6 +3,7 @@ import * as React from "react";
 import Link from "next/link";
 import { CaseDetails, OurProjects } from "@/constants/data";
 import Image from "next/image";
+import { urlFor } from "@/sanity";
 
 interface ProjectCardProps {
   image: string;
@@ -38,7 +39,7 @@ export function ProjectCard({ data }: { data: CaseDetails }) {
         <>
           <div className="w-full h-[549px] max-md:h-[400px] max-sm:h-[300px] relative rounded-3xl shadow-lg overflow-hidden">
             <Image
-              src={data?.appImage ?? ""}
+              src={urlFor(data?.thumbnailImage).url() ?? ""}
               alt={data?.appName ?? ""}
               fill
               priority
@@ -58,10 +59,10 @@ export function ProjectCard({ data }: { data: CaseDetails }) {
         </>
       ) : (
         // For all other data.id values, keep the Link wrapper
-        <Link href={`/case-studies/${data?.id}`} className="w-full">
+        <Link href={`/case-studies/${data?._key}`} className="w-full">
           <div className="w-full h-[549px] max-md:h-[400px] max-sm:h-[300px] relative rounded-3xl shadow-lg overflow-hidden">
             <Image
-              src={data?.appImage ?? ""}
+               src={urlFor(data?.thumbnailImage).url() ?? ""}
               alt={data?.appName ?? ""}
               fill
               priority
@@ -90,11 +91,11 @@ export function ProjectCard({ data }: { data: CaseDetails }) {
   );
 }
 
-export default function ProjectShowcase() {
+export default function ProjectShowcase({ data }: { data: any[] }) {
   return (
     <section className="mx-auto max-w-[1500px] p-5 mb-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-md:flex max-md:flex-col">
-        {OurProjects.map((project: CaseDetails, index) => (
+        {data?.map((project: CaseDetails, index) => (
           <ProjectCard key={index} data={project} />
         ))}
       </div>

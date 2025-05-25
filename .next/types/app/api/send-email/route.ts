@@ -1,4 +1,4 @@
-// File: /Users/mac/Desktop/AVS/Avs-new-website-25/app/api/send-email/route.ts
+// File: /Users/otitoju/Documents/AVS/Avs-new-website-25/app/api/send-email/route.ts
 import * as entry from '../../../../../app/api/send-email/route.js'
 import type { NextRequest } from 'next/server.js'
 

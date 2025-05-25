@@ -10,6 +10,21 @@ export interface ProcessStep {
   bulletList?: string[];
 }
 
+export const sanityPageConfig = {
+  projectId: "izzfhgn0",
+  dataset: "production",
+  useCdn: true,
+  apiVersion: "2025-05-01",
+  headerId: "a86b95bf-8e1d-4349-848f-20eea243eeea",
+  landingPageId: "fa838201-026b-4c2d-806d-aa32635c42ba",
+  caseStudyPageId: "2fbe095f-cbdb-41a8-90d2-84c6e02d0545",
+  footerPageId: "094fe1f2-ff07-4a90-b3bc-4b9f62ad34fb",
+  ourProcessPageId: "2404549c-ec7a-4495-9bb1-04b0eb975c55",
+  resourcesPageId: "3a29be43-2300-4844-9134-3b5635c8f88a",
+  contactPageId: "4c1a2bce-a21e-4b2b-a092-8c598ea4b103",
+  servicePageId: "58c6d594-7676-4d8d-a81e-810cba1f8bdb",
+};
+
 // Create an array of process steps
 export const processSteps: ProcessStep[] = [
   {

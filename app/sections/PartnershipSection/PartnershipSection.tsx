@@ -3,7 +3,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 
-export const PartnershipSection = () => {
+export const PartnershipSection = ({ data }: any) => {
   const textColumns = [
     {
       id: 1,
@@ -24,7 +24,7 @@ export const PartnershipSection = () => {
           {/* Left Column (Heading & Button) */}
           <div className="flex flex-col items-start md:max-w-sm gap-6 text-left md:text-left">
             <h2 className="font-['Raleway',Helvetica] font-bold text-[#0f0f0f] text-[32px] sm:text-3xl md:text-4xl">
-              Entrepreneurship isn&#39;t for everyone
+              {data?.title}
             </h2>
 {/* 
             <button className="w-full md:w-auto rounded-full bg-[#0f0f0f] px-6 py-3">
@@ -36,14 +36,21 @@ export const PartnershipSection = () => {
 
           {/* Right Columns (Text Content) */}
           <div className="flex flex-col gap-6 md:flex-row md:gap-8">
-            {textColumns.map((column) => (
+            {/* {textColumns.map((column) => ( */}
               <div
-                key={column.id}
+                // key={column.id}
                 className="w-full md:flex-1 text-[15px] sm:text-base leading-relaxed text-[#636363]"
               >
-                {column.content}
+                {data?.columnOneText}
               </div>
-            ))}
+            {/* ))} */}
+
+            <div
+                // key={column.id}
+                className="w-full md:flex-1 text-[15px] sm:text-base leading-relaxed text-[#636363]"
+              >
+                {data?.columnTwoText}
+              </div>
           </div>
         </div>
       </div>

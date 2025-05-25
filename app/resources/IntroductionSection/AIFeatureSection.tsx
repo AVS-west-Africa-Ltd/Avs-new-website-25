@@ -4,20 +4,24 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
+import { link } from "fs";
+import { urlFor } from "@/sanity";
 
 interface CallToActionProps {
   text: string;
+  link?: string;
   onClick?: () => void;
 }
 export const CallToAction: React.FC<CallToActionProps> = ({
   text,
   onClick,
+  link = "/resources",
 }) => {
   const router = useRouter();
   return (
     <button
       onClick={
-        () => router.push("/resources/services")
+        () => router.push(link)
       }
       className="mt-7 px-8 py-4  max-w-full text-base tracking-tight leading-tight text-white bg-stone-950 rounded-[100px] max-md:px-5 hover:bg-stone-800 transition-colors cursor-pointer"
     >
@@ -26,7 +30,7 @@ export const CallToAction: React.FC<CallToActionProps> = ({
   );
 };
 
-export const AIFeatureSection = () => {
+export const AIFeatureSection = ({ data }: any) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -59,15 +63,15 @@ export const AIFeatureSection = () => {
       >
         {/* Optimized Background Image */}
         <div className="absolute inset-0 z-0">
-          <Image
+          {data?.backgroundImage && <Image
             // src={isMobile ? "/assets/cont.jpeg" : "/assets/bg-s.svg"}
-            src="/assets/resources/one.jpeg"
+            src={urlFor(data?.backgroundImage)?.url()}
             alt="AI Feature Background"
             fill
             quality={75}
             priority
             className="object-cover"
-          />
+          />}
         </div>
 
         <div className="relative z-10 flex flex-col md:flex-row gap-5 h-full">
@@ -83,14 +87,13 @@ export const AIFeatureSection = () => {
                 Coming soon on A Venture Studio
               </div> */}
               <h1 className="mt-4 text-3xl md:text-4xl lg:text-6xl">
-                <span style={{ fontWeight: 500 }}>Business Model Canvas</span>{" "}
+                <span style={{ fontWeight: 500 }}>{data?.title}</span>{" "}
               </h1>
               <p className="self-stretch mt-4 md:mt-5 text-2xl text-neutral-100 max-md:max-w-full font-light">
-                Define how your startup creates, delivers, and captures
-                value—one building block at a time.
+                {data?.subtitle}
               </p>
             </section>
-            <CallToAction text="Start Mapping" />
+            <CallToAction text={data?.ctaText} link={data?.ctaLink}/>
           </div>
         </div>
       </div>

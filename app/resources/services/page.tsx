@@ -26,6 +26,11 @@ import jsPDF from "jspdf";
 // @ts-expect-error  Missing type definitions for external library
 import domtoimage from "dom-to-image";
 import { useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { sanityPageConfig } from "@/constants/constants";
+import client, { urlFor } from "@/sanity";
+import { PortableText } from "@portabletext/react";
+import { url } from "inspector";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(true);
@@ -54,13 +59,39 @@ export default function Home() {
     }, 2500); // 2.5 second delay
   };
 
+  const {
+    data: pageData,
+    isLoading: isLoading,
+  } = useQuery({
+    queryKey: ['page', sanityPageConfig.servicePageId],
+    queryFn: () => fetchPageData(sanityPageConfig.servicePageId),
+  });
+
+  const fetchPageData = async (pageId: string) => {
+    const query = `*[_type == "page" && _id == "${pageId}"][0]`;
+    const result = await client.fetch(query);
+    return result;
+  };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!pageData) {
+    return <div>No data found</div>;
+  }
+
+  const { contentBlocks } = pageData;
+
+  console.log('pageData', contentBlocks);
+
   return (
     <>
       {isOpen ? (
         <div className="bg-white flex flex-row justify-center mt-[100px] container mx-auto w-full pb-20">
           <div className="bg-white w-full relative">
-            <FormSection />
-            <HowItWorksSection />
+            <FormSection data={contentBlocks[0]}/>
+            <HowItWorksSection data={contentBlocks[1]}/>
             <Card
               style={{
                 backgroundColor: "#F0F0F0",
@@ -96,8 +127,8 @@ export default function Home() {
     </>
   );
 }
-const HowItWorksSection = () => {
-  const steps = [
+const HowItWorksSection = ({ data }: { data: any }) => {
+  const stepsa = [
     {
       icon: <PencilIcon className="w-[29px] h-[29px] text-white" />,
       description:
@@ -115,20 +146,26 @@ const HowItWorksSection = () => {
   return (
     <section className="w-full py-16 flex flex-col items-center px-4">
       <h2 className="font-['Raleway',Helvetica] font-semibold text-black text-[32px] mb-12 text-center">
-        How it works?
+        {data?.title}
       </h2>
       <div className="w-full max-w-[1200px] flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-0">
-        {steps.map((step, index) => (
+        {data?.steps.map((step: any, index: number) => (
           <React.Fragment key={index}>
             <div className="flex flex-col w-full md:w-[260px] items-center gap-6">
               <div className="relative w-[75.02px] h-[75.02px] bg-[#205352] rounded-[16.67px] shadow-[0px_29.17px_66.68px_#196a3426] flex items-center justify-center">
-                {step.icon}
+                {/* {step.icon} */}
+                <Image
+                  src={urlFor(step.icon).url()}
+                  alt={step.title}
+                  width={25.02}
+                  height={25.02}
+                />
               </div>
               <p className="font-['Raleway',Helvetica] font-normal text-[#333333] text-base text-center leading-[26px]">
                 {step.description}
               </p>
             </div>
-            {index < steps.length - 1 && (
+            {index < data?.steps.length - 1 && (
               <div className="relative w-[11px] h-[11px] md:w-[210px] md:h-[11px] mt-0 md:mt-[34px]">
                 <div className="relative h-[11px] hidden md:block">
                   <div className="w-48 h-px absolute top-1.5 left-[9px] border-t border-dashed border-[#205352]"></div>
@@ -145,24 +182,24 @@ const HowItWorksSection = () => {
   );
 };
 
-const FormSection = () => {
+const FormSection = ({ data }: { data: any }) => {
   const router = useRouter();
   return (
     <section className="flex flex-col items-center gap-[72px] w-full py-10">
       <div className="flex flex-col items-center gap-6">
-        <h1 className="text-[56px] text-center text-[#0F0F0F] font-normal font-['Raleway',Helvetica] leading-normal max-w-[804px]">
-          <span className="font-medium italic">Structure Your Idea</span>
-          <span className="font-bold"> Into a Working Business</span>
-        </h1>
+        <span className="text-[56px] text-center text-[#0F0F0F] font-normal font-['Raleway',Helvetica] leading-normal max-w-[804px]">
+          {/* <span className="font-medium italic">Structure Your Idea</span>
+          <span className="font-bold"> Into a Working Business</span> */}
+          <PortableText value={data?.title} />
+        </span>
         <p className="max-w-[624px] text-base text-center text-[#0f0f0fa6] font-['Raleway',Helvetica] tracking-[-0.30px] leading-[19.5px]">
-          Use our guided Business Model Canvas to define your value, audience,
-          revenue streams, and everything in between—before you build a thing.
+          {data?.description}
         </p>
         <button
-          onClick={() => router.push("/contact-us")}
+          onClick={() => router.push(data?.buttonLink)}
           className="flex items-center px-6 py-3 cursor-pointer gap-2.5 text-white bg-[#0F0F0F] rounded-[100px] text-[15px] font-['Raleway',Helvetica] font-normal tracking-[-0.30px]"
         >
-          <span>Get in touch</span>
+          <span>{data?.buttonText}</span>
           <svg
             width="16"
             height="16"

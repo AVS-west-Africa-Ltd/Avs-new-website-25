@@ -5,8 +5,9 @@ import { Mail } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { PortableText } from "@portabletext/react";
 
-export const CaseStudiesSection = () => {
+export const CaseStudiesSection = ({ data }: { data: any }) => {
   const router = useRouter();
   return (
     <section className="w-full py-20 mt-[30px] md:mt-[100px]">
@@ -18,23 +19,23 @@ export const CaseStudiesSection = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col items-center gap-6 max-w-[1040px] text-center"
         >
-          <h2 className="font-raleway text-[56px] leading-tight text-[#0f0f0f]">
-            <span className="font-semibold">Our</span>
+          <span className="font-raleway text-[56px] leading-tight text-[#0f0f0f]">
+            {/* <span className="font-semibold">Our</span>
             <span className="font-bold"> </span>
-            <span className="font-medium italic">Case Studies</span>
-          </h2>
+            <span className="font-medium italic"></span> */}
+            <PortableText value={data?.title} />
+          </span>
 
           <p className="font-raleway text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">
-            We don&apos;t just create brands; we craft unforgettable experiences
-            that leave a lasting impression.
+           {data?.description}
           </p>
 
           {/* Contact button */}
           <button
-            onClick={() => router.push("/contact-us")}
+            onClick={() => router.push(data?.buttonLink)}
             className="whitespace-nowrap gap-2 py-3 px-6 flex text-center rounded-[100px] text-white bg-[#0f0f0f] font-raleway font-normal text-[15px] border border-[#d8d8d8] cursor-pointer flex items-center"
           >
-            <span className="">Get in touch</span>
+            <span className="">{data?.buttonText}</span>
             <svg
               width="16"
               height="16"

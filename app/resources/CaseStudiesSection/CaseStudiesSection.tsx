@@ -5,8 +5,9 @@ import { ArrowRightIcon } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { PortableText } from "@portabletext/react";
 
-export const CaseStudiesSection = () => {
+export const CaseStudiesSection = ({ data }: any) => {
   const router = useRouter();
 
   return (
@@ -20,29 +21,27 @@ export const CaseStudiesSection = () => {
           className="flex flex-col items-center gap-6 max-w-[700px] text-center"
         >
           <h2 className="font-raleway text-4xl sm:text-4xl md:text-[56px] leading-tight text-[#0f0f0f]">
-            <span className="font-semibold">Everything You Need to</span>
-            <span className="font-bold"> </span>
-            <span className="font-medium italic">Build Smarter</span>
-            {/* <span className="font-semibold">
-              —We&apos;ll handle the operations!
-            </span> */}
+            {data?.title && (
+              <span className="font-semibold">
+                <PortableText value={data?.title} />
+              </span>
+            )}
           </h2>
+         
 
           <p className="font-raleway text-sm sm:text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">
-            Explore expert guides, startup tools, and practical templates
-            designed to help you launch, grow, and scale with clarity and
-            confidence.
+            {data?.description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2.5">
             <button
               onClick={() => {
-                router.push("/contact-us");
+                router.push(data?.buttonLink);
                 //  setMobileMenuOpen(false);
               }}
               className="w-auto px-6 py-3 cursor-pointer font-normal text-white bg-stone-950 rounded-[100px] hover:bg-gray-800 transition-colors flex items-center gap-2"
             >
-              <span>Get in touch</span>
+              <span>{data?.buttonText}</span>
               <span className="ml-1">
                 <svg
                   width="16"

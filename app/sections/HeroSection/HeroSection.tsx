@@ -7,8 +7,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { urlFor } from "@/sanity";
 
-export const HeroSection = () => {
+export const HeroSection = ({ data }: any) => {
   // Array of partner logos
   // Each logo has an id, src (source), and alt (alternative text)
   // The id is used as a key for each SwiperSlide
@@ -37,7 +38,7 @@ const partnerLogos = [
   return (
     <section className="w-full bg-[#021913] py-10">
       <h2 className="mt-10 text-xl text-[#dee0e4] text-center font-['Raleway',Helvetica] font-normal tracking-[-0.30px] leading-[19.5px] mb-6">
-        Our Partners
+        {data.title || 'Our Partners'}
       </h2>
 
       <Card className="w-full border-none rounded-none bg-transparent mt-12">
@@ -54,16 +55,18 @@ const partnerLogos = [
               1024: { slidesPerView: 5, spaceBetween: 30 },
             }}
           >
-            {partnerLogos.map((logo) => (
-              <SwiperSlide key={logo.id} className="flex items-center justify-center">
+            {data.partners.map((partner: any) => (
+              <SwiperSlide key={partner._key} className="flex items-center justify-center">
                 <div className="flex items-center justify-center h-full w-full p-4">
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="max-w-[80%] max-h-[100px] object-contain"
-                    width={200}
-                    height={200}
-                  />
+                  {partner?.logo?.asset?._ref && (
+                    <Image
+                      src={urlFor(partner.logo).url()}
+                      alt={partner.alt || 'Partner Logo'}
+                      className="max-w-[80%] max-h-[100px] object-contain"
+                      width={200}
+                      height={200}
+                    />
+                  )}
                 </div>
               </SwiperSlide>
             ))}

@@ -1,3 +1,4 @@
+import { urlFor } from "@/sanity";
 import React, { useState, useEffect, useRef } from "react";
 
 interface CarouselProps {
@@ -6,7 +7,7 @@ interface CarouselProps {
     id: number;
     title: string;
     description: string;
-    imageSrc: string;
+    image: string;
   }[];
   autoScrollInterval?: number; // Time in ms between auto-scrolls
 }
@@ -247,7 +248,7 @@ const Carousel: React.FC<CarouselProps> = ({
                   <div
                     className={`bg-white rounded-2xl overflow-hidden ${style}`}
                     style={{
-                      backgroundImage: `url(${slide.imageSrc})`,
+                      backgroundImage: `url(${urlFor(slide?.image).url()})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}

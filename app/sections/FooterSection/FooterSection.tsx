@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { urlFor } from "@/sanity";
 
 interface ArrowIconProps {
   color?: "white" | "black";
@@ -28,7 +29,7 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ color = "black" }) => {
   );
 };
 
-export const FooterSection = () => {
+export const FooterSection = ({ data }: any) => {
   const services = [
     {
       image: "/assets/homepage/1.svg",
@@ -71,7 +72,7 @@ export const FooterSection = () => {
           className="flex justify-between  gap-[30px] items-center mb-12 flex-col sm:flex-row text-left sm:text-left"
         >
           <h2 className="text-[32px] font-bold text-stone-950 sm:text-2xl">
-            Everything you need, all in one place...
+            {data?.heading}
           </h2>
           {/* <button className="flex gap-2.5 items-center px-4 py-2 text-base bg-white border border-zinc-300 rounded-full text-stone-950 hover:bg-gray-200 transition-all">
             <span>See all our services</span>
@@ -81,7 +82,7 @@ export const FooterSection = () => {
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
+          {data?.features?.map((feature: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -92,8 +93,8 @@ export const FooterSection = () => {
               {/* Image Wrapper */}
               <div className="relative mb-4">
                 <Image
-                  src={service.image}
-                  alt={service.altText}
+                  src={urlFor(feature.image).url()}
+                  alt={feature.title}
                   className="object-cover w-full rounded-2xl"
                   priority
                   width={100}
@@ -107,10 +108,10 @@ export const FooterSection = () => {
               {/* Service Details */}
               <div className="px-0 py-5">
                 <h3 className="mb-1.5 text-lg font-semibold text-stone-950">
-                  {service.title}
+                  {feature?.title}
                 </h3>
                 <p className="text-sm leading-5 text-stone-950 text-opacity-70">
-                  {service.description}
+                  {feature?.description}
                 </p>
               </div>
             </motion.div>

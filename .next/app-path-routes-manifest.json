@@ -2,13 +2,13 @@
   "/_not-found/page": "/_not-found",
   "/api/send-email/route": "/api/send-email",
   "/favicon.ico/route": "/favicon.ico",
+  "/case-id/page": "/case-id",
   "/case-studies/page": "/case-studies",
-  "/contact-us/page": "/contact-us",
-  "/our-process/page": "/our-process",
   "/case-studies/[id]/page": "/case-studies/[id]",
   "/page": "/",
-  "/case-id/page": "/case-id",
-  "/resources/page": "/resources",
+  "/contact-us/page": "/contact-us",
+  "/our-process/page": "/our-process",
   "/resources/[id]/page": "/resources/[id]",
-  "/resources/services/page": "/resources/services"
+  "/resources/services/page": "/resources/services",
+  "/resources/page": "/resources"
 }

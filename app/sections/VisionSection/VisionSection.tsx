@@ -4,13 +4,14 @@ import { ArrowRightIcon } from "lucide-react";
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { urlFor } from "@/sanity";
 
-export const VisionSection = () => {
+export const VisionSection = ({ data }: any) => {
   return (
     <section className="relative w-full overflow-hidden py-14">
       {/* Optimized Background Image */}
       <Image
-        src="/assets/stripe.png"
+        src={urlFor(data.mainImage).url()}
         alt="Vision Background"
         layout="fill"
         objectFit="cover"
@@ -24,7 +25,7 @@ export const VisionSection = () => {
         <div className="relative flex flex-col items-center text-center py-14 md:py-24">
           {/* Heading */}
           <h2 className="font-['Raleway',Helvetica] font-semibold text-white text-3xl md:text-5xl lg:text-6xl max-w-[1062px] mb-8 md:mb-14">
-            Your Success Starts Here – Let&apos;s Build the Future Together!
+            {data?.headline || "Our Vision"}
           </h2>
 
           {/* Main card */}
@@ -32,8 +33,7 @@ export const VisionSection = () => {
             {/* Card header */}
             <div className="flex flex-col md:flex-row items-center md:justify-between gap-6 md:gap-0">
               <p className="font-['Raleway',Helvetica] font-normal text-white text-sm md:text-[15px] tracking-[-0.30px] leading-5 md:leading-[19.5px] max-w-[382px] text-left">
-                We think beyond design—we engineer solutions that solve real
-                business problems.
+               {data?.introText}
               </p>
 
               {/* Optional button block, uncomment to use */}
@@ -66,19 +66,11 @@ export const VisionSection = () => {
               {/* Right - Text content */}
               <div className="flex flex-col w-full max-w-[613px] gap-4 md:gap-6 text-left">
                 <h3 className="font-['Raleway',Helvetica] font-semibold text-white text-2xl md:text-3xl lg:text-4xl">
-                  From concept to execution, we provide the expertise and
-                  support needed to turn ideas into{" "}
-                  <span className="italic">
-                    successful market-ready products
-                  </span>
-                  .
+                  {data?.highlightText || "Visionary Solutions for Tomorrow"}
                 </h3>
 
                 <p className="font-['Raleway',Helvetica] font-normal text-white text-sm md:text-[15px]">
-                  Our strategic approach ensures seamless planning, development,
-                  and launch—helping you stay ahead in a competitive landscape.
-                  Whether you&#39;re refining a vision or ready to scale,
-                  we&apos;ve got you covered.
+                  {data?.description }
                 </p>
               </div>
             </div>

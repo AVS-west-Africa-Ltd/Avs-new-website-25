@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import React, { useState } from "react";
 import { Process } from "./partials/Processes";
-import { fundingSteps, processSteps } from "@/constants/constants";
+import { fundingSteps, processSteps, sanityPageConfig } from "@/constants/constants";
 import { FundSection } from "./partials/FundSection";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -327,6 +327,9 @@ const CoverflowCarousel = () => {
 // File: app/page.js (or pages/index.js depending on your Next.js version)
 import dynamic from "next/dynamic";
 import Carousel from "./partials/Carousel";
+import { useQuery } from "@tanstack/react-query";
+import client from "@/sanity";
+import { PortableText } from "@portabletext/react";
 
 function OurProcess() {
   const router = useRouter();
@@ -396,6 +399,43 @@ function OurProcess() {
     },
   ];
 
+  const {
+    data: pageData,
+    isLoading: isLoading,
+  } = useQuery({
+    queryKey: ['page', sanityPageConfig.ourProcessPageId],
+    queryFn: () => fetchPageData(sanityPageConfig.ourProcessPageId),
+  });
+
+  const fetchPageData = async (pageId: string) => {
+    const query = `*[_type == "page" && _id == "${pageId}"][0]`;
+    const result = await client.fetch(query);
+    return result;
+  };
+
+  // const processHeroSection = data.find(block => block._type === 'ourProcessHeroSection');
+  // const services = processHeroSection?.services || [];
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  const ourProcessHeroSectionData = pageData?.contentBlocks;
+
+  if (!ourProcessHeroSectionData || ourProcessHeroSectionData.length < 2) {
+    return <div>Error: Not enough hero section data.</div>; // Handle cases with insufficient data
+  }
+
+  const currentHeadline =
+    activeTab === 'build'
+      ? ourProcessHeroSectionData[0]?.headline
+      : ourProcessHeroSectionData[1]?.headline;
+
+  const currentSubheadline =
+    activeTab === 'build'
+      ? ourProcessHeroSectionData[0]?.subheadline
+      : ourProcessHeroSectionData[1]?.subheadline;
+
   return (
     <div className="bg-white flex flex-row justify-center w-full mt-[50px] md:mt-[100px] py-16">
       <Tabs
@@ -427,26 +467,26 @@ function OurProcess() {
         <div className="w-full mt-6 md:mt-12 flex flex-col items-center px- sm:px-6">
           {/* Main Heading */}
           <h1 className="font-raleway text-[#0f0f0f] text-center leading-tight">
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold">
+            {/* <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold">
               {activeTab === "build" ? "From" : "Fuel Your"}{" "}
-            </span>
+            </span> */}
             <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-medium italic">
-              {activeTab === "build" ? "Idea to Reality" : "Startup’s Growth"}
+            {currentHeadline ? <PortableText value={currentHeadline} /> : 'Default Headline'}
             </span>
           </h1>
 
           {/* Subheading */}
           <p className="font-inter text-[#0f0f0fa6] text-center mt-4 sm:mt-6 max-w-xs sm:max-w-sm md:max-w-xl mx-auto  text-sm sm:text-base leading-relaxed tracking-tight mb-12">
-            {activeTab === "build"
+            {/* {activeTab === "build"
               ? "Transform your vision into a market-ready product with a structured,expert-driven approach—research, branding, design, development, and beyond."
-              : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."}
+              : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."} */}
+              {currentSubheadline ? currentSubheadline : 'Default Subheadline'}
           </p>
 
           <div className="flex justify-center items-center w-full">
             <Carousel
-              // @ts-expect-error fundingSteps
-              slides={activeTab === "build" ? sampleSlides : fundingSteps}
-              autoScrollInterval={1000}
+              slides={activeTab === "build" ? ourProcessHeroSectionData[0].services : ourProcessHeroSectionData[1].services}
+              autoScrollInterval={5000}
             />
           </div>
 
@@ -489,7 +529,7 @@ function OurProcess() {
               transition={{ duration: 0.3 }}
             >
               <TabsContent value="build">
-                <Process processSteps={processSteps} />
+                <Process processSteps={ourProcessHeroSectionData[0].services} />
               </TabsContent>
             </motion.div>
           ) : (
@@ -501,7 +541,7 @@ function OurProcess() {
               transition={{ duration: 0.3 }}
             >
               <TabsContent value="fund">
-                <FundSection processSteps={fundingSteps} />
+                <FundSection processSteps={ourProcessHeroSectionData[1].services} />
               </TabsContent>
             </motion.div>
           )}

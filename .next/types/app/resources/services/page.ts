@@ -1,4 +1,4 @@
-// File: /Users/mac/Desktop/AVS/Avs-new-website-25/app/resources/services/page.tsx
+// File: /Users/otitoju/Documents/AVS/Avs-new-website-25/app/resources/services/page.tsx
 import * as entry from '../../../../../app/resources/services/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

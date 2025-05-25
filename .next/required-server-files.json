@@ -49,7 +49,11 @@
       "path": "/_next/image",
       "loader": "default",
       "loaderFile": "",
-      "domains": [],
+      "domains": [
+        "res.cloudinary.com",
+        "cdn.builder.io",
+        "cdn.sanity.io"
+      ],
       "disableStaticImages": false,
       "minimumCacheTTL": 60,
       "formats": [
@@ -96,9 +100,8 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/mac/Desktop/AVS/Avs-new-website-25",
+    "outputFileTracingRoot": "/Users/otitoju/Documents/AVS/Avs-new-website-25",
     "experimental": {
-      "allowedDevOrigins": [],
       "nodeMiddleware": false,
       "cacheLife": {
         "default": {
@@ -147,6 +150,7 @@
       "linkNoTouchStart": false,
       "caseSensitiveRoutes": false,
       "clientSegmentCache": false,
+      "dynamicOnHover": false,
       "preloadEntriesOnStart": true,
       "clientRouterFilter": true,
       "clientRouterFilterRedirects": false,
@@ -174,9 +178,6 @@
       "swcTraceProfiling": false,
       "forceSwcTransforms": false,
       "largePageDataBytes": 128000,
-      "turbo": {
-        "root": "/Users/mac/Desktop/AVS/Avs-new-website-25"
-      },
       "typedRoutes": false,
       "typedEnv": false,
       "parallelServerCompiles": false,
@@ -187,6 +188,7 @@
       "optimizeServerReact": true,
       "useEarlyImport": false,
       "viewTransition": false,
+      "routerBFCache": false,
       "staleTimes": {
         "dynamic": 0,
         "static": 300
@@ -277,11 +279,14 @@
       "trustHostHeader": false,
       "isExperimentalCompile": false
     },
-    "htmlLimitedBots": "Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview",
+    "htmlLimitedBots": "Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti",
     "bundlePagesRouterDependencies": false,
-    "configFileName": "next.config.ts"
+    "configFileName": "next.config.ts",
+    "turbopack": {
+      "root": "/Users/otitoju/Documents/AVS/Avs-new-website-25"
+    }
   },
-  "appDir": "/Users/mac/Desktop/AVS/Avs-new-website-25",
+  "appDir": "/Users/otitoju/Documents/AVS/Avs-new-website-25",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

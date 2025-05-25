@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { urlFor } from "@/sanity";
 
 export interface TemplateCardProps {
   imageSrc: string;
@@ -84,119 +85,167 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
   );
 };
 
-export const ResourceSection: React.FC = () => {
+// export const ResourceSection = ({ data }: any) => {
+//   return (
+//     <div className="pb-16">
+//       <section className="px-4 sm:px-6 lg:px-8">
+//         <TemplateHeader
+//           title="Ecosystem Mapping Templates"
+//           description="Identify key players, relationships, and opportunities in your industry to position your startup strategically."
+//         />
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
+//           <TemplateCard
+//             imageSrc="/assets/resources/vs1.svg"
+//             title="Vision Statement Template"
+//             author="A Venture Studio"
+//             downloads="510+ downloads"
+//             className="bg-[#1C4240]"
+//             hasOverlayText={true}
+//             overlayText=""
+//             link="/resources/1?template=Vision%20Statement%20Template"
+//           />
+//           <TemplateCard
+//             imageSrc="/assets/resources/kyp.svg"
+//             title="Know Your Product Template"
+//             author="A Venture Studio"
+//             downloads="600+ downloads"
+//             className="bg-[#F0D8B1]"
+//             imageClassName="pt-[75%]"
+//             link="/resources/2?template=Know%20Your%20Product%20Template"
+//           />
+//           <TemplateCard
+//             imageSrc="/assets/resources/fpm.svg"
+//             title="Feature Prioritisation Matrix Template"
+//             author="A Venture Studio"
+//             downloads="230+ downloads"
+//             className="bg-[#939393]"
+//             imageClassName="pt-[75%]"
+//             link="/resources/3?template=Feature%20Prioritization%20Matrix%20Template"
+//           />
+//         </div>
+//       </section>
+
+//       <section className="px-4 sm:px-6 lg:px-8 mt-12">
+//         <TemplateHeader
+//           title="User Flow Charts"
+//           description="Convey your ideas with user flows."
+//         />
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
+//           <TemplateCard
+//             imageSrc="/assets/resources/ufc1.svg"
+//             title="Ultimate User Flow Chart Template"
+//             author="A Venture Studio"
+//             downloads="190+ downloads"
+//             className="bg-slate-100"
+//             hasOverlayText={true}
+//             overlayText=""
+//             link="/resources/4?template=Ultimate%20User%20Flow%20Chart%20Template"
+//           />
+//           <TemplateCard
+//             imageSrc="/assets/resources/ofc.svg"
+//             title="Onboarding Flow Chart Template"
+//             author="A Venture Studio"
+//             downloads="130+ downloads"
+//             className="bg-[#EEB1F0]"
+//             imageClassName="pt-[75%]"
+//             link="/resources/5?template=Onboarding%20Flow%20Chart%20Template"
+//           />
+//           <TemplateCard
+//             imageSrc="/assets/resources/cft.svg"
+//             title="E-Commerce Flowchart Template"
+//             author="A Venture Studio"
+//             downloads="500+ downloads"
+//             className="bg-[#FFE2D3]"
+//             imageClassName="pt-[75%]"
+//             link="/resources/6?template=e-commerce%20Flowchart%20Template"
+//           />
+//         </div>
+//       </section>
+
+//       <section className="px-4 sm:px-6 lg:px-8 mt-12">
+//         <TemplateHeader
+//           title="Pitch Deck"
+//           description="Use our pitch deck framework to craft compelling presentations that capture investor attention and confidence."
+//         />
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
+//           <TemplateCard
+//             imageSrc="/assets/resources/ypd.svg"
+//             title="Los Blancos Hermanos Pitch Deck Template"
+//             author="A Venture Studio"
+//             downloads="300+ downloads"
+//             className="bg-gray-100"
+//             hasOverlayText={true}
+//             overlayText=""
+//             link="/resources/7?template=Los%20Blancos%20Hermanos%20Pitch%20Deck%20Template"
+//           />
+//           <TemplateCard
+//             imageSrc="/assets/resources/pd.svg"
+//             title="Le Orange Pitch Deck Template"
+//             author="A Venture Studio"
+//             downloads="200+ downloads"
+//             className="bg-[#EEB1F0]"
+//             imageClassName="pt-[75%]"
+//             link="/resources/8?template=Le%20Orange%20Pitch%20Deck%20Template"
+//           />
+//           <TemplateCard
+//             imageSrc="/assets/resources/ppd.svg"
+//             title="Peaches Pitch Deck Template"
+//             author="A Venture Studio"
+//             downloads="412+ downloads"
+//             className="bg-[#FFE2D3]"
+//             imageClassName="pt-[75%]"
+//             link="/resources/9?template=Peaches%20Pitch%20Deck%20Template"
+//           />
+//         </div>
+//       </section>
+//     </div>
+//   );
+// };
+
+interface Template {
+  _key: string;
+  title?: string;
+  image?: any; // Sanity image asset
+  link?: string;
+  author?: string;
+}
+
+interface TemplateCategory {
+  _key: string;
+  title: string;
+  description: string;
+  templates?: Template[];
+  _type: 'templateCategory';
+}
+
+interface ResourceSectionProps {
+  data: TemplateCategory[];
+}
+
+export const ResourceSection = ({ data }: ResourceSectionProps) => {
   return (
     <div className="pb-16">
-      <section className="px-4 sm:px-6 lg:px-8">
-        <TemplateHeader
-          title="Ecosystem Mapping Templates"
-          description="Identify key players, relationships, and opportunities in your industry to position your startup strategically."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
-          <TemplateCard
-            imageSrc="/assets/resources/vs1.svg"
-            title="Vision Statement Template"
-            author="A Venture Studio"
-            downloads="510+ downloads"
-            className="bg-[#1C4240]"
-            hasOverlayText={true}
-            overlayText=""
-            link="/resources/1?template=Vision%20Statement%20Template"
-          />
-          <TemplateCard
-            imageSrc="/assets/resources/kyp.svg"
-            title="Know Your Product Template"
-            author="A Venture Studio"
-            downloads="600+ downloads"
-            className="bg-[#F0D8B1]"
-            imageClassName="pt-[75%]"
-            link="/resources/2?template=Know%20Your%20Product%20Template"
-          />
-          <TemplateCard
-            imageSrc="/assets/resources/fpm.svg"
-            title="Feature Prioritisation Matrix Template"
-            author="A Venture Studio"
-            downloads="230+ downloads"
-            className="bg-[#939393]"
-            imageClassName="pt-[75%]"
-            link="/resources/3?template=Feature%20Prioritization%20Matrix%20Template"
-          />
-        </div>
-      </section>
-
-      <section className="px-4 sm:px-6 lg:px-8 mt-12">
-        <TemplateHeader
-          title="User Flow Charts"
-          description="Convey your ideas with user flows."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
-          <TemplateCard
-            imageSrc="/assets/resources/ufc1.svg"
-            title="Ultimate User Flow Chart Template"
-            author="A Venture Studio"
-            downloads="190+ downloads"
-            className="bg-slate-100"
-            hasOverlayText={true}
-            overlayText=""
-            link="/resources/4?template=Ultimate%20User%20Flow%20Chart%20Template"
-          />
-          <TemplateCard
-            imageSrc="/assets/resources/ofc.svg"
-            title="Onboarding Flow Chart Template"
-            author="A Venture Studio"
-            downloads="130+ downloads"
-            className="bg-[#EEB1F0]"
-            imageClassName="pt-[75%]"
-            link="/resources/5?template=Onboarding%20Flow%20Chart%20Template"
-          />
-          <TemplateCard
-            imageSrc="/assets/resources/cft.svg"
-            title="E-Commerce Flowchart Template"
-            author="A Venture Studio"
-            downloads="500+ downloads"
-            className="bg-[#FFE2D3]"
-            imageClassName="pt-[75%]"
-            link="/resources/6?template=e-commerce%20Flowchart%20Template"
-          />
-        </div>
-      </section>
-
-      <section className="px-4 sm:px-6 lg:px-8 mt-12">
-        <TemplateHeader
-          title="Pitch Deck"
-          description="Use our pitch deck framework to craft compelling presentations that capture investor attention and confidence."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
-          <TemplateCard
-            imageSrc="/assets/resources/ypd.svg"
-            title="Los Blancos Hermanos Pitch Deck Template"
-            author="A Venture Studio"
-            downloads="300+ downloads"
-            className="bg-gray-100"
-            hasOverlayText={true}
-            overlayText=""
-            link="/resources/7?template=Los%20Blancos%20Hermanos%20Pitch%20Deck%20Template"
-          />
-          <TemplateCard
-            imageSrc="/assets/resources/pd.svg"
-            title="Le Orange Pitch Deck Template"
-            author="A Venture Studio"
-            downloads="200+ downloads"
-            className="bg-[#EEB1F0]"
-            imageClassName="pt-[75%]"
-            link="/resources/8?template=Le%20Orange%20Pitch%20Deck%20Template"
-          />
-          <TemplateCard
-            imageSrc="/assets/resources/ppd.svg"
-            title="Peaches Pitch Deck Template"
-            author="A Venture Studio"
-            downloads="412+ downloads"
-            className="bg-[#FFE2D3]"
-            imageClassName="pt-[75%]"
-            link="/resources/9?template=Peaches%20Pitch%20Deck%20Template"
-          />
-        </div>
-      </section>
+      {data?.map((category) => (
+        <section key={category._key} className="px-4 sm:px-6 lg:px-8 mt-12 first:mt-0">
+          <TemplateHeader title={category.title} description={category.description} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
+            {category.templates?.map((template) => (
+              <TemplateCard
+                key={template._key}
+                imageSrc={template?.image ? urlFor(template.image).url() : '/assets/placeholder.svg'} // Use actual image from template
+                title={template?.title || 'Template'}
+                author={template?.author ?? ''} // Example author
+                downloads={`${Math.floor(Math.random() * 1000)}+ downloads`} // Example
+                className="" // Determine dynamically if needed
+                hasOverlayText={false} // Adjust as needed
+                overlayText="" // Adjust as needed
+                link={'/resources/'+template?._key || '#'} // Use link from template
+                imageClassName="" // Adjust if needed
+              />
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
   );
 };

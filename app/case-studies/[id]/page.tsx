@@ -4,6 +4,7 @@ import {
     designSteps,
     overviewData,
     projectDetails,
+    sanityPageConfig,
     userFlows,
 } from "@/constants/constants";
 import { motion } from "framer-motion";
@@ -15,6 +16,8 @@ import { ActionCard } from "@/app/sections/TestimonialsSection/ActionCard";
 import { CaseStudyCard } from "@/app/sections/TestimonialsSection/CaseStudyCard";
 import { CaseDetails, OurProjects } from "@/constants/data";
 import CaseStudiesShowcase from "@/app/sections/TestimonialsSection/CaseStudiesShowcase";
+import { useQuery } from "@tanstack/react-query";
+import client, { urlFor } from "@/sanity";
 
 // export function getProjectById(id: any): CaseDetails | undefined {
 //     return OurProjects.find(project => project.id === id);
@@ -26,14 +29,38 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
     const [details, setDetails] = useState<CaseDetails>({})
     const { id } = use(params);
 
-    console.log(id)
-    useEffect(() => {
-        if (id) {
-            const rateoProject = OurProjects.find(project => project.id === Number(id)) || {} as CaseDetails;
+    // console.log(id) 
+    // useEffect(() => {
+    //     if (id) {
+    //         const rateoProject = OurProjects.find(project => project.id === Number(id)) || {} as CaseDetails;
+    //         console.log("Project", rateoProject);
+    //         setDetails(rateoProject)
+    //     }
+    // }, [id]);
+
+    const {
+        data: pageData2,
+        isLoading: isLoading2,
+      } = useQuery({
+        queryKey: ['page', sanityPageConfig.caseStudyPageId],
+        queryFn: () => fetchPageData(sanityPageConfig.caseStudyPageId),
+      });
+      
+    const fetchPageData = async (pageId: string) => {
+        const query = `*[_type == "page" && _id == "${pageId}"][0]`;
+        const result = await client.fetch(query);
+        return result;
+      };
+
+      useEffect(() => {
+        if (pageData2) {
+            const rateoProject = pageData2?.contentBlocks?.find((project: any) => project._type === "caseStudy" && project._key === id) || {} as CaseDetails;
             console.log("Project", rateoProject);
             setDetails(rateoProject)
         }
-    }, [id]);
+      }, [pageData2, id]);
+
+      console.log("pageData2", pageData2);
     // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -146,7 +173,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             </motion.div>
 
             {/* Main Image */}
-            <motion.div
+            {details?.appImage &&<motion.div
                 initial="hidden"
                 animate="visible"
                 variants={imageVariants}
@@ -154,9 +181,9 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             >
                 <div
                     className="w-full aspect-[4/3] md:aspect-[928/545] mx-auto rounded-lg md:rounded-[26px] bg-cover bg-center"
-                    style={{ backgroundImage: `url(${details?.appImage})` }}
+                    style={{ backgroundImage: `url(${urlFor(details?.appImage)})` }}
                 />
-            </motion.div>
+            </motion.div>}
 
             {/* Overview Section */}
             <motion.div
@@ -218,17 +245,17 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             {/* Mockup Section */}
             <section className="relative w-full h-[884px] md:h-[884px] sm:h-auto bg-[#e4e5e6] rounded-[30px] overflow-hidden py-8 container mx-auto px-4 md:px-6">
                 <div className="absolute w-[573px] h-[1245px] top-[72px] left-[50%] translate-x-[-50%] md:left-[628px] md:translate-x-0 rounded-[52.95px] overflow-hidden bg-gradient-to-b from-[rgba(251,251,251,1)] to-[rgba(251,251,251,1)] hidden sm:block">
-                    <Image
-                        src={details?.mockups?.[0] || '/assets/default-mockup.svg'}
+                    {details?.mockups?.[0] && <Image
+                        src={urlFor(details?.mockups?.[0])?.url() || '/assets/default-mockup.svg'}
                         alt="Rateo"
                         width={573}
                         height={1245}
                         priority
-                    />
+                    />}
                 </div>
 
                 <div className="absolute w-[353px] h-[766px] top-[72px] left-[50%] translate-x-[-50%] sm:left-[140px] sm:translate-x-0 rounded-[27.94px] bg-[#fff5e1] overflow-hidden">
-                    <Image src={details?.mockups?.[1] || '/assets/default-mockup.svg'} alt="Rateo" width={353} height={766} priority />
+                    {details?.mockups?.[1] && <Image src={urlFor(details?.mockups?.[1])?.url() || '/assets/default-mockup.svg'} alt="Rateo" width={353} height={766} priority />}
                 </div>
             </section>
 
@@ -302,7 +329,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                         <Image
                             className="w-full md:w-[984px] h-auto md:h-[621px] object-cover rounded-2xl md:rounded-[45px]"
                             alt="Image"
-                            src={details?.workShops?.imageSrc}
+                            src={urlFor(details?.workShops?.imageSrc).url() ?? ""}
                             width={1225}
                             height={697}
                             priority
@@ -310,7 +337,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                         <Image
                             className="w-full md:w-[686px] h-auto md:h-[433px] md:absolute md:top-[264px] md:left-[539px]"
                             alt="Image"
-                            src={details?.workShops?.imageAlt}
+                            src={(details?.workShops?.imageAlt && urlFor(details?.workShops?.imageAlt).url()) ?? ""}
                             width={686}
                             height={433}
                         />
@@ -336,7 +363,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                         <Image
                                             className="w-full h-auto object-cover "
                                             alt={flow.imageAlt}
-                                            src={flow.imageSrc}
+                                            src={flow.imageSrc && urlFor(flow.imageSrc).url()}
                                             priority
                                             width={400}
                                             height={400}
@@ -400,7 +427,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                             <Image
                                                 className="w-full h-auto object-contain p-2 md:p-4"
                                                 alt={`Wireframe ${index + 1}`}
-                                                src={`/assets/${img}`}
+                                                src={urlFor(img).url() ?? ""}
                                                 priority
                                                 width={400}
                                                 height={400}
@@ -465,7 +492,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                             <Image
                                                 className="w-full h-auto object-contain p-2 md:p-4"
                                                 alt={`Wireframe ${index + 1}`}
-                                                src={`/assets/${img}`}
+                                                src={urlFor(img).url() ?? ""}
                                                 priority
                                                 width={400}
                                                 height={400}
@@ -478,6 +505,11 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                     </motion.div>
                 </div>
             </motion.section>}
+
+
+
+
+
 
             {/* Web Design */}
             {/* {details?.webDesigns && <motion.section
@@ -588,7 +620,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                             key={index}
                             className="w-full md:w-1/2 rounded-lg"
                             alt={`Design ${index + 1}`}
-                            src={`/assets/${img}`}
+                            src={urlFor(img).url() ?? ""}
                             priority
                             width={400}
                             height={400}
@@ -668,7 +700,7 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                 </div>
             </section> */}
 
-            <CaseStudiesShowcase/>
+            {/* <CaseStudiesShowcase/> */}
         </div>
     );
 }
