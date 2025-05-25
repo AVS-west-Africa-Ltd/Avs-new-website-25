@@ -436,7 +436,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ id, name, image }) => {
   return (
     <a href={`/resources/${id}`} className="block group">
       <div className="overflow-hidden rounded-lg">
-        <div className="relative h-48 w-full overflow-hidden">
+        <div className="relative h-56 w-full overflow-hidden">
           <Image
             src={image || "/placeholder.svg"}
             alt={name}
@@ -477,7 +477,7 @@ const SimilarResources = ({ currentId }: { currentId: number }) => {
   const similarResources = allResources.filter((resource) => resource.id !== currentId)
 
   return (
-    <div className="mt-16">
+    <div className="mt-16 mb-20">
      
       <div className="flex items-center mb-8">
           <div className="h-px bg-gray-300 flex-1" />

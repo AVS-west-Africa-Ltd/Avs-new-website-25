@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Edit, Download, Phone, MapPin } from "lucide-react";
 import html2canvas from "html2canvas";
@@ -288,8 +288,11 @@ const BusinessDetailsSection = ({
               handleKeyPress(e, "keyPartners", partnerInput, setPartnerInput)
             }
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add a partner"
+          placeholder="Add a partner (press Enter to save)"
           />
+          <p className="text-xs text-gray-500 mt-1">
+  Type and Press <kbd>Enter</kbd> to add a partner to the list
+</p>
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.keyPartners.map((partner: string, index: number) => (
@@ -308,6 +311,7 @@ const BusinessDetailsSection = ({
           ))}
         </div>
       </div>
+{/* Key Partners */}
 
       {/* Key Activities */}
       <div className="flex flex-col items-start gap-[15px] w-full">
@@ -331,8 +335,12 @@ const BusinessDetailsSection = ({
               )
             }
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add tasks"
+            placeholder="Add tasks (press Enter to save)"
           />
+
+<p className="text-xs text-gray-500 mt-1">
+  Type and Press <kbd>Enter</kbd> to add a task to the list
+</p>
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.keyActivities.map((activity: string, index: number) => (
@@ -368,8 +376,11 @@ const BusinessDetailsSection = ({
               handleKeyPress(e, "keyResources", resourceInput, setResourceInput)
             }
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add assets"
+            placeholder="Add assets (press Enter to save)"
           />
+          <p className="text-xs text-gray-500 mt-1 ">
+  Type and Press <kbd>Enter</kbd> to add a asset to the list
+</p>
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.keyResources.map((resource: string, index: number) => (
@@ -449,8 +460,12 @@ const BusinessDetailsSection = ({
               )
             }
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add customer segments"
+            placeholder="Add customer segments (press Enter to save)"
           />
+
+<p className="text-xs text-gray-500 mt-1  ">
+  Type and Press <kbd>Enter</kbd> to add more customer segment to the list
+</p>
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.customerSegments.map((segment: string, index: number) => (
@@ -469,6 +484,7 @@ const BusinessDetailsSection = ({
           ))}
         </div>
       </div>
+      
 
       {/* Channels */}
       <div className="flex flex-col items-start gap-[15px] w-full">
@@ -487,8 +503,11 @@ const BusinessDetailsSection = ({
               handleKeyPress(e, "channels", channelInput, setChannelInput)
             }
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add channels"
+            placeholder="Add channels (press Enter to save)"
           />
+          <p className="text-xs text-gray-500 mt-1  ">
+  Type and Press <kbd>Enter</kbd> to add more channel to the list
+</p>
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.channels.map((channel: string, index: number) => (
@@ -524,8 +543,11 @@ const BusinessDetailsSection = ({
               handleKeyPress(e, "costStructure", costInput, setCostInput)
             }
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add major costs"
+            placeholder="Add major costs (press Enter to save)"
           />
+             <p className="text-xs text-gray-500 mt-1 ">
+  Type and Press <kbd>Enter</kbd> to add more major costs to the list
+</p>
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.costStructure.map((cost: string, index: number) => (
@@ -562,8 +584,11 @@ const BusinessDetailsSection = ({
               handleKeyPress(e, "revenueStreams", revenueInput, setRevenueInput)
             }
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add revenue streams"
+            placeholder="Add revenue streams (press Enter to save)"
           />
+                <p className="text-xs text-gray-500 mt-1 ">
+  Type and Press <kbd>Enter</kbd> to add more revenue streams to the list
+</p>
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.revenueStreams.map((revenue: string, index: number) => (
@@ -661,20 +686,111 @@ const Canvas = ({
   //   }
   // };
 
-  const handleDownloadPDF = async () => {
-    if (!canvasRef.current) return;
+  // const handleDownloadPDF = async () => {
+  //   if (!canvasRef.current) return;
 
+  //   // try {
+  //   //   const dataUrl = await domtoimage.toPng(canvasRef.current);
+  //   //   const pdf = new jsPDF("landscape");
+  //   //   pdf.addImage(dataUrl, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), 0);
+  //   //   pdf.save("YourBusinesscanvas.pdf");
+  //   // } catch (error) {
+  //   //   console.error(error);
+  //   //   alert("PDF failed. Try screenshot (Ctrl+P → Save as PDF)");
+  //   // }
+
+  // };
+
+
+
+  const handleDownloadPDF = async () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+  
+    // Save original styles so we can restore them
+    const originalWidth = canvas.style.width;
+    const originalHeight = canvas.style.height;
+    const originalOverflow = canvas.style.overflow;
+  
     try {
-      const dataUrl = await domtoimage.toPng(canvasRef.current);
-      const pdf = new jsPDF("landscape");
-      pdf.addImage(dataUrl, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), 0);
-      pdf.save("canvas.pdf");
+      // Expand the element to show all scrollable content
+      const scrollWidth = canvas.scrollWidth;
+      const scrollHeight = canvas.scrollHeight;
+  
+      // Set the container to show full content
+      canvas.style.width = scrollWidth + "px";
+      canvas.style.height = scrollHeight + "px";
+      canvas.style.overflow = "visible";
+  
+      // Wait for the browser to reflow the new layout
+      await new Promise((resolve) => setTimeout(resolve, 100));
+  
+      // Now generate the image with full scrollable area
+      const dataUrl = await domtoimage.toPng(canvas);
+  
+      // Create image element to get dimensions
+      const img = new Image();
+      img.src = dataUrl;
+  
+      
+
+      img.onload = async () => {
+        const imgWidth = img.width;
+        const imgHeight = img.height;
+      
+        const pdf = new jsPDF({
+          orientation: "landscape",
+          unit: "px",
+          format: [imgWidth, imgHeight],
+        });
+      
+        pdf.addImage(dataUrl, "PNG", 0, 0, imgWidth, imgHeight);
+      
+        // 1. Export base64 version of the PDF
+        const base64Pdf = pdf.output("datauristring");
+      // 2. Save for user
+      pdf.save("YourBusinessCanvas.pdf");
+        // 3. Send to CEO
+        await sendPdfToCEO(base64Pdf /*, optionalUserEmail */);
+      
+        
+      
+        // Restore styles
+        canvas.style.width = originalWidth;
+        canvas.style.height = originalHeight;
+        canvas.style.overflow = originalOverflow;
+      };
+      
     } catch (error) {
-      console.error(error);
+      console.error("PDF generation failed:", error);
       alert("PDF failed. Try screenshot (Ctrl+P → Save as PDF)");
+  
+      // Always restore styles even on error
+      canvas.style.width = originalWidth;
+      canvas.style.height = originalHeight;
+      canvas.style.overflow = originalOverflow;
     }
   };
+  
 
+  const sendPdfToCEO = async (base64Pdf: string, userEmail?: string) => {
+    try {
+      await fetch("/api/send-pdf-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          base64Pdf,
+          userEmail,
+        }),
+      });
+      console.log("PDF successfully sent to CEO.");
+    } catch (error) {
+      console.error("Failed to send PDF to CEO:", error);
+    }
+  };
+  
   return (
     <div className="flex flex-col bg-[#ffffff]">
       {/* Main Content */}

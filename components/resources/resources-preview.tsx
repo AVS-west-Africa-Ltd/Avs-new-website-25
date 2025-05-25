@@ -501,7 +501,7 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
       )}
 
       {/* Similar Resources */}
-      <div className="mt-16">
+      <div className="mt-16 mb-20">
         <div className="flex items-center mb-8">
           <div className="h-px bg-gray-300 flex-1" />
           <h2 className="px-4 text-lg font-medium">Explore similar resources</h2>

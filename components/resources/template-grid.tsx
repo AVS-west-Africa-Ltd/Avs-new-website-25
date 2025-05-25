@@ -393,7 +393,7 @@ if (
               <div
                 key={template.id}
                 className={cn(
-                  "group relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.03] hover:z-10",
+                  "group relative overflow-hidden rounded-lg transition-all duration-300 ", //hover:shadow-xl hover:scale-[1.03] hover:z-10
                   colSpan
                 )}
               >
@@ -402,7 +402,7 @@ if (
                     src={template.image.startsWith("/") ? template.image : `/${template.image}`}
                     alt={template.alt}
                     fill
-                    className="object-fit"
+                    className="object-fit transition-transform duration-300 group-hover:scale-105"
                     priority
                   />
                 </div>
