@@ -227,7 +227,7 @@ This email was sent from the Aventure Studio contact form.
     // Prepare email options hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io,
     const mailOptions: nodemailer.SendMailOptions = {
       from: '"Aventure Studio" <idris@aventurestud.io>',
-      to: "abdulkadri42@gmail.com,idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
+      to: "hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io,idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
       subject: emailSubject,
       text: textContent, // Plain text version
       html: htmlContent,  // HTML version

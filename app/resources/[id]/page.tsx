@@ -157,7 +157,7 @@ const TemplateSection = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <div className="absolute inset-0">
                   <Image
-                    src="/assets/Vision-Statement-Template/KYP2.PNG"
+                    src="/assets/Vision-Statement-Template/2 (2).png"
                     alt="Slide 2"
                     fill
                     style={{ objectFit: "contain", padding: "20px" }}
@@ -165,6 +165,33 @@ const TemplateSection = () => {
                 </div>
               </div>
             </SwiperSlide>
+
+            <SwiperSlide>
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+                <div className="absolute inset-0">
+                  <Image
+                    src="/assets/Vision-Statement-Template/3 (2).png"
+                    alt="Slide 2"
+                    fill
+                    style={{ objectFit: "contain", padding: "20px" }}
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+                <div className="absolute inset-0">
+                  <Image
+                    src="/assets/Vision-Statement-Template/1 (2).png"
+                    alt="Slide 2"
+                    fill
+                    style={{ objectFit: "contain", padding: "20px" }}
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+
+            
           </Swiper>
           <Swiper
             //@ts-expect-error Missing type definitions for external library
@@ -193,7 +220,7 @@ const TemplateSection = () => {
               <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5 ">
                 <div className="absolute inset-0">
                   <Image
-                    src="/assets/Vision-Statement-Template/KYP2.PNG"
+                    src="/assets/Vision-Statement-Template/2 (2).png"
                     alt="Slide 2"
                     fill
                     style={{ objectFit: "contain" }}
@@ -201,6 +228,33 @@ const TemplateSection = () => {
                 </div>
               </div>
             </SwiperSlide>
+            <SwiperSlide>
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5 ">
+                <div className="absolute inset-0">
+                  <Image
+                    src="/assets/Vision-Statement-Template/3 (2).png"
+                    alt="Slide 2"
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5 ">
+                <div className="absolute inset-0">
+                  <Image
+                    src="/assets/Vision-Statement-Template/1 (2).png"
+                    alt="Slide 2"
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              </div>
+            </SwiperSlide>
+
+            
           </Swiper>
         </div>
       )}
@@ -228,7 +282,31 @@ const TemplateSection = () => {
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
-                  src="/assets/Know-Your-Product/KYP.PNG"
+                  src="/assets/Know-Your-Product/1 (2).png"
+                  alt="Slide 2"
+                  fill
+                  style={{ objectFit: "contain", padding: "20px" }}
+                />
+              </div>
+            </SwiperSlide>
+
+
+            <SwiperSlide>
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+                <Image
+                  src="/assets/Know-Your-Product/2 (2).png"
+                  alt="Slide 2"
+                  fill
+                  style={{ objectFit: "contain", padding: "20px" }}
+                />
+              </div>
+            </SwiperSlide>
+
+
+            <SwiperSlide>
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+                <Image
+                  src="/assets/Know-Your-Product/3 (2).png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -260,7 +338,30 @@ const TemplateSection = () => {
             <SwiperSlide>
               <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
-                  src="/assets/Know-Your-Product/KYP.PNG"
+                  src="/assets/Know-Your-Product/1 (2).png"
+                  alt="Thumbnail 2"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+                <Image
+                  src="/assets/Know-Your-Product/2 (2).png"
+                  alt="Thumbnail 2"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            </SwiperSlide>
+
+
+            <SwiperSlide>
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+                <Image
+                  src="/assets/Know-Your-Product/3 (2).png"
                   alt="Thumbnail 2"
                   fill
                   style={{ objectFit: "contain" }}
@@ -304,7 +405,31 @@ const TemplateSection = () => {
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
-                  src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 3.PNG"
+                  src="/assets/Feature-Prioritization-Matrix-Template/1 (2).png"
+                  alt="Slide 3"
+                  fill
+                  style={{ objectFit: "contain", padding: "20px" }}
+                />
+              </div>
+            </SwiperSlide>
+
+
+            <SwiperSlide>
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+                <Image
+                  src="/assets/Feature-Prioritization-Matrix-Template/2 (2).png"
+                  alt="Slide 3"
+                  fill
+                  style={{ objectFit: "contain", padding: "20px" }}
+                />
+              </div>
+            </SwiperSlide>
+
+
+            <SwiperSlide>
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+                <Image
+                  src="/assets/Feature-Prioritization-Matrix-Template/4 (2).png"
                   alt="Slide 3"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -336,7 +461,31 @@ const TemplateSection = () => {
             <SwiperSlide>
               <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
-                  src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 1.PNG"
+                  src="/assets/Feature-Prioritization-Matrix-Template/1 (2).png"
+                  alt="Slide 2"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            </SwiperSlide>
+
+
+
+            <SwiperSlide>
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+                <Image
+                  src="/assets/Feature-Prioritization-Matrix-Template/2 (2).png"
+                  alt="Slide 2"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+                <Image
+                  src="/assets/Feature-Prioritization-Matrix-Template/4 (2).png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain" }}
@@ -372,7 +521,7 @@ const TemplateSection = () => {
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <Image
-                  src="/assets/resources/Resources/ecosystemmapping.png"
+                  src="/assets/Feature-Prioritization-Matrix-Template/ecosys1.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -383,7 +532,7 @@ const TemplateSection = () => {
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
               {/* bg-[#F0F0F0] this was bg i remove */}
                 <Image
-                  src="/assets/resources/Resources/ecosystemmapping.png"
+                  src="/assets/Feature-Prioritization-Matrix-Template/Ecosys2.png"
                   alt="Slide 3"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
@@ -415,13 +564,23 @@ const TemplateSection = () => {
             <SwiperSlide>
               <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
                 <Image
-                  src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 1.PNG"
+                  src="/assets/Feature-Prioritization-Matrix-Template/ecosys1.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>
+            <SwiperSlide>
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+                <Image
+                  src="/assets/Feature-Prioritization-Matrix-Template/Ecosys2.png"
+                  alt="Slide 2"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            </SwiperSlide>3
           </Swiper>
         </div>
       )}
@@ -515,7 +674,11 @@ export default function Home() {
                 preview="https://www.figma.com/board/sdZ7K6JkJZH9suKYm4LGyP/Vision-Statement-Template--Community-?node-id=0-1&t=RH6GNnajUDnZ8KIW-1"
                 downloads="510+"
                 link="/assets/Vision-Statement-Template/Vision Statement Template (Community).jam"
-                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
+                description="This workshop guides teams in crafting a clear, inspiring
+                              vision statement that defines the future state of the
+                              product. It aligns stakeholders around a shared direction
+                              and sets the tone for decision-making, goal-setting, and
+                              long-term planning."
               />
             )}
 
@@ -527,7 +690,11 @@ export default function Home() {
                 downloads="600+"
                 preview="https://www.figma.com/board/gIh22jXyPxwmUlfaeHMLw0/Know-Your-Product-Template--Community-?node-id=0-1&t=w1ynTaZWpkLQTVuY-1"
                 link="/assets/Know-Your-Product/Know Your Product Template (Community).jam"
-                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
+                description="A deep dive into the core of your product—this session
+                            aligns stakeholders on what the product is, who it serves,
+                            and the problems it solves. Teams define the product’s
+                            value proposition, core features, and market positioning,
+                            ensuring everyone shares a common understanding."
               />
             )}
 
@@ -539,8 +706,12 @@ export default function Home() {
                 downloads="230+"
                 preview="https://www.figma.com/board/yhJtAoo5KrNKJdRAH499vW/Feature-Prioritisation-Template--Community-?node-id=0-1&t=rZIzql9OQg51K5AX-1"
                 link="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritisation Template (Community).jam"
-                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
-              />
+                description="In this hands-on session, teams evaluate potential
+                            features based on impact, effort, and user needs. Using
+                            prioritisation frameworks, participants collaboratively
+                            decide which features to focus on next—aligning
+                            development with business goals and user value."
+                                          />
             )}
 
 {Number(id) === 4 && (
@@ -551,8 +722,14 @@ export default function Home() {
                 downloads="230+"
                 preview="https://www.figma.com/board/qfGePFsNr07k3Fh5d4PgBa/Ecosystem-Mapping--Community-?node-id=0-1&t=wld2tAbnlVTvSicx-1"
                 link="/assets/Feature-Prioritization-Matrix-Template/Ecosystem Mapping (Community).jam"
-                description="An ecosystem mapping workshop is a collaborative session where participants work together to visually represent the various entities (organisations, individuals, resources) within a specific ecosystem and map their interconnections and relationships. The goal is to gain a shared understanding of the system's dynamics, identify key players, understand resource flows, and uncover opportunities or challenges within the ecosystem. This process often involves brainstorming, visualising connections, and analysing the resulting map to inform strategies and collaborations."
-              />
+                description="This workshop helps teams visualise the broader
+                              environment in which their product operates. By
+                              mapping out stakeholders, touch points, systems, and
+                              dependencies, teams gain clarity on external and internal
+                              influences. The goal is to uncover opportunities, risks,
+                              and integration points that shape the product
+                              experience."
+                                            />
             )}
           </div>
         </div>

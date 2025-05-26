@@ -90,33 +90,29 @@ export const PartnershipSection = () => {
 
 <section className="w-full bg-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-2">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-top">
-          {/* Left side with heading and CTA */}
-          <div className="md:col-span-2">
-            <h2 className="text-4xl md:text-xl lg:text-1.5xl font-bold tracking-tight mb-6">
-              <span className="whitespace-nowrap">Investing in yourself </span>{' '}
-              is important
-            </h2>
-            {/* <Button variant="default" className="bg-black text-white hover:bg-gray-800 rounded-full px-6 flex items-center gap-2">
-              More about us
-              <ArrowRight className="h-4 w-4" />
-            </Button> */}
-          </div>
-          
-          {/* Middle paragraph */}
-          <div className="md:col-span-5">
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-            At A Venture Studio (AVS), we rethink how businesses are built. Too often, companies chase trends over strategy, prioritising short-term gains over lasting impact. We do things differently. By combining expertise, ambition, and creative rebellion, we create ventures designed to endure—not just to grow. If you’re ready to break the mould, let’s build something remarkable.
-            </p>
-          </div>
-          
-          {/* Right paragraph */}
-          <div className="md:col-span-5">
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-            AVS was founded with a clear purpose: to rethink how digital ventures are built. Too often, businesses prioritise speed over substance, burning through resources without a clear path to longevity. We saw an opportunity to change that. By combining sharp commercial insight with hands-on execution, we create ventures that aren’t just built to launch—they’re built to lead.
-            </p>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+  {/* Left side with heading and CTA */}
+  <div className="md:col-span-3">
+    <h2 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold tracking-tight mb-4">
+      <span className="whitespace-nowrap">Investing in yourself </span> is important
+    </h2>
+  </div>
+
+  {/* Middle paragraph */}
+  <div className="md:col-span-4">
+    <p className="text-gray-700 text-sm md:text-sm leading-relaxed">
+      At A Venture Studio (AVS), we rethink how businesses are built. Too often, companies chase trends over strategy, prioritising short-term gains over lasting impact. We do things differently.
+    </p>
+  </div>
+
+  {/* Right paragraph */}
+  <div className="md:col-span-5">
+    <p className="text-gray-700 text-sm md:text-sm leading-relaxed">
+      AVS was founded with a clear purpose: to rethink how digital ventures are built. Too often, businesses prioritise speed over substance, burning through resources without a clear path to longevity.
+    </p>
+  </div>
+</div>
+
       </div>
     </section>
 
