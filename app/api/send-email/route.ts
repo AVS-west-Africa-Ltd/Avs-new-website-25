@@ -33,13 +33,21 @@ export async function POST(req: NextRequest) {
     //   },
     // });
 
+    // const transporter = nodemailer.createTransport({
+    //   host: "smtp.gmail.com",
+    //   port: 587,
+    //   secure: false, // Use true for port 465
+    //   auth: {
+    //     user: "idris@aventurestud.io", // move to process.env.EMAIL_USER in prod
+    //     pass: "uzam xobg qgqs aewa",   // move to process.env.EMAIL_PASS
+    //   },
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "smtp-relay.brevo.com",
       port: 587,
       secure: false, // Use true for port 465
       auth: {
-        user: "idris@aventurestud.io", // move to process.env.EMAIL_USER in prod
-        pass: "uzam xobg qgqs aewa",   // move to process.env.EMAIL_PASS
+        user: "8dee4f001@smtp-brevo.com", // move to process.env.EMAIL_USER in prod
+        pass: "Rcmy6HBtK8wFXCSk",   // move to process.env.EMAIL_PASS
       },
       tls: {
         rejectUnauthorized: false,
@@ -218,8 +226,8 @@ This email was sent from the Aventure Studio contact form.
     
     // Prepare email options hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io,
     const mailOptions: nodemailer.SendMailOptions = {
-      from: email,
-      to: "hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io ,idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
+      from: '"Aventure Studio" <idris@aventurestud.io>',
+      to: "abdulkadri42@gmail.com,idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
       subject: emailSubject,
       text: textContent, // Plain text version
       html: htmlContent,  // HTML version
