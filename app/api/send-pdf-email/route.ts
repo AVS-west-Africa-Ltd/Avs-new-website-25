@@ -115,7 +115,7 @@ https://aventurestud.io | hello@aventurestud.io
 
     await transporter.sendMail({
       from: `"AVS Business Canvas App" <${process.env.EMAIL_USER}>`,
-      to: " hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io , abdulkadri42@gmail.com,idris@aventurestud.io",
+      to: " hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io ,idris@aventurestud.io",
       subject: emailSubject,
       text: textContent,
       html: htmlContent,

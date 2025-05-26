@@ -150,6 +150,7 @@ const templates = [
     
 
   },
+  
 ]
 
 // export function TemplateGrids() {
@@ -355,66 +356,83 @@ export function TemplateGrid() {
   }, [filteredTemplates]);
 
   return (
-    <div className="space-y-4">
-      {gridLayout.map((row, rowIndex) => (
+
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto [grid-auto-flow:row dense]">
+  {gridLayout.flat().map((template: any) => {
+    let colSpan = "col-span-1";
+    if (template.gridArea.includes("span 3")) colSpan = "lg:col-span-3";
+    else if (template.gridArea.includes("span 2")) colSpan = "lg:col-span-2";
+
+    // Override for specific filtered state
+    if (activeFilter === "ecosystem" && template.id === 7) {
+      colSpan = "lg:col-span-2";
+    }
+
+
+    // // let customHeight = template.height;
+
+// // if (
+// //   activeFilter === "ecosystem" ||activeFilter === "startups"&&
+// //   (template.category === "ecosystem" || template.category === "startups") &&
+// //   (template.id === 7 || template.id === 8)
+// // ) {
+// //   customHeight = "400.21px";
+// // }
+// //             // Adjust height based on screen
+// //             let heightClass = "h-60"; // default mobile
+// //             if (template.height === "500px") heightClass = "h-60 sm:h-80 lg:h-[500px]";
+// //             else heightClass = "h-60 sm:h-[400px]";
+          
+    const getHeightClass = (id: number, activeFilter: string) => {
+      const isEcoOrStartup = activeFilter === "ecosystem" || activeFilter === "startups";
+    
+      if (isEcoOrStartup) {
+        if (id === 7) return "h-52 sm:h-60 md:h-[400.23px] lg:h-[400.23px]";
+        if (id === 8) return "h-96 sm:h-60 md:h-[400.23px] lg:h-[400.23px]";
+      }
+    
+      if (id === 7) return "h-52 sm:h-60 md:h-[400.23px] lg:h-[460px]";
+      if (id === 8) return "h-96 sm:h-60 md:h-[400.23px] lg:h-[460px]";
+      if ([1, 5, 11].includes(id)) return "h-52 sm:h-60 md:h-[400.23px] lg:h-[400.23px]";
+    
+      return "h-[400.23px] sm:h-[400.23px] md:h-[400.23px] lg:h-[400.23px]";
+    };
+
+    return (
+      <div
+        key={template.id}
+        className={cn(
+          "group relative overflow-hidden rounded-lg transition-all duration-300",
+          colSpan
+        )}
+      >
         <div
-          key={`row-${rowIndex}`}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className={cn(
+            "relative w-full overflow-hidden",
+            template.color,
+            getHeightClass(template.id, activeFilter)
+          )}
         >
-          {row.map((template: any) => {
-            let colSpan = "col-span-1";
-            if (template.gridArea.includes("span 3")) colSpan = "lg:col-span-3";
-            else if (template.gridArea.includes("span 2")) colSpan = "lg:col-span-2";
-
-            // Override for specific filtered state
-            if (
-              activeFilter === "ecosystem" &&
-              (template.id === 7 || template.id === 8)
-            ) {
-              colSpan = "lg:col-span-2";
+          <Image
+            src={
+              template.image.startsWith("/")
+                ? template.image
+                : `/${template.image}`
             }
-
-
-let customHeight = template.height;
-
-if (
-  activeFilter === "ecosystem" ||activeFilter === "startups"&&
-  (template.category === "ecosystem" || template.category === "startups") &&
-  (template.id === 7 || template.id === 8)
-) {
-  customHeight = "400.21px";
-}
-            // Adjust height based on screen
-            let heightClass = "h-60"; // default mobile
-            if (template.height === "500px") heightClass = "h-60 sm:h-80 lg:h-[500px]";
-            else heightClass = "h-60 sm:h-[400px]";
-             
-            return (
-              <div
-                key={template.id}
-                className={cn(
-                  "group relative overflow-hidden rounded-lg transition-all duration-300 ", //hover:shadow-xl hover:scale-[1.03] hover:z-10
-                  colSpan
-                )}
-              >
-                <div className={cn("relative w-full overflow-hidden", template.color, heightClass)}  style={{ height: customHeight }}>
-                  <Image
-                    src={template.image.startsWith("/") ? template.image : `/${template.image}`}
-                    alt={template.alt}
-                    fill
-                    className="object-fit transition-transform duration-300 group-hover:scale-105"
-                    priority
-                  />
-                </div>
-
-                <div className="absolute inset-0 cursor-pointer bg-black opacity-0 transition-opacity group-hover:opacity-10"></div>
-
-                <Link href={`/resources/${template.link}`} className="absolute inset-0 z-10" />
-              </div>
-            );
-          })}
+            alt={template.alt}
+            fill
+            className="object-fit transition-transform duration-300 group-hover:scale-105"
+            priority
+          />
         </div>
-      ))}
-    </div>
+
+        <div className="absolute inset-0 cursor-pointer bg-black opacity-0 transition-opacity group-hover:opacity-10"></div>
+
+        <Link href={`/resources/${template.link}`} className="absolute inset-0 z-10" />
+      </div>
+    );
+  })}
+</div>
+
   );
 }
