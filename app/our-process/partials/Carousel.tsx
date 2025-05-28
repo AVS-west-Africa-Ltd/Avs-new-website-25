@@ -244,6 +244,8 @@ const Carousel: React.FC<CarouselProps> = ({
                     zIndex,
                   }}
                 >
+                  {/* shift idris */}
+                  <a href={`our-process#${slide.title}`}>
                   <div
                     className={`bg-white rounded-2xl overflow-hidden ${style}`}
                     style={{
@@ -257,6 +259,7 @@ const Carousel: React.FC<CarouselProps> = ({
                       {/* <p className="text-sm md:block">{slide.description}</p> */}
                     </div>
                   </div>
+                  </a>
                 </div>
               );
             })}
