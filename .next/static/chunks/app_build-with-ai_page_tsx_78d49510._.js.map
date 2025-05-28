@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Documents/avs%20site/Avs-new-website-25/app/build-with-ai/page.tsx"],"sourcesContent":["\"use client\";\n\nimport React from \"react\";\nimport { HeaderSection } from \"./sections/\";\nimport { HeroSection } from \"./section/HeroSection\";\nimport { AIToolsSection } from \"./section/AIToolsSection\";\nimport { AITransformationSection } from \"./section/AITransformationSection\";\nimport { FAQSection } from \"./section/FAQSection\";\nimport Footer from \"./section/Footer\";\n\nexport default function Home() {\n  return (\n    <main className=\"min-h-screen bg-white\">\n      <HeaderSection />\n      <HeroSection />\n      <AIToolsSection />\n      <AITransformationSection />\n      <FAQSection />\n      <Footer />\n    </main>\n  );\n}"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;;;;;;AAUe,SAAS;IACtB,qBACE,6LAAC;QAAK,WAAU;;0BACd,6LAAC;;;;;0BACD,6LAAC;;;;;0BACD,6LAAC;;;;;0BACD,6LAAC;;;;;0BACD,6LAAC;;;;;0BACD,6LAAC;;;;;;;;;;;AAGP;KAXwB","debugId":null}}]
-}

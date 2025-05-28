@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Documents/avs%20site/Avs-new-website-25/app/logo-generator/page.tsx"],"sourcesContent":["\"use client\";\n\nimport React from \"react\";\n\nconst LogoGenerator = () => {\n  return (\n    <div>\n      <h2>Logo Generator Section</h2>\n      <p>This section is under construction.</p>\n    </div>\n  );\n};\n\nexport default LogoGenerator;\n"],"names":[],"mappings":";;;;AAAA;;AAIA,MAAM,gBAAgB;IACpB,qBACE,8OAAC;;0BACC,8OAAC;0BAAG;;;;;;0BACJ,8OAAC;0BAAE;;;;;;;;;;;;AAGT;uCAEe","debugId":null}}]
-}
