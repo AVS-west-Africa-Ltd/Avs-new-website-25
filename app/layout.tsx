@@ -1,3 +1,5 @@
+
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
@@ -12,8 +14,12 @@ const raleway = Raleway({
 })
 
 export const metadata: Metadata = {
-  title: "AVS WEBSITE",
-  description: "AVS WEBSITE",
+  title: "A Venture Studio | AI-powered Tech and Digital Solutions",
+  description: "A Venture Studio is a venture studio that builds and invests in tech and digital driven solutions. We are dedicated to creating innovative products and services that leverage the power of expert humans and artificial intelligence to solve real-world problems.",
+  icons: {
+    icon: '/assets/Dark.png', // This references your icon file in the public folder
+    apple: '/assets/Dark.png',
+  },
 };
 
 export default function RootLayout({

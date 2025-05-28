@@ -31,28 +31,28 @@ const ArrowIcon: React.FC<ArrowIconProps> = ({ color = "black" }) => {
 export const FooterSection = () => {
   const services = [
     {
-      image: "/assets/homepage/six.png",
+      image: "/assets/homepage/1.svg",
       altText: "Mobile and website design",
       title: "Intuitive Mobile and Website Designs",
       description:
         "A great product isn't just functional—it's user-friendly and visually compelling. We design intuitive digital experiences that captivate users, drive engagement, and enhance brand credibility.",
     },
     {
-      image: "/assets/homepage/eight.png",
+      image: "/assets/homepage/2.svg",
       altText: "Funding",
       title: "Funding Your Vision",
       description:
         "Securing the right financial backing is crucial for startup success. We guide you through investor connections, pitch deck creation, and financial planning to help you attract the right funding for growth.",
     },
     {
-      image: "/assets/homepage/seven.png",
+      image: "/assets/homepage/3.svg",
       altText: "Brand strategy",
       title: "Building a Strong Brand Strategy",
       description:
         "Your brand is more than a logo—it's your identity. We craft cohesive brand strategies that align with your mission, differentiate you from competitors, and create a lasting impression in the market.",
     },
     {
-      image: "/assets/homepage/nine.png",
+      image: "/assets/homepage/4.svg",
       altText: "Product development",
       title: "Product Development & Innovation",
       description:
@@ -68,15 +68,15 @@ export const FooterSection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="flex justify-between  gap-[30px] items-center mb-12 flex-col sm:flex-row text-center sm:text-left"
+          className="flex justify-between  gap-[30px] items-center mb-12 flex-col sm:flex-row text-left sm:text-left"
         >
-          <h2 className="text-3xl font-bold text-stone-950 sm:text-2xl">
+          <h2 className="text-[32px] font-bold text-stone-950 sm:text-2xl">
             Everything you need, all in one place...
           </h2>
-          <button className="flex gap-2.5 items-center px-4 py-2 text-base bg-white border border-zinc-300 rounded-full text-stone-950 hover:bg-gray-200 transition-all">
+          {/* <button className="flex gap-2.5 items-center px-4 py-2 text-base bg-white border border-zinc-300 rounded-full text-stone-950 hover:bg-gray-200 transition-all">
             <span>See all our services</span>
             <ArrowIcon />
-          </button>
+          </button> */}
         </motion.header>
 
         {/* Service Cards Grid */}
@@ -99,9 +99,9 @@ export const FooterSection = () => {
                   width={100}
                   height={100}
                 />
-                <div className="absolute top-[15px] right-[15px] flex items-center justify-center w-10 h-10 border border-white backdrop-blur-sm rounded-full">
+                {/* <div className="absolute top-[15px] right-[15px] flex items-center justify-center w-10 h-10 border border-white backdrop-blur-sm rounded-full">
                   <ArrowIcon color="white" />
-                </div>
+                </div> */}
               </div>
 
               {/* Service Details */}

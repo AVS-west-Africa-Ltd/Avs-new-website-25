@@ -50,7 +50,7 @@ export const AIFeatureSection = () => {
   }, [inView]);
 
   return (
-    <section className="p-4 md:px-14">
+    <section className="p-4 md:px-8">
       <div
         ref={ref}
         className={`relative overflow-hidden px-4 md:pl-16 rounded-3xl py-[120px] mb-12 transition-opacity transform duration-1200 ease-out ${

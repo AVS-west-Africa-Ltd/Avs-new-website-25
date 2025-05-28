@@ -20,7 +20,7 @@ export const processSteps: ProcessStep[] = [
       "We conduct in-depth market research, analyse competitors, and identify your target audience to define a clear, data-driven strategy.",
       "By understanding industry trends and customer needs, we ensure that your vision aligns with real market demands, giving you the best chance for success.",
     ],
-    imageSrc: "/assets/Our process/Rectangle 4225.png",
+    imageSrc: "/assets/Our-process/ourprocess8.svg",
   },
   {
     number: "02",
@@ -30,7 +30,7 @@ export const processSteps: ProcessStep[] = [
       "We help you craft a strong, memorable brand identity with compelling visuals, a unique voice, and consistent messaging.",
       "From typography and colour schemes to brand positioning and guidelines, we ensure your brand resonates with your audience and builds trust.",
     ],
-    imageSrc: "/assets/Our process/build2.png",
+    imageSrc: "/assets/Our-process/ourprocess7.svg",
   },
   {
     number: "03",
@@ -40,7 +40,7 @@ export const processSteps: ProcessStep[] = [
       "We create intuitive, engaging, and high-converting user experiences that keep your audience coming back.",
       "Our UI/UX design process focuses on clarity, ease of use, and functionality to ensure that every interaction is smooth and meaningful, leading to higher customer satisfaction and retention.",
     ],
-    imageSrc: "/assets/Our process/rectangle-4224-2.png",
+    imageSrc: "/assets/Our-process/ourprocess6.svg",
   },
   {
     number: "04",
@@ -50,7 +50,7 @@ export const processSteps: ProcessStep[] = [
       "Our project management approach ensures seamless collaboration, clear communication, and timely execution.",
       "We set milestones, manage resources, and keep the project on track so you can focus on your business while we handle the details.",
     ],
-    imageSrc: "/assets/Our process/Rectangle4225-3.png",
+    imageSrc: "/assets/Our-process/ourprocess5.svg",
   },
   {
     number: "05",
@@ -60,7 +60,7 @@ export const processSteps: ProcessStep[] = [
       "Our development team ensures your website or application is responsive, scalable, and optimised for a seamless user experience.",
       "Whether it's a web platform, mobile app, or SaaS solution, we use best practices and the latest tech to bring your vision to life.",
     ],
-    imageSrc: "/assets/Our process/Rectangle 4225-4.png",
+    imageSrc: "/assets/Our-process/ourprocess4.svg",
   },
   {
     number: "06",
@@ -70,7 +70,7 @@ export const processSteps: ProcessStep[] = [
       "We conduct rigorous testing across multiple devices, browsers, and use cases to ensure a flawless experience.",
       "From functionality and security tests to performance optimisation, we refine every detail, fixing bugs and improving usability before launch.",
     ],
-    imageSrc: "/assets/Our process/Rectangle 4225-5.png",
+    imageSrc: "/assets/Our-process/ourprocess3.svg",
   },
   {
     number: "07",
@@ -80,7 +80,7 @@ export const processSteps: ProcessStep[] = [
       "We guide you through a smooth and strategic launch, ensuring your product is deployed efficiently and reaches the right audience.",
       "Our team ensures everything runs seamlessly, whether it's setting up hosting, configuring domains, or integrating analytics to track performance.",
     ],
-    imageSrc: "/assets/Our process/Rectangle 4225-6.png",
+    imageSrc: "/assets/Our-process/ourprocess2.svg",
   },
   {
     number: "08",
@@ -90,7 +90,7 @@ export const processSteps: ProcessStep[] = [
       "We provide continuous support, updates, and optimisations to keep your product running smoothly.",
       "From adding new features to enhancing performance and security, we ensure your business remains competitive and scalable as it grows.",
     ],
-    imageSrc: "/assets/Our process/Rectangle 4225-7.png",
+    imageSrc: "/assets/Our-process/ourprocess1.svg",
   },
   {
     number: "09",
@@ -100,7 +100,7 @@ export const processSteps: ProcessStep[] = [
       "We help you identify funding opportunities, whether through bootstrapping, grants, angel investors, or venture capital.",
       "Our team works with you to refine your funding strategy, ensuring that your business is financially structured for success.",
     ],
-    imageSrc: "/assets/Our process/Rectangle 4225-8.png",
+    imageSrc: "/assets/Our-process/Ourporcesspen.svg",
     hasButton: true,
   },
   {
@@ -111,7 +111,7 @@ export const processSteps: ProcessStep[] = [
       "We introduce you to key players in the industry—potential investors, mentors, and strategic partners who can help accelerate your growth.",
       "By leveraging our network, we create opportunities for collaboration, investment, and long-term success.",
     ],
-    imageSrc: "/assets/Our process/Rectangle 4225-9.png",
+    imageSrc: "/assets/Our-process/ourprocess9.svg",
   },
 ];
 
@@ -124,7 +124,7 @@ export const fundingSteps: ProcessStep[] = [
       "We help you evaluate your financial requirements for product development, operations, marketing, hiring, and long-term growth. ",
       "By analysing your business model and goals, we ensure you have a clear roadmap for how funds will be allocated, preventing unnecessary financial strain down the line.",
     ],
-    imageSrc: "/assets/fund1.png",
+    imageSrc: "/assets/Our-process/assess.svg",
   },
   {
     number: "02",
@@ -134,9 +134,10 @@ export const fundingSteps: ProcessStep[] = [
     ],
     subDescription:
       "We help you determine the best funding strategy based on your business model, industry, and growth trajectory. ",
-    imageSrc: "/assets/fund2.png",
+    imageSrc: "/assets/Our-process/fund2.svg",
     hasList: true,
     bulletList: [
+      "Studio Partnership Model – Work with A Venture Studio to fund your business using a blended model of equity and cash support.",
       "Bootstrapping – Using personal savings or revenue to fund growth.",
       "Angel Investors – Securing funds from individuals looking to invest in early-stage startups.",
       "Venture Capital – Attracting institutional investors for high-growth potential.",
@@ -151,7 +152,7 @@ export const fundingSteps: ProcessStep[] = [
       "WWe help you craft an investor-ready pitch deck that highlights your startup’s market potential, value proposition, revenue model, and competitive edge. ",
       "Additionally, we assist in creating a detailed business plan with financial projections, go-to-market strategies, and risk mitigation plans to give investors confidence in your vision.",
     ],
-    imageSrc: "/assets/fund3.png",
+    imageSrc: "/assets/Our-process/fund3.svg",
   },
   {
     number: "04",
@@ -161,7 +162,7 @@ export const fundingSteps: ProcessStep[] = [
       "We connect you with venture capitalists, angel investors, accelerators, and crowdfunding platforms to maximise your chances of securing capital. ",
       "Our approach ensures you’re targeting investors who align with your industry, stage, and business goals.",
     ],
-    imageSrc: "/assets/fund4.png",
+    imageSrc: "/assets/Our-process/businesshand.svg",
   },
   {
     number: "05",
@@ -169,7 +170,7 @@ export const fundingSteps: ProcessStep[] = [
     description: [
       "Securing funding isn’t just about getting the money—it’s also about setting up your business for long-term success. We guide you through the legal and financial aspects of fundraising, including: ",
     ],
-    imageSrc: "/assets/fund5.png",
+    imageSrc: "/assets/Our-process/legal.svg",
     hasList: true,
     bulletList: [
       "Structuring equity distribution (how much ownership to give investors).",
@@ -185,7 +186,7 @@ export const fundingSteps: ProcessStep[] = [
       "We help you prepare all necessary documents, including legal filings, financial statements, and growth metrics. ",
       "Additionally, we guide you through negotiations, ensuring you secure favourable terms that protect your ownership and future growth potential. ",
     ],
-    imageSrc: "/assets/fund6.png",
+    imageSrc: "/assets/Our-process/ourprocess9.svg",
   },
   {
     number: "07",
@@ -195,7 +196,7 @@ export const fundingSteps: ProcessStep[] = [
       "We assist in strategically allocating your funds to maximise growth, focusing on product development, marketing, hiring, and operational scaling. ",
       "With a structured approach, we help ensure your startup stays on track, meets milestones, and continues to attract future investment rounds.",
     ],
-    imageSrc: "/assets/fund7.png",
+    imageSrc: "/assets/Our-process/stamp.svg",
   },
 ];
 

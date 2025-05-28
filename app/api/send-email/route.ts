@@ -1,3 +1,5 @@
+
+
 // app/api/send-email/route.ts
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -22,62 +24,107 @@ export async function POST(req: NextRequest) {
     const message = formData.get('message') as string;
     const subscribed = formData.get('subscribed') === 'true';
     
-    // Log the email config we're using (remove sensitive info in production)
-    console.log('Email config:', {
-      host: process.env.EMAIL_SERVER_HOST,
-      port: process.env.EMAIL_SERVER_PORT,
-      secure: process.env.EMAIL_SERVER_SECURE,
-      user: process.env.EMAIL_SERVER_USER ? '✓ Set' : '✗ Missing',
-      pass: process.env.EMAIL_SERVER_PASSWORD ? '✓ Set' : '✗ Missing',
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO
-    });
-    
-    // Validate required env vars
-    if (!process.env.EMAIL_SERVER_HOST || 
-        !process.env.EMAIL_SERVER_USER || 
-        !process.env.EMAIL_SERVER_PASSWORD || 
-        !process.env.EMAIL_FROM || 
-        !process.env.EMAIL_TO) {
-      throw new Error('Missing required email configuration');
-    }
-    
-    // Configure Nodemailer transporter
+    // Configure Nodemailer transporter - using your existing settings
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: "idris@aventurestud.io", // Use process.env.EMAIL_USER in production
+    //     pass: "uzam xobg qgqs aewa", // Use process.env.EMAIL_PASSWORD in production
+    //   },
+    // });
+
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_SERVER_HOST,
-      port: parseInt(process.env.EMAIL_SERVER_PORT || '587'),
-      secure: process.env.EMAIL_SERVER_SECURE === 'true',
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // Use true for port 465
       auth: {
-        user: process.env.EMAIL_SERVER_USER,
-        pass: process.env.EMAIL_SERVER_PASSWORD,
+        user: "idris@aventurestud.io", // move to process.env.EMAIL_USER in prod
+        pass: "uzam xobg qgqs aewa",   // move to process.env.EMAIL_PASS
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
+      connectionTimeout: 10000, // optional but helpful (10 sec)
     });
     
-    // Verify connection
-    await transporter.verify().catch(err => {
-      console.error('Transporter verification failed:', err);
-      throw new Error(`SMTP connection failed: ${err.message}`);
-    });
     
-    // Format email content
-    const emailSubject = `Contact Form Submission from ${firstName} ${lastName}`;
+    // Format email content with proper HTML
+    const emailSubject = `AVS Contact form submission from ${firstName} ${lastName}`;
+    
+    // HTML email version
     const htmlContent = `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>From:</strong> ${firstName} ${lastName}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Looking For:</strong> ${lookingFor}</p>
-      <p><strong>Subscribed to Updates:</strong> ${subscribed ? 'Yes' : 'No'}</p>
-      <h3>Message:</h3>
-      <p>${message.replace(/\n/g, '<br>')}</p>
+      <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            h2 { color: #2a2a2a; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+            .field { margin-bottom: 15px; }
+            .label { font-weight: bold; }
+            .message-box { background-color: #f9f9f9; padding: 15px; border-radius: 4px; margin-top: 20px; }
+            .footer { margin-top: 30px; font-size: 12px; color: #666; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h2>A Venture Studio New Contact Form Submission</h2>
+            
+            <div class="field">
+              <span class="label">From:</span> ${firstName} ${lastName}
+            </div>
+            
+            <div class="field">
+              <span class="label">Email:</span> ${email}
+            </div>
+            
+            <div class="field">
+              <span class="label">Phone:</span> ${phone}
+            </div>
+            
+            <div class="field">
+              <span class="label">Looking For:</span> ${lookingFor || 'Not specified'}
+            </div>
+            
+            <div class="field">
+              <span class="label">Subscribed to Updates:</span> ${subscribed ? 'Yes' : 'No'}
+            </div>
+            
+            <div class="message-box">
+              <h3>Message:</h3>
+              <p>${message.replace(/\n/g, '<br>')}</p>
+            </div>
+            
+            <div class="footer">
+              <p>This email was sent from the Aventure Studio contact</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+    
+    // Plain text version as fallback
+    const textContent = `
+ A Venture Studio New Contact Form Submission
+
+From: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone}
+Looking For: ${lookingFor || 'Not specified'}
+Subscribed to Updates: ${subscribed ? 'Yes' : 'No'}
+
+Message:
+${message}
+
+This email was sent from the Aventure Studio contact form.
     `;
     
     // Prepare email options
     const mailOptions: nodemailer.SendMailOptions = {
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
+      from: email,
+      to: "hello@aventurestud.io,jt@aventurestud.io,idris@aventurestud.io", // Use process.env.RECIPIENT_EMAIL in production
       subject: emailSubject,
-      html: htmlContent,
+      text: textContent, // Plain text version
+      html: htmlContent,  // HTML version
       replyTo: email,
     };
     
@@ -91,6 +138,7 @@ export async function POST(req: NextRequest) {
         {
           filename: file.name,
           content: buffer,
+          encoding: 'base64',
         },
       ];
     }
@@ -105,7 +153,7 @@ export async function POST(req: NextRequest) {
     // Return success response
     return NextResponse.json({ 
       success: true, 
-      message: 'Email sent successfully',
+      message: "Message sent successfully! We will contact you soon",
       messageId: info.messageId
     });
   } catch (error) {
@@ -116,7 +164,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       { 
         success: false, 
-        message: 'Failed to send email', 
+        message: "Failed to send email", 
         error: error instanceof Error ? error.message : 'Unknown error' 
       },
       { status: 500 }

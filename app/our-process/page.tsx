@@ -338,61 +338,61 @@ function OurProcess() {
       id: 1,
       title: "Research & Strategy",
       description: "Understanding the market, audience, and opportunities.",
-      imageUrl: "/assets/Rectangle4225.png",
+      imageSrc: "/assets/Our-process/ourprocess8.svg",
     },
     {
       id: 2,
       title: "Brand",
       description: "Defining your unique identity and position.",
-      imageUrl: "/assets/build2.png",
+      imageSrc: "/assets/Our-process/ourprocess7.svg",
     },
     {
       id: 3,
       title: "Development",
       description: "Building solutions that meet your goals.",
-      imageUrl: "/assets/rectangle-4224-2.png",
+      imageSrc: "/assets/Our-process/ourprocess6.svg",
     },
     {
       id: 4,
       title: "Analytics",
       description: "Measuring performance and refining strategy.",
-      imageUrl: "/assets/Rectangle4225-3.png",
+      imageSrc: "/assets/Our-process/ourprocess5.svg",
     },
     {
       id: 5,
       title: "Optimization",
       description: "Continuously improving based on data insights.",
-      imageUrl: "/assets/Rectangle4225-4.png",
+      imageSrc: "/assets/Our-process/ourprocess4.svg",
     },
     {
       id: 6,
       title: "Research & Strategy",
       description: "Understanding the market, audience, and opportunities.",
-      imageUrl: "/assets/Rectangle4225-5.png",
+      imageSrc: "/assets/Our-process/ourprocess3.svg",
     },
     {
       id: 7,
       title: "Brand",
       description: "Defining your unique identity and position.",
-      imageUrl: "/assets/Rectangle4225-6.png",
+      imageSrc: "/assets/Our-process/ourprocess2.svg",
     },
     {
       id: 8,
       title: "Development",
       description: "Building solutions that meet your goals.",
-      imageUrl: "/assets/Rectangle4225-7.png",
+      imageSrc: "/assets/Our-process/ourprocess1.svg",
     },
     {
       id: 9,
       title: "Analytics",
       description: "Measuring performance and refining strategy.",
-      imageUrl: "/assets/Rectangle4225-8.png",
+      imageSrc: "/assets/Rectangle4225-8.png",
     },
     {
       id: 10,
       title: "Optimization",
       description: "Continuously improving based on data insights.",
-      imageUrl: "/assets/Rectangle4225-9.png",
+      imageSrc: "/assets/Our-process/ourprocess9.svg",
     },
   ];
 
@@ -406,7 +406,7 @@ function OurProcess() {
         <TabsList className="mx-auto rounded-[43.54px] border-[1.12px] border-solid border-[#93969f] bg-transparent p-0 flex justify-center">
           <TabsTrigger
             value="build"
-            className="inline-flex flex-col items-center justify-center gap-[12.28px] px-[17.86px] py-[8.93px] relative flex-[0_0_auto] data-[state=active]:bg-[#333333] data-[state=active]:text-white rounded-[111.65px] data-[state=inactive]:bg-transparent"
+            className="inline-flex flex-col items-center justify-center gap-[12.28px] px-[17.86px] py-[8.93px] relative flex-[0_0_auto] data-[state=active]:bg-[#333333] data-[state=active]:text-white rounded-[111.65px] data-[state=inactive]:bg-transparent cursor-pointer"
           >
             <span className="relative w-fit mt-[-1.12px] [font-family:'Inter',Helvetica] font-normal text-[16.7px] tracking-[-0.33px] leading-[21.8px] whitespace-nowrap">
               Build Your Vision
@@ -414,7 +414,7 @@ function OurProcess() {
           </TabsTrigger>
           <TabsTrigger
             value="fund"
-            className="inline-flex flex-col items-center justify-center gap-[12.28px] px-[17.86px] py-[8.93px] relative flex-[0_0_auto] data-[state=active]:bg-[#333333] data-[state=active]:text-white rounded-[111.65px] data-[state=inactive]:bg-transparent"
+            className="inline-flex flex-col items-center justify-center gap-[12.28px] px-[17.86px] py-[8.93px] relative flex-[0_0_auto] data-[state=active]:bg-[#333333] data-[state=active]:text-white rounded-[111.65px] data-[state=inactive]:bg-transparent cursor-pointer"
           >
             <span className="relative w-fit mt-[-1.12px] [font-family:'Inter',Helvetica] font-normal text-[16.7px] tracking-[-0.33px] leading-[21.8px] whitespace-nowrap">
               Fund Your Vision
@@ -443,16 +443,40 @@ function OurProcess() {
           </p>
 
           <div className="flex justify-center items-center w-full">
-            <Carousel slides={sampleSlides} autoScrollInterval={1000} />
+            <Carousel
+              // @ts-expect-error fundingSteps
+              slides={activeTab === "build" ? sampleSlides : fundingSteps}
+              autoScrollInterval={1000}
+            />
           </div>
 
           {/* Contact button */}
-          <Button
+          {/* <Button
             onClick={() => router.push("/contact-us")}
             className="mt-12 !rounded-full bg-gray-900 hover:bg-gray-800 px-6"
           >
             Get in touch <Mail className="ml-2 h-4 w-4" />
-          </Button>
+          </Button> */}
+          <button
+            onClick={() => router.push("/contact-us")}
+            className="cursor-pointer py-3 px-6 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+          >
+            <span className="flex items-center gap-2 text-[15px]">
+              Get in touch
+            </span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.5847 2.75H2.58472C1.89722 2.75 1.34097 3.3125 1.34097 4L1.33472 11.5C1.33472 12.1875 1.89722 12.75 2.58472 12.75H12.5847C13.2722 12.75 13.8347 12.1875 13.8347 11.5V4C13.8347 3.3125 13.2722 2.75 12.5847 2.75ZM12.5847 5.25L7.58472 8.375L2.58472 5.25V4L7.58472 7.125L12.5847 4V5.25Z"
+                fill="white"
+              />
+            </svg>
+          </button>
         </div>
 
         <AnimatePresence mode="wait">

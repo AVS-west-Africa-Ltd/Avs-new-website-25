@@ -19,23 +19,20 @@ export function CaseStudyCard({
 }: CaseStudyCardProps) {
   const router = useRouter();
   return (
-    <div className="relative h-[550px] w-full">
+    <div className="relative h-[550px] w-full rounded-3xl overflow-hidden">
       <Image
         src={imageSrc}
         alt={title}
-        className=" z-0 rounded-3xl aspect-[0.8] w-full max-md:max-w-full h-full"
-        // width={500}
-        // height={500}
-        layout="fill"
+        className="object-cover" 
+        fill
+        sizes="(max-width: 768px) 100vw, 500px"
+        priority
       />
       <div
-        className={`flex absolute z-0 justify-between items-center self-start w-full px-3 ${className}`}
+        className={`absolute bottom-0 z-10 flex justify-between items-center w-full p-4 ${className}`}
       >
         <div className="self-stretch my-auto">
-          <h3
-            // className="text-[15px] tracking-tight leading-none text-white"
-            className="text-[rgba(255,255,255,0.80)] font-raleway text-[15px] font-normal leading-[19.5px] tracking-[-0.3px]"
-          >
+          <h3 className="text-[rgba(255,255,255,0.80)] font-raleway text-[15px] font-normal leading-[19.5px] tracking-[-0.3px]">
             {title}
           </h3>
           <p className="mt-1 text-[rgba(255,255,255,0.80)] font-raleway text-[12px] font-normal leading-[14.5px] tracking-[-0.3px]">
@@ -44,7 +41,7 @@ export function CaseStudyCard({
         </div>
         <button
           onClick={() => router.push(`/${url}`)}
-          className="flex overflow-hidden gap-3 self-stretch px-1 py-1 my-auto text-base tracking-tight leading-tight bg-white rounded-[100px] text-zinc-800"
+          className="flex overflow-hidden gap-3 self-stretch px-3 py-1 my-auto text-base tracking-tight leading-tight bg-white rounded-full text-zinc-800"
         >
           <span className="my-auto text-[11px]">View more</span>
           <img

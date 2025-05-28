@@ -20,25 +20,29 @@ export function ActionCard({
   url,
 }: ActionCardProps) {
   const baseStyles =
-    "flex overflow-hidden flex-col self-stretch my-auto rounded-2xl md:w-[218px] w-full";
+    "flex overflow-hidden flex-col self-stretch my-auto rounded-2xl md:w-[218px] h-[218px] w-full";
   const variantStyles =
     variant === "light"
       ? "bg-zinc-100 text-stone-950"
       : "bg-green-950 text-white items-center aspect-square";
 
   return (
-    <article className={`${baseStyles} ${variantStyles}`}>
+    <article className={`${baseStyles} ${variantStyles} relative`}>
       {backgroundImage && (
-        <div className="flex relative flex-col px-4 py-5 aspect-[1.005] w-full">
-          <Image
-            src={backgroundImage}
-            alt=""
-            className="object-cover absolute inset-0 size-full"
-            width={100}
-            height={100}
-          />
-          <Link href={`/${url}`}>
-            <div className="absolute top-1 right-1">
+        <>
+          <div className="absolute inset-0 w-full h-full">
+            <Image
+              src={backgroundImage}
+              alt=""
+              className="object-cover w-full h-full"
+              fill
+              sizes="(max-width: 768px) 100vw, 218px"
+              priority
+            />
+          </div>
+          
+          <div className="relative flex flex-col px-4 py-5 h-full w-full z-10">
+            <Link href={`/${url}`} className="absolute top-5 right-3">
               {variant === "light" ? (
                 <svg
                   width="41"
@@ -112,22 +116,22 @@ export function ActionCard({
                   </defs>
                 </svg>
               )}
-            </div>
-          </Link>
+            </Link>
 
-          <Link href={`/${url}`}>
-            <p className="absolute bottom-1 text-3xl md:text-2xl font-semibold tracking-tighter">
-              {multiline
-                ? text.split(" ").map((word, i) => (
-                    <React.Fragment key={i}>
-                      {word}
-                      {i === 2 ? <br /> : " "}
-                    </React.Fragment>
-                  ))
-                : text}
-            </p>
-          </Link>
-        </div>
+            <Link href={`/${url}`} className="mt-auto">
+              <p className="text-2xl md:text-2xl font-semibold tracking-tighter">
+                {multiline
+                  ? text.split(" ").map((word, i) => (
+                      <React.Fragment key={i}>
+                        {word}
+                        {i === 2 ? <br /> : " "}
+                      </React.Fragment>
+                    ))
+                  : text}
+              </p>
+            </Link>
+          </div>
+        </>
       )}
     </article>
   );

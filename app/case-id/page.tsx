@@ -528,10 +528,10 @@ function CaseId() {
                 <h2 className="text-2xl sm:text-3xl font-semibold tracking-tighter text-stone-950">
                   Check out our other case studies
                 </h2>
-                <p className="mt-4 text-base text-stone-950">
+                {/* <p className="mt-4 text-base text-stone-950">
                   Lorem ipsum dolor sit amet consectetur. A elit elit diam
                   pretium habitant.
-                </p>
+                </p> */}
               </div>
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 items-start mt-8 text-xl sm:text-2xl font-medium tracking-tight leading-7">
                 <ActionCard
@@ -562,11 +562,14 @@ function CaseId() {
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch">
               <CaseStudyCard
-                imageSrc="/assets/otg1.svg"
+                imageSrc="https://res.cloudinary.com/dv5mvrtwx/image/upload/v1745537628/rateocase.png_jzcj3l.png"
                 title="On The Go"
                 subtitle="Get free wifi, On the Go!"
                 className="bottom-3"
               />
+
+           
+
               <CaseStudyCard
                 imageSrc="/assets/case2.svg"
                 title="One Touch Football"

@@ -93,7 +93,7 @@ export const OurProjects: CaseDetails[] = [
         isTools: true,
       },
     ],
-    appImage: "/assets/Casestudies/rateo-bg.png",
+    appImage: "/assets/Casestudies/rateo.svg",
     overviewData: {
       title: "Overview",
       data: [
@@ -112,27 +112,27 @@ export const OurProjects: CaseDetails[] = [
       designSteps: [
         {
           id: 1,
-          title: "Ideation & Workshops",
+          title: "Business Audit",
         },
         {
           id: 2,
-          title: "Research & Interviews",
+          title: " Ideation & Workshops",
         },
         {
           id: 3,
-          title: "Lo-Fi Wireframing",
+          title: "Research & Interviews ",
         },
         {
           id: 4,
-          title: "Review & Q/A",
+          title: "Lo-Fi Wireframing",
         },
         {
           id: 5,
-          title: "Hi-Fi Wireframing & Prototyping",
+          title: "Usability Testing",
         },
         {
           id: 6,
-          title: "Usability Testing",
+          title: "Hi-Fi Wireframing & Prototyping ",
         },
         {
           id: 7,
@@ -140,7 +140,7 @@ export const OurProjects: CaseDetails[] = [
         },
         {
           id: 8,
-          title: "Testing",
+          title: "Q/A & Testing",
         },
       ],
     },
@@ -213,7 +213,7 @@ export const OurProjects: CaseDetails[] = [
         isTools: true,
       },
     ],
-    appImage: "/assets/otg.svg",
+    appImage: "/assets/otg.png",
     overviewData: {
       title: "Overview",
       data: [
@@ -232,27 +232,27 @@ export const OurProjects: CaseDetails[] = [
       designSteps: [
         {
           id: 1,
-          title: "Ideation & Workshops",
+          title: "Business Audit",
         },
         {
           id: 2,
-          title: "Research & Interviews",
+          title: " Ideation & Workshops",
         },
         {
           id: 3,
-          title: "Lo-Fi Wireframing",
+          title: "Research & Interviews ",
         },
         {
           id: 4,
-          title: "Review & Q/A",
+          title: "Lo-Fi Wireframing",
         },
         {
           id: 5,
-          title: "Hi-Fi Wireframing & Prototyping",
+          title: "Usability Testing",
         },
         {
           id: 6,
-          title: "Usability Testing",
+          title: "Hi-Fi Wireframing & Prototyping ",
         },
         {
           id: 7,
@@ -260,7 +260,7 @@ export const OurProjects: CaseDetails[] = [
         },
         {
           id: 8,
-          title: "Testing",
+          title: "Q/A & Testing",
         },
       ],
     },
@@ -307,7 +307,7 @@ export const OurProjects: CaseDetails[] = [
         isTools: true,
       },
     ],
-    appImage: "/assets/otf-bg.svg",
+    appImage: "/assets/otf.png",
     overviewData: {
       title: "Overview",
       data: [
@@ -326,27 +326,27 @@ export const OurProjects: CaseDetails[] = [
       designSteps: [
         {
           id: 1,
-          title: "Ideation & Workshops",
+          title: "Business Audit",
         },
         {
           id: 2,
-          title: "Research & Interviews",
+          title: " Ideation & Workshops",
         },
         {
           id: 3,
-          title: "Lo-Fi Wireframing",
+          title: "Research & Interviews ",
         },
         {
           id: 4,
-          title: "Review & Q/A",
+          title: "Lo-Fi Wireframing",
         },
         {
           id: 5,
-          title: "Hi-Fi Wireframing & Prototyping",
+          title: "Usability Testing",
         },
         {
           id: 6,
-          title: "Usability Testing",
+          title: "Hi-Fi Wireframing & Prototyping ",
         },
         {
           id: 7,
@@ -354,7 +354,107 @@ export const OurProjects: CaseDetails[] = [
         },
         {
           id: 8,
-          title: "Testing",
+          title: "Q/A & Testing",
+        },
+      ],
+    },
+    workShops: null,
+    userFlows: null,
+    wireframes: {
+      title: "Wireframes",
+      description:
+        "Using insights from research, we developed structured wireframes outlining navigation, user interactions, and key workflows. These low-fidelity prototypes allowed us to optimise usability before moving to the final designs.",
+      imageUrls: ["otg-wire1.svg", "otg-wire2.svg", "otg-wire3.svg", "otg-wire4.svg"],
+    },
+    fidelityDesigns: {
+      title: "High Fidelity Designs",
+      description:
+        "Building on the wireframes, we developed high-fidelity designs with a modern, clean interface. The final design focused on accessibility, seamless navigation, and an engaging user experience tailored to One Touch Football’s mission.",
+      imageUrls: ["otf-splash.svg", "otf-player-of-the-match.svg", "otf-path-selection.svg", "otf-player-profile.svg"],
+    },
+    webDesigns: {
+        title: "Website Design",
+        bgColor: "#F72585",
+        description:
+          "Using insights from research, we developed structured website that gives users insight into what OTF offers.",
+        imageUrls: ["otf-wd1.svg", "otf-wd.svg"],
+      },
+  },
+  {
+    id: 4,
+    appName: "Gemstone",
+    shortDescription: "Crafted for your masterpieces",
+    projectDetails: [
+      {
+        title: "Client",
+        content: "One Touch Football",
+      },
+      {
+        title: "Services",
+        content: "Branding, Research, UI/UX Design, Development",
+      },
+      {
+        title: "Timeline",
+        content: "Nov. 2024 - Ongoing",
+      },
+      {
+        title: "Platform",
+        content: "Android & iOS",
+      },
+      {
+        title: "Tools",
+        content: "tools",
+        isTools: true,
+      },
+    ],
+    appImage: "/assets/gemstone.png",
+    overviewData: {
+      title: "Overview",
+      data: [
+        {
+          text: "Grassroots football is the foundation of talent development, community engagement, and the love for the sport at the local level. However, the ecosystem faces challenges, including the absence of a centralised platform for players, teams, and leagues to connect and coordinate effectively.",
+        },
+        {
+          text: "For OTF, we redesigned their website and mobile app to create a more intuitive and engaging experience. Our approach focused on improving user navigation, enhancing team management tools, and optimizing player profiles to strengthen OTF’s role in fostering an active grassroots football community.",
+        },
+      ],
+    },
+    mockups: ["/assets/otf-splash.svg", "/assets/otf-path-selection.svg"],
+    ourProcess: {
+      title: "Our process",
+      cardBgColor: "#FCCFE9",
+      designSteps: [
+        {
+          id: 1,
+          title: "Business Audit",
+        },
+        {
+          id: 2,
+          title: " Ideation & Workshops",
+        },
+        {
+          id: 3,
+          title: "Research & Interviews ",
+        },
+        {
+          id: 4,
+          title: "Lo-Fi Wireframing",
+        },
+        {
+          id: 5,
+          title: "Usability Testing",
+        },
+        {
+          id: 6,
+          title: "Hi-Fi Wireframing & Prototyping ",
+        },
+        {
+          id: 7,
+          title: "Handoff & Development",
+        },
+        {
+          id: 8,
+          title: "Q/A & Testing",
         },
       ],
     },

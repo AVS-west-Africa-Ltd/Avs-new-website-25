@@ -6,7 +6,7 @@ interface CarouselProps {
     id: number;
     title: string;
     description: string;
-    imageUrl: string;
+    imageSrc: string;
   }[];
   autoScrollInterval?: number; // Time in ms between auto-scrolls
 }
@@ -247,15 +247,15 @@ const Carousel: React.FC<CarouselProps> = ({
                   <div
                     className={`bg-white rounded-2xl overflow-hidden ${style}`}
                     style={{
-                      backgroundImage: `url(${slide.imageUrl})`,
+                      backgroundImage: `url(${slide.imageSrc})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   >
-                    {/* <div className="flex flex-col justify-end h-full bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
-                      <h3 className="text-xl font-bold mb-2">{slide.title}</h3>
-                      <p className="text-sm md:block">{slide.description}</p>
-                    </div> */}
+                    <div className="flex flex-col justify-end h-full bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
+                      <h3 className="text-xl font-medium mb-2">{slide.title}</h3>
+                      {/* <p className="text-sm md:block">{slide.description}</p> */}
+                    </div>
                   </div>
                 </div>
               );

@@ -15,6 +15,7 @@ export interface TemplateCardProps {
   overlayText?: string;
   link: string;
 }
+
 export interface TemplateHeaderProps {
   title: string;
   description: string;
@@ -25,11 +26,9 @@ export const TemplateHeader: React.FC<TemplateHeaderProps> = ({
   description,
 }) => {
   return (
-    <header className="max-w-full w-[484px]">
-      <h1 className="text-xl font-semibold text-black max-md:max-w-full">
-        {title}
-      </h1>
-      <p className="mt-3 text-sm text-zinc-600 max-md:max-w-full">
+    <header className="w-full max-w-2xl mx-auto md:mx-0">
+      <h1 className="text-xl md:text-2xl font-semibold text-black">{title}</h1>
+      <p className="mt-2 md:mt-3 text-sm md:text-base text-zinc-600">
         {description}
       </p>
     </header>
@@ -50,55 +49,33 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
   return (
     <Link
       href={link}
-      className="flex flex-col grow shrink justify-center self-stretch my-auto min-w-60 w-[344px] max-md:w-full max-md:min-w-full"
+      className="flex flex-col group hover:opacity-95 transition-opacity duration-300 w-full sm:w-full"
     >
-      <div>
+      <div className="flex flex-col h-full">
         <div
-          className={`overflow-hidden rounded-3xl w-[430px] max-md:w-full ${className}`}
+          className={`overflow-hidden rounded-xl md:rounded-2xl lg:rounded-3xl w-full ${className}`}
         >
-          {hasOverlayText ? (
-            <div className="flex relative flex-col px-9 pt-40 pb-12 w-full min-h-[313px] max-md:px-5 max-md:pt-24 max-md:max-w-full max-md:text-4xl">
-              <div className="absolute inset-0">
-                <Image
-                  src={imageSrc}
-                  alt=""
-                  fill
-                  // sizes="(max-width: 768px) 100vw, 430px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <span className="relative text-5xl text-white max-md:text-4xl">
-                {overlayText}
-              </span>
-            </div>
-          ) : (
-            <div
-              className={`relative ${imageClassName}`}
-              style={{
-                aspectRatio: imageClassName.includes("aspect-")
-                  ? undefined
-                  : "1.4",
-              }}
-            >
-              <Image
-                src={imageSrc}
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 430px"
-                className="object-contain"
-              />
-            </div>
-          )}
+          <div className={`relative w-full ${imageClassName || "pt-[75%]"}`}>
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover w-full h-full"
+              priority
+            />
+          </div>
         </div>
-        <div className="flex gap-5 justify-between mt-2.5 max-w-full w-[429px] max-md:w-full">
-          <div className="text-black">
-            <h2 className="text-base">{title}</h2>
-            <p className="mt-1.5 text-sm">
+        <div className="flex justify-between mt-3 md:mt-4">
+          <div className="text-black pr-2">
+            <h2 className="text-sm md:text-base font-medium line-clamp-2">
+              {title}
+            </h2>
+            <p className="mt-1 text-xs md:text-sm">
               by <span className="font-semibold">{author}</span>
             </p>
           </div>
-          <p className="self-start text-sm font-semibold text-zinc-600">
+          <p className="text-xs md:text-sm font-semibold text-zinc-600 whitespace-nowrap">
             {downloads}
           </p>
         </div>
@@ -109,118 +86,119 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
 
 export const ResourceSection: React.FC = () => {
   return (
-    <>
-      <section className="container mx-auto my-10 px-4 md:px-0">
+    <div className="pb-16">
+      <section className="px-4 sm:px-6 lg:px-8">
         <TemplateHeader
           title="Ecosystem Mapping Templates"
           description="Identify key players, relationships, and opportunities in your industry to position your startup strategically."
         />
-        <div className="flex flex-wrap gap-4 items-center mt-6 w-full max-md:max-w-full max-md:flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
           <TemplateCard
-            imageSrc="/assets/resources/12.png" // Replace with your actual image path
-            title="Classic naming workshop"
+            imageSrc="/assets/resources/vs1.svg"
+            title="Vision Statement Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-5 text-5xl text-white bg-[#1C4240]"
+            downloads="510+ downloads"
+            className="bg-[#1C4240]"
             hasOverlayText={true}
             overlayText=""
-            link="/resources/1"
+            link="/resources/1?template=Vision%20Statement%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/1.png" // Replace with your actual image path
-            title="Classic naming workshop"
+            imageSrc="/assets/resources/kyp.svg"
+            title="Know Your Product Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-6 bg-[#F0D8B1]"
-            imageClassName="aspect-[1.4]"
-            link="/resources/1"
+            downloads="600+ downloads"
+            className="bg-[#F0D8B1]"
+            imageClassName="pt-[75%]"
+            link="/resources/2?template=Know%20Your%20Product%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/11.png" // Replace with your actual image path
-            title="Classic naming workshop"
+            imageSrc="/assets/resources/fpm.svg"
+            title="Feature Prioritisation Matrix Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-11 bg-[#939393]"
-            imageClassName="aspect-[1.5]"
-            link="/resources/1"
+            downloads="230+ downloads"
+            className="bg-[#939393]"
+            imageClassName="pt-[75%]"
+            link="/resources/3?template=Feature%20Prioritization%20Matrix%20Template"
           />
         </div>
       </section>
 
-      <section className="container mx-auto my-10 px-4 md:px-0">
+      <section className="px-4 sm:px-6 lg:px-8 mt-12">
         <TemplateHeader
-          title="User flow charts"
+          title="User Flow Charts"
           description="Convey your ideas with user flows."
         />
-        <div className="flex flex-wrap gap-4 items-center mt-6 w-full max-md:max-w-full max-md:flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
           <TemplateCard
-            imageSrc="/assets/resources/2.png" // Replace with your actual image path
+            imageSrc="/assets/resources/ufc1.svg"
             title="Ultimate User Flow Chart Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-5 text-5xl text-white bg-[]"
+            downloads="190+ downloads"
+            className="bg-slate-100"
             hasOverlayText={true}
             overlayText=""
-            link="/resources/3"
+            link="/resources/4?template=Ultimate%20User%20Flow%20Chart%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/21.png" // Replace with your actual image path
-            title="Onboarding Flow chart template"
+            imageSrc="/assets/resources/ofc.svg"
+            title="Onboarding Flow Chart Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-6 bg-[#EEB1F0]"
-            imageClassName="aspect-[1.4]"
-            link="/resources/3"
+            downloads="130+ downloads"
+            className="bg-[#EEB1F0]"
+            imageClassName="pt-[75%]"
+            link="/resources/5?template=Onboarding%20Flow%20Chart%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/22.png" // Replace with your actual image path
-            title="e-commerce Flowchart Template"
+            imageSrc="/assets/resources/cft.svg"
+            title="E-Commerce Flowchart Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-11 bg-[#FFE2D3]"
-            imageClassName="aspect-[1.5]"
-            link="/resources/3"
+            downloads="500+ downloads"
+            className="bg-[#FFE2D3]"
+            imageClassName="pt-[75%]"
+            link="/resources/6?template=e-commerce%20Flowchart%20Template"
           />
         </div>
       </section>
 
-      <section className="container mx-auto my-10 px-4 md:px-0">
+      <section className="px-4 sm:px-6 lg:px-8 mt-12">
         <TemplateHeader
-          title="User flow charts"
-          description="Convey your ideas with user flows."
+          title="Pitch Deck"
+          description="Use our pitch deck framework to craft compelling presentations that capture investor attention and confidence."
         />
-        <div className="flex flex-wrap gap-4 items-center mt-6 w-full max-md:max-w-full max-md:flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
           <TemplateCard
-            imageSrc="/assets/resources/3.png" // Replace with your actual image path
-            title="Ultimate User Flow Chart Template"
+            imageSrc="/assets/resources/ypd.svg"
+            title="Los Blancos Hermanos Pitch Deck Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-5 text-5xl text-white bg-[]"
+            downloads="300+ downloads"
+            className="bg-gray-100"
             hasOverlayText={true}
             overlayText=""
-            link="/resources/2"
+            link="/resources/7?template=Los%20Blancos%20Hermanos%20Pitch%20Deck%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/31.png" // Replace with your actual image path
-            title="Onboarding Flow chart template"
+            imageSrc="/assets/resources/pd.svg"
+            title="Le Orange Pitch Deck Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-6 bg-[#EEB1F0"
-            imageClassName="aspect-[1.4]"
-            link="/resources/2"
+            downloads="200+ downloads"
+            className="bg-[#EEB1F0]"
+            imageClassName="pt-[75%]"
+            link="/resources/8?template=Le%20Orange%20Pitch%20Deck%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/33.png" // Replace with your actual image path
-            title="e-commerce Flowchart Template"
+            imageSrc="/assets/resources/ppd.svg"
+            title="Peaches Pitch Deck Template"
             author="A Venture Studio"
-            downloads="2.3k downloads"
-            className="pt-11 bg-[#FFE2D3"
-            imageClassName="aspect-[1.5]"
-            link="/resources/2"
+            downloads="412+ downloads"
+            className="bg-[#FFE2D3]"
+            imageClassName="pt-[75%]"
+            link="/resources/9?template=Peaches%20Pitch%20Deck%20Template"
           />
         </div>
       </section>
-    </>
+    </div>
   );
 };
+
 export default ResourceSection;
