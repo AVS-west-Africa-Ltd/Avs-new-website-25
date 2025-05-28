@@ -17,8 +17,12 @@ export const metadata: Metadata = {
   title: "A Venture Studio | AI-powered Tech and Digital Solutions",
   description: "A Venture Studio is a venture studio that builds and invests in tech and digital driven solutions. We are dedicated to creating innovative products and services that leverage the power of expert humans and artificial intelligence to solve real-world problems.",
   icons: {
-    icon: '/assets/Dark.png', // This references your icon file in the public folder
-    apple: '/assets/Dark.png',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
 };
 
@@ -29,6 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${raleway.className}`}>
+      {/* <head>
+        <link rel="icon" href="/assets/Dark.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/assets/Dark.png" />
+      </head> */}
       <body
         className={`${raleway.variable} antialiased`}
       >

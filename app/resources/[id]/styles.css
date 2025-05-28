@@ -1,56 +1,68 @@
-.swiper {
+.resources-page .swiper {
     width: 100%;
     height: 100%;
-  }
-  .swiper-slide {
+}
+
+.resources-page .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    /* background: #fff; */
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .swiper-slide img {
+}
+
+.resources-page .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  /* body {
+}
+
+
+/* body {
     background: #000;
     color: #000;
   } */
-  .swiper {
+
+.resources-page .swiper {
     width: 100%;
     height: 300px;
     margin-left: auto;
     margin-right: auto;
-  }
-  .swiper-slide {
+    margin-top: -120;
+}
+
+.resources-page .swiper-slide {
     background-size: cover;
     background-position: center;
-  }
-  .mySwiper2 {
+}
+
+.resources-page .mySwiper2 {
     height: 80%;
     width: 100%;
-  }
-  .mySwiper {
+}
+
+.resources-page .mySwiper {
     height: 20%;
     box-sizing: border-box;
-    padding: 10px 0;
-  }
-  .mySwiper .swiper-slide {
+    /* padding: 10px 0; */
+}
+
+.resources-page .mySwiper .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.4;
-  }
-  .mySwiper .swiper-slide-thumb-active {
+}
+
+.resources-page .mySwiper .swiper-slide-thumb-active {
     opacity: 1;
-  }
-  .swiper-slide img {
+}
+
+.resources-page .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}

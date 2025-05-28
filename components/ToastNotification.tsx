@@ -5,7 +5,7 @@ import { Toaster, ToastIcon, resolveValue } from "react-hot-toast";
 
 const ToastNotification = () => {
   return (
-    <Toaster position="top-right">
+    <Toaster position="top-center">
       {(t) => (
         <Transition
           as="div"

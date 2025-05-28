@@ -217,20 +217,77 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
 
             {/* Mockup Section */}
             <section className="relative w-full h-[884px] md:h-[884px] sm:h-auto bg-[#e4e5e6] rounded-[30px] overflow-hidden py-8 container mx-auto px-4 md:px-6">
-                <div className="absolute w-[573px] h-[1245px] top-[72px] left-[50%] translate-x-[-50%] md:left-[628px] md:translate-x-0 rounded-[52.95px] overflow-hidden bg-gradient-to-b from-[rgba(251,251,251,1)] to-[rgba(251,251,251,1)] hidden sm:block">
-                    <Image
-                        src={details?.mockups?.[0] || '/assets/default-mockup.svg'}
-                        alt="Rateo"
-                        width={573}
-                        height={1245}
-                        priority
-                    />
-                </div>
+        {/* ✅ Desktop only (exclude iPads including iPad Pro) */}
+<div className="hidden xl:block absolute w-[573px] h-[1245px] top-[72px] left-[628px] rounded-[52.95px] overflow-hidden bg-gradient-to-b from-white to-white">
+  <Image
+    src={details?.mockups?.[0] || '/assets/default-mockup.svg'}
+    alt="Rateo"
+    width={573}
+    height={1245}
+    priority
+  />
+</div>
+
+{/* ✅ iPads only (show up to 1279px, including iPad Pro) */}
+<div className="hidden md:block xl:hidden absolute w-[200px] h-[310px] top-[72px] left-[90%] translate-x-[-70%] rounded-[52.95px] overflow-hidden bg-gradient-to-b from-white to-white p-2 mt-40">
+  <Image
+    src={details?.mockups?.[0] || '/assets/default-mockup.svg'}
+    alt="Rateo"
+    width={200}
+    height={310}
+    priority
+  />
+</div>
+
+
+
+<div className="ipad-pro-mockup">
+  <Image
+    src={details?.mockups?.[0] || '/assets/default-mockup.svg'}
+    alt="Rateo"
+    width={320}
+    height={600}
+    priority
+  />
+
+  <style jsx>{`
+    .ipad-pro-mockup {
+      display: none;
+    }
+
+    @media only screen 
+      and (min-width: 1024px) 
+      and (max-width: 1366px) 
+      and (orientation: portrait) {
+      .ipad-pro-mockup {
+        display: block;
+        position: absolute;
+        width: 320px;
+        height: 600px;
+        top: 72px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 52.95px;
+        overflow: hidden;
+        background: linear-gradient(to bottom, white, white);
+        padding: 0.5rem;
+      }
+    }
+  `}</style>
+</div>
+
+
+
 
                 <div className="absolute w-[353px] h-[766px] top-[72px] left-[50%] translate-x-[-50%] sm:left-[140px] sm:translate-x-0 rounded-[27.94px] bg-[#fff5e1] overflow-hidden">
                     <Image src={details?.mockups?.[1] || '/assets/default-mockup.svg'} alt="Rateo" width={353} height={766} priority />
                 </div>
             </section>
+
+
+
+          
+
 
             {/* Our process section */}
             <motion.section

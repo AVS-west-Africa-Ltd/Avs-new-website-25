@@ -20,17 +20,16 @@ export const CaseStudiesSection = () => {
           className="flex flex-col items-center gap-6 max-w-[1040px] text-center"
         >
           <h2 className="font-raleway text-4xl sm:text-4xl md:text-[50px] leading-tight text-[#0f0f0f]">
-            <span className="font-semibold">Take charge of</span>
+            {/* <span className="font-semibold">We don’t just build</span>
             <span className="font-bold"> </span>
-            <span className="font-medium ">your business growth<span className="font-semibold">—We</span> </span>
+            <span className="font-medium italic">businesses that <br></br>launch</span> */}
             <span className="font-semibold">
-              don’t just build businesses that launch— We build businesses 
-            </span><span className="font-medium italic"> that Lead.</span>
+            <span className="font-semibold">We</span>    build 
+            </span><span className="font-medium italic"> businesses that Lead.</span>
           </h2>
 
           <p className="font-raleway text-sm sm:text-base text-[#0f0f0fa6] tracking-[-0.30px] leading-[19.5px]">
-            Focus on building your vision while we take care of the day-to-day
-            operations, ensuring seamless growth.
+          Take charge of your business growth, with AVS you have time to focus on building your vision.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2.5">
