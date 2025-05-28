@@ -104,27 +104,23 @@ export const HeaderSection = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
   return (
     <header
-      className={`fixed top-0 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "py-0 top-0" : ""
       }`}
     >
-      <div className="py-4 relative rounded-[0px_0px_26px_26px] bg-[#f0f0f0] backdrop-blur-[2.5px] overflow-visible mx-auto max-w-[1400px]">
-        <div className="flex items-center justify-between h-full px-6 lg:px-12">
-          {/* Navigation menu - left side for desktop */}
-          <div className="hidden lg:flex flex-1">
+      <div className={`py-4 relative bg-[#f0f0f0] backdrop-blur-[2.5px] overflow-visible mx-auto ${scrolled ? 'rounded-none' : 'rounded-b-[26px]'}`}>
+        <div className="flex items-center justify-between h-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          {/* Left side navigation items */}
+          <div className="hidden lg:flex items-center">
             <NavigationMenu>
-              <NavigationMenuList className="flex items-center gap-8">
-                {navItems.slice(0, 3).map((item, index) => (
+              <NavigationMenuList className="flex items-center gap-6">
+                {navItems.map((item, index) => (
                   <NavigationMenuItem key={index}>
                     <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
-                        className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
+                        className={`relative font-medium text-sm md:text-[15px] tracking-[-0.30px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
                           pathname === item.href
                             ? "text-black font-bold"
                             : "text-[#0f0f0fa6]"
@@ -202,15 +198,15 @@ export const HeaderSection = () => {
             </NavigationMenu>
           </div>
 
-          {/* Logo - centered */}
-          <div className="flex items-center justify-center flex-1 lg:flex-none">
+          {/* Logo - centered on mobile, left-aligned on desktop */}
+          <div className="flex-shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
             <Link href="/">
               <img
                 src="/assets/AVS Logo.svg"
                 alt="Logo"
                 width={150}
                 height={150}
-                className="object-contain"
+                className="object-contain w-[120px] md:w-[150px]"
               />
             </Link>
           </div>
@@ -239,9 +235,11 @@ export const HeaderSection = () => {
               </button>
             </div>
 
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center">
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden flex items-center justify-center"
+              className="flex items-center justify-center"
               aria-label="Toggle menu"
             >
               <Menu size={24} className="text-gray-900" />
@@ -249,7 +247,7 @@ export const HeaderSection = () => {
           </div>
         </div>
       </div>
-
+      </div>
       {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -258,16 +256,16 @@ export const HeaderSection = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 1, x: "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40"
+            className="lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto"
           >
             <div className="flex justify-between items-center py-4 px-6 border-b border-gray-100">
-              <Link href="/">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                 <img
                   src="/assets/AVS Logo.svg"
                   alt="Logo"
                   width={150}
                   height={150}
-                  className="object-contain"
+                  className="object-contain w-[120px]"
                 />
               </Link>
               <button
@@ -278,12 +276,8 @@ export const HeaderSection = () => {
                 <X size={24} className="text-gray-900" />
               </button>
             </div>
-            <motion.nav
-              className="flex flex-col p-6"
-              transition={{ duration: 0.3 }}
-            >
-              {/* Regular navigation items */}
-              {navItems.slice(0, 3).map((item, index) => (
+            <motion.nav className="flex flex-col p-6">
+              {navItems.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0 }}
@@ -357,23 +351,9 @@ export const HeaderSection = () => {
                     router.push("/contact-us");
                     setMobileMenuOpen(false);
                   }}
-                  className="w-auto h-12 rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors flex items-center gap-2"
+                  className="w-full h-12 rounded-full font-medium text-white bg-gray-900 hover:bg-gray-800 transition-colors"
                 >
-                  <span>Get in touch</span>
-                  <span className="ml-1">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12.75 3H2.75C2.0625 3 1.50625 3.5625 1.50625 4.25L1.5 11.75C1.5 12.4375 2.0625 13 2.75 13H12.75C13.4375 13 14 12.4375 14 11.75V4.25C14 3.5625 13.4375 3 12.75 3ZM12.75 5.5L7.75 8.625L2.75 5.5V4.25L7.75 7.375L12.75 4.25V5.5Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </span>
+                  Get in touch
                 </Button>
               </motion.div>
             </motion.nav>
