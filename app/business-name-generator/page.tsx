@@ -5,7 +5,7 @@ import Image from "next/image";
 import AV from "@/public/icons/av.svg";
 import { Download } from "lucide-react";
 
-const API_URL = "http://localhost:5002/api"; // Updated to match your server.js port
+const API_URL = "https://dashboard.aventurestud.io/api"; // Updated to match your server.js port
 
 interface Message {
   type: 'user' | 'ai';

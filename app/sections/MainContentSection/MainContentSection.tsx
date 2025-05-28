@@ -52,7 +52,7 @@ export const HeaderSection = () => {
     { label: "Our Process", href: "/our-process" },
     { label: "Resources", href: "/resources" },
     { label: "Case studies", href: "/case-studies" },
-    // { label: "Build with AI", href: "/build-with-ai" },
+    { label: "Build with AI", href: "/build-with-ai" },
   ];
 
   const dropdownItems = [
@@ -179,7 +179,7 @@ export const HeaderSection = () => {
                   )}
                 </NavigationMenuItem> */}
 
-                {navItems.slice(3).map((item, index) => (
+                {navItems.slice(5).map((item, index) => (
                   <NavigationMenuItem key={index + 3}>
                     <Link href={item.href} legacyBehavior passHref>
                       <NavigationMenuLink
@@ -321,7 +321,7 @@ export const HeaderSection = () => {
               </motion.div> */}
 
               {/* Remaining navigation items */}
-              {navItems.slice(3).map((item, index) => (
+              {navItems.slice(5).map((item, index) => (
                 <motion.div
                   key={index + 3}
                   initial={{ opacity: 0 }}

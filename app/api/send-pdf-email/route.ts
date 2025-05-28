@@ -15,8 +15,8 @@ export async function POST(req: NextRequest) {
       port: 587,
       secure: false,
       auth: {
-        user: process.env.EMAIL_USER || "idris@aventurestud.io",
-        pass: process.env.EMAIL_PASS || "uzam xobg qgqs aewa",
+        user: process.env.GMAILEMAIL_USER ,
+        pass: process.env.GMAILEMAIL_PASS,
       },
       tls: {
         rejectUnauthorized: false,

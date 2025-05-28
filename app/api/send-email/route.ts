@@ -46,8 +46,8 @@ export async function POST(req: NextRequest) {
       port: 587,
       secure: false, // Use true for port 465
       auth: {
-        user: "8dee4f001@smtp-brevo.com", // move to process.env.EMAIL_USER in prod
-        pass: "Rcmy6HBtK8wFXCSk",   // move to process.env.EMAIL_PASS
+        user: process.env.BREVOEMAIL_USER ,// in prod
+        pass: process.env.BREVOEMAIL_PASS,   // move to process.env.EMAIL_PASS
       },
       tls: {
         rejectUnauthorized: false,
