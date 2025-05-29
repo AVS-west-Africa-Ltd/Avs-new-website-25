@@ -193,7 +193,7 @@ export const CallToActionSection = () => {
               TikTok
             </button>
             <button className="text-[#EDE5E5] text-[15px] leading-[19.5px] tracking-[-0.3px] border px-2 py-1 md:px-4 md:py-2 rounded-[56px] border-[#EFF0F4] hover:bg-[#EFF0F4] hover:text-[#131211] transition-colors">
-             <a href="https://www.linkedin.com/company/a-venture-studio-avs/" target="_blank">Instagram</a> 
+             <a href="https://www.instagram.com/business_ready_avs/" target="_blank">Instagram</a> 
              
             </button>
           </div>
