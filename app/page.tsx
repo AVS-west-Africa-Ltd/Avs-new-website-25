@@ -1,3 +1,5 @@
+'use client'
+
 import { CaseStudiesSection } from "./sections/CaseStudiesSection";
 import { HeroSection } from "./sections/HeroSection/HeroSection";
 import { VisionSection } from "./sections/VisionSection";
@@ -6,20 +8,102 @@ import { FooterSection } from "./sections/FooterSection/FooterSection";
 import { FeaturesSection } from "./sections/FeaturesSection";
 import CaseStudiesShowcase from "./sections/TestimonialsSection/CaseStudiesShowcase";
 import { AIFeatureSection } from "./sections/IntroductionSection/AIFeatureSection";
+import { useQuery } from "@tanstack/react-query";
+import { sanityPageConfig } from "@/constants/constants";
+import client from "@/sanity";
 
 export default function Home() {
-  return (
-    <div className="bg-white w-full">
-      <div className="bg-white w-full mx-auto">
-        <CaseStudiesSection />
-        <HeroSection />
-        <CaseStudiesShowcase />
-        <AIFeatureSection />
-        <VisionSection />
-        <PartnershipSection />
-        <FooterSection />
-        <FeaturesSection />
+  const { data: pageData, isLoading } = useQuery({
+    queryKey: ['page', sanityPageConfig.landingPageId],
+    queryFn: () => fetchPageData(sanityPageConfig.landingPageId),
+  });
+
+  const {
+    data: pageData2,
+    isLoading: isLoading2,
+  } = useQuery({
+    queryKey: ['page', sanityPageConfig.caseStudyPageId],
+    queryFn: () => fetchPageData(sanityPageConfig.caseStudyPageId),
+  });
+
+
+  const fetchPageData = async (pageId: string) => {
+    const query = `*[_type == "page" && _id == "${pageId}"][0]`;
+    const result = await client.fetch(query);
+    return result;
+  };
+
+
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-black mb-6"></div>
+        <p className="text-xl font-semibold text-black overflow-hidden border-r-0 border-black whitespace-nowrap animate-typing px-2">
+        A Venture Studio Coming Up...
+        </p>
       </div>
-    </div>
-  );
+    );
+  }
+
+  // console.log("pageData2", pageData2);
+
+  if (pageData?.contentBlocks && pageData2?.contentBlocks) {
+    const heroTextBlock = pageData.contentBlocks.find(
+      (block: any) => block._type === 'heroTextBlock'
+    );
+    const heroFeatureImageBlock = pageData.contentBlocks.find(
+      (block: any) => block._type === 'heroFeatureImageBlock'
+    );
+    const homePartnersSection = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homePartnersSection'
+    );
+    const homeCaseStudiesSection = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homeCaseStudiesSection'
+    );
+    const homeFeatureAnnouncement = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homeFeatureAnnouncement'
+    );
+
+    const homeExpertiseShowcase = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homeExpertiseShowcase'
+    );
+
+    const homeTextImageSection = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homeTextImageSection'
+    );
+    const homeMissionStatement = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homeMissionStatement'
+    );
+    const homeFeatureGrid = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homeFeatureGrid'
+    );
+    const homecCTAWithMedia = pageData.contentBlocks.find(
+      (block: any) => block._type === 'homecCTAWithMedia'
+    );
+
+    const { contentBlocks } = pageData2;
+
+    const caseStudiesBlock = contentBlocks?.filter(
+      (block: any) => block._type === 'caseStudy'
+    );
+
+    // console.log("homeFeatureGrid", caseStudiesBlock);
+    // console.log("homeCaseStudiesSection", homeCaseStudiesSection);
+    return (
+      <div className="bg-white w-full">
+        <div className="bg-white w-full mx-auto">
+          {heroTextBlock && (<CaseStudiesSection data={heroTextBlock} heroFeatureImageBlock={heroFeatureImageBlock} />)}
+          {homePartnersSection && (<HeroSection data={homePartnersSection} />)}
+          {homeCaseStudiesSection && (<CaseStudiesShowcase data={homeCaseStudiesSection} caseStudiesBlock={caseStudiesBlock} />)}
+          {homeFeatureAnnouncement && <AIFeatureSection data={homeFeatureAnnouncement} />}
+          {homeExpertiseShowcase && <VisionSection data={homeExpertiseShowcase} />}
+          {homeMissionStatement && <PartnershipSection data={homeMissionStatement} />}
+          {homeFeatureGrid && <FooterSection data={homeFeatureGrid} />}
+          {homecCTAWithMedia && <FeaturesSection data={homecCTAWithMedia} />}
+        </div>
+      </div>
+    );
+  }
+
 }

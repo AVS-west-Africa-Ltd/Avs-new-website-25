@@ -7,6 +7,7 @@ import { HeaderSection } from "./sections/MainContentSection/MainContentSection"
 import { CallToActionSection } from "./sections/CallToActionSection";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ContextLayouts from "@/components/context-layouts";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -40,9 +41,11 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} antialiased`}
       >
-        <HeaderSection />
-        {children}
-        <CallToActionSection />
+        <ContextLayouts>
+          <HeaderSection />
+          {children}
+          <CallToActionSection />
+        </ContextLayouts>
       </body>
     </html>
   );

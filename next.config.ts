@@ -9,7 +9,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['res.cloudinary.com','cdn.builder.io'], // Add any other external domains here
+    domains: ['res.cloudinary.com','cdn.builder.io', 'cdn.sanity.io'], // Add any other external domains here
   },
   // You can add other config options as needed here
   eslint: {

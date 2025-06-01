@@ -7,8 +7,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { urlFor } from "@/sanity";
 
-export const HeroSection = () => {
+
+export const HeroSection = ({data}:any) => {
   // Array of partner logos
   // Each logo has an id, src (source), and alt (alternative text)
   // The id is used as a key for each SwiperSlide
@@ -33,9 +35,52 @@ const partnerLogos = [
   { id: 13, src: "/assets/p13.svg", alt: "Ye Logo" },
   { id: 14, src: "/assets/p14.svg", alt: "Group 8" },
 ];
-
+ if(data){
   return (
     <section className="w-full bg-[#021913] py-10">
+      <h2 className="mt-10 text-xl text-[#dee0e4] text-center font-['Raleway',Helvetica] font-normal tracking-[-0.30px] leading-[19.5px] mb-6">
+        {data.title || 'Our Partners'}
+      </h2>
+
+      <Card className="w-full border-none rounded-none bg-transparent mt-12">
+        <CardContent className="p-0 relative">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={10}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{ delay: 1000, disableOnInteraction: false }}
+            className="w-full"
+            breakpoints={{
+              480: { slidesPerView: 3, spaceBetween: 15 },
+              1024: { slidesPerView: 5, spaceBetween: 30 },
+            }}
+          >
+            {data.partners.map((partner: any) => (
+              <SwiperSlide key={partner._key} className="flex items-center justify-center">
+                <div className="flex items-center justify-center h-full w-full p-4">
+                  {partner?.logo?.asset?._ref && (
+                    <Image
+                      src={urlFor(partner.logo).url()}
+                      alt={partner.alt || 'Partner Logo'}
+                      className="max-w-[80%] max-h-[100px] object-contain"
+                      width={200}
+                      height={200}
+                    />
+                  )}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </CardContent>
+      </Card>
+    </section>
+  );
+
+ } else return (
+    // Main section for displaying partner logos
+    
+     <section className="w-full bg-[#021913] py-10">
       <h2 className="mt-10 text-xl text-[#dee0e4] text-center font-['Raleway',Helvetica] font-normal tracking-[-0.30px] leading-[19.5px] mb-6">
         Our Partners
       </h2>

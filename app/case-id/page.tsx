@@ -534,7 +534,7 @@ function CaseId() {
                 </p> */}
               </div>
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 items-start mt-8 text-xl sm:text-2xl font-medium tracking-tight leading-7">
-                <ActionCard
+                {/* <ActionCard
                   variant="light"
                   imageSrc="/assets/b1.svg"
                   backgroundImage="/assets/b1.svg"
@@ -548,7 +548,7 @@ function CaseId() {
                   text="Get in touch with us"
                   url="contact-us"
                   multiline
-                />
+                /> */}
               </div>
             </div>
           </motion.div>
@@ -561,7 +561,7 @@ function CaseId() {
             className="lg:w-2/3 lg:pl-5 md:w-full w-full flex items-end"
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch">
-              <CaseStudyCard
+              {/* <CaseStudyCard
                 imageSrc="https://res.cloudinary.com/dv5mvrtwx/image/upload/v1745537628/rateocase.png_jzcj3l.png"
                 title="On The Go"
                 subtitle="Get free wifi, On the Go!"
@@ -575,7 +575,7 @@ function CaseId() {
                 title="One Touch Football"
                 subtitle="Digital home for grassroots football"
                 className="bottom-3"
-              />
+              /> */}
             </div>
           </motion.div>
         </div>

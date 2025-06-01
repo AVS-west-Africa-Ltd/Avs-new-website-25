@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -12,6 +14,9 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import client, { urlFor } from "@/sanity";
+import { useQuery } from "@tanstack/react-query";
+import { sanityPageConfig } from "@/constants/constants";
 
 export const HeaderSection = () => {
   const router = useRouter();
@@ -20,6 +25,33 @@ export const HeaderSection = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const query = `*[_type == "page" && _id == "a86b95bf-8e1d-4349-848f-20eea243eeea"][0]`;
+  //       const result = await client.fetch(query);
+  //       console.log("Fetched data:", result);
+  //       // setPageData(result);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     } finally {
+  //       // setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+  const { data: pageData, isLoading } = useQuery({
+    queryKey: ['page', sanityPageConfig.headerId], // Unique key for this query, includes the pageId for specificity
+    queryFn: () => fetchPageData(sanityPageConfig.headerId),
+  });
+
+  const fetchPageData = async (pageId: string) => {
+    const query = `*[_type == "page" && _id == "${pageId}"][0]`;
+    const result = await client.fetch(query);
+    return result;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,262 +136,568 @@ export const HeaderSection = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "py-0 top-0" : ""
-      }`}
-    >
-      <div className={`py-4 relative bg-[#f0f0f0] backdrop-blur-[2.5px] overflow-visible mx-auto ${scrolled ? 'rounded-none' : 'rounded-b-[26px]'}`}>
-        <div className="flex items-center justify-between h-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          {/* Left side navigation items */}
-          <div className="hidden lg:flex items-center">
-            <NavigationMenu>
-              <NavigationMenuList className="flex items-center gap-6">
-                {navItems.map((item, index) => (
-                  <NavigationMenuItem key={index}>
-                    <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={`relative font-medium text-sm md:text-[15px] tracking-[-0.30px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
-                          pathname === item.href
-                            ? "text-black font-bold"
-                            : "text-[#0f0f0fa6]"
-                        }`}
-                      >
-                        {item.label}
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
-                ))}
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
-                {/* Dropdown Menu */}
-                {/* <NavigationMenuItem className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={toggleDropdown}
-                    className={`flex items-center gap-1 font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
-                      pathname === "/offerings" ||
-                      // pathname === "/services" ||
-                      pathname === "/resources"
-                        ? "text-black font-bold"
-                        : "text-[#0f0f0fa6]"
-                    }`}
-                  >
-                    Offerings{" "}
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform ${
-                        dropdownOpen ? "transform rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+  // if CMS not work display the olad data
+  if (isLoading || !pageData) {
 
-                  {dropdownOpen && (
-                    <div
-                      className="absolute top-full left-0 mt-4 w-[240px] bg-white rounded-lg shadow-lg z-50 overflow-visible"
-                      style={{
-                        transform: "translateY(0)",
-                        opacity: 1,
-                        pointerEvents: "auto",
-                      }}
-                    >
-                      {dropdownItems.map((item, idx) => (
-                        <Link
-                          key={idx}
-                          href={item.href}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition-colors"
-                          onClick={() => setDropdownOpen(false)}
+    return (
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? "py-0 top-0" : ""
+        }`}
+      >
+        <div className={`py-4 relative bg-[#f0f0f0] backdrop-blur-[2.5px] overflow-visible mx-auto ${scrolled ? 'rounded-none' : 'rounded-b-[26px]'}`}>
+          <div className="flex items-center justify-between h-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            {/* Left side navigation items */}
+            <div className="hidden lg:flex items-center">
+              <NavigationMenu>
+                <NavigationMenuList className="flex items-center gap-6">
+                  {navItems.map((item, index) => (
+                    <NavigationMenuItem key={index}>
+                      <Link href={item.href} legacyBehavior passHref>
+                        <NavigationMenuLink
+                          className={`relative font-medium text-sm md:text-[15px] tracking-[-0.30px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
+                            pathname === item.href
+                              ? "text-black font-bold"
+                              : "text-[#0f0f0fa6]"
+                          }`}
                         >
-                          {item.icon}
-
-                          <span className="text-sm font-medium">
-                            {item.label}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </NavigationMenuItem> */}
-
-                {navItems.slice(5).map((item, index) => (
-                  <NavigationMenuItem key={index + 3}>
-                    <Link href={item.href} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
-                          pathname === item.href
-                            ? "text-black font-bold"
-                            : "text-[#0f0f0fa6]"
+                          {item.label}
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  ))}
+  
+                  {/* Dropdown Menu */}
+                  {/* <NavigationMenuItem className="relative" ref={dropdownRef}>
+                    <button
+                      onClick={toggleDropdown}
+                      className={`flex items-center gap-1 font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
+                        pathname === "/offerings" ||
+                        // pathname === "/services" ||
+                        pathname === "/resources"
+                          ? "text-black font-bold"
+                          : "text-[#0f0f0fa6]"
+                      }`}
+                    >
+                      Offerings{" "}
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform ${
+                          dropdownOpen ? "transform rotate-180" : ""
                         }`}
+                      />
+                    </button>
+  
+                    {dropdownOpen && (
+                      <div
+                        className="absolute top-full left-0 mt-4 w-[240px] bg-white rounded-lg shadow-lg z-50 overflow-visible"
+                        style={{
+                          transform: "translateY(0)",
+                          opacity: 1,
+                          pointerEvents: "auto",
+                        }}
                       >
-                        {item.label}
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-
-          {/* Logo - centered on mobile, left-aligned on desktop */}
-          <div className="flex-shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-            <Link href="/">
-              <img
-                src="/assets/AVS Logo.svg"
-                alt="Logo"
-                width={150}
-                height={150}
-                className="object-contain w-[120px] md:w-[150px]"
-              />
-            </Link>
-          </div>
-
-          {/* Buttons and mobile menu toggle - right side */}
-          <div className="flex items-center justify-end gap-4 flex-1">
-            {/* Wrapper div for responsive visibility */}
-            <div className="hidden md:block">
-              <button
-                onClick={() => router.push("/contact-us")}
-                className="cursor-pointer py-2 px-4 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
-              >
-                <span className="flex items-center gap-2 text-[15px]">Get in touch</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.5847 2.75H2.58472C1.89722 2.75 1.34097 3.3125 1.34097 4L1.33472 11.5C1.33472 12.1875 1.89722 12.75 2.58472 12.75H12.5847C13.2722 12.75 13.8347 12.1875 13.8347 11.5V4C13.8347 3.3125 13.2722 2.75 12.5847 2.75ZM12.5847 5.25L7.58472 8.375L2.58472 5.25V4L7.58472 7.125L12.5847 4V5.25Z"
-                    fill="white"
-                  />
-                </svg>
-              </button>
+                        {dropdownItems.map((item, idx) => (
+                          <Link
+                            key={idx}
+                            href={item.href}
+                            className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition-colors"
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            {item.icon}
+  
+                            <span className="text-sm font-medium">
+                              {item.label}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </NavigationMenuItem> */}
+  
+                  {navItems.slice(5).map((item, index) => (
+                    <NavigationMenuItem key={index + 3}>
+                      <Link href={item.href} legacyBehavior passHref>
+                        <NavigationMenuLink
+                          className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
+                            pathname === item.href
+                              ? "text-black font-bold"
+                              : "text-[#0f0f0fa6]"
+                          }`}
+                        >
+                          {item.label}
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
-
-          {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center">
-            <button
-              onClick={toggleMobileMenu}
-              className="flex items-center justify-center"
-              aria-label="Toggle menu"
-            >
-              <Menu size={24} className="text-gray-900" />
-            </button>
-          </div>
-        </div>
-      </div>
-      </div>
-      {/* Mobile Navigation Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 1, x: "-100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 1, x: "-100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto"
-          >
-            <div className="flex justify-between items-center py-4 px-6 border-b border-gray-100">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+  
+            {/* Logo - centered on mobile, left-aligned on desktop */}
+            <div className="flex-shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+              <Link href="/">
                 <img
                   src="/assets/AVS Logo.svg"
                   alt="Logo"
                   width={150}
                   height={150}
-                  className="object-contain w-[120px]"
+                  className="object-contain w-[120px] md:w-[150px]"
                 />
               </Link>
+            </div>
+  
+            {/* Buttons and mobile menu toggle - right side */}
+            <div className="flex items-center justify-end gap-4 flex-1">
+              {/* Wrapper div for responsive visibility */}
+              <div className="hidden md:block">
+                <button
+                  onClick={() => router.push("/contact-us")}
+                  className="cursor-pointer py-2 px-4 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+                >
+                  <span className="flex items-center gap-2 text-[15px]">Get in touch</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.5847 2.75H2.58472C1.89722 2.75 1.34097 3.3125 1.34097 4L1.33472 11.5C1.33472 12.1875 1.89722 12.75 2.58472 12.75H12.5847C13.2722 12.75 13.8347 12.1875 13.8347 11.5V4C13.8347 3.3125 13.2722 2.75 12.5847 2.75ZM12.5847 5.25L7.58472 8.375L2.58472 5.25V4L7.58472 7.125L12.5847 4V5.25Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+              </div>
+  
+            {/* Mobile menu button */}
+            <div className="lg:hidden flex items-center">
               <button
                 onClick={toggleMobileMenu}
                 className="flex items-center justify-center"
-                aria-label="Close menu"
+                aria-label="Toggle menu"
               >
-                <X size={24} className="text-gray-900" />
+                <Menu size={24} className="text-gray-900" />
               </button>
             </div>
-            <motion.nav className="flex flex-col p-6">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.05 }}
+          </div>
+        </div>
+        </div>
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 1, x: "-100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 1, x: "-100%" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto"
+            >
+              <div className="flex justify-between items-center py-4 px-6 border-b border-gray-100">
+                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                  <img
+                    src="/assets/AVS Logo.svg"
+                    alt="Logo"
+                    width={150}
+                    height={150}
+                    className="object-contain w-[120px]"
+                  />
+                </Link>
+                <button
+                  onClick={toggleMobileMenu}
+                  className="flex items-center justify-center"
+                  aria-label="Close menu"
                 >
-                  <Link
-                    href={item.href}
-                    className={`block py-4 text-2xl font-medium ${
-                      pathname === item.href ? "text-black" : "text-gray-600"
-                    } hover:text-black transition-colors`}
-                    onClick={() => setMobileMenuOpen(false)}
+                  <X size={24} className="text-gray-900" />
+                </button>
+              </div>
+              <motion.nav className="flex flex-col p-6">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: index * 0.05 }}
                   >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-
-              {/* Mobile Offerings dropdown */}
-              {/* <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 3 * 0.05 }}
-              >
-                <div className="block py-4 text-2xl font-medium text-gray-600">
-                  Offerings
-                </div>
-                <div className="pl-4 mb-2">
-                  {dropdownItems.map((item, idx) => (
                     <Link
-                      key={idx}
                       href={item.href}
-                      className="flex items-center gap-3 py-3 text-lg text-gray-500 hover:text-gray-900"
+                      className={`block py-4 text-2xl font-medium ${
+                        pathname === item.href ? "text-black" : "text-gray-600"
+                      } hover:text-black transition-colors`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {item.icon}
-                      <span>{item.label}</span>
+                      {item.label}
                     </Link>
-                  ))}
-                </div>
-              </motion.div> */}
-
-              {/* Remaining navigation items */}
-              {navItems.slice(5).map((item, index) => (
-                <motion.div
-                  key={index + 3}
+                  </motion.div>
+                ))}
+  
+                {/* Mobile Offerings dropdown */}
+                {/* <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: (index + 4) * 0.05 }}
+                  transition={{ delay: 3 * 0.05 }}
                 >
-                  <Link
-                    href={item.href}
-                    className={`block py-4 text-2xl font-medium ${
-                      pathname === item.href ? "text-black" : "text-gray-600"
-                    } hover:text-black transition-colors`}
-                    onClick={() => setMobileMenuOpen(false)}
+                  <div className="block py-4 text-2xl font-medium text-gray-600">
+                    Offerings
+                  </div>
+                  <div className="pl-4 mb-2">
+                    {dropdownItems.map((item, idx) => (
+                      <Link
+                        key={idx}
+                        href={item.href}
+                        className="flex items-center gap-3 py-3 text-lg text-gray-500 hover:text-gray-900"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.icon}
+                        <span>{item.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div> */}
+  
+                {/* Remaining navigation items */}
+                {navItems.slice(5).map((item, index) => (
+                  <motion.div
+                    key={index + 3}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: (index + 4) * 0.05 }}
                   >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: navItems.length * 0.05 }}
-                className="mt-12"
-              >
-                <Button
-                  onClick={() => {
-                    router.push("/contact-us");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full h-12 rounded-full font-medium text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+                    <Link
+                      href={item.href}
+                      className={`block py-4 text-2xl font-medium ${
+                        pathname === item.href ? "text-black" : "text-gray-600"
+                      } hover:text-black transition-colors`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+  
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: navItems.length * 0.05 }}
+                  className="mt-12"
                 >
-                  Get in touch
-                </Button>
+                  <Button
+                    onClick={() => {
+                      router.push("/contact-us");
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full h-12 rounded-full font-medium text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+                  >
+                    Get in touch
+                  </Button>
+                </motion.div>
+              </motion.nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+    );
+    
+  }
+
+  if (pageData?.contentBlocks && pageData.contentBlocks.length > 0) {
+    const siteNavData = pageData.contentBlocks[0];
+
+    if (siteNavData._type === 'siteNav') {
+      const { navLinks, logo, cta } = siteNavData;
+      return (
+        <header
+          className={`fixed top-0 left-4 right-4 md:left-8 md:right-8 lg:left-16 lg:right-16 z-50 transition-all duration-300 ${scrolled ? "py-0 top-0" : ""
+            }`}
+        >
+          <div className="py-4 relative rounded-[0px_0px_26px_26px] bg-[#f0f0f0] backdrop-blur-[2.5px] overflow-visible mx-auto max-w-[1400px]">
+            <div className="flex items-center justify-between h-full px-6 lg:px-12">
+              {/* Navigation menu - left side for desktop */}
+              <div className="hidden lg:flex flex-1">
+                <NavigationMenu>
+                  <NavigationMenuList className="flex items-center gap-8">
+                    {navLinks?.slice(0, 3)?.map((item: any, index: number) => (
+                      <NavigationMenuItem key={index}>
+                        <Link href={item?.url} legacyBehavior passHref>
+                          <NavigationMenuLink
+                            className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item?.url
+                              ? "text-black font-bold"
+                              : "text-[#0f0f0fa6]"
+                              }`}
+                          >
+                            {item?.label}
+                          </NavigationMenuLink>
+                        </Link>
+                      </NavigationMenuItem>
+                    ))}
+
+                    {/* Dropdown Menu */}
+                    {/* <NavigationMenuItem className="relative" ref={dropdownRef}>
+                      <button
+                        onClick={toggleDropdown}
+                        className={`flex items-center gap-1 font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
+                          pathname === "/offerings" ||
+                          // pathname === "/services" ||
+                          pathname === "/resources"
+                            ? "text-black font-bold"
+                            : "text-[#0f0f0fa6]"
+                        }`}
+                      >
+                        Offerings{" "}
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform ${
+                            dropdownOpen ? "transform rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+    
+                      {dropdownOpen && (
+                        <div
+                          className="absolute top-full left-0 mt-4 w-[240px] bg-white rounded-lg shadow-lg z-50 overflow-visible"
+                          style={{
+                            transform: "translateY(0)",
+                            opacity: 1,
+                            pointerEvents: "auto",
+                          }}
+                        >
+                          {dropdownItems.map((item, idx) => (
+                            <Link
+                              key={idx}
+                              href={item.href}
+                              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition-colors"
+                              onClick={() => setDropdownOpen(false)}
+                            >
+                              {item.icon}
+    
+                              <span className="text-sm font-medium">
+                                {item.label}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </NavigationMenuItem> */}
+
+                    {navLinks?.slice(3)?.map((item: any, index: number) => (
+                      <NavigationMenuItem key={index + 3}>
+                        <Link href={item.url} legacyBehavior passHref>
+                          <NavigationMenuLink
+                            className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item?.url
+                              ? "text-black font-bold"
+                              : "text-[#0f0f0fa6]"
+                              }`}
+                          >
+                            {item?.label}
+                          </NavigationMenuLink>
+                        </Link>
+                      </NavigationMenuItem>
+                    ))}
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </div>
+
+              {/* Logo - centered */}
+              <div className="flex items-center justify-center flex-1 lg:flex-none">
+                {/* {logo?.asset?.url &&
+                  <Link href="/">
+                    <img
+                      src={logo.asset.url}
+                      alt="Logo"
+                      width={150}
+                      height={150}
+                      className="object-contain"
+                    />
+                  </Link>} */}
+
+                {logo?.asset?._ref && (
+                  <Link href="/">
+                    <img
+                      src={urlFor(logo)?.url()}
+                      alt="Logo"
+                      width={150}
+                      height={150}
+                      className="object-contain"
+                    />
+                  </Link>
+                )}
+              </div>
+
+              {/* Buttons and mobile menu toggle - right side */}
+              <div className="flex items-center justify-end gap-4 flex-1">
+                {/* Wrapper div for responsive visibility */}
+                <div className="hidden md:block">
+                  {cta?.label && cta?.url && (
+                    <button
+                      onClick={() => router.push(cta.url)}
+                      className="cursor-pointer py-2 px-4 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+                    >
+                      <span className="flex items-center gap-2 text-[15px]">{cta.label}</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.5847 2.75H2.58472C1.89722 2.75 1.34097 3.3125 1.34097 4L1.33472 11.5C1.33472 12.1875 1.89722 12.75 2.58472 12.75H12.5847C13.2722 12.75 13.8347 12.1875 13.8347 11.5V4C13.8347 3.3125 13.2722 2.75 12.5847 2.75ZM12.5847 5.25L7.58472 8.375L2.58472 5.25V4L7.58472 7.125L12.5847 4V5.25Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+
+                <button
+                  onClick={toggleMobileMenu}
+                  className="lg:hidden flex items-center justify-center"
+                  aria-label="Toggle menu"
+                >
+                  <Menu size={24} className="text-gray-900" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Navigation Menu */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 1, x: "-100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 1, x: "-100%" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40"
+              >
+                <div className="flex justify-between items-center py-4 px-6 border-b border-gray-100">
+                  {logo?.asset?._ref && (
+                    <Link href="/">
+                      <img
+                        src={urlFor(logo).url()}
+                        alt="Logo"
+                        width={150}
+                        height={150}
+                        className="object-contain"
+                      />
+                    </Link>
+                  )}
+                  <button
+                    onClick={toggleMobileMenu}
+                    className="flex items-center justify-center"
+                    aria-label="Close menu"
+                  >
+                    <X size={24} className="text-gray-900" />
+                  </button>
+                </div>
+                <motion.nav
+                  className="flex flex-col p-6"
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Regular navigation items */}
+                  {navLinks?.slice(0, 3).map((item: any, index: number) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      <Link
+                        href={item?.url}
+                        className={`block py-4 text-2xl font-medium ${pathname === item?.url ? "text-black" : "text-gray-600"
+                          } hover:text-black transition-colors`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item?.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+
+                  {/* Mobile Offerings dropdown */}
+                  {/* <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 3 * 0.05 }}
+                  >
+                    <div className="block py-4 text-2xl font-medium text-gray-600">
+                      Offerings
+                    </div>
+                    <div className="pl-4 mb-2">
+                      {dropdownItems.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          href={item.href}
+                          className="flex items-center gap-3 py-3 text-lg text-gray-500 hover:text-gray-900"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.icon}
+                          <span>{item.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div> */}
+
+                  {/* Remaining navigation items */}
+                  {navLinks?.slice(3).map((item: any, index: number) => (
+                    <motion.div
+                      key={index + 3}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: (index + 4) * 0.05 }}
+                    >
+                      <Link
+                        href={item?.url}
+                        className={`block py-4 text-2xl font-medium ${pathname === item?.url ? "text-black" : "text-gray-600"
+                          } hover:text-black transition-colors`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item?.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: navItems.length * 0.05 }}
+                    className="mt-12"
+                  >
+                    {cta?.label && cta?.url && (
+                      <Button
+                        onClick={() => {
+                          router.push(cta?.url);
+                          setMobileMenuOpen(false);
+                        }}
+                        className="w-auto h-12 rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors flex items-center gap-2"
+                      >
+                        <span>{cta?.label}</span>
+                        <span className="ml-1">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12.75 3H2.75C2.0625 3 1.50625 3.5625 1.50625 4.25L1.5 11.75C1.5 12.4375 2.0625 13 2.75 13H12.75C13.4375 13 14 12.4375 14 11.75V4.25C14 3.5625 13.4375 3 12.75 3ZM12.75 5.5L7.75 8.625L2.75 5.5V4.25L7.75 7.375L12.75 4.25V5.5Z"
+                              fill="white"
+                            />
+                          </svg>
+                        </span>
+                      </Button>
+                    )}
+                  </motion.div>
+                </motion.nav>
               </motion.div>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  );
+            )}
+          </AnimatePresence>
+        </header>
+      );
+    }
+  }
+
 };

@@ -51,7 +51,9 @@ interface IWireframe {
 
 export interface CaseDetails {
   id?: any;
+  _key?: string;
   appName?: string;
+  thumbnailImage?: string;
   shortDescription?: string;
   projectDetails?: IProjectDetails[];
   appImage?: string;

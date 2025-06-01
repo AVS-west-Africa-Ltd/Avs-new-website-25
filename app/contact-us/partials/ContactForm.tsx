@@ -384,7 +384,7 @@ import 'react-phone-input-2/lib/style.css'
 import toast from "react-hot-toast";
 import ToastNotification from "../../../components/ToastNotification";
 
-const ContactForm = () => {
+const ContactForm = ({ data }: any) => {
   const [formData, setFormData] = useState<{
     firstName: string;
     lastName: string;
@@ -534,7 +534,7 @@ const ContactForm = () => {
     <div className="bg-gray-50 py-16 px-4 md:py-24">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-          We would love to hear from you
+          {data?.formTitle}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-8">
@@ -728,7 +728,7 @@ const ContactForm = () => {
               htmlFor="subscribed"
               className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
-              By Subscribing you agree to receive emails and updates regularly
+              {data?.consentText}
             </label>
           </div>
 
@@ -746,7 +746,8 @@ const ContactForm = () => {
         >
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>Sending...</>) :  ("Submit form") }
+        </svg>Sending...</>) :( data?.submitButtonLabel|| "Submit form") }
+
           </Button>
         </form>
       </div>
