@@ -19,56 +19,43 @@ import CaseStudiesShowcase from "@/app/sections/TestimonialsSection/CaseStudiesS
 import { useQuery } from "@tanstack/react-query";
 import client, { urlFor } from "@/sanity";
 
-// export function getProjectById(id: any): CaseDetails | undefined {
-//     return OurProjects.find(project => project.id === id);
-// }
-
-
 function CaseId({ params }: { params: Promise<{ id: any }> }) {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-    const [details, setDetails] = useState<CaseDetails>({})
+    const [details, setDetails] = useState<CaseDetails>({});
     const { id } = use(params);
-
-    // console.log(id) 
-    // useEffect(() => {
-    //     if (id) {
-    //         const rateoProject = OurProjects.find(project => project.id === Number(id)) || {} as CaseDetails;
-    //         console.log("Project", rateoProject);
-    //         setDetails(rateoProject)
-    //     }
-    // }, [id]);
 
     const {
         data: pageData2,
         isLoading: isLoading2,
-      } = useQuery({
-        queryKey: ['page', sanityPageConfig.caseStudyPageId],
+        isError,
+    } = useQuery({
+        queryKey: ['page', sanityPageConfig.caseStudyPageId, id],
         queryFn: () => fetchPageData(sanityPageConfig.caseStudyPageId),
-      });
+        staleTime: 60 * 1000, // 1 minute
+    });
       
     const fetchPageData = async (pageId: string) => {
         const query = `*[_type == "page" && _id == "${pageId}"][0]`;
         const result = await client.fetch(query);
         return result;
-      };
+    };
 
-      useEffect(() => {
+    useEffect(() => {
         if (pageData2) {
-            const rateoProject = pageData2?.contentBlocks?.find((project: any) => project._type === "caseStudy" && project._key === id) || {} as CaseDetails;
-            console.log("Project", rateoProject);
-            setDetails(rateoProject)
+            const rateoProject = pageData2?.contentBlocks?.find(
+                (project: any) => project._type === "caseStudy" && project._key === id
+            );
+            
+            if (rateoProject) {
+                setDetails(rateoProject);
+            } else {
+                // Fallback to local data if Sanity data not found
+                const localProject = OurProjects.find(project => project.id === Number(id));
+                if (localProject) setDetails(localProject);
+            }
         }
-      }, [pageData2, id]);
+    }, [pageData2, id]);
 
-      console.log("pageData2", pageData2);
-
-      useEffect(() => {
-        if (id) {
-            const rateoProject = OurProjects.find(project => project.id === Number(id)) || {} as CaseDetails;
-            console.log("Project", rateoProject);
-            setDetails(rateoProject)
-        }
-    }, [id]);
     // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -104,7 +91,36 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
             },
         },
     };
-if(pageData2){
+
+    // Loading and error states
+    if (isLoading2) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <p className="text-2xl font-semibold text-gray-700">Loading case study...</p>
+            </div>
+        );
+    }
+
+    if (isError) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <p className="text-2xl font-semibold text-red-600">
+                    Failed to load case study data
+                </p>
+            </div>
+        );
+    }
+
+    if (!details || Object.keys(details).length === 0) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <p className="text-2xl font-semibold text-gray-700">
+                    Case study not found
+                </p>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-white w-full pt-20 md:pt-16">
             {/* Hero Section */}
@@ -181,17 +197,19 @@ if(pageData2){
             </motion.div>
 
             {/* Main Image */}
-            {details?.appImage &&<motion.div
-                initial="hidden"
-                animate="visible"
-                variants={imageVariants}
-                className="w-full rounded-xl md:rounded-3xl lg:rounded-[32px] overflow-hidden mt-8 px-4 md:px-0 container mx-auto"
-            >
-                <div
-                    className="w-full aspect-[4/3] md:aspect-[928/545] mx-auto rounded-lg md:rounded-[26px] bg-cover bg-center"
-                    style={{ backgroundImage: `url(${urlFor(details?.appImage)})` }}
-                />
-            </motion.div>}
+            {details?.appImage && (
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={imageVariants}
+                    className="w-full rounded-xl md:rounded-3xl lg:rounded-[32px] overflow-hidden mt-8 px-4 md:px-0 container mx-auto"
+                >
+                    <div
+                        className="w-full aspect-[4/3] md:aspect-[928/545] mx-auto rounded-lg md:rounded-[26px] bg-cover bg-center"
+                        style={{ backgroundImage: `url(${urlFor(details?.appImage)})` }}
+                    />
+                </motion.div>
+            )}
 
             {/* Overview Section */}
             <motion.div
@@ -262,7 +280,7 @@ if(pageData2){
     priority
   /> */}
   {details?.mockups?.[0] && <Image
-                        src={urlFor(details?.mockups?.[0])?.url() || '/assets/default-mockup.svg'}
+                        src={urlFor(details?.mockups?.[0])?.url() ||details?.mockups?.[0]|| '/assets/default-mockup.svg'}
                         alt="Rateo"
                         width={573}
                         height={1245}
@@ -296,7 +314,7 @@ if(pageData2){
   /> */}
 
 {details?.mockups?.[0] && <Image
-                        src={urlFor(details?.mockups?.[0])?.url() || '/assets/default-mockup.svg'}
+                        src={urlFor(details?.mockups?.[0])?.url()||details?.mockups?.[0] || '/assets/default-mockup.svg'}
                         alt="Rateo"
                         width={320}
                         height={600}
@@ -333,7 +351,7 @@ if(pageData2){
 
 
                 <div className="absolute w-[353px] h-[766px] top-[72px] left-[50%] translate-x-[-50%] sm:left-[140px] sm:translate-x-0 rounded-[27.94px] bg-[#fff5e1] overflow-hidden">
-                    {details?.mockups?.[1] && <Image src={urlFor(details?.mockups?.[1])?.url() || '/assets/default-mockup.svg'} alt="Rateo" width={353} height={766} priority />}
+                    {details?.mockups?.[1] && <Image src={urlFor(details?.mockups?.[1])?.url() || details?.mockups?.[1]|| '/assets/default-mockup.svg'} alt="Rateo" width={353} height={766} priority />}
                 </div>
             </section>
 
@@ -787,13 +805,7 @@ if(pageData2){
         </div>
     );
 
-} else{
-    return (
-        <div className="flex items-center justify-center min-h-screen">
-            <p className="text-2xl font-semibold text-gray-700">Loading...</p>
-        </div>
-    );
 }
-}
+
 
 export default CaseId;
