@@ -23,6 +23,7 @@ export const sanityPageConfig = {
   resourcesPageId: "3a29be43-2300-4844-9134-3b5635c8f88a",
   contactPageId: "4c1a2bce-a21e-4b2b-a092-8c598ea4b103",
   servicePageId: "58c6d594-7676-4d8d-a81e-810cba1f8bdb",
+  metaTagPagId:"4d19119f-9c6a-456f-9dab-f2e1ab90fca1"
 };
 
 // Create an array of process steps

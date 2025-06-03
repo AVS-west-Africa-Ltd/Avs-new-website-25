@@ -8,24 +8,45 @@ import { CallToActionSection } from "./sections/CallToActionSection";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ContextLayouts from "@/components/context-layouts";
+import { getSiteSettings } from "@/lib/generalSiteSetting";
+import { sanityPageConfig } from "@/constants/constants";
 
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",
 })
 
-export const metadata: Metadata = {
-  title: "A Venture Studio | AI-powered Tech and Digital Solutions",
-  description: "A Venture Studio is a venture studio that builds and invests in tech and digital driven solutions. We are dedicated to creating innovative products and services that leverage the power of expert humans and artificial intelligence to solve real-world problems.",
-  icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png',
-  },
-};
+// export const metadata: Metadata = {
+//   title: "A Venture Studio | AI-powered Tech and Digital Solutions",
+//   description: "A Venture Studio is a venture studio that builds and invests in tech and digital driven solutions. We are dedicated to creating innovative products and services that leverage the power of expert humans and artificial intelligence to solve real-world problems.",
+//   icons: {
+//     icon: [
+//       { url: '/favicon.ico' },
+//       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+//       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+//     ],
+//     apple: '/apple-touch-icon.png',
+//   },
+// };
+
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings(sanityPageConfig.metaTagPagId);
+  return {
+    title: settings?.title || "A Venture Studio | AI-powered Tech and Digital Solutions",
+    description: settings?.description || "A Venture Studio is a venture studio that builds and invests in tech and digital driven solutions. We are dedicated to creating innovative products and services that leverage the power of expert humans and artificial intelligence to solve real-world problems",
+    icons: {
+      icon: settings?.faviconUrl || "/favicon.ico",
+      apple: settings?.faviconUrl || "/apple-touch-icon.png",
+    },
+  };
+}
+
+
+
+
+
+
 
 export default function RootLayout({
   children,
