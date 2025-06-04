@@ -220,7 +220,7 @@ if (isLoading) {
           {heroTextBlock && (<CaseStudiesSection data={heroTextBlock} heroFeatureImageBlock={heroFeatureImageBlock} />)}
           {homePartnersSection && (<HeroSection data={homePartnersSection} />)}
           {homeCaseStudiesSection && (<CaseStudiesShowcase data={homeCaseStudiesSection} caseStudiesBlock={caseStudiesBlock} />)}
-          {homeFeatureAnnouncement && <AIFeatureSection data={homeFeatureAnnouncement} />}
+          {/* {homeFeatureAnnouncement && <AIFeatureSection data={homeFeatureAnnouncement} />} */}
           {homeExpertiseShowcase && <VisionSection data={homeExpertiseShowcase} />}
           {homeMissionStatement && <PartnershipSection data={homeMissionStatement} />}
           {homeFeatureGrid && <FooterSection data={homeFeatureGrid} />}
