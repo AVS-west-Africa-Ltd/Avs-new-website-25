@@ -351,10 +351,10 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
 
   return (
     <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-2 mt-16 sm:mt-40">
-       {/* <Link href="/resources" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8">
+       <Link href="/resources" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8">
         <ChevronLeft className="w-4 h-4 mr-1" />
         Back to Resources
-      </Link> */}
+      </Link>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         {/* Left Column - Information */}
         <div className="space-y-8 md:justify-center md:pt-10">

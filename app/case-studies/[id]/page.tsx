@@ -198,18 +198,39 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
 
             {/* Main Image */}
             {details?.appImage && (
+                <>
+                {/* <div  className="w-full rounded-xl md:rounded-3xl lg:rounded-[32px] overflow-hidden mt-8 px-4 md:px-0 container mx-auto">
+
+                <div className="w-full aspect-[4/3] md:aspect-[928/545] mx-auto overflow-hidden rounded-lg md:rounded-[26px]">
+  <img
+    src={urlFor(details?.appImage)?.url()}
+    alt="App Image"
+    className="w-full h-full object-contain rounded-lg md:rounded-[26px] transition-transform duration-500 ease-in-out transform hover:scale-105"
+  />
+                </div>
+
+</div> */}
                 <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={imageVariants}
                     className="w-full rounded-xl md:rounded-3xl lg:rounded-[32px] overflow-hidden mt-8 px-4 md:px-0 container mx-auto"
                 >
-                    <div
-                        className="w-full aspect-[4/3] md:aspect-[928/545] mx-auto rounded-lg md:rounded-[26px] bg-cover bg-center"
-                        style={{ backgroundImage: `url(${urlFor(details?.appImage)})` }}
-                    />
+                   
+                   
+
+
+<div
+  className="w-full aspect-[4/3] md:aspect-[928/545] mx-auto rounded-lg md:rounded-[26px] overflow-hidden bg-fit  bg-center bg-no-repeat transition-transform duration-500 ease-in-out transform hover:scale-105"
+  style={{ backgroundImage: `url(${urlFor(details?.appImage)})` }}
+/>
+
                 </motion.div>
+</>
+
             )}
+
+
 
             {/* Overview Section */}
             <motion.div

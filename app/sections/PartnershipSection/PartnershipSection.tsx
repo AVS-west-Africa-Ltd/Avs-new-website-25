@@ -61,7 +61,15 @@ export const PartnershipSection = ({ data }: any) => {
         {/* Left Column (Heading & Button) */}
         <div className="md:col-span-3">
         <h2 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold tracking-tight mb-4">
-            {data?.title}
+        {data?.title?.includes(" is ") ? (
+    <>
+      {data.title.split(" is ")[0]}
+      <br/>
+      is {data.title.split(" is ")[1]}
+    </>
+  ) : (
+    data?.title
+  )}
           </h2>
 {/* 
           <button className="w-full md:w-auto rounded-full bg-[#0f0f0f] px-6 py-3">

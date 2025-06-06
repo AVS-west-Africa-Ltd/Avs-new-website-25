@@ -29,6 +29,7 @@ const raleway = Raleway({
 //   },
 // };
 
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings(sanityPageConfig.metaTagPagId);

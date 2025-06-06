@@ -11,6 +11,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
 
 interface TemplateCardProps {
   name: string;
@@ -533,7 +534,7 @@ const TemplateSection = () => {
               {/* bg-[#F0F0F0] this was bg i remove */}
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/Ecosys2.png"
-                  alt="Slide 3"
+                  alt="Slide3"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
@@ -580,7 +581,7 @@ const TemplateSection = () => {
                   style={{ objectFit: "contain" }}
                 />
               </div>
-            </SwiperSlide>3
+            </SwiperSlide>
           </Swiper>
         </div>
       )}
@@ -661,6 +662,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray- mt-16">
       <div className="container mx-auto px-4 py-8 md:py-16">
+          <Link href="/resources" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8">
+        <ChevronLeft className="w-4 h-4 mr-1" />
+        Back to Resources
+      </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="lg:order-last">
             <TemplateSection />
