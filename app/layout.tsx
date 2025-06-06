@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ContextLayouts from "@/components/context-layouts";
 import { getSiteSettings } from "@/lib/generalSiteSetting";
 import { sanityPageConfig } from "@/constants/constants";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -62,7 +63,8 @@ export default function RootLayout({
       </head> */}
       <body
         className={`${raleway.variable} antialiased`}
-      >
+      >        <GoogleAnalytics />
+
         <ContextLayouts>
           <HeaderSection />
           {children}
