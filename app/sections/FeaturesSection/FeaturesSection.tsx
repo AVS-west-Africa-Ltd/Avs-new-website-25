@@ -76,7 +76,7 @@ export const FeaturesSection = () => {
           <Image
             className="w-full h-auto object-cover"
             alt="Funding options illustration"
-            src="/assets/funding.png"
+            src="/assets/last-image.svg"
             width={100}
             height={100}
             priority

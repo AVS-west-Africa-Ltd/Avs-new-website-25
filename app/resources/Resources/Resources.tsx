@@ -94,7 +94,7 @@ export const ResourceSection: React.FC = () => {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
           <TemplateCard
-            imageSrc="/assets/vision statement.png"
+            imageSrc="/assets/resources/vs1.svg"
             title="Vision Statement Template"
             author="A Venture Studio"
             downloads="510+ downloads"
@@ -104,7 +104,7 @@ export const ResourceSection: React.FC = () => {
             link="/resources/1?template=Vision%20Statement%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/know your product (1).png"
+            imageSrc="/assets/resources/kyp.svg"
             title="Know Your Product Template"
             author="A Venture Studio"
             downloads="600+ downloads"
@@ -113,7 +113,7 @@ export const ResourceSection: React.FC = () => {
             link="/resources/2?template=Know%20Your%20Product%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/Feature prioritisation.png"
+            imageSrc="/assets/resources/fpm.svg"
             title="Feature Prioritisation Matrix Template"
             author="A Venture Studio"
             downloads="230+ downloads"
@@ -131,7 +131,7 @@ export const ResourceSection: React.FC = () => {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
           <TemplateCard
-            imageSrc="/assets/resources/2.png"
+            imageSrc="/assets/resources/ufc1.svg"
             title="Ultimate User Flow Chart Template"
             author="A Venture Studio"
             downloads="190+ downloads"
@@ -141,7 +141,7 @@ export const ResourceSection: React.FC = () => {
             link="/resources/4?template=Ultimate%20User%20Flow%20Chart%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/21.png"
+            imageSrc="/assets/resources/ofc.svg"
             title="Onboarding Flow Chart Template"
             author="A Venture Studio"
             downloads="130+ downloads"
@@ -150,7 +150,7 @@ export const ResourceSection: React.FC = () => {
             link="/resources/5?template=Onboarding%20Flow%20Chart%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/22.png"
+            imageSrc="/assets/resources/cft.svg"
             title="E-Commerce Flowchart Template"
             author="A Venture Studio"
             downloads="500+ downloads"
@@ -168,7 +168,7 @@ export const ResourceSection: React.FC = () => {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-4 lg:gap-6 mt-6 md:mt-8">
           <TemplateCard
-            imageSrc="/assets/resources/3.png"
+            imageSrc="/assets/resources/ypd.svg"
             title="Los Blancos Hermanos Pitch Deck Template"
             author="A Venture Studio"
             downloads="300+ downloads"
@@ -178,7 +178,7 @@ export const ResourceSection: React.FC = () => {
             link="/resources/7?template=Los%20Blancos%20Hermanos%20Pitch%20Deck%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/31.png"
+            imageSrc="/assets/resources/pd.svg"
             title="Le Orange Pitch Deck Template"
             author="A Venture Studio"
             downloads="200+ downloads"
@@ -187,7 +187,7 @@ export const ResourceSection: React.FC = () => {
             link="/resources/8?template=Le%20Orange%20Pitch%20Deck%20Template"
           />
           <TemplateCard
-            imageSrc="/assets/resources/33.png"
+            imageSrc="/assets/resources/ppd.svg"
             title="Peaches Pitch Deck Template"
             author="A Venture Studio"
             downloads="412+ downloads"

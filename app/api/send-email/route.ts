@@ -25,13 +25,28 @@ export async function POST(req: NextRequest) {
     const subscribed = formData.get('subscribed') === 'true';
     
     // Configure Nodemailer transporter - using your existing settings
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: "idris@aventurestud.io", // Use process.env.EMAIL_USER in production
+    //     pass: "uzam xobg qgqs aewa", // Use process.env.EMAIL_PASSWORD in production
+    //   },
+    // });
+
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // Use true for port 465
       auth: {
-        user: "idris@aventurestud.io", // Use process.env.EMAIL_USER in production
-        pass: "uzam xobg qgqs aewa", // Use process.env.EMAIL_PASSWORD in production
+        user: "idris@aventurestud.io", // move to process.env.EMAIL_USER in prod
+        pass: "uzam xobg qgqs aewa",   // move to process.env.EMAIL_PASS
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
+      connectionTimeout: 10000, // optional but helpful (10 sec)
     });
+    
     
     // Format email content with proper HTML
     const emailSubject = `AVS Contact form submission from ${firstName} ${lastName}`;
