@@ -11,16 +11,27 @@ export async function POST(req: NextRequest) {
     const pdfBuffer = Buffer.from(base64Pdf.split(",")[1], "base64");
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      // host: "smtp.gmail.com",
+      // port: 587,
+      // secure: false,
+      // auth: {
+      //   user: process.env.GMAILEMAIL_USER ,
+      //   pass: process.env.GMAILEMAIL_PASS,
+      // },
+      // tls: {
+      //   rejectUnauthorized: false,
+      // },
+      host: "smtp-relay.brevo.com",
       port: 587,
-      secure: false,
+      secure: false, // Use true for port 465
       auth: {
-        user: process.env.GMAILEMAIL_USER ,
-        pass: process.env.GMAILEMAIL_PASS,
+        user: process.env.BREVOEMAIL_USER ,// in prod
+        pass: process.env.BREVOEMAIL_PASS,   // move to process.env.EMAIL_PASS
       },
       tls: {
         rejectUnauthorized: false,
       },
+      connectionTimeout: 10000, //
     });
 
     const emailSubject = `📄 New Business Canvas PDF Submission`;
@@ -126,6 +137,7 @@ https://aventurestud.io | hello@aventurestud.io
         },
       ],
     });
+    console.log('emails sent successfully');
 
     return NextResponse.json({ success: true });
   } catch (err) {

@@ -220,7 +220,7 @@ export const FeatureCardsSection = () => {
       description: "Define how your startup creates, delivers, and captures value—one building block at a time.",
       buttonText: "Start Mapping",
       buttonLink: "/resources/services",
-      backgroundImage: "/assets/resources/Businessmodelcanvas.svg",
+      backgroundImage: "/assets/resources/Businessmodelcanvas.png",
       backgroundGradient: "linear-gradient(45deg, rgba(2, 146, 203, 0.1) 0%, rgba(252, 25, 25, 0.1) 100%)",
     },
     {
@@ -228,7 +228,7 @@ export const FeatureCardsSection = () => {
       description: "Partner with our Venture Studio for funding and hands-on support—equity and cash combined.",
       buttonText: "Get Started",
       buttonLink: "/resources/funding",
-      backgroundImage: "/assets/resources/Funding.svg",
+      backgroundImage: "/assets/resources/Funding.png",
       backgroundGradient: "linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 95, 70, 0.1) 100%)",
     },
   ]

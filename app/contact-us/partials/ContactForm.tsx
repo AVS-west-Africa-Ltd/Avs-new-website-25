@@ -590,7 +590,7 @@ const ContactForm = ({ data }: any) => {
               Phone
             </Label>
             <PhoneInput
-              country={'us'}
+              country={'gb'}
               value={formData.phone}
               onChange={(phone) => {
                 console.log("Phone changed to:", phone);
@@ -604,7 +604,7 @@ const ContactForm = ({ data }: any) => {
               containerClass="phone-input-container"
               inputClass="w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               buttonClass="border border-gray-300 bg-gray-100 rounded-l-md"
-              placeholder="(555) 555-1234"
+              placeholder="(44) 555-1234"
             />
             <style jsx global>{`
               .phone-input-container {

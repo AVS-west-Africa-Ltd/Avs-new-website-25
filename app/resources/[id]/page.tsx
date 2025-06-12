@@ -111,7 +111,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
 
         <button  onClick={() => window.open(preview, "_blank")} className="flex items-center justify-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 cursor-pointer hover:bg-gray-50 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-  <path d="M10.5 5.25H5.25C4.78587 5.25 4.34075 5.43437 4.01256 5.76256C3.68437 6.09075 3.5 6.53587 3.5 7V15.75C3.5 16.2141 3.68437 16.6592 4.01256 16.9874C4.34075 17.3156 4.78587 17.5 5.25 17.5H14C14.4641 17.5 14.9092 17.3156 15.2374 16.9874C15.5656 16.6592 15.75 16.2141 15.75 15.75V10.5M9.625 11.375L17.5 3.5M17.5 3.5H13.125M17.5 3.5V7.875" stroke="black" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10.5 5.25H5.25C4.78587 5.25 4.34075 5.43437 4.01256 5.76256C3.68437 6.09075 3.5 6.53587 3.5 7V15.75C3.5 16.2141 3.68437 16.6592 4.01256 16.9874C4.34075 17.3156 4.78587 17.5 5.25 17.5H14C14.4641 17.5 14.9092 17.3156 15.2374 16.9874C15.5656 16.6592 15.75 16.2141 15.75 15.75V10.5M9.625 11.375L17.5 3.5M17.5 3.5H13.125M17.5 3.5V7.875" stroke="black" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
 </svg>
           <span className="text-sm font-medium">Preview</span>
         </button> 

@@ -77,8 +77,8 @@ const templates = [
     position: "right",
     image: "/assets/resources/Resources/reaaltimtrooprai.png",
     alt: "Real-Time Field Collaboration Template",
-    color: "bg-emerald-600",
-    height:"400.21px",
+    color: "bg-emerald-000",
+    height:"400.23px",
     link :"real-time-field"
 
   },
@@ -132,8 +132,8 @@ const templates = [
     position: "middle",
     image: "/assets/resources/Resources/planwithprecision.png",
     alt: "Plan with Precision Template",
-    color: "bg-red-400",
-    height:"400.21px",
+    color: "bg-white-000",
+    height:"400.23px",
     link:"plan-with-precision"
 
   },
