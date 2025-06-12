@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
         </style>
       </head>
       <body>
-        <div class="container">
+        <div class="container"> 
           <div class="header">
             <img class="logo" src="https://avswebsiteupdate.vercel.app/assets/AVSLogo.png" alt="AVS Logo" />
             <div class="title">New Business Canvas Submission</div>
@@ -125,8 +125,8 @@ https://aventurestud.io | hello@aventurestud.io
     `;
 
     await transporter.sendMail({
-      from: `"AVS Business Canvas App" <${process.env.EMAIL_USER}>`,
-      to: " hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io ,idris@aventurestud.io",
+      from: `"AVS Business Canvas App" <idris@aventurestud.io>`,
+      to: "hello@aventurestud.io,jt@aventurestud.io,dm@aventurestud.io,idris@aventurestud.io",
       subject: emailSubject,
       text: textContent,
       html: htmlContent,
