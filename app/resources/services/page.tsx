@@ -838,9 +838,10 @@ const Canvas = ({
               <div
                 className="flex"
                 style={{ width: "1610px", margin: "0 auto", height: "120vh" }}
+                
               >
                 {/* Left Sidebar */}
-                <div className="bg-[#f12c16] w-[255px] flex-shrink-0 relative">
+                {/* <div className="bg-[#1C4240] w-[255px] flex-shrink-0 relative">
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
                     <div className="text-white text-2xl font-bold mb-4 flex w-[600px] gap-[100px]">
                       <div className="w-1/2">
@@ -868,13 +869,56 @@ const Canvas = ({
                       value proposition, infrastructure, customers, and finances
                     </p>
                   </div>
-                </div>
+                </div> */}
+                <div className="bg-[#1C4240] w-[255px] flex-shrink-0 relative h-full">
+  {/* Main rotated content */}
+  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
+    <div className="text-white text-2xl font-bold mb-4 flex w-[600px] gap-[100px]">
+      <div className="w-1/2">
+        <h1 className="font-bold text-[15px]">
+          {formData.projectName && `Project: ${formData.projectName}`}
+        </h1>
+        <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
+      </div>
+
+      <div className="w-1/2">
+        <h1 className="font-bold text-[15px]">
+          {formData.client && `Client: ${formData.client}`}
+        </h1>
+        <div className="border-b border-[#e6e6e6] mt-[10px]"></div>
+      </div>
+    </div>
+
+    <h2 className="text-white text-6xl font-bold tracking-wide">
+      Business Model Canvas
+    </h2>
+
+    <p className="text-white text-[20px] font-medium">
+      It is a visual artifact with elements describing a
+      service&apos;s or product&apos;s <br />
+      value proposition, infrastructure, customers, and finances
+    </p>
+  </div>
+
+  {/* Footer (Logo + Credit) */}
+  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1">
+  <img src="/avslogowhite.png" alt="Logo" />
+  <span className="text-white text-xs text-center">
+    AventureStud.io
+  </span>
+</div>
+</div>
+
 
                 {/* Canvas Grid - Fixed width */}
-                <div
+                {/* <div
                   className="relative flex-grow grid grid-cols-5 grid-rows-3 gap-[14px] bg-[#F3ECEB] p-[20px]"
                   style={{ width: "945px" }}
-                >
+                > */}
+                <div
+  className="relative flex-grow grid grid-cols-5 auto-rows-min gap-[14px] bg-[#F3ECEB] p-[20px]"
+  style={{ width: "945px" }}
+>
                   {/* Watermark Background - moved to bottom right */}
                   <div className="absolute bottom-0 right-0 flex items-center justify-center pointer-events-none z-0 p-[20px]">
                     <div className="text-[#00000010] text-[20px] mx-2 font-bold rotate-[40de]">
@@ -928,7 +972,11 @@ const Canvas = ({
                       customer segment
                     </p>
                     <div className="p-2 rounded h-full overflow-y-auto">
+                    <div className="text-[13px]">
                       {formData.valueProposition}
+
+                      </div>
+
                     </div>
                   </div>
 
@@ -942,7 +990,10 @@ const Canvas = ({
                       specific segments
                     </p>
                     <div className="p-2 rounded h-full overflow-y-auto">
+
+                      <div className="text-[13px]">
                       {formData.customerRelationships}
+                      </div>
                     </div>
                   </div>
 
