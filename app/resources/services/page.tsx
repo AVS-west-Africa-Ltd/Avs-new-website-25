@@ -37,7 +37,7 @@ export default function Home() {
     keyActivities: [] as string[],
     keyResources: [] as string[],
     valueProposition: "",
-    customerRelationships: "",
+    customerRelationships: [] as string[],
     customerSegments: [] as string[],
     channels: [] as string[],
     costStructure: [] as string[],
@@ -201,17 +201,52 @@ const BusinessDetailsSection = ({
   const [saveError, setSaveError] = useState<string | null>(null);
 
   // Load saved data from localStorage when component mounts
+  // useEffect(() => {
+  //   try {
+  //     const savedFormData = localStorage.getItem('businessDetailsFormData');
+  //     if (savedFormData) {
+  //       setFormData(JSON.parse(savedFormData));
+  //     }
+  //   } catch (error) {
+  //     console.error("Failed to load form data from localStorage:", error);
+  //     setSaveError("Failed to load saved data. Starting fresh.");
+  //   }
+  // }, [setFormData]);
+
   useEffect(() => {
     try {
       const savedFormData = localStorage.getItem('businessDetailsFormData');
       if (savedFormData) {
-        setFormData(JSON.parse(savedFormData));
+        const parsedData = JSON.parse(savedFormData);
+  
+        // Force customerRelationships (and others) to be arrays if they should be
+        const safeData = {
+          ...parsedData,
+          customerRelationships: Array.isArray(parsedData.customerRelationships)
+            ? parsedData.customerRelationships
+            : [],
+  
+          customerSegments: Array.isArray(parsedData.customerSegments)
+            ? parsedData.customerSegments
+            : [],
+  
+          // Optional: repeat for other array fields
+          keyPartners: Array.isArray(parsedData.keyPartners) ? parsedData.keyPartners : [],
+          keyActivities: Array.isArray(parsedData.keyActivities) ? parsedData.keyActivities : [],
+          keyResources: Array.isArray(parsedData.keyResources) ? parsedData.keyResources : [],
+          channels: Array.isArray(parsedData.channels) ? parsedData.channels : [],
+          costStructure: Array.isArray(parsedData.costStructure) ? parsedData.costStructure : [],
+          revenueStreams: Array.isArray(parsedData.revenueStreams) ? parsedData.revenueStreams : [],
+        };
+  
+        setFormData(safeData);
       }
     } catch (error) {
       console.error("Failed to load form data from localStorage:", error);
       setSaveError("Failed to load saved data. Starting fresh.");
     }
   }, [setFormData]);
+  
 
   // Save directly to localStorage whenever formData changes
   useEffect(() => {
@@ -291,7 +326,12 @@ const BusinessDetailsSection = ({
       handleAddItem(field, value, setInput);
     }
   };
-
+  const hasDataToClear = Object.values(formData).some((value) => {
+    if (Array.isArray(value)) return value.length > 0;
+    if (typeof value === 'string') return value.trim() !== '';
+    return !!value;
+  });
+  
   return (
     <section className="flex flex-col w-full max-w-[860px] mx-auto items-start gap-10">
 
@@ -303,15 +343,18 @@ const BusinessDetailsSection = ({
       )}
 
       {/* Clear Form Button */}
-      <div className="w-full flex justify-end">
-        <Button
-          variant="outline"
-          onClick={handleClearForm}
-          className="text-red-600 border-red-300 hover:bg-red-50"
-        >
-          Clear All Data
-        </Button>
-      </div>
+      {hasDataToClear && (
+  <div className="w-full flex justify-end">
+    <Button
+      variant="outline"
+      onClick={handleClearForm}
+      className="text-red-600 border-red-300 hover:bg-red-50"
+    >
+      Clear All Data
+    </Button>
+  </div>
+)}
+
       {/* Project and Client Row */}
       <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full">
         <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
@@ -488,7 +531,31 @@ const BusinessDetailsSection = ({
           />
         </div>
       </div>
-{/* Customer Relationships */}
+
+
+      {/* Customer Relationships */}
+      {/* <div className="flex flex-col items-start gap-[15px] w-full">
+        <div className="flex flex-col items-start gap-2 w-full">
+          <Label className="font-semibold text-[#232326] text-base">
+            Customer Relationships
+          </Label>
+          <p className="font-normal text-medium text-sm">
+            How you acquire, retain, and grow your customer base.
+          </p>
+          <Textarea
+            name="customerRelationships"
+            value={formData.customerRelationships}
+            onChange={handleInputChange}
+            className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+            placeholder="Description"
+          />
+        </div>
+      </div> */}
+
+
+
+
+      {/* Customer Relationships */}
 <div className="flex flex-col items-start gap-[15px] w-full">
   <div className="flex flex-col items-start gap-2 w-full">
     <Label className="font-semibold text-[#232326] text-base">
@@ -517,7 +584,7 @@ const BusinessDetailsSection = ({
   </div>
 
   <div className="flex flex-wrap items-center gap-3.5">
-    {formData.customerRelationships?.map((relationship: string, index: number) => (
+    {formData.customerRelationships.map((relationship: string, index: number) => (
       <Badge
         key={index}
         className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
@@ -533,25 +600,6 @@ const BusinessDetailsSection = ({
     ))}
   </div>
 </div>
-
-      {/* Customer Relationships */}
-      <div className="flex flex-col items-start gap-[15px] w-full">
-        <div className="flex flex-col items-start gap-2 w-full">
-          <Label className="font-semibold text-[#232326] text-base">
-            Customer Relationships
-          </Label>
-          <p className="font-normal text-medium text-sm">
-            How you acquire, retain, and grow your customer base.
-          </p>
-          <Textarea
-            name="customerRelationships"
-            value={formData.customerRelationships}
-            onChange={handleInputChange}
-            className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Description"
-          />
-        </div>
-      </div>
 
       {/* Customer Segments */}
       <div className="flex flex-col items-start gap-[15px] w-full">
