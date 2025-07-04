@@ -8,7 +8,7 @@ import {
   PencilIcon,
   PhoneIcon,
 } from "lucide-react";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { XIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -195,7 +195,58 @@ const BusinessDetailsSection = ({
   const [channelInput, setChannelInput] = useState("");
   const [costInput, setCostInput] = useState("");
   const [revenueInput, setRevenueInput] = useState("");
+  const [relationshipInput, setRelationshipInput] = useState("");
 
+
+  const [saveError, setSaveError] = useState<string | null>(null);
+
+  // Load saved data from localStorage when component mounts
+  useEffect(() => {
+    try {
+      const savedFormData = localStorage.getItem('businessDetailsFormData');
+      if (savedFormData) {
+        setFormData(JSON.parse(savedFormData));
+      }
+    } catch (error) {
+      console.error("Failed to load form data from localStorage:", error);
+      setSaveError("Failed to load saved data. Starting fresh.");
+    }
+  }, [setFormData]);
+
+  // Save directly to localStorage whenever formData changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('businessDetailsFormData', JSON.stringify(formData));
+      setSaveError(null); // Clear previous errors if save succeeds
+    } catch (error) {
+      console.error("Failed to save form data to localStorage:", error);
+      setSaveError("Failed to save data. Try again.");
+    }
+  }, [formData]);
+
+  // Clear Form & LocalStorage
+  const handleClearForm = () => {
+    try {
+      localStorage.removeItem('businessDetailsFormData');
+      setFormData({
+        projectName: "",
+        client: "",
+        keyPartners: [],
+        keyActivities: [],
+        keyResources: [],
+        valueProposition: "",
+        customerRelationships: [],
+        customerSegments: [],
+        channels: [],
+        costStructure: [],
+        revenueStreams: [],
+      });
+      setSaveError(null);
+    } catch (error) {
+      console.error("Failed to clear localStorage:", error);
+      setSaveError("Failed to clear form data.");
+    }
+  };
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -243,6 +294,24 @@ const BusinessDetailsSection = ({
 
   return (
     <section className="flex flex-col w-full max-w-[860px] mx-auto items-start gap-10">
+
+      {/* Error Message (if any) */}
+      {saveError && (
+        <div className="w-full p-3 bg-red-100 text-red-700 rounded-md">
+          {saveError}
+        </div>
+      )}
+
+      {/* Clear Form Button */}
+      <div className="w-full flex justify-end">
+        <Button
+          variant="outline"
+          onClick={handleClearForm}
+          className="text-red-600 border-red-300 hover:bg-red-50"
+        >
+          Clear All Data
+        </Button>
+      </div>
       {/* Project and Client Row */}
       <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full">
         <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
@@ -419,6 +488,51 @@ const BusinessDetailsSection = ({
           />
         </div>
       </div>
+{/* Customer Relationships */}
+<div className="flex flex-col items-start gap-[15px] w-full">
+  <div className="flex flex-col items-start gap-2 w-full">
+    <Label className="font-semibold text-[#232326] text-base">
+      Customer Relationships
+    </Label>
+    <p className="font-normal text-medium text-sm">
+      How you acquire, retain, and grow your customer base.
+    </p>
+    <Input
+      value={relationshipInput}
+      onChange={(e) => setRelationshipInput(e.target.value)}
+      onKeyDown={(e) =>
+        handleKeyPress(
+          e,
+          "customerRelationships",
+          relationshipInput,
+          setRelationshipInput
+        )
+      }
+      className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+      placeholder="Add customer relationships (press Enter to save)"
+    />
+    <p className="text-xs text-gray-500 mt-1">
+      Type and Press <kbd>Enter</kbd> to add more customer relationship to the list
+    </p>
+  </div>
+
+  <div className="flex flex-wrap items-center gap-3.5">
+    {formData.customerRelationships?.map((relationship: string, index: number) => (
+      <Badge
+        key={index}
+        className="bg-black text-white rounded-[100px] px-5 py-2.5 h-[26px] flex items-center gap-2.5"
+      >
+        <span className="text-[15px] tracking-[-0.30px] leading-[19.5px]">
+          {relationship}
+        </span>
+        <XIcon
+          className="w-3.5 h-3.5 cursor-pointer"
+          onClick={() => handleRemoveItem("customerRelationships", index)}
+        />
+      </Badge>
+    ))}
+  </div>
+</div>
 
       {/* Customer Relationships */}
       <div className="flex flex-col items-start gap-[15px] w-full">
@@ -927,7 +1041,7 @@ const Canvas = ({
                   </div>
 
                   {/* KEY PARTNERS */}
-                  <div className="bg-white p-6 min-h-60">
+                  <div className="bg-white p-4 min-h-60">
                     <h3 className="font-bold text-sm mb-2">KEY PARTNERS</h3>
                     <p className="text-xs text-[#818285] mb-6">
                       The network of suppliers and partners that make the
@@ -945,7 +1059,7 @@ const Canvas = ({
                   </div>
 
                   {/* KEY ACTIVITIES */}
-                  <div className="bg-white p-6 min-h-60 col-span-1">
+                  <div className="bg-white p-4 min-h-60 col-span-1">
                     <h3 className="font-bold text-sm mb-2">KEY ACTIVITIES</h3>
                     <p className="text-xs text-[#818285] mb-6">
                       The most important activities your company needs to make
@@ -963,42 +1077,56 @@ const Canvas = ({
                   </div>
 
                   {/* VALUE PROPOSITION */}
-                  <div className="bg-white p-6 min-h-60 row-span-2">
+                  <div className="bg-white p-4 min-h-60 row-span-2">
                     <h3 className="font-bold text-sm mb-2">
-                      VALUE PROPOSITION
+                      REVENUE STREAM
                     </h3>
                     <p className="text-xs text-[#818285] mb-6">
-                      The products and services that create value for a specific
-                      customer segment
+                      The revenue you generate from each customer segment 
                     </p>
-                    <div className="p-2 rounded h-full overflow-y-auto">
-                    <div className="text-[13px]">
-                      {formData.valueProposition}
+                    <div className="p-0 rounded h-full overflow-y-auto">
+                    <ul className="space-y-2 list-disc pl-5">
 
-                      </div>
+                      {formData.revenueStreams?.map(
+                        (revenue: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {revenue}
+                          </li>
+                        )
+                      )}
+                    </ul>
 
                     </div>
                   </div>
 
                   {/* CUSTOMER RELATIONSHIPS */}
-                  <div className="bg-white p-6 min-h-60">
+                  <div className="bg-white p-4 min-h-60">
                     <h3 className="font-bold text-sm mb-2">
-                      CUSTOMER RELATIONSHIPS
+                      COST STRUCTURE
                     </h3>
                     <p className="text-xs text-[#818285] mb-6">
-                      The type of relationship your company establishes with
-                      specific segments
-                    </p>
-                    <div className="p-2 rounded h-full overflow-y-auto">
+                    
+                      The costs incurred to operate a business model
 
-                      <div className="text-[13px]">
-                      {formData.customerRelationships}
-                      </div>
-                    </div>
+                    </p>
+                    {/* <div className="p-2 rounded h-full overflow-y-auto"> */}
+
+                    
+
+                      <ul className="space-y-2 list-disc pl-5">
+                      {formData.costStructure?.map(
+                        (cost: string, index: number) => (
+                          <li key={index} className="text-[13px]">
+                            {cost}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                    {/* </div> */}
                   </div>
 
                   {/* CUSTOMER SEGMENTS */}
-                  <div className="bg-white p-6 min-h-60">
+                  <div className="bg-white p-4 min-h-60">
                     <h3 className="font-bold text-sm mb-2">
                       CUSTOMER SEGMENTS
                     </h3>
@@ -1018,7 +1146,7 @@ const Canvas = ({
                   </div>
 
                   {/* KEY RESOURCES */}
-                  <div className="bg-white p-6 min-h-60 col-span-1">
+                  <div className="bg-white p-4 min-h-60 col-span-1">
                     <h3 className="font-bold text-sm mb-2">KEY RESOURCES</h3>
                     <p className="text-xs text-[#818285] mb-6">
                       The most important assets required to make the business
@@ -1036,7 +1164,7 @@ const Canvas = ({
                   </div>
 
                   {/* CHANNELS */}
-                  <div className="bg-white p-6 min-h-60">
+                  <div className="bg-white p-4 min-h-60">
                     <h3 className="font-bold text-sm mb-2">CHANNELS</h3>
                     <p className="text-xs text-[#818285] mb-6">
                       How you communicate with and deliver value to your target
@@ -1054,37 +1182,44 @@ const Canvas = ({
                   </div>
 
                   {/* COST STRUCTURE */}
-                  <div className="bg-white p-6 min-h-60 col-span-2">
-                    <h3 className="font-bold text-sm mb-2">COST STRUCTURE</h3>
+                  <div className="bg-white p-4 min-h-60 col-span-2">
+                    <h3 className="font-bold text-sm mb-2">CUSTOMER RELATIONSHIPS </h3>
                     <p className="text-xs text-[#818285] mb-6">
-                      The costs incurred to operate a business model
+                      The type of relationship your company establishes with
+                      specific segments
                     </p>
-                    <ul className="space-y-2 list-disc pl-5">
-                      {formData.costStructure?.map(
-                        (cost: string, index: number) => (
+
+
+                    {/* <div className="p-2 rounded h-full overflow-y-auto"> */}
+
+                    {/* <div className="text-[13px]">
+                      {formData.customerRelationships}
+                      </div> */}
+                      <ul className="space-y-2 list-disc pl-5">
+                      {formData.customerRelationships?.map(
+                        (segment: string, index: number) => (
                           <li key={index} className="text-[13px]">
-                            {cost}
+                            {segment}
                           </li>
                         )
                       )}
                     </ul>
+                      {/* </div> */}
+                  
                   </div>
 
                   {/* REVENUE STREAMS */}
-                  <div className="bg-white p-6 min-h-60 col-span-5">
-                    <h3 className="font-bold text-sm mb-2">REVENUE STREAMS</h3>
+                  <div className="bg-white p-4 min-h-60 col-span-5">
+                    <h3 className="font-bold text-sm mb-2"> VALUE PROPOSITION</h3>
                     <p className="text-xs text-[#818285] mb-6">
-                      The revenue you generate from each customer segment
+                      The products and services that create value for a specific
+                      customer segment
                     </p>
-                    <ul className="grid grid-cols-3 gap-4 list-disc pl-5">
-                      {formData.revenueStreams?.map(
-                        (revenue: string, index: number) => (
-                          <li key={index} className="text-[13px]">
-                            {revenue}
-                          </li>
-                        )
-                      )}
-                    </ul>
+                  
+
+                    <div className="text-[13px]">
+                    {formData.valueProposition}
+                    </div>
                   </div>
                 </div>
               </div>
