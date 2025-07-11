@@ -18,11 +18,16 @@ import { CaseDetails, OurProjects } from "@/constants/data";
 import CaseStudiesShowcase from "@/app/sections/TestimonialsSection/CaseStudiesShowcase";
 import { useQuery } from "@tanstack/react-query";
 import client, { urlFor } from "@/sanity";
+import ZoomableModal from "@/components/ZoomModal";
 
 function CaseId({ params }: { params: Promise<{ id: any }> }) {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
     const [details, setDetails] = useState<CaseDetails>({});
     const { id } = use(params);
+    const [zoomImage, setZoomImage] = useState<string | null>(null);
+
+    const [showModal, setShowModal] = useState(false);
+const [selectedImage, setSelectedImage] = useState("");
 
     const {
         data: pageData2,
@@ -483,19 +488,37 @@ function CaseId({ params }: { params: Promise<{ id: any }> }) {
                                 <Card className="bg-transparent border-0">
                                     <CardContent className="p-4">
                                         <Image
-                                            className="w-full h-auto object-cover "
+                                            className="w-full h-auto object-cover cursor-pointer "
                                             alt={flow.imageAlt}
                                             src={flow.imageSrc && urlFor(flow.imageSrc).url()}
                                             priority
                                             width={400}
                                             height={400}
+
+                                            onClick={() => {
+                                                setSelectedImage(flow.imageSrc && urlFor(flow.imageSrc).url());
+                                                setShowModal(true);
+                                              }}
                                         />
                                     </CardContent>
                                 </Card>
                             </div>
                         ))}
+                        {showModal && (
+  <ZoomableModal
+    imageSrc={selectedImage}
+    onClose={() => setShowModal(false)}
+  />
+)}
                     </div>
+
+
+
+
                 </div>
+
+         
+
             </section>}
 
             {/* Wireframes */}

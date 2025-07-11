@@ -44,7 +44,84 @@ export default function Home() {
     revenueStreams: [] as string[],
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+   // validate form
+   const validateForm = (formData: any) => {
+    const errors: any = {};
+  
+    // Required text fields
+    if (!formData.projectName.trim()) {
+      errors.projectName = "Project name is required";
+    } else if (formData.projectName.length > 100) {
+      errors.projectName = "Project name must be less than 100 characters";
+    }
+  
+    if (!formData.client.trim()) {
+      errors.client = "Client name is required";
+    }
+  
+    // Required array fields
+    const requiredArrayFields = [
+      'keyPartners',
+      'keyActivities',
+      'customerSegments',
+      'keyResources',
+      'customerRelationships',
+      'customerSegments',
+      'channels',
+      'costStructure',
+      'revenueStreams'
+
+
+    ];
+  
+    requiredArrayFields.forEach(field => {
+      if (formData[field].length === 0) {
+        errors[field] = `At least one ${field.replace(/([A-Z])/g, ' $1').toLowerCase()} is required`;
+      }
+    });
+  
+    // Validate each item in array fields
+    const arrayFields = [
+      'keyPartners',
+      'keyActivities',
+      'keyResources',
+      'customerRelationships',
+      'customerSegments',
+      'channels',
+      'costStructure',
+      'revenueStreams'
+    ];
+  
+    arrayFields.forEach(field => {
+      formData[field].forEach((item: string) => {
+        if (item.length > 50) {
+          errors[field] = `Each ${field.replace(/([A-Z])/g, ' $1').toLowerCase()} must be less than 50 characters`;
+        }
+      });
+    });
+  
+    // Value proposition validation
+    if (!formData.valueProposition.trim()) {
+      errors.valueProposition = "Value proposition is required";
+    } else if (formData.valueProposition.length > 500) {
+      errors.valueProposition = "Value proposition must be less than 500 characters";
+    }
+  
+    return errors;
+  };
+
+  
+  
+
   const handleGenerateClick = () => {
+         
+    const validationErrors = validateForm(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+
     setIsGenerating(true); // Set loading to true when clicked
 
     // Simulate processing delay
@@ -52,6 +129,8 @@ export default function Home() {
       setIsOpen(!isOpen);
       setIsGenerating(false); // Set loading to false after delay
     }, 2500); // 2.5 second delay
+
+  }
   };
 
   return (
@@ -74,6 +153,10 @@ export default function Home() {
                 <BusinessDetailsSection
                   formData={formData}
                   setFormData={setFormData}
+
+                  errors={errors} 
+                  setErrors={setErrors} 
+                  
                 />
               </CardContent>
             </Card>
@@ -184,9 +267,13 @@ const FormSection = () => {
 const BusinessDetailsSection = ({
   formData,
   setFormData,
+  errors, 
+  setErrors, 
 }: {
   formData: any;
   setFormData: React.Dispatch<React.SetStateAction<any>>;
+  errors: Record<string, string>;
+  setErrors: React.Dispatch<React.SetStateAction<Record<string, string>>>;
 }) => {
   const [partnerInput, setPartnerInput] = useState("");
   const [activityInput, setActivityInput] = useState("");
@@ -247,6 +334,8 @@ const BusinessDetailsSection = ({
     }
   }, [setFormData]);
   
+ 
+
 
   // Save directly to localStorage whenever formData changes
   useEffect(() => {
@@ -286,14 +375,24 @@ const BusinessDetailsSection = ({
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    
     setFormData((prev: any) => ({
       ...prev,
       [name]: value,
     }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = {...prev};
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleAddItem = (
-    field: keyof typeof formData,
+    field: string,
     value: string,
     setInput: React.Dispatch<React.SetStateAction<string>>
   ) => {
@@ -303,27 +402,82 @@ const BusinessDetailsSection = ({
         [field]: [...(prev[field] as string[]), value.trim()],
       }));
       setInput("");
+      
+      // Clear any existing errors for this field if we now have items
+      if (errors[field] && formData[field].length + 1 > 0) {
+        setErrors(prev => {
+          const newErrors = {...prev};
+          delete newErrors[field];
+          return newErrors;
+        });
+      }
     }
   };
-
   const handleRemoveItem = (field: keyof typeof formData, index: number) => {
-    setFormData((prev: any) => ({
-      ...prev,
-      [field]: (prev[field] as string[]).filter(
+    setFormData((prev: any) => {
+      const newArray = (prev[field] as string[]).filter(
         (_: any, i: number) => i !== index
-      ),
-    }));
+      );
+      
+      return {
+        ...prev,
+        [field]: newArray
+      };
+    });
+    
+    // Check if the field is now empty and show error if required
+    if (formData[field].length === 1) { // About to remove the last item
+      const requiredFields = [
+        'keyPartners',
+        'keyActivities',
+        'customerSegments'
+      ];
+      
+      if (requiredFields.includes(field as string)) {
+        setErrors(prev => ({
+          ...prev,
+          [field]: `At least one ${String(field).replace(/([A-Z])/g, ' $1').toLowerCase()} is required`
+        }));
+      }
+    }
   };
 
   const handleKeyPress = (
     e: React.KeyboardEvent<HTMLInputElement>,
-    field: keyof typeof formData,
+    field: string,
     value: string,
     setInput: React.Dispatch<React.SetStateAction<string>>
   ) => {
     if (e.key === "Enter") {
       e.preventDefault();
+      
+      // Basic validation for the input
+      if (!value.trim()) {
+        setErrors(prev => ({
+          ...prev,
+          [field]: `Please enter a valid ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`
+        }));
+        return;
+      }
+      
+      if (value.length > 50) {
+        setErrors(prev => ({
+          ...prev,
+          [field]: `Each item must be less than 50 characters`
+        }));
+        return;
+      }
+      
       handleAddItem(field, value, setInput);
+      
+      // Clear any existing errors for this field
+      if (errors[field]) {
+        setErrors(prev => {
+          const newErrors = {...prev};
+          delete newErrors[field];
+          return newErrors;
+        });
+      }
     }
   };
   const hasDataToClear = Object.values(formData).some((value) => {
@@ -365,9 +519,16 @@ const BusinessDetailsSection = ({
             name="projectName"
             value={formData.projectName}
             onChange={handleInputChange}
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.projectName ? "border-red-500" : "border-[#E9E9EB]"
+            }`}
             placeholder="E.g mango tech"
+
+            
           />
+           {errors.projectName && (
+    <small className="text-red-500 text-xm mt-1">{errors.projectName}</small>
+  )}
         </div>
         <div className="flex flex-col items-start gap-2 w-full md:w-1/2">
           <Label className="font-semibold text-[#232326] text-base">
@@ -377,9 +538,14 @@ const BusinessDetailsSection = ({
             name="client"
             value={formData.client}
             onChange={handleInputChange}
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="E.g John Doe"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.projectName ? "border-red-500" : "border-[#E9E9EB]"
+            }`}            placeholder="E.g John Doe"
           />
+
+{errors.client && (
+    <small className="text-red-500 text-xm mt-1">{errors.client}</small>
+  )}
         </div>
       </div>
 
@@ -399,12 +565,17 @@ const BusinessDetailsSection = ({
             onKeyDown={(e) =>
               handleKeyPress(e, "keyPartners", partnerInput, setPartnerInput)
             }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-          placeholder="Add a partner (press Enter to save)"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.keyPartners ? "border-red-500" : "border-[#E9E9EB]"
+            }`}          placeholder="Add a partner (press Enter to save)"
           />
           <p className="text-xs text-gray-500 mt-1">
   Type and Press <kbd>Enter</kbd> to add a partner to the list
 </p>
+{errors.keyPartners && (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.keyPartners}</small>
+    )}
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.keyPartners.map((partner: string, index: number) => (
@@ -446,13 +617,19 @@ const BusinessDetailsSection = ({
                 setActivityInput
               )
             }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.keyActivities ? "border-red-500" : "border-[#E9E9EB]"
+            }`}   
             placeholder="Add tasks (press Enter to save)"
           />
 
 <p className="text-xs text-gray-500 mt-1">
   Type and Press <kbd>Enter</kbd> to add a task to the list
 </p>
+{errors.keyActivities&& (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.keyActivities}</small>
+    )}
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.keyActivities.map((activity: string, index: number) => (
@@ -487,12 +664,17 @@ const BusinessDetailsSection = ({
             onKeyDown={(e) =>
               handleKeyPress(e, "keyResources", resourceInput, setResourceInput)
             }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add assets (press Enter to save)"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.keyResources ? "border-red-500" : "border-[#E9E9EB]"
+            }`}              placeholder="Add assets (press Enter to save)"
           />
           <p className="text-xs text-gray-500 mt-1 ">
   Type and Press <kbd>Enter</kbd> to add a asset to the list
 </p>
+{errors.keyResources&& (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.keyResources}</small>
+    )}
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.keyResources.map((resource: string, index: number) => (
@@ -526,9 +708,14 @@ const BusinessDetailsSection = ({
             name="valueProposition"
             value={formData.valueProposition}
             onChange={handleInputChange}
-            className="h-36 w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Description"
+            className={`h-36 w-full bg-white rounded-[7px] border border-solid ${
+              errors.valueProposition ? "border-red-500" : "border-[#E9E9EB]"
+            }`}            placeholder="Description"
           />
+
+{errors.valueProposition && (
+      <small className="text-red-500 text-sm mt-1">{errors.valueProposition}</small>
+    )}
         </div>
       </div>
 
@@ -575,12 +762,18 @@ const BusinessDetailsSection = ({
           setRelationshipInput
         )
       }
-      className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
+      className={`w-full bg-white rounded-[7px] border border-solid ${
+        errors.customerRelationships ? "border-red-500" : "border-[#E9E9EB]"
+      }`}  
       placeholder="Add customer relationships (press Enter to save)"
     />
     <p className="text-xs text-gray-500 mt-1">
       Type and Press <kbd>Enter</kbd> to add more customer relationship to the list
     </p>
+    {errors.customerRelationships&& (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.customerRelationships}</small>
+    )}
   </div>
 
   <div className="flex flex-wrap items-center gap-3.5">
@@ -621,13 +814,18 @@ const BusinessDetailsSection = ({
                 setSegmentInput
               )
             }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add customer segments (press Enter to save)"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.customerSegments ? "border-red-500" : "border-[#E9E9EB]"
+            }`}             placeholder="Add customer segments (press Enter to save)"
           />
 
 <p className="text-xs text-gray-500 mt-1  ">
   Type and Press <kbd>Enter</kbd> to add more customer segment to the list
 </p>
+{errors.customerSegments&& (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.customerSegments}</small>
+    )}
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.customerSegments.map((segment: string, index: number) => (
@@ -664,12 +862,17 @@ const BusinessDetailsSection = ({
             onKeyDown={(e) =>
               handleKeyPress(e, "channels", channelInput, setChannelInput)
             }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add channels (press Enter to save)"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.channels ? "border-red-500" : "border-[#E9E9EB]"
+            }`}             placeholder="Add channels (press Enter to save)"
           />
           <p className="text-xs text-gray-500 mt-1  ">
   Type and Press <kbd>Enter</kbd> to add more channel to the list
 </p>
+{errors.channels&& (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.channels}</small>
+    )}
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.channels.map((channel: string, index: number) => (
@@ -704,12 +907,18 @@ const BusinessDetailsSection = ({
             onKeyDown={(e) =>
               handleKeyPress(e, "costStructure", costInput, setCostInput)
             }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add major costs (press Enter to save)"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.costStructure ? "border-red-500" : "border-[#E9E9EB]"
+            }`}             placeholder="Add major costs (press Enter to save)"
           />
              <p className="text-xs text-gray-500 mt-1 ">
   Type and Press <kbd>Enter</kbd> to add more major costs to the list
 </p>
+
+{errors.costStructure&& (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.costStructure}</small>
+    )}
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.costStructure.map((cost: string, index: number) => (
@@ -745,12 +954,18 @@ const BusinessDetailsSection = ({
             onKeyDown={(e) =>
               handleKeyPress(e, "revenueStreams", revenueInput, setRevenueInput)
             }
-            className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
-            placeholder="Add revenue streams (press Enter to save)"
+            className={`w-full bg-white rounded-[7px] border border-solid ${
+              errors.revenueStreams ? "border-red-500" : "border-[#E9E9EB]"
+            }`}              placeholder="Add revenue streams (press Enter to save)"
           />
                 <p className="text-xs text-gray-500 mt-1 ">
   Type and Press <kbd>Enter</kbd> to add more revenue streams to the list
 </p>
+
+{errors.revenueStreams&& (
+      <small
+       className="text-red-500 text-sm mt-1">{errors.revenueStreams}</small>
+    )}
         </div>
         <div className="flex flex-wrap items-center gap-3.5">
           {formData.revenueStreams.map((revenue: string, index: number) => (
