@@ -224,7 +224,7 @@ export const HeaderSection = () => {
                         <NavigationMenuLink
                           className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
                             pathname === item.href
-                              ? "text-black font-extrabold underline underline-offset-4"
+                              ? "text-black font-extrabold"
                               : "text-[#0f0f0fa6]"
                           }`}
                         >
@@ -425,7 +425,7 @@ export const HeaderSection = () => {
                         <Link href={item?.url} legacyBehavior passHref>
                           <NavigationMenuLink
                             className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item?.url
-                              ? "text-black font-extrabold  underline underline-offset-4"
+                              ? "text-black font-extrabold"
                               : "text-[#0f0f0fa6]"
                               }`}
                           >
@@ -487,7 +487,7 @@ export const HeaderSection = () => {
                         <Link href={item.url} legacyBehavior passHref>
                           <NavigationMenuLink
                             className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item?.url
-                              ? "text-black font-extrabold  underline underline-offset-4"
+                              ? "text-black font-extrabold "
                               : "text-[#0f0f0fa6]"
                               }`}
                           >
