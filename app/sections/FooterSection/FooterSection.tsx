@@ -53,7 +53,7 @@ export const FooterSection = ({ data }: any) => {
         "Your brand is more than a logo—it's your identity. We craft cohesive brand strategies that align with your mission, differentiate you from competitors, and create a lasting impression in the market.",
     },
     {
-      image: "/assets/homepage/4.svg",
+      image: "/assets/homepage/produtdev.jpg.png",
       altText: "Product development",
       title: "Product Development & Innovation",
       description:

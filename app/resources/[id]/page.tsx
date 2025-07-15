@@ -661,7 +661,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray- mt-16">
-      <div className="container mx-auto px-4 py-8 md:py-16">
+      <div className="container mx-auto px-4 py-4 md:py-8">
           <Link href="/resources" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8">
         <ChevronLeft className="w-4 h-4 mr-1" />
         Back to Resources

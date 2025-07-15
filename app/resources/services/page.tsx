@@ -1190,7 +1190,7 @@ const Canvas = ({
               className="cursor-pointer flex items-center gap-2 border border-[#0f0f0f] rounded-full px-6 py-2"
             >
               <Edit className="h-5 w-5" />
-              Edit canvas
+              Update Business Model
             </button>
             <button
               onClick={handleDownloadPDF}

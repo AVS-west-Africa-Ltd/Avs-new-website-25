@@ -426,7 +426,7 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
         {/* Right Column - Preview */}
         <div className="flex gap-4">
           <div className="flex-1">
-            <div className={cn("rounded-xl overflow-hidden", resource.bgColor)}>
+            <div className={cn("rounded-md overflow-scroll", resource.bgColor)}>
               <div
                 className="relative w-full aspect-[3/4] cursor-pointer"
                 onClick={openLightbox}
@@ -435,7 +435,7 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
                   src={resource.previewImages[activeImageIndex] || "/placeholder.svg"}
                   alt={resource.title}
                   fill
-                  className="object-cover rounded-xl"
+                  className="object-cover rounded-md"
                 />
               </div>
             </div>
