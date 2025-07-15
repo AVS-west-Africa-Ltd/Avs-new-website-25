@@ -663,8 +663,8 @@ const ContactForm = ({ data }: any) => {
 
           <div className="space-y-2">
             <Label className="font-bold" htmlFor="file">
-              Attach brief
-            </Label>
+              Attach brief 
+            </Label> <span className="text-xs text-gray-500 mt-1 "> Supported file:PDF/Word/TXT file Max file size 10mb</span>
             
             {formData.file ? (
               // Display selected file
@@ -708,7 +708,7 @@ const ContactForm = ({ data }: any) => {
             )}
             
             <p className="text-xs text-gray-500 mt-1">
-              Files will be securely attached to your email
+              Files will be securely attached to your email 
             </p>
           </div>
 

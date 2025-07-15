@@ -33,6 +33,7 @@ import jsPDF from "jspdf";
 // @ts-expect-error  Missing type definitions for external library
 import domtoimage from "dom-to-image";
 import { useRouter } from "next/navigation";
+import * as pdfjsLib from "pdfjs-dist";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(true);
@@ -205,6 +206,27 @@ const StartupForm = () => {
     }
 
 
+    const isPDFEmpty = async (file: File) => {
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    
+        let allText = '';
+    
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const content = await page.getTextContent();
+          const pageText = content.items.map((item: any) => item.str).join('');
+          allText += pageText;
+        }
+    
+        return allText.trim().length === 0;
+      } catch (error) {
+        console.error("PDF validation error:", error);
+        return false; // Allow file if validation fails
+      }
+    };
+    
   
     
     const handleSubmit = async (e: React.FormEvent) => {
@@ -246,16 +268,34 @@ const StartupForm = () => {
           return;
         }
 
+        // if (!file) {
+
+        //   toast.error("Please upload your pitch deck.!");
+        // setIsSubmitting(false); // Start loading
+        // setShowModal(false);
+
+
+        //   return;
+        // }
+      
         if (!file) {
-
           toast.error("Please upload your pitch deck.!");
-        setIsSubmitting(false); // Start loading
-        setShowModal(false);
-
-
+          setIsSubmitting(false);
+          setShowModal(false);
           return;
         }
-      
+        
+        const emptyPDF = await isPDFEmpty(file);
+        if (emptyPDF) {
+          toast.error("The uploaded PDF is empty. Please upload a pitch deck with actual content.");
+          setIsSubmitting(false);
+          setShowModal(false);
+          return;
+        }
+        
+
+
+
         const formData = new FormData();
         formData.append('file', file);
         formData.append('founderName', founderName);
@@ -391,7 +431,7 @@ const StartupForm = () => {
             className="w-full bg-white rounded-[7px] border border-solid border-[#E9E9EB]"
             id="founderName"
             type="text"
-            placeholder="E.g John Doe"          />
+            placeholder="E.g John Doe"    required      />
                     </div>
         
                     <div className="space-y-4">
@@ -420,7 +460,7 @@ const StartupForm = () => {
                         id="startupName"
                         type="text"
                         placeholder="E.g mango tech"
-                        className="w-full bg-white px-3 py-4 border border-gray-300 rounded-md"
+                        className="w-full bg-white px-3 py-4 border border-gray-300 rounded-md" required 
                       />
                     </div>
         
@@ -432,7 +472,7 @@ const StartupForm = () => {
                         id="website"
                         type="text"
                         placeholder="E.g mangotech.com"
-                        className="w-full  bg-white px-3 py-4 border border-gray-300 rounded-md"
+                        className="w-full  bg-white px-3 py-4 border border-gray-300 rounded-md" required 
                       />
                     </div>
                   </div>
@@ -451,7 +491,7 @@ const StartupForm = () => {
                           id="validating"
                           name="startupStage"
                           type="radio"
-                          className="h-4 w-4 text-black border-gray-300"
+                          className="h-4 w-4 text-black border-gray-300" 
                         />
                         <label htmlFor="validating" className="ml-2 font-semibold text-[#232326] text-base">
                           Validating
@@ -503,7 +543,7 @@ const StartupForm = () => {
                         id="description"
                         placeholder="Description"
                         rows={4}
-                        className="w-full bg-white px-3 py-2 border border-gray-300 rounded-md"
+                        className="w-full bg-white px-3 py-2 border border-gray-300 rounded-md" required 
                       />
                     </div>
         
@@ -552,7 +592,7 @@ const StartupForm = () => {
                           id="fundingYes"
                           name="existingFunding"
                           type="radio"
-                          className="h-4 w-4 text-black border-gray-300"
+                          className="h-4 w-4 text-black border-gray-300" required 
                         />
                         <label htmlFor="fundingYes" className="ml-2 font-semibold text-[#232326] text-base">
                           Yes

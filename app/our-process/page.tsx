@@ -445,7 +445,7 @@ function OurProcess() {
           {/* Subheading */}
           <p className="font-inter text-[#0f0f0fa6] text-center mt-4 sm:mt-6 max-w-xs sm:max-w-sm md:max-w-xl mx-auto  text-sm sm:text-base leading-relaxed tracking-tight mb-12">
             {activeTab === "build"
-              ? "Transform your vision into a market-ready product with a structured,expert-driven approach—research, branding, design, development, and beyond."
+              ? "Transform your vision into a market-ready product with a structured, expert-driven approach—research, branding, design, development, and beyond."
               : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."}
           </p>
 

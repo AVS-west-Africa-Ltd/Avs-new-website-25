@@ -161,7 +161,7 @@ export const HeaderSection = () => {
                         <NavigationMenuLink
                           className={`relative font-medium text-sm md:text-[15px] tracking-[-0.30px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
                             pathname === item.href
-                              ? "text-black font-bold"
+                              ? "text-black font-extrabold"
                               : "text-[#0f0f0fa6]"
                           }`}
                         >
@@ -224,7 +224,7 @@ export const HeaderSection = () => {
                         <NavigationMenuLink
                           className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${
                             pathname === item.href
-                              ? "text-black font-bold"
+                              ? "text-black font-extrabold underline underline-offset-4"
                               : "text-[#0f0f0fa6]"
                           }`}
                         >
@@ -238,7 +238,7 @@ export const HeaderSection = () => {
             </div>
   
             {/* Logo - centered on mobile, left-aligned on desktop */}
-            <div className="flex-shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+            <div className="flex-shrink-0 mx-auto lg:mx-0 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 ml-2">
               <Link href="/">
                 <img
                   src="/assets/AVS Logo.svg"
@@ -425,7 +425,7 @@ export const HeaderSection = () => {
                         <Link href={item?.url} legacyBehavior passHref>
                           <NavigationMenuLink
                             className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item?.url
-                              ? "text-black font-bold"
+                              ? "text-black font-extrabold  underline underline-offset-4"
                               : "text-[#0f0f0fa6]"
                               }`}
                           >
@@ -487,7 +487,7 @@ export const HeaderSection = () => {
                         <Link href={item.url} legacyBehavior passHref>
                           <NavigationMenuLink
                             className={`relative w-fit font-normal text-[15px] tracking-[-0.30px] leading-[19.5px] whitespace-nowrap cursor-pointer hover:text-black transition-colors ${pathname === item?.url
-                              ? "text-black font-bold"
+                              ? "text-black font-extrabold  underline underline-offset-4"
                               : "text-[#0f0f0fa6]"
                               }`}
                           >
@@ -501,17 +501,8 @@ export const HeaderSection = () => {
               </div>
 
               {/* Logo - centered */}
-              <div className="flex items-center justify-center flex-1 lg:flex-none">
-                {/* {logo?.asset?.url &&
-                  <Link href="/">
-                    <img
-                      src={logo.asset.url}
-                      alt="Logo"
-                      width={150}
-                      height={150}
-                      className="object-contain"
-                    />
-                  </Link>} */}
+              {/* <div className="flex items-center justify-center flex-1 lg:flex-none ">
+             
 
                 {logo?.asset?._ref && (
                   <Link href="/">
@@ -524,7 +515,30 @@ export const HeaderSection = () => {
                     />
                   </Link>
                 )}
-              </div>
+              </div> */}
+
+              {/* Logo - responsive based on screen size */}
+<div className="flex items-center justify-center flex-1 lg:flex-none ml-2">
+  {logo?.asset?._ref && (
+    <Link href="/">
+      <img
+        src={urlFor(logo)?.url()}
+        alt="Logo"
+        width={150}
+        height={150}
+        className="
+          object-contain 
+          w-[100px]       // Mobile
+          sm:w-[120px]    // Small tablets
+          md:w-[140px]    // iPads
+          lg:w-[145px]    // Laptops
+          xl:w-[180px]    // Larger screens
+        "
+      />
+    </Link>
+  )}
+</div>
+
 
               {/* Buttons and mobile menu toggle - right side */}
               <div className="flex items-center justify-end gap-4 flex-1">
@@ -535,7 +549,7 @@ export const HeaderSection = () => {
                       onClick={() => router.push(cta.url)}
                       className="cursor-pointer py-2 px-4 flex gap-3 items-center rounded-full font-normal text-white bg-gray-900 hover:bg-gray-800 transition-colors"
                     >
-                      <span className="flex items-center gap-2 text-[15px]">{cta.label}</span>
+                      <span className="flex items-center gap-2 text-sm md:text-xs lg:text-[14.5px]">{cta.label}</span>
                       <svg
                         width="16"
                         height="16"

@@ -165,7 +165,7 @@ export const fundingSteps: ProcessStep[] = [
     title: "Build a Solid Pitch & Business Plan",
     description: [
       "Investors don’t just fund ideas—they fund strong business strategies. ",
-      "WWe help you craft an investor-ready pitch deck that highlights your startup’s market potential, value proposition, revenue model, and competitive edge. ",
+      "We help you craft an investor-ready pitch deck that highlights your startup’s market potential, value proposition, revenue model, and competitive edge. ",
       "Additionally, we assist in creating a detailed business plan with financial projections, go-to-market strategies, and risk mitigation plans to give investors confidence in your vision.",
     ],
     imageSrc: "/assets/Our-process/fund3.svg",
