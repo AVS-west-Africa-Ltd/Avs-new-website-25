@@ -469,7 +469,7 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
             <X className="w-8 h-8" />
           </button>
 
-          <button className="absolute left-4 top-1/2 -translate-y-1/2 text-white" onClick={prevImage}>
+          <button className="absolute left-4 top-1/2 -translate-y-1/2 text-green-600" onClick={prevImage}>
             <ChevronLeft className="w-12 h-12" />
           </button>
 
@@ -482,7 +482,7 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
             />
           </div>
 
-          <button className="absolute right-4 top-1/2 -translate-y-1/2 text-white" onClick={nextImage}>
+          <button className="absolute right-4 top-1/2 -translate-y-1/2 text-green-600" onClick={nextImage}>
             <ChevronRight className="w-12 h-12" />
           </button>
 

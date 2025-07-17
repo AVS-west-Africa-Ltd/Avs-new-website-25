@@ -247,7 +247,7 @@ export const CallToActionSection = () => {
     <>
       <footer className="w-full bg-[linear-gradient(180deg,#131211_0%,#1A1816_100%)] min-h-[448px] flex flex-col px-[58px] py-[92px] max-md:px-10 max-sm:px-5">
         <div className="flex justify-between max-md:flex-col max-md:gap-10">
-          <div className="flex flex-col gap-[17px] max-w-[579px]">
+          <div className="flex flex-col gap-[30px] md:gap-[12px]">
             {siteFooterData?.logo?.asset?._ref && (
               <Image
                 src={urlFor(siteFooterData.logo).url()}
@@ -257,24 +257,24 @@ export const CallToActionSection = () => {
                 height={40}
               />
             )}
-            <div className="text-white text-base leading-[26px]">
-              {siteFooterData?.brandStatement && <PortableText value={siteFooterData.brandStatement} />}
+<div className="text-white text-base md:text-sm lg:text-base leading-[26px] mr-5">
+{siteFooterData?.brandStatement && <PortableText value={siteFooterData.brandStatement} />}
             </div>
           </div>
-          <div className="flex gap-[84px] max-md:flex-wrap max-sm:gap-10">
-            <div className="flex gap-[84px] max-md:flex-wrap max-sm:gap-10">
+          <div className="flex gap-[40px] max-md:flex-wrap max-sm:gap-10">
+            <div className="flex gap-[44px] max-md:flex-wrap max-sm:gap-10">
               <nav aria-label="Main navigation">
-                {/* <h2 className="text-white text-[15px] leading-[19.5px] tracking-[-0.3px] mb-[11px]">
-                  Navigation
-                </h2> */}
+              <h2 className="text-white text-[15px] md:text-[14px] lg:text-[15px] leading-[19.5px] tracking-[-0.3px] mb-[11px]">
+              Navigation
+                </h2>
                 {siteFooterData?.navigationLinks?.length > 0 && (
                   <ul className="flex flex-col gap-[11px]">
                     {siteFooterData.navigationLinks.map((link: any) => (
                       <li key={link._key}>
                         <Link
                           href={link.url}
-                          className="text-white text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
-                        >
+                          className="text-white text-[15px] md:text-[14px] lg:text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
+                          >
                           {link.label}
                         </Link>
                       </li>
@@ -284,7 +284,9 @@ export const CallToActionSection = () => {
               </nav>
 
               <nav aria-label="Legal navigation">
-                <h2 className="text-white text-[15px] leading-[19.5px] tracking-[-0.3px] mb-[11px]">
+
+                <h2 className="text-white text-[15px] md:text-[14px] lg:text-[15px] leading-[19.5px] tracking-[-0.3px] mb-[11px]">
+
                   Legal
                 </h2>
                 <ul className="flex flex-col gap-[11px]">
@@ -292,8 +294,8 @@ export const CallToActionSection = () => {
                     <li key={link._key}>
                       <Link
                         href={link.url}
-                        className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
-                      >
+                        className="text-white text-[15px] md:text-[14px] lg:text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
+                        >
                         {link.label}
                       </Link>
                     </li>
@@ -303,8 +305,8 @@ export const CallToActionSection = () => {
             </div>
 
             <div className="flex flex-col gap-[11px]">
-              <h2 className="text-white text-[15px] leading-[19.5px] tracking-[-0.3px]">
-                Contact
+            <h2 className="text-white text-[15px] md:text-[14px] lg:text-[15px] leading-[19.5px] tracking-[-0.3px] mb-[11px]">
+            Contact
               </h2>
               <address className="not-italic flex flex-col gap-2">
                 {siteFooterData?.contact?.phone && (
@@ -323,7 +325,7 @@ export const CallToActionSection = () => {
                     </svg>
                     <Link
                       href={`tel:${siteFooterData.contact.phone.replace(/[^0-9+]/g, '')}`}
-                      className="text-[#F9F6F6] text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
+    className="text-white text-[15px] md:text-[14px] lg:text-[15px] leading-[19.5px] tracking-[-0.3px] hover:underline"
                     >
                       {siteFooterData.contact.phone}
                     </Link>

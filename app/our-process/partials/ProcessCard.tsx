@@ -16,8 +16,9 @@ const ProcessCard = ({ step, isReversed }: { step: ProcessStep; isReversed: bool
 
     return (
         <motion.div
-            className={`flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16 lg:gap-32 w-full 
-        ${isReversed ? "" : "md:flex-row-reverse"}`}
+            className={`flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16 lg:gap-32 w-full px-0 
+                md:px-6 lg:px-6 xl:px-0
+                ${isReversed ? "" : "md:flex-row-reverse"}`}
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"

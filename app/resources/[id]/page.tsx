@@ -12,6 +12,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
 interface TemplateCardProps {
   name: string;
@@ -145,6 +146,8 @@ const TemplateSection = () => {
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <div className="absolute inset-0">
+                <div className="hidden lg:block">
+
                   <Image
                     src="/assets/resources/Resources/visionstatement.png"
                     alt="Slide 1"
@@ -152,11 +155,26 @@ const TemplateSection = () => {
                     style={{ objectFit: "contain", padding: "20px" }}
                   />
                 </div>
+
+
+                                  {/* Mobile & Tablet View */}
+                                  <div className="block lg:hidden">
+<ResponsiveImage
+                    src="/assets/resources/Resources/visionstatement.png"
+                    />
+
+ 
+</div>
+
+                </div>
+
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <div className="absolute inset-0">
+                <div className="hidden lg:block">
+
                   <Image
                     src="/assets/Vision-Statement-Template/2 (2).png"
                     alt="Slide 2"
@@ -164,30 +182,69 @@ const TemplateSection = () => {
                     style={{ objectFit: "contain", padding: "20px" }}
                   />
                 </div>
+                                      {/* Mobile & Tablet View */}
+                                      <div className="block lg:hidden">
+<ResponsiveImage
+                    src="/assets/Vision-Statement-Template/2 (2).png"
+                    />
+
+ 
+</div>
+                </div>
+
               </div>
             </SwiperSlide>
 
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
                 <div className="absolute inset-0">
+
+                <div className="hidden lg:block">
+
                   <Image
                     src="/assets/Vision-Statement-Template/3 (2).png"
                     alt="Slide 2"
                     fill
                     style={{ objectFit: "contain", padding: "20px" }}
                   />
+
+</div>
+
+
+                   
+                                      {/* Mobile & Tablet View */}
+                                      <div className="block lg:hidden">
+<ResponsiveImage
+                    src="/assets/Vision-Statement-Template/3 (2).png"
+                    />
+
+ 
+</div>
                 </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl  overflow-hidden ">
                 <div className="absolute inset-0">
+                <div className="hidden lg:block">
+
                   <Image
                     src="/assets/Vision-Statement-Template/1 (2).png"
                     alt="Slide 2"
                     fill
                     style={{ objectFit: "contain", padding: "20px" }}
                   />
+                  </div>
+
+                   
+                                      {/* Mobile & Tablet View */}
+                                      <div className="block lg:hidden">
+<ResponsiveImage
+                    src="/assets/Vision-Statement-Template/1 (2).png"
+                    />
+
+ 
+</div>
                 </div>
               </div>
             </SwiperSlide>
@@ -206,7 +263,7 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
                 <div className="absolute inset-0">
                   <Image
                     src="/assets/resources/Resources/visionstatement.png"
@@ -218,8 +275,8 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5 ">
-                <div className="absolute inset-0">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
+            <div className="absolute inset-0">
                   <Image
                     src="/assets/Vision-Statement-Template/2 (2).png"
                     alt="Slide 2"
@@ -230,8 +287,8 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5 ">
-                <div className="absolute inset-0">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
+            <div className="absolute inset-0">
                   <Image
                     src="/assets/Vision-Statement-Template/3 (2).png"
                     alt="Slide 2"
@@ -243,8 +300,8 @@ const TemplateSection = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5 ">
-                <div className="absolute inset-0">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
+            <div className="absolute inset-0">
                   <Image
                     src="/assets/Vision-Statement-Template/1 (2).png"
                     alt="Slide 2"
@@ -261,7 +318,7 @@ const TemplateSection = () => {
       )}
 
       {Number(id) === 2 && (
-        <div className="flex flex-col gap-2  p-1">
+        <div className="flex flex-col gap-2 w-full">
           <Swiper
             loop={true}
             spaceBetween={10}
@@ -272,16 +329,29 @@ const TemplateSection = () => {
           >
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/resources/Resources/knowyourproduct.png"
                   alt="Slide 1"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+                  </div>
+
+                {/* Mobile & Tablet View */}
+<div className="block lg:hidden">
+<ResponsiveImage src="/assets/resources/Resources/knowyourproduct.png" />
+
+ 
+</div>
               </div>
+
             </SwiperSlide>
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Know-Your-Product/1 (2).png"
                   alt="Slide 2"
@@ -289,29 +359,61 @@ const TemplateSection = () => {
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
               </div>
-            </SwiperSlide>
+              <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Know-Your-Product/1 (2).png"
+                  />
 
+ 
+</div>
 
-            <SwiperSlide>
-              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
-                <Image
-                  src="/assets/Know-Your-Product/2 (2).png"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "contain", padding: "20px" }}
-                />
               </div>
             </SwiperSlide>
 
 
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+
+              <div className="hidden lg:block">
+
+                <Image
+                  src="/assets/Know-Your-Product/2 (2).png"
+                  alt="Slide 2"
+                  fill
+                  style={{ objectFit: "contain", padding: "20px" }}
+                />
+
+              </div>
+              <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Know-Your-Product/2 (2).png"
+                  />
+
+ 
+</div>
+              </div>
+            </SwiperSlide>
+
+
+            <SwiperSlide>
+              <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Know-Your-Product/3 (2).png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+
+              </div>
+              <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Know-Your-Product/3 (2).png"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
           </Swiper>
@@ -327,7 +429,11 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+              {/* <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5"> */}
+
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
+
+
                 <Image
                   src="/assets/resources/Resources/knowyourproduct.png"
                   alt="Thumbnail 1"
@@ -337,7 +443,9 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+              {/* <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5"> */}
+              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
+
                 <Image
                   src="/assets/Know-Your-Product/1 (2).png"
                   alt="Thumbnail 2"
@@ -348,8 +456,8 @@ const TemplateSection = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
-                <Image
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
+            <Image
                   src="/assets/Know-Your-Product/2 (2).png"
                   alt="Thumbnail 2"
                   fill
@@ -360,8 +468,8 @@ const TemplateSection = () => {
 
 
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
-                <Image
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
+            <Image
                   src="/assets/Know-Your-Product/3 (2).png"
                   alt="Thumbnail 2"
                   fill
@@ -385,26 +493,55 @@ const TemplateSection = () => {
           >
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/resources/Resources/feature_prioritisationavs.png"
                   alt="Slide 1"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+
+               </div>
+
+                    
+                                  {/* Mobile & Tablet View */}
+                                  <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/resources/Resources/feature_prioritisationavs.png"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 1.PNG"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+                </div>
+
+                  {/* Mobile & Tablet View */}
+                  <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Feature-Prioritization-Matrix-Template/Feature Prioritization Matrix 1.PNG"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/1 (2).png"
                   alt="Slide 3"
@@ -412,29 +549,65 @@ const TemplateSection = () => {
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
               </div>
+
+
+              {/* Mobile & Tablet View */}
+              <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Feature-Prioritization-Matrix-Template/1 (2).png"
+                  />
+
+ 
+</div>
+              </div> 
             </SwiperSlide>
 
 
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/2 (2).png"
                   alt="Slide 3"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+                 </div>
+                           
+              {/* Mobile & Tablet View */}
+              <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Feature-Prioritization-Matrix-Template/2 (2).png"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
 
 
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/4 (2).png"
                   alt="Slide 3"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+                </div>
+
+                        
+              {/* Mobile & Tablet View */}
+              <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Feature-Prioritization-Matrix-Template/1 (2).png"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
           </Swiper>
@@ -450,7 +623,7 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
                 <Image
                   src="/assets/resources/Resources/feature_prioritisationavs.png"
                   alt="Thumbnail 1"
@@ -460,7 +633,7 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0 b-1">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/1 (2).png"
                   alt="Slide 2"
@@ -473,7 +646,7 @@ const TemplateSection = () => {
 
 
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/2 (2).png"
                   alt="Slide 2"
@@ -484,7 +657,7 @@ const TemplateSection = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/4 (2).png"
                   alt="Slide 2"
@@ -511,33 +684,68 @@ const TemplateSection = () => {
           >
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/resources/Resources/ecosystemmapping.png"
                   alt="Slide 1"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+</div>
+                   {/* Mobile & Tablet View */}
+                   <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/resources/Resources/ecosystemmapping.png"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
+
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/ecosys1.png"
                   alt="Slide 2"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+                 </div>  {/* Mobile & Tablet View */}
+                   <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Feature-Prioritization-Matrix-Template/ecosys1.png"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] relative cursor-pointer rounded-lg md:rounded-3xl overflow-hidden ">
               {/* bg-[#F0F0F0] this was bg i remove */}
+
+              <div className="hidden lg:block">
+
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/Ecosys2.png"
                   alt="Slide3"
                   fill
                   style={{ objectFit: "contain", padding: "20px" }}
                 />
+</div>
+                   {/* Mobile & Tablet View */}
+                   <div className="block lg:hidden">
+<ResponsiveImage
+                  src="/assets/Feature-Prioritization-Matrix-Template/Ecosys2.png"
+                  />
+
+ 
+</div>
               </div>
             </SwiperSlide>
           </Swiper>
@@ -553,7 +761,7 @@ const TemplateSection = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
                 <Image
                   src="/assets/resources/Resources/ecosystemmapping.png"
                   alt="Thumbnail 1"
@@ -563,7 +771,7 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/ecosys1.png"
                   alt="Slide 2"
@@ -573,7 +781,7 @@ const TemplateSection = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer ml-5">
+            <div className="w-full h-16 sm:h-20 md:h-24 relative cursor-pointer lg:ml-5 ml-0 mt-30 lg:mt-0">
                 <Image
                   src="/assets/Feature-Prioritization-Matrix-Template/Ecosys2.png"
                   alt="Slide 2"
@@ -661,16 +869,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray- mt-16">
-      <div className="container mx-auto px-4 py-4 md:py-8">
-          <Link href="/resources" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8">
-        <ChevronLeft className="w-4 h-4 mr-1" />
+      <div className="container mx-auto  px-2 sm:px-4 py-4 md:py-8">
+      <Link
+  href="/resources"
+  className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-[120px] md:mb-[140px] lg:mb-8"
+>
+
+        <ChevronLeft className="w-4 h-4 mr-1 " />
         Back to Resources
       </Link>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="lg:order-last">
             <TemplateSection />
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center  ">
             {Number(id) === 1 && (
               <TemplateCard
                 name="Vision Statement Template"

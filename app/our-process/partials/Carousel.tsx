@@ -180,90 +180,86 @@ const Carousel: React.FC<CarouselProps> = ({
 
   return (
     <div
-      className="relative w-full"
+      className="relative w-full mx-0"
       // onMouseEnter={() => setIsHovering(true)}
       // onMouseLeave={() => setIsHovering(false)}
       ref={carouselRef}
     >
       {/* Main carousel */}
       <div className="flex items-center justify-center">
-        <div className="relative overflow-hidden w-full">
-          <div className="flex justify-center items-center transition-all duration-500 ease-in-out">
-            {getVisibleSlides().map(({ slide, isCenter, offset, position }) => {
-              // Define styling based on position and screen size
-              const visibleCount = getVisibleSlidesCount();
-              
-              // Width calculation based on device
-              let width = 30; // Desktop center default
-              if (visibleCount === 5) {
-                width = isCenter ? 30 : 17.5; // Desktop
-              } else if (visibleCount === 3) {
-                width = isCenter ? 50 : 30; // Tablet
-              } else {
-                width = 80; // Mobile (single slide)
-              }
-              
-              const zIndex = isCenter ? 10 : 5;
-              const opacity = isCenter ? 1 : 0.7;
-              const scale = isCenter ? 1 : 0.85;
-              
-              // Adjust styles for different layouts
-              let style = "";
-              
-              if (visibleCount === 5) {
-                // Desktop styles (trapezoid effect)
-                style = offset === -2
-                  ? "h-[460px] trapezoidB my-4"
-                  : offset === -1
-                  ? "h-[386px] trapezoidB"
-                  : offset === 0
-                  ? "h-[346px]"
-                  : offset === 1
-                  ? "h-[386px]  trapezoid"
-                  : "h-[460px] trapezoid my-4";
-              } else if (visibleCount === 3) {
-                // Tablet styles (simpler trapezoid)
-                style = offset === -1
-                  ? "h-[386px] trapezoidB"
-                  : offset === 0
-                  ? "h-[346px]"
-                  : "h-[386px] trapezoid";
-              } else {
-                // Mobile style (single slide)
-                style = "h-[346px]";
-              }
-              
-              const transitionClass = getTransitionClass(offset);
+        <div className="relative overflow-hidden w-full  max-w-full ">
+        <div className="flex justify-center items-center transition-all duration-500 ease-in-out w-full">
+  {getVisibleSlides().map(({ slide, isCenter, offset, position }) => {
+    const visibleCount = getVisibleSlidesCount();
+    
+    // Width calculation - 100% for mobile, adjusted for other devices
+    let width = 100; // Default to full width for mobile
+    if (visibleCount === 5) {
+      width = isCenter ? 30 : 17.5; // Desktop
+    } else if (visibleCount === 3) {
+      width = isCenter ? 50 : 30; // Tablet
+    }
+    
+    const zIndex = isCenter ? 10 : 5;
+    
+    // Adjust styles for different layouts
+    let style = "";
+    if (visibleCount === 5) {
+      // Desktop styles (trapezoid effect)
+      style = offset === -2
+        ? "h-[460px] trapezoidB my-4"
+        : offset === -1
+        ? "h-[386px] trapezoidB"
+        : offset === 0
+        ? "h-[346px]"
+        : offset === 1
+        ? "h-[386px] trapezoid"
+        : "h-[460px] trapezoid my-4";
+    } else if (visibleCount === 3) {
+      // Tablet styles (simpler trapezoid)
+      style = offset === -1
+        ? "h-[386px] trapezoidB"
+        : offset === 0
+        ? "h-[346px]"
+        : "h-[386px] trapezoid";
+    } else {
+      // Mobile style (single slide)
+      style = "h-[346px] w-full rounded-none"; // Added rounded-none for mobile
+    }
+    
+    const transitionClass = getTransitionClass(offset);
 
-              return (
-                <div
-                  key={`${slide.id}-${offset}`}
-                  className={`px-1 transition-all duration-500 ease-in-out `}
-                  style={{
-                    width: `${width}%`,
-                    zIndex,
-                  }}
-                >
-                  {/* shift idris */}
-                  <a href={`our-process#${slide.title}`}>
-                  <div
-                    className={`bg-white rounded-2xl overflow-hidden ${style}`}
-                    style={{
-                      backgroundImage: `url(${slide.imageSrc})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
-                    <div className="flex flex-col justify-end h-full bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
-                      <h3 className="text-xl font-medium mb-2">{slide.title}</h3>
-                      {/* <p className="text-sm md:block">{slide.description}</p> */}
-                    </div>
-                  </div>
-                  </a>
-                </div>
-              );
-            })}
+    return (
+      <div
+        key={`${slide.id}-${offset}`}
+        className={`transition-all duration-500 ease-in-out ${
+          visibleCount === 1 ? 'px-0 w-full' : 'px-1'
+        }`}
+        style={{
+          width: `${width}%`,
+          zIndex,
+        }}
+      >
+        <a href={`our-process#${slide.title}`}>
+          <div
+            className={`bg-white overflow-hidden ${style} ${
+              visibleCount === 1 ? 'mx-0 rounded-none' : 'rounded-2xl'
+            }`}
+            style={{
+              backgroundImage: `url(${slide.imageSrc})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="flex flex-col justify-end h-full bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
+              <h3 className="text-xl font-medium mb-2">{slide.title}</h3>
+            </div>
           </div>
+        </a>
+      </div>
+    );
+  })}
+</div>
         </div>
       </div>
       

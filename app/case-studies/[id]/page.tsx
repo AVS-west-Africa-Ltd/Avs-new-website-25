@@ -19,6 +19,7 @@ import CaseStudiesShowcase from "@/app/sections/TestimonialsSection/CaseStudiesS
 import { useQuery } from "@tanstack/react-query";
 import client, { urlFor } from "@/sanity";
 import ZoomableModal from "@/components/ZoomModal";
+import ZoomableWorkshopImage from "@/components/resources/ZoomableWorkshopImage";
 
 function CaseId({ params }: { params: Promise<{ id: any }> }) {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -471,7 +472,10 @@ const [selectedImage, setSelectedImage] = useState("");
                     </div>
                 </div>
             </div>}
-
+            {/* <ZoomableWorkshopImage
+  imageSrc={urlFor(details?.workShops?.imageSrc).url() ?? ''}
+  imageAltSrc={details?.workShops?.imageAlt ? urlFor(details?.workShops?.imageAlt).url() : ''}
+/> */}
             {/* Userflows */}
             {details?.userFlows && <section className="w-full bg-black py-20 px-4">
                 <div className="container mx-auto">

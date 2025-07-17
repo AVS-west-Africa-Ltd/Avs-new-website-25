@@ -313,3 +313,15 @@
         width: 100%;
     }
 }
+
+
+.responsive-object-fit {
+  object-fit: contain;
+}
+
+@media (min-width: 768px) and (max-width: 834px) {
+  /* iPad Mini (768x1024) to iPad Air (834px wide) */
+  .responsive-object-fit {
+    object-fit: cover;
+  }
+}
