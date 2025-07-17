@@ -411,8 +411,8 @@ const StartupForm = () => {
 
 
     return (
-        <div className="flex justify-center items-center min-h-screen  p-4">
-          <form className="w-full max-w-4xl  p-8 rounded-lg"  onSubmit={handleSubmit}>
+        <div className="flex justify-center items-center min-h-screen  p-">
+          <form className="w-full max-w-4xl  p- rounded-lg"  onSubmit={handleSubmit}>
             <div className="space-y-6">
 
              
@@ -620,42 +620,46 @@ const StartupForm = () => {
         
                   <div className="space-y-4">
                     <label className="block font-semibold text-[#232326] text-base">What support are you seeking from the studio?</label>
-                    <div className="grid grid-cols-4 gap-2   bg-white py-8 rounded-md">
-                      <div className="flex items-center">
-                        <input
-                          id="partnership"
-                          name="supportType"
-                          type="radio"
-                          className="h-4 w-4 text-black border-gray-300 ml-2"
-                        />
-                        <label htmlFor="partnership" className="ml-2 font-semibold text-[#232326] text-sm">
-                          Partnership
-                        </label>
-                      </div>
-                      <div className="flex items-center">
-                        <input id="funding" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300" />
-                        <label htmlFor="funding" className="ml-2 font-semibold text-[#232326] text-sm">
-                          Funding
-                        </label>
-                      </div>
-                      <div className="flex items-center">
-                        <input
-                          id="productDevelopment"
-                          name="supportType"
-                          type="radio"
-                          className="h-4 w-4 text-black border-gray-300"
-                        />
-                        <label htmlFor="productDevelopment" className="ml-2 font-semibold text-[#232326] text-sm">
-                          Product Development
-                        </label>
-                      </div>
-                      <div className="flex items-center">
-                        <input id="operations" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300" />
-                        <label htmlFor="operations" className="ml-2 font-semibold text-[#232326] text-sm mr-1">
-                          Operations & Infrastructure
-                        </label>
-                      </div>
-                    </div>
+                   
+
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 bg-white py-8 rounded-md">
+  <div className="flex items-center">
+    <input
+      id="partnership"
+      name="supportType"
+      type="radio"
+      className="h-4 w-4 text-black border-gray-300 ml-2"
+    />
+    <label htmlFor="partnership" className="ml-2 font-semibold text-[#232326] text-sm">
+      Partnership
+    </label>
+  </div>
+  <div className="flex items-center">
+    <input id="funding" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300 ml-2" />
+    <label htmlFor="funding" className="ml-2 font-semibold text-[#232326] text-sm">
+      Funding
+    </label>
+  </div>
+  <div className="flex items-center">
+    <input
+      id="productDevelopment"
+      name="supportType"
+      type="radio"
+      className="h-4 w-4 text-black border-gray-300 ml-2"
+    />
+    <label htmlFor="productDevelopment" className="ml-2 font-semibold text-[#232326] text-sm">
+      Product Development
+    </label>
+  </div>
+  <div className="flex items-center">
+    <input id="operations" name="supportType" type="radio" className="h-4 w-4 text-black border-gray-300 ml-2" />
+    <label htmlFor="operations" className="ml-2 font-semibold text-[#232326] text-sm mr-1">
+      Operations & Infrastructure
+    </label>
+  </div>
+</div>
+
                   </div>
         
 

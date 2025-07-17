@@ -449,7 +449,7 @@ function OurProcess() {
               : "Secure the right funding to scale your business. From crafting the perfect pitch to connecting with investors, we guide you every step of the way."}
           </p>
 
-          <div className="flex justify-center items-center w-full">
+          <div className="flex justify-center items-center w-full overflow-x-hidden">
             <Carousel
               // @ts-expect-error fundingSteps
               slides={activeTab === "build" ? sampleSlides : fundingSteps}
