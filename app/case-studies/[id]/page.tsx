@@ -205,7 +205,7 @@ const [selectedImage, setSelectedImage] = useState("");
             {/* Main Image */}
             {details?.appImage && (
                 <>
-                {/* <div  className="w-full rounded-xl md:rounded-3xl lg:rounded-[32px] overflow-hidden mt-8 px-4 md:px-0 container mx-auto">
+                 <div  className="w-full rounded-xl md:rounded-3xl lg:rounded-[32px] overflow-hidden mt-8 px-4 md:px-0 container mx-auto">
 
                 <div className="w-full aspect-[4/3] md:aspect-[928/545] mx-auto overflow-hidden rounded-lg md:rounded-[26px]">
   <img
@@ -215,8 +215,8 @@ const [selectedImage, setSelectedImage] = useState("");
   />
                 </div>
 
-</div> */}
-                <motion.div
+</div> 
+                {/* <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={imageVariants}
@@ -231,7 +231,7 @@ const [selectedImage, setSelectedImage] = useState("");
   style={{ backgroundImage: `url(${urlFor(details?.appImage)})` }}
 />
 
-                </motion.div>
+                </motion.div> */}
 </>
 
             )}
