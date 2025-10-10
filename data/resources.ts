@@ -20,7 +20,7 @@ export const ideaValidationData: ResourceData = {
     "/assets/resources/startups/Introduction.png",
     "/assets/resources/startups/Step 1 and 2.png",
     "/assets/resources/startups/Step 3 and 4.png",
-    "/assets/resources/startups/Step 5, 6 & 7.png",
+    "/assets/resources/startups/Step567.png",
         
 
     // "/assets/resources/Resources/testyouridea.png"
