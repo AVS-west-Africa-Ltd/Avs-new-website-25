@@ -165,7 +165,7 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
           <button className="absolute top-4 right-4 text-white" onClick={closeLightbox}>
             <X className="w-8 h-8" />
           </button>
-
+{/* 
           <button className="absolute left-4 top-1/2 -translate-y-1/2 text-green-600" onClick={prevImage}>
             <ChevronLeft className="w-12 h-12" />
           </button>
@@ -181,7 +181,33 @@ export function ResourcePreview({ resource }: { resource: ResourceData }) {
 
           <button className="absolute right-4 top-1/2 -translate-y-1/2 text-green-600" onClick={nextImage}>
             <ChevronRight className="w-12 h-12" />
-          </button>
+          </button> */}
+
+          <div className="relative w-full max-w-4xl h-[80vh] flex items-center justify-center">
+  <button
+    className="absolute left-4 top-1/2 -translate-y-1/2 text-green-600 z-10"
+    onClick={prevImage}
+  >
+    <ChevronLeft className="w-12 h-12" />
+  </button>
+
+  <div className="relative w-full h-full">
+    <Image
+      src={resource.previewImages[activeImageIndex] || "/placeholder.svg"}
+      alt={`Preview ${activeImageIndex + 1}`}
+      fill
+      className="object-contain"
+    />
+  </div>
+
+  <button
+    className="absolute right-4 top-1/2 -translate-y-1/2 text-green-600 z-10"
+    onClick={nextImage}
+  >
+    <ChevronRight className="w-12 h-12" />
+  </button>
+</div>
+
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
             {resource.previewImages.map((_, index) => (
