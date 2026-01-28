@@ -1,3 +1,7 @@
+// 
+
+
+
 "use client";
 
 import {
@@ -35,7 +39,7 @@ function CaseId() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -47,7 +51,7 @@ function CaseId() {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as const,
         delay: 0.4,
       },
     },
@@ -159,7 +163,7 @@ function CaseId() {
             visible: {
               x: 0,
               opacity: 1,
-              transition: { duration: 0.6, ease: "easeOut" },
+              transition: { duration: 0.6, ease: "easeOut" as const },
             },
           }}
           className="text-3xl md:text-4xl font-semibold text-[#0f0f0f] font-['Raleway',Helvetica] md:whitespace-nowrap"
@@ -179,7 +183,7 @@ function CaseId() {
                   opacity: 1,
                   transition: {
                     duration: 0.5,
-                    ease: "backOut",
+                    ease: "backOut" as const,
                     delay: index * 0.1,
                   },
                 },
@@ -245,7 +249,7 @@ function CaseId() {
                 visible: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 0.4, ease: "easeOut" },
+                  transition: { duration: 0.4, ease: "easeOut" as const },
                 },
               }}
               className="w-full h-[110px] sm:h-[130px] md:h-[150px] lg:h-[181px] bg-[#fff5e1] rounded-xl md:rounded-[28px] overflow-hidden border-none" // Adjusted heights
@@ -365,7 +369,7 @@ function CaseId() {
                         visible: {
                           opacity: 1,
                           scale: 1,
-                          transition: { duration: 0.5, ease: "easeOut" },
+                          transition: { duration: 0.5, ease: "easeOut" as const },
                         },
                       }}
                       className=" rounded-lg md:rounded-xl overflow-hidden"
@@ -405,7 +409,7 @@ function CaseId() {
               Building on the wireframes, we developed high-fidelity designs
               with a modern, clean interface. The final design focused on
               accessibility, seamless navigation, and an engaging user
-              experience tailored to Rateo’s mission.
+              experience tailored to Rateo's mission.
             </p>
           </motion.div>
 
@@ -430,7 +434,7 @@ function CaseId() {
                         visible: {
                           opacity: 1,
                           scale: 1,
-                          transition: { duration: 0.5, ease: "easeOut" },
+                          transition: { duration: 0.5, ease: "easeOut" as const },
                         },
                       }}
                       className=" rounded-lg md:rounded-xl overflow-hidden"
@@ -493,7 +497,7 @@ function CaseId() {
                       visible: {
                         opacity: 1,
                         scale: 1,
-                        transition: { duration: 0.5, ease: "easeOut" },
+                        transition: { duration: 0.5, ease: "easeOut" as const },
                       },
                     }}
                     className="h-full rounded-lg md:rounded-xl overflow-hidden"
@@ -520,7 +524,7 @@ function CaseId() {
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1, ease: "easeOut" as const }}
             className="lg:w-1/3 w-full flex items-end md:w-1/2"
           >
             <div className="lg:mt-12 w-full">
@@ -557,7 +561,7 @@ function CaseId() {
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+            transition={{ duration: 1, ease: "easeOut" as const, delay: 0.6 }}
             className="lg:w-2/3 lg:pl-5 md:w-full w-full flex items-end"
           >
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-4 xl:gap-6 items-stretch">
