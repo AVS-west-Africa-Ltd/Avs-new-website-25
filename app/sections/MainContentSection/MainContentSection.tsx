@@ -50,6 +50,7 @@ export const HeaderSection = () => {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Our Process", href: "/our-process" },
+    { label: "Know Your Product", href: "/kyp" },
     { label: "Resources", href: "/resources" },
     { label: "Case studies", href: "/case-studies" },
     // { label: "Build with AI", href: "/build-with-ai" },
@@ -117,9 +118,9 @@ export const HeaderSection = () => {
       <div className="py-4 relative rounded-[0px_0px_26px_26px] bg-[#f0f0f0] backdrop-blur-[2.5px] overflow-visible mx-auto max-w-[1400px]">
         <div className="flex items-center justify-between h-full px-6 lg:px-12">
           {/* Navigation menu - left side for desktop */}
-          <div className="hidden lg:flex flex-1">
+          <div className="hidden xl:flex flex-1 min-w-0">
             <NavigationMenu>
-              <NavigationMenuList className="flex items-center gap-8">
+              <NavigationMenuList className="flex items-center gap-5 2xl:gap-6">
                 {navItems.slice(0, 3).map((item, index) => (
                   <NavigationMenuItem key={index}>
                     <Link href={item.href} legacyBehavior passHref>
@@ -203,7 +204,7 @@ export const HeaderSection = () => {
           </div>
 
           {/* Logo - centered */}
-          <div className="flex items-center justify-center flex-1 lg:flex-none">
+          <div className="flex items-center justify-center flex-1 xl:flex-none">
             <Link href="/">
               <img
                 src="/assets/AVS Logo.svg"
@@ -241,7 +242,7 @@ export const HeaderSection = () => {
 
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden flex items-center justify-center"
+              className="xl:hidden flex items-center justify-center"
               aria-label="Toggle menu"
             >
               <Menu size={24} className="text-gray-900" />
@@ -258,7 +259,7 @@ export const HeaderSection = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 1, x: "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40"
+            className="xl:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-40"
           >
             <div className="flex justify-between items-center py-4 px-6 border-b border-gray-100">
               <Link href="/">

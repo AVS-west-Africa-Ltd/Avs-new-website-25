@@ -1,9 +1,23 @@
 {
+  "app/kyp/page.tsx -> docx": {
+    "id": 5976,
+    "files": [
+      "static/chunks/8187f03c.16ea882231c908fe.js",
+      "static/chunks/700.bd5bb6976052dafa.js"
+    ]
+  },
+  "app/kyp/page.tsx -> jspdf": {
+    "id": 26597,
+    "files": [
+      "static/chunks/164f4fb6-a9aebf867b536720.js",
+      "static/chunks/913-717f7287b7a8207c.js"
+    ]
+  },
   "node_modules/jspdf/dist/jspdf.es.min.js -> canvg": {
     "id": 34137,
     "files": [
-      "static/chunks/bc98253f.d21a5b1e2e1a8f86.js",
-      "static/chunks/121.7560c80c038f73cc.js"
+      "static/chunks/bc98253f.8de609be165a6be3.js",
+      "static/chunks/121.496a8bda013d5d39.js"
     ]
   },
   "node_modules/jspdf/dist/jspdf.es.min.js -> dompurify": {

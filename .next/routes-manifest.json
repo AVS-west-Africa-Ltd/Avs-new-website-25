@@ -69,6 +69,12 @@
       "namedRegex": "^/favicon\\.ico(?:/)?$"
     },
     {
+      "page": "/kyp",
+      "regex": "^/kyp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kyp(?:/)?$"
+    },
+    {
       "page": "/our-process",
       "regex": "^/our\\-process(?:/)?$",
       "routeKeys": {},

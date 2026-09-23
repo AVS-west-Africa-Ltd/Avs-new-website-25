@@ -3,8 +3,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
-import { HeaderSection } from "./sections/MainContentSection/MainContentSection";
-import { CallToActionSection } from "./sections/CallToActionSection";
+import { SiteChrome } from "@/components/SiteChrome";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -32,9 +31,7 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} antialiased`}
       >
-        <HeaderSection />
-        {children}
-        <CallToActionSection />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

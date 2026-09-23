@@ -22,6 +22,7 @@
     "@types/react-slick": "^0.23.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "docx": "^9.7.2",
     "dom-to-image": "^2.6.0",
     "framer-motion": "^12.6.2",
     "html2canvas": "^1.4.1",
