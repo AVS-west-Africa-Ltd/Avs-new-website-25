@@ -1,14 +1,14 @@
 {
   "/api/send-email/route": "/api/send-email",
-  "/_not-found/page": "/_not-found",
   "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
   "/case-id/page": "/case-id",
-  "/case-studies/[id]/page": "/case-studies/[id]",
   "/case-studies/page": "/case-studies",
+  "/case-studies/[id]/page": "/case-studies/[id]",
+  "/our-process/page": "/our-process",
   "/kyp/page": "/kyp",
   "/contact-us/page": "/contact-us",
   "/page": "/",
-  "/our-process/page": "/our-process",
   "/resources/[id]/page": "/resources/[id]",
   "/resources/page": "/resources",
   "/resources/services/page": "/resources/services"
