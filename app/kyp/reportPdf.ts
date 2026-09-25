@@ -13,12 +13,24 @@ const SEGMENTS = ["#0f1728", "#4a5875", "#8a94a8", "#c1c7d3"];
 
 export async function exportReportPdf(filename: string, report: Report) {
   const { jsPDF } = await import("jspdf");
-  const pdf = new jsPDF({ unit: "pt", format: "a4" });
-  const pageWidth = pdf.internal.pageSize.getWidth();
-  const pageHeight = pdf.internal.pageSize.getHeight();
+  const isWide = (section: Report["sections"][number]) =>
+    section.blocks.some(
+      (block) => block.t === "table" && block.columns.length >= 6,
+    );
+  const startWide = Boolean(report.sections[0] && isWide(report.sections[0]));
+  const pdf = new jsPDF({
+    unit: "pt",
+    format: "a4",
+    orientation: startWide ? "landscape" : "portrait",
+  });
+  let pageWidth = pdf.internal.pageSize.getWidth();
+  let pageHeight = pdf.internal.pageSize.getHeight();
   const margin = 45;
-  const cw = pageWidth - margin * 2;
-  const bottom = pageHeight - 56;
+  let cw = pageWidth - margin * 2;
+  let bottom = pageHeight - 56;
+  let orientation: "portrait" | "landscape" = startWide
+    ? "landscape"
+    : "portrait";
   let y = 0;
 
   // Open-licence faces (public/fonts/pdf); fall back to built-ins if they cannot be fetched
@@ -60,16 +72,46 @@ export async function exportReportPdf(filename: string, report: Report) {
     pdf.setFontSize(size);
     pdf.setTextColor(color);
   };
+  // Word-wraps text to a width. The library's own splitter chops over-long words by character,
+  // so lines are built here instead: break at spaces, then after hyphens and slashes, and only
+  // split by characters when a single piece is wider than the column.
   const wrap = (value: string, width: number): string[] => {
+    const limit = Math.max(10, width);
+    const fits = (text: string) => pdf.getTextWidth(text) <= limit + 0.5;
     const out: string[] = [];
     String(value)
       .split("\n")
       .forEach((line) => {
-        const parts: string[] = pdf.splitTextToSize(
-          line || " ",
-          Math.max(10, width),
-        );
-        out.push(...parts);
+        if (!line.trim()) return out.push(" ");
+        let current = "";
+        line
+          .trim()
+          .split(/ +/)
+          .forEach((word) => {
+            const pieces = word.match(/[^-/_.]+[-/_.]?|[-/_.]/g) || [word];
+            pieces.forEach((piece, index) => {
+              const joiner = index === 0 && current ? " " : "";
+              if (fits(current + joiner + piece)) {
+                current += joiner + piece;
+                return;
+              }
+              if (current) {
+                out.push(current);
+                current = "";
+              }
+              if (fits(piece)) {
+                current = piece;
+                return;
+              }
+              for (const character of piece) {
+                if (current && !fits(current + character)) {
+                  out.push(current);
+                  current = character;
+                } else current += character;
+              }
+            });
+          });
+        out.push(current);
       });
     return out;
   };
@@ -85,10 +127,18 @@ export async function exportReportPdf(filename: string, report: Report) {
     pdf.text(report.title, margin, 22);
     y = 62;
   };
+  const newPage = (next: "portrait" | "landscape" = orientation) => {
+    orientation = next;
+    pdf.addPage("a4", next);
+    pageWidth = pdf.internal.pageSize.getWidth();
+    pageHeight = pdf.internal.pageSize.getHeight();
+    cw = pageWidth - margin * 2;
+    bottom = pageHeight - 56;
+    drawHeader();
+  };
   const ensure = (height: number) => {
     if (y + height <= bottom) return;
-    pdf.addPage();
-    drawHeader();
+    newPage();
   };
 
   // ---- blocks -------------------------------------------------------------
@@ -219,7 +269,13 @@ export async function exportReportPdf(filename: string, report: Report) {
   };
 
   type Cell = { text: string; bullet: boolean; cont: boolean };
-  const cellLines = (value: string, width: number): Cell[] => {
+  const cellLines = (
+    value: string,
+    width: number,
+    bold = false,
+    size = 8.7,
+  ): Cell[] => {
+    setFont(sans, bold ? "bold" : "normal", size);
     const lines: Cell[] = [];
     String(value)
       .split("\n")
@@ -271,7 +327,8 @@ export async function exportReportPdf(filename: string, report: Report) {
         0,
         ...String(value)
           .split(/\s+/)
-          .map((word) => pdf.getTextWidth(word.replace(/^•$/, ""))),
+          .flatMap((word) => word.match(/[^-/_.]+[-/_.]?|[-/_.]/g) || [word])
+          .map((piece) => pdf.getTextWidth(piece.replace(/^•$/, ""))),
       );
     };
     const minWidths = columns.map(
@@ -303,6 +360,10 @@ export async function exportReportPdf(filename: string, report: Report) {
         );
       }
     }
+    // If even the minimum widths cannot fit, scale to the page and let long words break
+    const totalWidth = widths.reduce((a, b) => a + b, 0);
+    if (totalWidth > cw + 0.5)
+      widths = widths.map((width) => (width / totalWidth) * cw);
     const xs = widths.map(
       (_, i) => margin + widths.slice(0, i).reduce((a, b) => a + b, 0),
     );
@@ -330,12 +391,13 @@ export async function exportReportPdf(filename: string, report: Report) {
     ensure(60);
     drawHead();
     rows.forEach((row) => {
-      const cells = row.map((cell, i) => cellLines(cell, widths[i] - padX * 2));
+      const cells = row.map((cell, i) =>
+        cellLines(cell, widths[i] - padX * 2, firstColumnBold && i === 0, size),
+      );
       const height =
         Math.max(...cells.map((l) => l.length), 1) * lead + padY * 2 - 2;
       if (y + height > bottom) {
-        pdf.addPage();
-        drawHeader();
+        newPage();
         drawHead();
       }
       pdf.setDrawColor(RULE);
@@ -532,7 +594,9 @@ export async function exportReportPdf(filename: string, report: Report) {
 
   // ---- sections -----------------------------------------------------------
   report.sections.forEach((section) => {
-    ensure(90);
+    const wanted = isWide(section) ? "landscape" : "portrait";
+    if (wanted !== orientation) newPage(wanted);
+    else ensure(90);
     setFont(serif, "normal", 17);
     pdf.text(section.title, margin, y);
     y += 22;
@@ -543,6 +607,8 @@ export async function exportReportPdf(filename: string, report: Report) {
   const totalPages = pdf.getNumberOfPages();
   for (let page = 1; page <= totalPages; page += 1) {
     pdf.setPage(page);
+    pageWidth = pdf.internal.pageSize.getWidth();
+    pageHeight = pdf.internal.pageSize.getHeight();
     setFont(sans, "normal", 7, FAINT);
     pdf.text(
       `Page ${page} of ${totalPages}`,
