@@ -15,6 +15,17 @@ import {
 } from "lucide-react";
 import styles from "./workspace.module.css";
 import ThesisReport from "./ThesisReport";
+import GenerationProgress, { type ProgressStep } from "./GenerationProgress";
+import {
+  ASSIST_STAGES,
+  CHECK_STAGES,
+  INTAKE_STAGES,
+  OUTREACH_STAGES,
+  PEOPLE_STAGES,
+  PLAN_STAGES,
+  SCORE_STAGES,
+  THESIS_STAGES,
+} from "./progressStages";
 import { buildBriefReport, buildThesisReport } from "./report";
 import { exportReportPdf } from "./reportPdf";
 
@@ -208,6 +219,8 @@ export default function KypPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isProposingPeople, setIsProposingPeople] = useState(false);
   const [isProposingPlan, setIsProposingPlan] = useState(false);
+  const [peopleSteps, setPeopleSteps] = useState<ProgressStep[]>([]);
+  const [planSteps, setPlanSteps] = useState<ProgressStep[]>([]);
   const [thesis, setThesis] = useState("");
   const [proposals, setProposals] = useState<Record<string, any>>({});
   const [copiedSearch, setCopiedSearch] = useState("");
@@ -871,36 +884,91 @@ export default function KypPage() {
       setIsChecking(false);
     }
   };
+  // POSTs to a long-running endpoint and reads its Server-Sent Events, reporting which parts have
+  // finished. Falls back to a plain JSON answer if the backend does not stream.
+  const streamProposal = async (
+    path: string,
+    onSteps: (steps: ProgressStep[]) => void,
+  ) => {
+    const response = await fetch(`${api}${path}?stream=1`, { method: "POST" });
+    const type = response.headers.get("content-type") || "";
+    if (!type.includes("text/event-stream") || !response.body)
+      return response.json();
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    let steps: ProgressStep[] = [];
+    let final: any = null;
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const messages = buffer.split("\n\n");
+      buffer = messages.pop() || "";
+      for (const message of messages) {
+        const line = message
+          .split("\n")
+          .find((item) => item.startsWith("data:"));
+        if (!line) continue;
+        const event = JSON.parse(line.slice(5));
+        if (event.type === "plan") {
+          steps = event.steps.map((step: any) => ({ ...step, done: false }));
+          onSteps(steps);
+        } else if (event.type === "done") {
+          steps = steps.map((step) =>
+            step.id === event.id ? { ...step, done: true } : step,
+          );
+          onSteps(steps);
+        } else if (event.type === "result") final = event;
+        else if (event.type === "error")
+          final = { success: false, error: event.error };
+      }
+    }
+    return (
+      final || {
+        success: false,
+        error: "The connection closed before the result arrived.",
+      }
+    );
+  };
   const proposePeople = async () => {
     if (!project.id || isProposingPeople) return;
     setIsProposingPeople(true);
+    setPeopleSteps([]);
     try {
-      const response = await fetch(`${api}/kyp/projects/${project.id}/people`, {
-        method: "POST",
-      });
-      const data = await response.json();
+      const data = await streamProposal(
+        `/kyp/projects/${project.id}/people`,
+        setPeopleSteps,
+      );
       if (data.proposal) {
         setProposals((current) => ({ ...current, people: data.proposal }));
         setStatus("AI proposals ready - review and accept them");
       } else setStatus(data.error || "Could not generate people proposals");
+    } catch {
+      setStatus("The connection dropped while generating. Please try again.");
     } finally {
       setIsProposingPeople(false);
+      setPeopleSteps([]);
     }
   };
   const proposePlan = async () => {
     if (!project.id || isProposingPlan) return;
     setIsProposingPlan(true);
+    setPlanSteps([]);
     try {
-      const response = await fetch(`${api}/kyp/projects/${project.id}/plan`, {
-        method: "POST",
-      });
-      const data = await response.json();
+      const data = await streamProposal(
+        `/kyp/projects/${project.id}/plan`,
+        setPlanSteps,
+      );
       if (data.proposal) {
         setProposals((current) => ({ ...current, plan: data.proposal }));
         setStatus("AI plan ready - review and accept it");
       } else setStatus(data.error || "Could not draft goals");
+    } catch {
+      setStatus("The connection dropped while generating. Please try again.");
     } finally {
       setIsProposingPlan(false);
+      setPlanSteps([]);
     }
   };
   const generate = async () => {
@@ -1212,6 +1280,12 @@ export default function KypPage() {
                     </>
                   )}
                 </button>
+                <GenerationProgress
+                  active={isExtracting || isUploading}
+                  title="Building your starting point"
+                  stages={INTAKE_STAGES}
+                  estimate={15}
+                />
               </div>
             </div>
           </section>
@@ -1302,6 +1376,13 @@ export default function KypPage() {
                   </>
                 )}
               </button>
+              <GenerationProgress
+                active={isProposingPeople}
+                title="Drafting your founding team and personas"
+                steps={peopleSteps}
+                stages={PEOPLE_STAGES}
+                estimate={32}
+              />
             </div>
             {proposals.people && (
               <section
@@ -1553,6 +1634,13 @@ export default function KypPage() {
                   </>
                 )}
               </button>
+              <GenerationProgress
+                active={isProposingPlan}
+                title="Drafting goals, scorecards and sourcing briefs"
+                steps={planSteps}
+                stages={PLAN_STAGES}
+                estimate={38}
+              />
             </div>
             <div className={styles.goals}>
               {project.goals.map((goal) => (
@@ -1860,6 +1948,18 @@ export default function KypPage() {
                         <option value="meeting">Meeting</option>
                         <option value="passed">Passed</option>
                       </select>
+                      <GenerationProgress
+                        active={scoringCandidate === candidate.id}
+                        title={`Scoring ${candidate.name}`}
+                        stages={SCORE_STAGES}
+                        estimate={15}
+                      />
+                      <GenerationProgress
+                        active={draftingOutreach === candidate.id}
+                        title={`Drafting outreach for ${candidate.name}`}
+                        stages={OUTREACH_STAGES}
+                        estimate={10}
+                      />
                       {proposals.candidateScore?.candidateId ===
                       candidate.id ? (
                         <div className={styles.scoreReview}>
@@ -1969,6 +2069,12 @@ export default function KypPage() {
                 </>
               )}
             </button>
+            <GenerationProgress
+              active={isGenerating}
+              title="Writing your thesis"
+              stages={THESIS_STAGES}
+              estimate={45}
+            />
             <ThesisReport report={buildThesisReport(project, thesis)} />
             <div className={styles.exportRow}>
               <span>Export the current thesis</span>
@@ -2037,6 +2143,18 @@ export default function KypPage() {
               {isChecking ? "Checking..." : "Check consistency"}
             </button>
           </div>
+          <GenerationProgress
+            active={isAsking}
+            title="Co-pilot is answering"
+            stages={ASSIST_STAGES}
+            estimate={12}
+          />
+          <GenerationProgress
+            active={isChecking}
+            title="Checking your project for gaps"
+            stages={CHECK_STAGES}
+            estimate={25}
+          />
           {assistantAnswer && <CopilotAnswer answer={assistantAnswer} />}
           {checks.map((check, index) => (
             <p

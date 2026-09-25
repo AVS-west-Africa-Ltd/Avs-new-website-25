@@ -1,0 +1,140 @@
+.panel {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 16px;
+  padding: 16px 18px;
+  border: 1px solid #dedede;
+  border-radius: 16px;
+  background: #fff;
+  color: #1f1e1d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.head strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.clock {
+  color: #777;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.track {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ebebeb;
+}
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0f1728 0%, #4a5875 50%, #0f1728 100%);
+  background-size: 200% 100%;
+  animation: sweep 1.6s linear infinite;
+  transition: width 0.8s ease;
+}
+.message {
+  min-height: 1.5em;
+  margin: 0;
+  color: #333;
+  font-size: 13.5px;
+  animation: rise 0.35s ease both;
+}
+.steps {
+  display: grid;
+  gap: 6px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: #777;
+  transition: color 0.3s ease;
+}
+.steps li.done {
+  color: #1f1e1d;
+}
+.marker {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #cfcfcf;
+  border-radius: 50%;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+.marker i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b5b5b5;
+  animation: pulse 1.3s ease-in-out infinite;
+}
+.done .marker {
+  border-color: #0f1728;
+  background: #0f1728;
+  color: #fff;
+}
+.stepLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.count {
+  color: #777;
+  font-size: 12px;
+}
+.slow {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #f5f3ed;
+  color: #52514e;
+  font-size: 12px;
+}
+@keyframes sweep {
+  to {
+    background-position: -200% 0;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fill,
+  .marker i,
+  .message {
+    animation: none;
+  }
+  .fill {
+    background: #0f1728;
+  }
+}
