@@ -132,7 +132,8 @@ const steps = [
   "Sourcing",
   "Thesis",
 ];
-const api = process.env.NEXT_PUBLIC_API_URL || "https://avssite.techtree.lifestyle/api";
+const api =
+  process.env.NEXT_PUBLIC_API_URL || "https://avssite.techtree.lifestyle/api";
 const workspaceStorageKey = "avs-kyp-workspace";
 
 function formatCopilotText(text: string) {
@@ -204,6 +205,14 @@ export default function KypPage() {
     sourceUrl: "",
     notes: "",
   });
+  // Scoring matches a candidate to a scorecard by role, so offer the real role names instead of free text
+  const candidateRoles = Array.from(
+    new Set([
+      ...(project.scorecards || []).map((scorecard) => scorecard.role),
+      ...project.founders.map((founder) => founder.role),
+    ]),
+  ).filter(Boolean);
+
   const [isSavingCandidate, setIsSavingCandidate] = useState(false);
   const [scoringCandidate, setScoringCandidate] = useState("");
   const [draftingOutreach, setDraftingOutreach] = useState("");
@@ -1644,16 +1653,38 @@ export default function KypPage() {
               <div>
                 <h3>Add a candidate</h3>
                 <div className={styles.personCard}>
-                  <input
-                    value={newCandidate.role}
-                    onChange={(event) =>
-                      setNewCandidate({
-                        ...newCandidate,
-                        role: event.target.value,
-                      })
-                    }
-                    placeholder="Role"
-                  />
+                  {candidateRoles.length ? (
+                    <select
+                      value={newCandidate.role}
+                      aria-label="Candidate role"
+                      onChange={(event) =>
+                        setNewCandidate({
+                          ...newCandidate,
+                          role: event.target.value,
+                        })
+                      }
+                    >
+                      <option value="">
+                        Select the role this person is for
+                      </option>
+                      {candidateRoles.map((role) => (
+                        <option key={role} value={role}>
+                          {role}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      value={newCandidate.role}
+                      onChange={(event) =>
+                        setNewCandidate({
+                          ...newCandidate,
+                          role: event.target.value,
+                        })
+                      }
+                      placeholder="Role"
+                    />
+                  )}
                   <input
                     value={newCandidate.name}
                     onChange={(event) =>
