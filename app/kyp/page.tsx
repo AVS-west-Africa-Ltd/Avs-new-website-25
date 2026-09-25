@@ -205,13 +205,18 @@ export default function KypPage() {
     sourceUrl: "",
     notes: "",
   });
-  // Scoring matches a candidate to a scorecard by role, so offer the real role names instead of free text
+  // Scoring grades a candidate against a scorecard, so offer exactly the roles that have one.
+  // Before any scorecards exist, fall back to the founder roles.
+  const scorecardRoles = (project.scorecards || [])
+    .map((scorecard) => scorecard.role)
+    .filter(Boolean);
   const candidateRoles = Array.from(
-    new Set([
-      ...(project.scorecards || []).map((scorecard) => scorecard.role),
-      ...project.founders.map((founder) => founder.role),
-    ]),
-  ).filter(Boolean);
+    new Set(
+      scorecardRoles.length
+        ? scorecardRoles
+        : project.founders.map((founder) => founder.role).filter(Boolean),
+    ),
+  );
 
   const [isSavingCandidate, setIsSavingCandidate] = useState(false);
   const [scoringCandidate, setScoringCandidate] = useState("");
@@ -756,6 +761,22 @@ export default function KypPage() {
       setProject(data.project);
       setStatus("Candidate status saved");
     } else setStatus(data.error || "Could not save candidate status");
+  };
+  const updateCandidateRole = async (candidateId: string, role: string) => {
+    if (!project.id || !role) return;
+    const response = await fetch(
+      `${api}/kyp/projects/${project.id}/candidates/${candidateId}/role`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ role }),
+      },
+    );
+    const data = await response.json();
+    if (data.project) {
+      setProject(data.project);
+      setStatus("Candidate role saved");
+    } else setStatus(data.error || "Could not save candidate role");
   };
   const askAssistant = async () => {
     if (!project.id || !assistantQuestion.trim() || isAsking) return;
@@ -1735,7 +1756,35 @@ export default function KypPage() {
                   (project.candidates || []).map((candidate) => (
                     <article className={styles.personCard} key={candidate.id}>
                       <b>{candidate.name}</b>
-                      <span>{candidate.role}</span>
+                      {candidateRoles.length ? (
+                        <select
+                          value={
+                            candidateRoles.includes(candidate.role)
+                              ? candidate.role
+                              : ""
+                          }
+                          aria-label={`${candidate.name} role`}
+                          onChange={(event) =>
+                            void updateCandidateRole(
+                              candidate.id,
+                              event.target.value,
+                            )
+                          }
+                        >
+                          {!candidateRoles.includes(candidate.role) && (
+                            <option value="">
+                              {candidate.role} — choose a valid role
+                            </option>
+                          )}
+                          {candidateRoles.map((role) => (
+                            <option key={role} value={role}>
+                              {role}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        <span>{candidate.role}</span>
+                      )}
                       {candidate.notes && <small>{candidate.notes}</small>}
                       <select
                         value={candidate.status || "saved"}
