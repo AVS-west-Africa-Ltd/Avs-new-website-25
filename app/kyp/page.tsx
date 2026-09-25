@@ -19,6 +19,20 @@ import { buildBriefReport, buildThesisReport } from "./report";
 import { exportReportPdf } from "./reportPdf";
 
 type Field = { value: string; origin: string; locked: boolean };
+type CandidateScore = {
+  weightedFit: number;
+  gaps: string[];
+  recommendation: string;
+  strengths?: string[];
+  criteria?: {
+    name: string;
+    weight: number;
+    score: number;
+    reason: string;
+    mustHave?: boolean;
+  }[];
+};
+
 type Project = {
   id?: string;
   name: string;
@@ -99,7 +113,7 @@ type Project = {
     sourceUrl?: string;
     notes?: string;
     status?: string;
-    scorecard?: { weightedFit: number; gaps: string[]; recommendation: string };
+    scorecard?: CandidateScore;
     outreachDraft?: { subject: string; message: string; rationale: string };
   }[];
   sourceDocuments?: {
@@ -762,6 +776,50 @@ export default function KypPage() {
       setStatus("Candidate status saved");
     } else setStatus(data.error || "Could not save candidate status");
   };
+  const renderScoreDetail = (card: CandidateScore) => (
+    <div className={styles.scoreBreakdown}>
+      {card.criteria?.length ? (
+        <ul>
+          {card.criteria.map((criterion) => (
+            <li key={criterion.name}>
+              <div>
+                <b>{criterion.name}</b>
+                <span>
+                  {criterion.score}/5 · {criterion.weight}%
+                  {criterion.mustHave ? " · must have" : ""}
+                </span>
+              </div>
+              <small>{criterion.reason}</small>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {card.strengths?.length ? (
+        <>
+          <h5>Strengths</h5>
+          <ul>
+            {card.strengths.map((item) => (
+              <li key={item}>
+                <small>{item}</small>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+      {card.gaps?.length ? (
+        <>
+          <h5>Gaps to check</h5>
+          <ul>
+            {card.gaps.map((item) => (
+              <li key={item}>
+                <small>{item}</small>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+    </div>
+  );
   const updateCandidateRole = async (candidateId: string, role: string) => {
     if (!project.id || !role) return;
     const response = await fetch(
@@ -1802,13 +1860,52 @@ export default function KypPage() {
                         <option value="meeting">Meeting</option>
                         <option value="passed">Passed</option>
                       </select>
-                      {candidate.scorecard ? (
-                        <small>
+                      {proposals.candidateScore?.candidateId ===
+                      candidate.id ? (
+                        <div className={styles.scoreReview}>
                           <strong>
-                            {candidate.scorecard.weightedFit}% fit:
-                          </strong>{" "}
-                          {candidate.scorecard.recommendation}
-                        </small>
+                            Score ready for review:{" "}
+                            {proposals.candidateScore.scorecard?.weightedFit}%
+                            fit
+                          </strong>
+                          <small>
+                            {proposals.candidateScore.scorecard?.recommendation}
+                          </small>
+                          {proposals.candidateScore.scorecard &&
+                            renderScoreDetail(
+                              proposals.candidateScore.scorecard,
+                            )}
+                          <div className={styles.scoreActions}>
+                            <button
+                              className={styles.smallButton}
+                              onClick={() =>
+                                void acceptProposal("candidateScore")
+                              }
+                              disabled={Boolean(proposalAction)}
+                            >
+                              {proposalAction === "accept-candidateScore"
+                                ? "Saving..."
+                                : "Accept score"}
+                            </button>
+                            <button
+                              className={styles.plainButton}
+                              onClick={() =>
+                                void rejectProposal("candidateScore")
+                              }
+                              disabled={Boolean(proposalAction)}
+                            >
+                              Dismiss
+                            </button>
+                          </div>
+                        </div>
+                      ) : candidate.scorecard ? (
+                        <div className={styles.scoreReview}>
+                          <strong>
+                            {candidate.scorecard.weightedFit}% fit
+                          </strong>
+                          <small>{candidate.scorecard.recommendation}</small>
+                          {renderScoreDetail(candidate.scorecard)}
+                        </div>
                       ) : (
                         <button
                           className={styles.smallButton}
