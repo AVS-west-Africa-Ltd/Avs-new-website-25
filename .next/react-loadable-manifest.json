@@ -1,35 +1,32 @@
 {
   "app/kyp/page.tsx -> docx": {
-    "id": 67863,
+    "id": "app/kyp/page.tsx -> docx",
     "files": [
-      "static/chunks/8187f03c.4fa460cd5d198984.js",
-      "static/chunks/321.702ac0d9893d5075.js"
+      "static/chunks/_app-pages-browser_node_modules_docx_dist_index_mjs.js"
     ]
   },
   "app/kyp/reportPdf.ts -> jspdf": {
-    "id": 55172,
+    "id": "app/kyp/reportPdf.ts -> jspdf",
     "files": [
-      "static/chunks/164f4fb6-499b241af2808db5.js",
-      "static/chunks/195-007a228c421fc891.js"
+      "static/chunks/_app-pages-browser_node_modules_jspdf_dist_jspdf_es_min_js.js"
     ]
   },
   "node_modules/jspdf/dist/jspdf.es.min.js -> canvg": {
-    "id": 11482,
+    "id": "node_modules/jspdf/dist/jspdf.es.min.js -> canvg",
     "files": [
-      "static/chunks/bc98253f.9f4c5fea7e537146.js",
-      "static/chunks/199.6ab4f38f395455dd.js"
+      "static/chunks/_app-pages-browser_node_modules_canvg_lib_index_es_js.js"
     ]
   },
   "node_modules/jspdf/dist/jspdf.es.min.js -> dompurify": {
-    "id": 82931,
+    "id": "node_modules/jspdf/dist/jspdf.es.min.js -> dompurify",
     "files": [
-      "static/chunks/931.5fbcdfe6b1ee9251.js"
+      "static/chunks/_app-pages-browser_node_modules_dompurify_dist_purify_es_mjs.js"
     ]
   },
   "node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas": {
-    "id": 54264,
+    "id": "node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas",
     "files": [
-      "static/chunks/ad2866b8.635304a38afc0b68.js"
+      "static/chunks/_app-pages-browser_node_modules_html2canvas_dist_html2canvas_js.js"
     ]
   }
 }
